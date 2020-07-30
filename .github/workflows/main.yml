@@ -15,4 +15,11 @@ jobs:
       - run: yarn test
       - run: yarn build
         env:
-          CI: true
+          GATSBY_TELEMETRY_DISABLED: 1
+          INSTAGRAM_API_TOKEN: ${{ secrets.INSTAGRAM_API_TOKEN }}
+          INSTAGRAM_BUSINES_ID: ${{ secrets.INSTAGRAM_BUSINES_ID }}
+          GTAG_ID: ${{ secrets.GTAG_ID }}
+          GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_ANALYTICS }}
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+          MAILCHIMP_ENDPOINT: ${{ secrets.MAILCHIMP_ENDPOINT }}
