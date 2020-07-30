@@ -9,10 +9,19 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: "12.x"
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn lint
       - run: yarn test
+      - name: configure amplify
+        uses: ambientlight/amplify-cli-action@0.2.1
+        with:
+          amplify_command: configure
+          amplify_env: dev
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: eu-central-1
       - run: yarn build
         env:
           GATSBY_TELEMETRY_DISABLED: 1
