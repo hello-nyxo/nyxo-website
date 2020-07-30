@@ -16,8 +16,9 @@ This is the website that powers [nyxo.app](https://nyxo.app). It's built with th
    npm install -g gatsby-cli
    ```
 
-2. **Setup AWS Amplify + envirnoment variables
+2. **Setup AWS Amplify + envirnoment variables**
 ...coming soon
+
 
 3. **Start the site in `develop` mode.**
 
