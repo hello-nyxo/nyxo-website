@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Get the app renders correctly 1`] = `
+<div
+  className="sc-AxjAm jfxQlI"
+>
+  <h2
+    className="sc-AxhUy izZJGo"
+  >
+    Get the app
+  </h2>
+  <p
+    className="sc-AxhCb cxKEKE"
+  >
+    Download the app for free and sleep better starting tonight.
+  </p>
+  <div
+    className="sc-AxirZ jzSnfk"
+  >
+    <a
+      className="sc-AxiKw dlpYyz"
+      href="https://apps.apple.com/app/nyxo/id1440417031"
+      onClick={[Function]}
+      rel="noopener noreferrer"
+      target="_new"
+    >
+      <img
+        alt="App Store"
+      />
+    </a>
+    <a
+      className="sc-AxiKw dlpYyz"
+      href="https://play.google.com/store/apps/details?id=fi.nyxo.app"
+      onClick={[Function]}
+      rel="noopener noreferrer"
+      target="_new"
+    >
+      <img
+        alt="Google Play"
+      />
+    </a>
+  </div>
+</div>
+`;

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "lib": ["dom", "es6"],
+    "sourceMap": true,
+    "jsx": "preserve",
+    "noUnusedLocals": false,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "declaration": false,
+    "declarationMap": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noEmit": true,
+    "types": ["node", "jest"],
+    "typeRoots": ["./node_modules/@types"],
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules", "public", ".cache", "gatsby-config.js"]
+}

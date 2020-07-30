@@ -1,0 +1,39 @@
+
+# http and https need separate rules if you don't force_ssl!
+http://www.nyxo.fi/* https://nyxo.app/:splat 301!
+https://www.nyxo.fi/* https://nyxo.app/:splat 301!
+
+http://nyxo.fi/* https://nyxo.app/:splat 301!
+https://nyxo.fi/* https://nyxo.app/:splat 301!
+
+http://nyxo.fi/blog/* https://nyxo.app/:splat 301!
+https://nyxo.fi/blog/* https://nyxo.app/:splat 301!
+
+http://www.nyxo.fi/blog/* https://nyxo.app/:splat 301!
+https://www.nyxo.fi/blog/* https://nyxo.app/:splat 301!
+
+
+http://nyxo.app/blog/* https://nyxo.app/:splat 301!
+https://nyxo.app/blog/* https://nyxo.app/:splat 301!
+
+http://www.nyxo.app/blog/* https://nyxo.app/:splat 301!
+https://www.nyxo.app/blog/* https://nyxo.app/:splat 301!
+
+
+https://nyxo.app/terms-and-conditions/ https://nyxo.app/terms/ 301!
+https://nyxo.app/nyxo-app-cloud-privacy-policy/ https://nyxo.app/privacy/ 301!
+ 
+blog/nyxo-kiuas-summer19/ https://nyxo.app/nyxo-kiuas-summer19/ 301!
+blog/towards-better-slumber-with-terveystalo-nyxo/ https://nyxo.app/towards-better-slumber-with-terveystalo-nyxo/ 301!
+https://nyxo.fi/blog/towards-better-slumber-with-terveystalo-nyxo/ https://nyxo.app/towards-better-slumber-with-terveystalo-nyxo/ 301!
+https://nyxo.fi/variant-2/google-play-badge/ https://nyxo.app/ 301!
+
+
+https://nyxo.fi/about/team/ 	https://nyxo.app/about 301!
+https://nyxo.fi/businesses 		https://nyxo.app/for-organizations 301!
+
+https://nyxo.app/about/team/ 	https://nyxo.app/about 301!
+https://nyxo.app/businesses 	https://nyxo.app/for-organizations 301!
+
+
+oura-blog-post/ 	https://nyxo.app/nba-oura-ring 301!

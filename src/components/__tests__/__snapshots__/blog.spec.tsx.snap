@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagFilter renders correctly 1`] = `
+<ul
+  className="sc-fzpans exPlsk"
+>
+  <li
+    className="sc-fzoLsD fqEnxe"
+  >
+    <a
+      className="sc-fzozJi cQWAUT"
+      href="/tags"
+    >
+      All Tags
+    </a>
+  </li>
+</ul>
+`;

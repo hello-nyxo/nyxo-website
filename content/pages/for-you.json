@@ -1,0 +1,34 @@
+{
+  "features": [
+    {
+      "icon": "sun",
+      "title": "Sleep Diary",
+      "text": "Keep a detailed sleep diary with notes."
+    },
+    {
+      "icon": "sun",
+      "title": "Data Import",
+      "text": "Bring your sleep data from practically any sleep tracker on the market."
+    },
+    {
+      "icon": "sun",
+      "title": "Data Import",
+      "text": "Bring your sleep data from practically any sleep tracker on the market."
+    },
+    {
+      "icon": "sun",
+      "title": "Cloud Sync",
+      "text": "Sync all of you sleep and coaching records to the Nyxo Cloud, and access them from you browser."
+    },
+    {
+      "icon": "sun",
+      "title": "Cloud Sync",
+      "text": "Sync all of you sleep and coaching records to the Nyxo Cloud, and access them from you browser."
+    },
+    {
+      "icon": "sun",
+      "title": "Cloud Sync",
+      "text": "Sync all of you sleep and coaching records to the Nyxo Cloud, and access them from you browser."
+    }
+  ]
+}

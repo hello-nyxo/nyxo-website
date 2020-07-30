@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Questionnaire renders correctly 1`] = `
+<a
+  className="sc-AxjAm cvbjvD"
+  href="1234556789"
+>
+  <h4
+    className="sc-AxirZ fXFnpQ"
+  >
+    Some title
+  </h4>
+</a>
+`;

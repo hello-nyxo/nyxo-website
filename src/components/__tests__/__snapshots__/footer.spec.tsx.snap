@@ -1,0 +1,306 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+<div
+  className="sc-AxirZ fDjuWl"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-5"
+    >
+      <div
+        className="widget__item"
+      >
+        <div
+          className="logo"
+        >
+          <a
+            href="/"
+            title="Nyxo"
+          >
+            <img
+              alt="Logo"
+              width="100px"
+            />
+          </a>
+        </div>
+        <div
+          className="sc-AxiKw jPEmWe"
+        >
+          <p>
+            Personalized sleep coaching that works!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-2 footer-links"
+    >
+      <div
+        className="widget__item"
+      >
+        <div
+          className="links"
+        >
+          <h4>
+            Nyxo
+          </h4>
+          <ul>
+            <li>
+              <a
+                href="/for-you"
+                title="For You"
+              >
+                For You
+              </a>
+            </li>
+            <li>
+              <a
+                href="/for-organizations"
+                title="For Organizations"
+              >
+                For Organizations
+              </a>
+            </li>
+            <li>
+              <a
+                href="/coaching"
+                title="Coaching"
+              >
+                Coaching
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about"
+                title="About Us"
+              >
+                About Us
+              </a>
+            </li>
+            <li>
+              <a
+                href="/blog"
+                title="Blog"
+              >
+                Blog
+              </a>
+            </li>
+            <li>
+              <a
+                href="http://tiny.cc/NyxoPR"
+                onClick={[Function]}
+                rel="noopener noreferrer"
+                target="_new"
+                title="Nyxo press kit."
+              >
+                Press Kit
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-2 footer-links"
+    >
+      <div
+        className="widget__item"
+      >
+        <div
+          className="links"
+        >
+          <h4>
+            Support
+          </h4>
+          <ul>
+            <li>
+              <a
+                className="links__special"
+                href="https://help.nyxo.app"
+                onClick={[Function]}
+                rel="noopener noreferrer"
+                target="_new"
+                title="If you need any help, you can find it here"
+              >
+                Support
+              </a>
+            </li>
+            <li>
+              <a
+                href="/contact"
+                title="Contact Us"
+              >
+                Contact
+              </a>
+            </li>
+            <li>
+              <a
+                href="/privacy"
+                title="Privacy Policy"
+              >
+                Privacy
+              </a>
+            </li>
+            <li>
+              <a
+                href="/terms"
+                title="Terms Of Use"
+              >
+                Terms Of Use
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-3"
+    >
+      <div
+        className="widget__item"
+      >
+        <div
+          className="social"
+        >
+          <a
+            href="https://twitter.com/hellonyxo"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            target="_new"
+            title="Twitter"
+          >
+            <svg
+              className="sc-AxjAm eINkHy"
+              fill="none"
+              height="30px"
+              stroke="#333"
+              strokeWidth="1.5"
+              version="1.1"
+              viewBox="0 0 30 30"
+              width="30px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M 23.18,6.71l-2.1-0.9l1.1-2.4l-2.56,0.85c-0.815-0.76-1.885-1.188-3-1.2c-2.483,0.005-4.495,2.017-4.5,4.5v1 c-3.54,0.73-6.63-1.2-9.5-4.5c-0.5,2.667,0,4.667,1.5,6l-3.29-0.5c0.262,2.186,2.052,3.871,4.25,4l-2.75,1c1,2,2.82,2.31,5.25,2.5 c-1.986,1.355-4.346,2.054-6.75,2c12.76,5.67,20.25-2.66,20.25-10V8.23L23.18,6.71z"
+                />
+              </g>
+            </svg>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/nyxo/"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            target="_new"
+            title="LinkedIn"
+          >
+            <svg
+              className="sc-AxjAm eINkHy"
+              fill="none"
+              height="30px"
+              stroke="#333"
+              strokeWidth="1.5"
+              version="1.1"
+              viewBox="0 0 30 30"
+              width="30px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M 5.67,22.63H0.81V8.7h4.86V22.63z "
+                />
+                <path
+                  d="M 15.76,13.24c-1.182,0-2.14,0.958-2.14,2.14l0,0v7.25H8.51V8.7h5.11v1.59 c1.198-1.014,2.711-1.58,4.28-1.6c3.17,0,5.37,2.35,5.37,6.81v7.13H17.9v-7.25c0.006-1.182-0.948-2.144-2.13-2.15 c-0.003,0-0.007,0-0.01,0V13.24z "
+                />
+                <path
+                  d="M 5.76,3.88c0,1.381-1.119,2.5-2.5,2.5s-2.5-1.119-2.5-2.5s1.119-2.5,2.5-2.5 c1.373,0.011,2.48,1.127,2.48,2.5L5.76,3.88z"
+                />
+              </g>
+            </svg>
+          </a>
+          <a
+            href="https://github.com/hello-nyxo"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            target="_new"
+            title="GitHub"
+          >
+            <svg
+              className="sc-AxjAm eINkHy"
+              fill="none"
+              height="30px"
+              stroke="#333"
+              strokeWidth="1.5"
+              version="1.1"
+              viewBox="0 0 30 30"
+              width="30px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M 14.41,22.35c0,0.276,0.224,0.5,0.5,0.5c0.047,0,0.095-0.007,0.14-0.02c5.969-1.723,9.412-7.959,7.689-13.929 C21.016,2.932,14.779-0.511,8.81,1.213s-9.412,7.959-7.689,13.929c1.072,3.714,3.975,6.617,7.689,7.689 c0.265,0.077,0.543-0.075,0.62-0.34c0.013-0.045,0.02-0.093,0.02-0.14V20C8.026,20.43,6.513,19.676,6,18.28 C5.72,17.429,5.256,16.65,4.64,16c2.85,0.69,2.9,2.54,4.84,1.67c0.059-0.649,0.275-1.274,0.63-1.82c-2.2-0.25-4.52-0.6-4.52-4.4 c-0.019-0.982,0.339-1.934,1-2.66c-0.301-0.854-0.265-1.791,0.1-2.62c0,0,0.83-0.27,2.73,1c1.636-0.452,3.364-0.452,5,0 c1.89-1.28,2.72-1,2.72-1c0.365,0.829,0.401,1.766,0.1,2.62c0.662,0.726,1.02,1.678,1,2.66c0,3.81-2.32,4.15-4.53,4.39 c0.473,0.682,0.712,1.5,0.68,2.33L14.41,22.35z"
+                />
+              </g>
+            </svg>
+          </a>
+          <a
+            href="https://www.instagram.com/hellonyxo/"
+            onClick={[Function]}
+            rel="noopener noreferrer"
+            target="_new"
+            title="Instagram"
+          >
+            <svg
+              className="sc-AxjAm eINkHy"
+              fill="none"
+              height="30px"
+              stroke="#333"
+              strokeWidth="1.5"
+              version="1.1"
+              viewBox="0 0 30 30"
+              width="30px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M 6.74,0.75h10.5c3.314,0,6,2.686,6,6v10.5c0,3.314-2.686,6-6,6H6.74c-3.314,0-6-2.686-6-6V6.75 C0.74,3.436,3.426,0.75,6.74,0.75z "
+                />
+                <path
+                  d="M 11.99,7c2.761,0,5,2.239,5,5s-2.239,5-5,5s-5-2.239-5-5S9.229,7,11.99,7z "
+                />
+                <path
+                  d="M 19.34,5.15 c0,0.276-0.224,0.5-0.5,0.5s-0.5-0.224-0.5-0.5 "
+                />
+                <path
+                  d="M 18.34,5.15c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5"
+                />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-AxhCb otAmW"
+  >
+    <p>
+      Copyright 
+      2020
+      , 
+       
+       
+      <a
+        href="https://nyxo.app"
+        title="Nyxo"
+      >
+        Nyxo
+      </a>
+      . All rights reserved.
+    </p>
+  </div>
+</div>
+`;

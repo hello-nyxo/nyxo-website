@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SharePage renders correctly 1`] = `
+<div
+  className="sc-AxirZ hUrVak"
+>
+  <div
+    className="sc-AxiKw jkoips"
+  />
+  <p
+    className="sc-AxhCb hpGyLa"
+  >
+    Share this lesson:
+  </p>
+  <button
+    aria-label="email"
+    className="react-share__ShareButton sc-AxhUy CZjPR"
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "border": "none",
+        "color": "inherit",
+        "cursor": "pointer",
+        "font": "inherit",
+        "padding": 0,
+      }
+    }
+  >
+    <svg
+      className="sc-AxjAm eINkHy"
+      fill="none"
+      height="30px"
+      stroke="#333"
+      strokeWidth="1.5"
+      version="1.1"
+      viewBox="0 0 30 30"
+      width="30px"
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </button>
+  <button
+    aria-label="linkedin"
+    className="react-share__ShareButton sc-AxgMl escKlr"
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "border": "none",
+        "color": "inherit",
+        "cursor": "pointer",
+        "font": "inherit",
+        "padding": 0,
+      }
+    }
+  >
+    <svg
+      className="sc-AxjAm eINkHy"
+      fill="none"
+      height="30px"
+      stroke="#333"
+      strokeWidth="1.5"
+      version="1.1"
+      viewBox="0 0 30 30"
+      width="30px"
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </button>
+  <button
+    aria-label="facebook"
+    className="react-share__ShareButton sc-AxheI fqpCHB"
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "border": "none",
+        "color": "inherit",
+        "cursor": "pointer",
+        "font": "inherit",
+        "padding": 0,
+      }
+    }
+  >
+    <svg
+      className="sc-AxjAm eINkHy"
+      fill="none"
+      height="30px"
+      stroke="#333"
+      strokeWidth="1.5"
+      version="1.1"
+      viewBox="0 0 30 30"
+      width="30px"
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </button>
+  <button
+    aria-label="twitter"
+    className="react-share__ShareButton sc-Axmtr blGAHr"
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "border": "none",
+        "color": "inherit",
+        "cursor": "pointer",
+        "font": "inherit",
+        "padding": 0,
+      }
+    }
+  >
+    <svg
+      className="sc-AxjAm eINkHy"
+      fill="none"
+      height="30px"
+      stroke="#333"
+      strokeWidth="1.5"
+      version="1.1"
+      viewBox="0 0 30 30"
+      width="30px"
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </button>
+</div>
+`;

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lesson Limited renders correctly 1`] = `
+Array [
+  <div
+    className="sc-AxjAm kHLWPQ"
+  />,
+  <div
+    className="sc-AxirZ QThWA"
+  >
+    <h2>
+      To keep reading this Lesson, create a free account.
+    </h2>
+    <button
+      className="sc-AxiKw gdsvyc"
+    >
+      <a
+        className="sc-AxhCb fsukPn"
+        href="/me/register"
+      >
+        Register with Nyxo
+      </a>
+    </button>
+    <p>
+      Already have an account? 
+      <a
+        href="/me/login"
+      >
+        Login
+      </a>
+      .
+    </p>
+  </div>,
+]
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page header renders correctly 1`] = `
+<div
+  className="sc-AxjAm cmUyjd"
+>
+  <div
+    className="sc-AxiKw jDROEE"
+  />
+  <div
+    className="sc-AxirZ eqFPOx"
+  >
+    <h1
+      className="sc-AxhUy glNvTi"
+    >
+      A title
+    </h1>
+    <p
+      className="sc-AxgMl cbiGxd"
+    >
+      Lorem ipsum
+    </p>
+  </div>
+</div>
+`;

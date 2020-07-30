@@ -1,0 +1,60 @@
+{
+  "coaching": {
+    "title": "Want Sleep Better? Get Nyxo Sleep Coaching Now",
+    "description": "Nyxo has read been on the search for how to get the best quality of sleep. To help others, we have shared the knowledge. Having trouble sleeping, but don't know why? Have a look at what we've found to help you sleep better at night. We want to help you sleep better."
+  },
+  "about": {
+    "title": "About",
+    "description": "We´re on a mission to make the world sleep better",
+    "perks": [
+      {
+        "title": "Great Environment",
+        "text": "Pick the tools that work best for you, enjoy the afterwork activities, and of course, some of the best colleagues you can have."
+      },
+      {
+        "title": "Flexible working",
+        "text": "We are very supportive of flexible working hours and asynchronous way of working."
+      },
+      {
+        "title": "Excellent work-life balance",
+        "text": "We believe in treating people right, and having an excellent work-life balance. We don’t want to see you working on weekends or over 8 hours a day, but having time off as well."
+      }
+    ]
+  },
+  "authors": {
+    "title": "Nyxo Authors",
+    "description": "People behind the content at Nyxo"
+  },
+  "for-you": {
+    "title": "For You",
+    "description": "Nyxo provides personalized and interactive sleep coaching, a wide support for different sleep tracker brands,  sleep diary functionality, cloud backups, and much more!"
+  },
+  "for-organizations": {
+    "title": "For Organizations",
+    "description": "Nyxo allows knowledge workers to improve their sleep and day rhythm, allowing them to perform better at work and keep a work-life balance."
+  },
+  "privacy": {
+    "title": "Privacy",
+    "description": "SleepCircle Oy built the Nyxo app as a Freemium app. This SERVICE is provided by SleepCircle Oy at no cost and is intended for use as is. This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service."
+  },
+  "tags": {
+    "title": "Blog Posts by Tags",
+    "description": "Tagged content in Nyxo Blog. Follow the Nyxo blog for the latest tips on sleep health and well-being as well as software engineering. Be the first to hear about new product features, announcements and company updates."
+  },
+  "index": {
+    "title": "Your Search For Better Sleep Ends Here",
+    "description": "Nyxo is the best aid for improving your sleep quality. We combine leading sleep research techniques with your sleep tracker’s data to provide you with personalized and actionable coaching, to improve your sleep."
+  },
+  "blog": {
+    "title": "Nyxo Blog",
+    "description": "Follow the Nyxo blog for the latest tips on sleep health and well-being as well as software engineering. Be the first to hear about new product features, announcements and company updates."
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "description": "By downloading or using the app, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app. You’re not allowed to copy, or modify the app, any part of the app, or our trademarks in any way. You’re not allowed to attempt to extract the source code of the app, and you also shouldn’t try to translate the app into other languages, or make derivative versions. The app itself, and all the trade marks, copyright, database rights and other intellectual property rights related to it, still belong to SleepCircle Oy."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "We take our commitment to our users seriously. If you need our help with your user account, have questions about how to use the Nyxo, any feedback or are experiencing technical difficulties, please do not hesitate to contact us."
+  }
+}
