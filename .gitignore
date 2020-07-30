@@ -77,9 +77,12 @@ yarn-error.log
 
 #amplify
 .amplify
-amplify
+amplify/backend
+amplify/team-provider-info.json
+amplify/.config/project-config.json
 amplify/\#current-cloud-backend
 amplify/.config/local-*
+amplify/.config/¨
 amplify/mock-data
 amplify/backend/amplify-meta.json
 amplify/backend/awscloudformation
