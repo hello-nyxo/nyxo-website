@@ -76,13 +76,8 @@ yarn-error.log
 
 
 #amplify
-.amplify
-amplify/backend
-amplify/team-provider-info.json
-amplify/.config/project-config.json
 amplify/\#current-cloud-backend
 amplify/.config/local-*
-amplify/.config/¨
 amplify/mock-data
 amplify/backend/amplify-meta.json
 amplify/backend/awscloudformation
@@ -90,10 +85,17 @@ build/
 dist/
 node_modules/
 aws-exports.js
+amplify/team-provider-info.json
+amplify/backend/api
+amplify/backend/auth
+amplify/backend/hosting
+amplify/backend/amplify-meta
 awsconfiguration.json
 amplifyconfiguration.json
+amplify-build-config.json
 amplify-gradle-config.json
 amplifyxc.config
-.env.development
-.env.production
-.env.development
+
+
+.env*
+.secrets

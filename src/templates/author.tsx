@@ -8,6 +8,7 @@ import Layout from "../components/layout"
 import LessonCard from "../components/LessonCard"
 import { Container, device } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 
 type Props = {
   contentfulAuthor: ContentfulAuthor
@@ -28,7 +29,11 @@ const Author: FC<PageProps<Props>> = (props) => {
   } = props
   return (
     <Layout>
-      <SEO pathName={pathname} title={name} description={description} />
+      <SEO
+        pathName={pathname}
+        title={name}
+        description={documentToPlainTextString(description?.json)}
+      />
 
       <Container>
         <Row>
