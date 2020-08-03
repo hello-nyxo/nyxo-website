@@ -53,6 +53,10 @@ export type Meta = {
     title: string
     description: string
   }
+  compatibility: {
+    title: string
+    description: string
+  }
   contact: {
     title: string
     description: string
