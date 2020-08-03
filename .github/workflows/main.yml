@@ -6,24 +6,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Checkout submodules
         uses: actions/checkout@v2
         with:
           repository: hello-nyxo/team
           token: ${{ secrets.SUB_MODULE_KEY }}
           path: team
+
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
 
       - uses: actions/checkout@v2
-      - name: Decrypt large secret
+      - name: Apply settings
         run: ./.github/scripts/decrypt-team-provider.sh
         env:
           PASS_PHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
 
-      - name: configure amplify
+      - name: Configure amplify
         uses: ambientlight/amplify-cli-action@0.2.1
         with:
           amplify_command: configure
