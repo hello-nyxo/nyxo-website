@@ -6,16 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Checkout submodules
+        uses: actions/checkout@v2
+        with:
+          repository: hello-nyxo/team
+          token: ${{ secrets.SUB_MODULE_KEY }}
+          path: team
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
-
-      - name: Checkout submodules
-        uses: srt32/git-actions@v0.0.3
-        token: ${{ secrets.SUB_MODULE_KEY }}
-        with:
-          args: git submodule update --init --recursive
 
       - uses: actions/checkout@v2
       - name: Decrypt large secret
