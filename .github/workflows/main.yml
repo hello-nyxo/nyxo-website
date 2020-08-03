@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: hello-nyxo/team
-          token: ${{ secrets.SUB_MODULE_KEY }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: team
 
       - name: Use Node.js
