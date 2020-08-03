@@ -10,9 +10,7 @@ jobs:
       - name: Checkout submodules
         uses: actions/checkout@v2
         with:
-          repository: hello-nyxo/team
-          token: ${{ secrets.GITHUB_TOKEN }}
-          path: team
+          submodules: true
 
       - name: Use Node.js
         uses: actions/setup-node@v1
