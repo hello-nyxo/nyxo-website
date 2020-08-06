@@ -1,5 +1,7 @@
-name: "build-test"
-on: [push]
+name: "Build, test, and release"
+on:
+  release:
+    types: ["published"]
 
 jobs:
   build-and-test:
