@@ -39,3 +39,10 @@ Your site is now running at `http://localhost:8000`. Open the `Nyxo` directory i
 
 At this point, you’ve got a fully functional Gatsby website. For additional information on how you can customize your Gatsby site, see our [plugins](https://gatsbyjs.org/plugins/) and [the official tutorial](https://gatsbyjs.org/tutorial/).
 
+## 🤝 Contributing
+This project welcomes all contributions. This includes but is not limited to:
+- Blog posts (you're always welcome to contribute to our blog, topics where interested in: sleep and technology)
+- Localization of the site (currently we support finnish and english)
+- Visualizing data (if you want to build a new chart to display your own data in the details page for example)
+- New features (this means everything that makes Nyxo Sleep Coaching / Sleep Data easier to understand / use)
+
