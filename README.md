@@ -1,6 +1,6 @@
 # Nyxo Website
 
-![publish](https://github.com/hello-nyxo/nyxo-website/workflows/build-test/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/41c5220f-8556-4f53-a1f9-a49b439e9caf/deploy-status)](https://app.netlify.com/sites/nyxo/deploys)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 
