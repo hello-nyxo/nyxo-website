@@ -4,25 +4,24 @@ on: [push]
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
 
-      - name: Checkout submodules
-        uses: actions/checkout@v2
-        with:
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+        width:
+          token: ${{ secrets.ACCESS_TOKEN }}
           submodules: recursive
-          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/checkout@v2
+      - name: Decrypt team settings
+        run: ./.github/scripts/decrypt-team-provider.sh
+        env:
+          PASS_PHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
 
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
-
-      - uses: actions/checkout@v2
-      - name: Apply settings
-        run: ./.github/scripts/decrypt-team-provider.sh
-        env:
-          PASS_PHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
 
       - name: Configure amplify
         uses: ambientlight/amplify-cli-action@0.2.1
@@ -35,8 +34,6 @@ jobs:
           AWS_REGION: eu-central-1
 
       - run: yarn install --frozen-lockfile --non-interactive
-      - run: yarn lint
-      - run: yarn test
       - run: yarn build
         env:
           GATSBY_TELEMETRY_DISABLED: 1
