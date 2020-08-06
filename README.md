@@ -1,5 +1,9 @@
 # Nyxo Website
 
+![build-test](https://github.com/hello-nyxo/nyxo-website/workflows/build-test/badge.svg)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+
 This is the website that powers [nyxo.app](https://nyxo.app). It's built with the following tools:
 
 - Gatsby
