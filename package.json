@@ -2,7 +2,7 @@
   "name": "Nyxo.app",
   "private": true,
   "description": "Nyxo.app Website",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "author": "Perttu Lähteenlahti <perttu@lahteenlahti.com>",
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^14.0.0",
