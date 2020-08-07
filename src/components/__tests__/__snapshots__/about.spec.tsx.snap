@@ -2,11 +2,11 @@
 
 exports[`PersonCard renders correctly 1`] = `
 <a
-  className="sc-AxmLO dLyVYA"
+  className="sc-fznyAO bjbsbS"
   href="/author/undefined"
 >
   <div
-    className="sc-fzozJi geTWwZ"
+    className="sc-fznKkj btHJEX"
   >
     <div
       className=" gatsby-image-wrapper"
@@ -59,18 +59,18 @@ exports[`PersonCard renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-fzoLsD jezVAk"
+    className="sc-fznZeY XEsZc"
   >
     <h3
-      className="sc-fznyAO hlQiAB"
+      className="sc-fzqNJr cXUamn"
     >
       1234556789
     </h3>
     <div
-      className="sc-fzplWN ckjgcB"
+      className="sc-fzqBZW khOokW"
     >
       <div
-        className="sc-fzpans dtPbUO"
+        className="sc-fzokOt efFmth"
       >
         Some title
       </div>

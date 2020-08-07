@@ -2,17 +2,17 @@
 
 exports[`Header renders correctly 1`] = `
 <header
-  className="sc-fzoLsD eOTxVM"
+  className="sc-fznZeY cbOnXA"
 >
   <div
-    className="sc-fzozJi iaPiKS"
+    className="sc-fznKkj ccxexc"
   >
     <a
       href="/"
       title="Nyxo"
     >
       <svg
-        className="sc-AxmLO huqxQS"
+        className="sc-fznyAO euBYmg"
         fill="none"
         stroke="none"
         strokeWidth="1.5"
@@ -56,53 +56,53 @@ exports[`Header renders correctly 1`] = `
     </a>
   </div>
   <ul
-    className="sc-fzpans idMlAx"
+    className="sc-fzokOt iCnBni"
   >
     <li
-      className="sc-fzplWN icN"
+      className="sc-fzqBZW kHcRom"
     >
       <a
-        className="sc-fznyAO kyoMRC"
+        className="sc-fzqNJr hVFEDI"
         href="/for-you"
       >
         You
       </a>
     </li>
     <li
-      className="sc-fzplWN icN"
+      className="sc-fzqBZW kHcRom"
     >
       <a
-        className="sc-fznyAO kyoMRC"
+        className="sc-fzqNJr hVFEDI"
         href="/for-organizations"
       >
         Organizations
       </a>
     </li>
     <li
-      className="sc-fzplWN icN"
+      className="sc-fzqBZW kHcRom"
     >
       <a
-        className="sc-fznyAO kyoMRC"
+        className="sc-fzqNJr hVFEDI"
         href="/coaching"
       >
         Coaching
       </a>
     </li>
     <li
-      className="sc-fzplWN icN"
+      className="sc-fzqBZW kHcRom"
     >
       <a
-        className="sc-fznyAO kyoMRC"
+        className="sc-fzqNJr hVFEDI"
         href="/blog"
       >
         Blog
       </a>
     </li>
     <li
-      className="sc-fzplWN icN"
+      className="sc-fzqBZW kHcRom"
     >
       <a
-        className="sc-fznyAO kyoMRC"
+        className="sc-fzqNJr hVFEDI"
         href="/me/login"
       >
         Login

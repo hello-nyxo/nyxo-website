@@ -1,22 +1,35 @@
 import { Link } from "gatsby"
 import React, { FC } from "react"
 import styled from "styled-components"
-import { device } from "../components/Primitives"
-import { Icon } from "./Icons"
+import { device } from "../Primitives"
+import { Icon } from "../Icons"
 import Image, { FluidObject } from "gatsby-image"
-import colors from "../colors"
-import { ContentfulLesson } from "../../graphql-types"
+import colors from "../../colors"
+import { ContentfulLesson } from "../../../graphql-types"
+import LikeButton from "../LikeButton/likeButton"
 
 type Props = {
+  key: string
   name: string
   path: string
   duration: number
   intro: string
   lessons: ContentfulLesson[]
   coverPhoto: FluidObject
+  slug: string
+  excerpt: string
+  bookmarked?: any | null
 }
 
-const WeekCard: FC<Props> = ({ lessons, name, coverPhoto, path, intro }) => {
+const WeekCard: FC<Props> = ({
+  lessons,
+  name,
+  coverPhoto,
+  path,
+  intro,
+  slug,
+  bookmarked,
+}) => {
   const countHabits: number = lessons.reduce(
     (accumulator: number, currentValue: number) =>
       accumulator +
@@ -28,6 +41,12 @@ const WeekCard: FC<Props> = ({ lessons, name, coverPhoto, path, intro }) => {
     <Card to={path}>
       <Cover>
         <CoverPhoto fluid={coverPhoto} />
+        <LikeButton
+          name={name}
+          type="week"
+          slug={slug}
+          bookmarked={bookmarked}
+        />
         <InformationRow>
           <Lessons>
             <Icon

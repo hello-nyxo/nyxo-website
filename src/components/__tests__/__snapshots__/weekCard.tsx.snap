@@ -2,14 +2,14 @@
 
 exports[`Week card renders correctly 1`] = `
 <a
-  className="sc-fzozJi iKrRol"
+  className="sc-fznyAO kfPLJq"
   href="/week/week-name"
 >
   <div
-    className="sc-fzoLsD bEheYh"
+    className="sc-fznKkj bQdPJt"
   >
     <div
-      className="sc-fzpans bAXHOB gatsby-image-wrapper"
+      className="sc-fznZeY fzrXoh gatsby-image-wrapper"
       style={
         Object {
           "maxHeight": null,
@@ -57,14 +57,36 @@ exports[`Week card renders correctly 1`] = `
         }
       />
     </div>
+    <button
+      className="sc-fzozJi kVUjYJ"
+      onClick={[Function]}
+    >
+      <svg
+        className="sc-AxjAm eINkHy"
+        fill="none"
+        height="25px"
+        stroke="#F42D97"
+        strokeWidth="1.5"
+        version="1.1"
+        viewBox="0 0 28 30"
+        width="25px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <path
+            d="M23.3,5.076a6.582,6.582,0,0,0-10.446-1.71L12,4.147l-.827-.753A6.522,6.522,0,0,0,5.485,1.588,6.472,6.472,0,0,0,.7,5.075,6.4,6.4,0,0,0,1.91,12.544L11.283,22.2a1,1,0,0,0,1.434,0l9.36-9.638A6.414,6.414,0,0,0,23.3,5.076Z"
+          />
+        </g>
+      </svg>
+    </button>
     <div
-      className="sc-fznZeY erAA-Dg"
+      className="sc-fzoyAV fTunDV"
     >
       <span
-        className="sc-fzokOt cMqWJs"
+        className="sc-fzoLag cTvqsm"
       >
         <svg
-          className="sc-AxmLO huqxQS"
+          className="sc-AxjAm eINkHy"
           fill="none"
           height="20px"
           stroke="currentColor"
@@ -107,15 +129,15 @@ exports[`Week card renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-fzplWN bDpdWX"
+    className="sc-fzokOt czvkBF"
   >
     <h3
-      className="sc-fznyAO hjMKNW"
+      className="sc-fzqBZW hLKXJV"
     >
       Week name
     </h3>
     <span
-      className="sc-fznKkj kroYf"
+      className="sc-fzqNJr ckeJuU"
     >
       Lorem ipsum
     </span>

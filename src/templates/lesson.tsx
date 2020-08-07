@@ -12,11 +12,19 @@ import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H4 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
 import LargeLessonCard from "../components/lesson/LargeLessonCard"
-import { Container, TextContainer } from "../components/Primitives"
+import {
+  Container,
+  TextContainer,
+  LikeButtonTemplateContainer,
+} from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import getFirstAuthor from "../Helpers/AuthorHelper"
 import { getLocalizedPath } from "../Helpers/i18n-helpers"
+import LikeButton from "../components/LikeButton/likeButtonForTemplate"
+import { listLikedContents } from "../graphql/queries"
+import { API, graphqlOperation } from "aws-amplify"
+import { useQuery } from "react-query"
 
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
@@ -29,6 +37,7 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
     contentfulLesson: {
       lessonName: title = "",
       lessonContent: content,
+      slug,
       createdAt,
       updatedAt,
       cover,
@@ -65,6 +74,9 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
 
         <Cover>
           <CoverImage fluid={cover?.fluid} />
+          <LikeButtonTemplateContainer>
+            <LikeButton name={title} type="lesson" slug={slug} />
+          </LikeButtonTemplateContainer>
         </Cover>
 
         <HtmlContent document={content.json} />
@@ -157,7 +169,7 @@ export const pageQuery = graphql`
 `
 
 const Cover = styled.div`
-  margin: 5rem 0rem;
+  margin: 7rem 0rem;
   height: 30rem;
   max-height: 50vh;
   width: 100%;

@@ -2,7 +2,7 @@ import { graphql, PageProps } from "gatsby"
 import Image from "gatsby-image"
 import React, { FC } from "react"
 import styled from "styled-components"
-import { CoachingPageQueryQuery, ContentfulWeek } from "../../graphql-types"
+import { CoachingPageQueryQuery } from "../../graphql-types"
 import AuthorList from "../components/Author/AuthorList"
 import GetAppBanner from "../components/GetAppBanner"
 import HabitHighlights from "../components/Habit/HabitHighlights"
@@ -11,7 +11,10 @@ import Layout from "../components/layout"
 import LessonHighlights from "../components/LessonHighlights/LessonHighlights"
 import { Container, P } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
-import WeekCard from "../components/WeekCard"
+import { API, graphqlOperation } from "aws-amplify"
+import { listLikedContents } from "../graphql/queries"
+import { useQuery } from "react-query"
+import WeekHighlights from "../components/week/WeekHighlights"
 
 const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
   const locale = "en-US"
@@ -27,6 +30,12 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
   const weeks = allContentfulWeek.edges
   const pageInfo = nodes[0].coaching
 
+  const fetchLikes = async () => {
+    return await API.graphql(graphqlOperation(listLikedContents))
+  }
+
+  const { data, status } = useQuery("someKeyName", fetchLikes)
+
   return (
     <Layout>
       <SEO
@@ -40,11 +49,9 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
       <Container>
         <Title>{pageInfo.title}</Title>
         <Subtitle>The secret to good sleep is at your fingertips</Subtitle>
-
         <CoverPhotoContainer>
           <Cover fluid={coachingCover.childImageSharp.fluid} />
         </CoverPhotoContainer>
-
         <P>
           A good night’s sleep is the key to success. It makes you feel better,
           think better, and makes your more productive. The question is how can
@@ -53,7 +60,6 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
           between what you do during the day and your nightly sleep quality, and
           this is the central thesis of our sleep coaching.
         </P>
-
         <H3>How Nyxo Sleep Coaching Works</H3>
         <P>
           Nyxo Sleep Coaching is structured into four weeks, each one them
@@ -68,19 +74,7 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
         <LessonHighlights />
 
         <H2>Coaching weeks</H2>
-        <Weeks>
-          {weeks.map(({ node: week }: { node: ContentfulWeek }) => (
-            <WeekCard
-              key={week.slug}
-              path={`/week/${week.slug}`}
-              intro={week.intro}
-              name={week.weekName}
-              duration={week.duration}
-              lessons={week.lessons}
-              coverPhoto={week.coverPhoto.fluid}
-            />
-          ))}
-        </Weeks>
+        <WeekHighlights data={weeks} />
 
         <HabitHighlights locale={locale} />
 
@@ -98,14 +92,6 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
 }
 
 export default CoachingPage
-
-const Weeks = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  padding: 3rem 0rem;
-  margin: 2rem -1rem;
-`
 
 const Title = styled(H1)`
   text-align: center;

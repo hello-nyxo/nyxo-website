@@ -13,12 +13,21 @@ import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H5, H6 } from "../components/Html/HtmlContent"
 import { Icon } from "../components/Icons"
 import Layout from "../components/layout"
-import LessonCard from "../components/LessonCard"
-import { Container, device, Row } from "../components/Primitives"
+import LessonCard from "../components/lesson/LessonCard"
+import {
+  Container,
+  device,
+  Row,
+  LikeButtonTemplateContainer,
+} from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import LargeWeekCard from "../components/week/LargeWeekCard"
 import { getLocalizedPath } from "../Helpers/i18n-helpers"
+import LikeButton from "../components/LikeButton/likeButtonForTemplate"
+import { useQuery } from "react-query"
+import { listLikedContents } from "../graphql/queries"
+import { API, graphqlOperation } from "aws-amplify"
 
 type Props = {
   contentfulWeek: ContentfulWeek
@@ -40,6 +49,7 @@ const Week: FC<PageProps<Props>> = (props) => {
       previousWeek,
       nextWeek,
       contentfulWeek: {
+        slug,
         lessons,
         weekDescription,
         createdAt,
@@ -69,6 +79,12 @@ const Week: FC<PageProps<Props>> = (props) => {
     }
   })
 
+  const fetchLikes = async () => {
+    return await API.graphql(graphqlOperation(listLikedContents))
+  }
+
+  const { data, status } = useQuery("someKeyName", fetchLikes)
+
   return (
     <Layout>
       <SEO
@@ -86,6 +102,9 @@ const Week: FC<PageProps<Props>> = (props) => {
 
         <Cover>
           <CoverImage fluid={coverPhoto?.fluid} />
+          <LikeButtonTemplateContainer>
+            <LikeButton name={title} type="week" slug={slug} />
+          </LikeButtonTemplateContainer>
         </Cover>
 
         <H3>About this week:</H3>
@@ -113,30 +132,38 @@ const Week: FC<PageProps<Props>> = (props) => {
 
         <H3>Lessons for this week</H3>
 
-        <>
-          {sections.map((section) => (
-            <Section key={section.header.id}>
-              <H6>{section.header.title}</H6>
-              <HtmlContent document={section.header.description?.json} />
+        {sections.map((section) => (
+          <Section key={section.header.id}>
+            <H6>{section.header.title}</H6>
+            <HtmlContent document={section.header.description?.json} />
 
-              <Lessons>
-                {section.data.map((lesson: ContentfulLesson) => (
+            <Lessons>
+              {section.data.map((lesson: ContentfulLesson) => {
+                const bookmarkedLesson = data?.data.listLikedContents.items.find(
+                  (item) => item.slug == lesson.slug
+                )
+
+                return (
                   <LessonCard
-                    cover={lesson.cover?.fluid}
                     key={lesson.slug}
-                    path={`/lesson/${lesson.slug}`}
-                    excerpt={lesson.lessonContent.fields?.excerpt}
+                    slug={lesson.slug}
                     name={lesson.lessonName}
-                    readingTime={
-                      lesson.lessonContent.fields.readingTime?.minutes
-                    }
+                    path={`/lesson/${lesson.slug}`}
                     lesson={lesson}
+                    readingTime={
+                      lesson.lessonContent?.fields?.readingTime?.minutes
+                    }
+                    cover={lesson.cover?.fluid}
+                    excerpt={lesson.lessonContent?.fields?.excerpt}
+                    bookmarked={bookmarkedLesson}
                   />
-                ))}
-              </Lessons>
-            </Section>
-          ))}
-        </>
+                  // JSON.stringify(data)
+                )
+              })}
+            </Lessons>
+          </Section>
+        ))}
+
         {habits?.edges.length > 0 && (
           <>
             <H3>Habits</H3>
@@ -162,10 +189,15 @@ const Week: FC<PageProps<Props>> = (props) => {
             <LargeWeekCard
               path={`/week/${previousWeek.slug}`}
               week={previousWeek}
+              slug={previousWeek.slug}
             />
           )}
           {nextWeek && (
-            <LargeWeekCard path={`/week/${nextWeek.slug}`} week={nextWeek} />
+            <LargeWeekCard
+              path={`/week/${nextWeek.slug}`}
+              week={nextWeek}
+              slug={nextWeek.slug}
+            />
           )}
         </NextWeeksContainer>
       </Container>

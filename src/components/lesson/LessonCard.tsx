@@ -1,29 +1,50 @@
 import { Link } from "gatsby"
-import Image from "gatsby-image"
+import Image, { FluidObject } from "gatsby-image"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { ContentfulLesson } from "../../../graphql-types"
 import { truncate } from "../../Helpers/string-truncater"
 import { Icon } from "../Icons"
 import { device } from "../Primitives"
+import LikeButton from "../LikeButton/likeButton"
 
 type Props = {
+  name?: string | null
   path?: string | null
+  readingTime?: number | null
+  excerpt?: string | null
+  cover?: FluidObject | null
   lesson?: ContentfulLesson | null
+  slug: string
+  key?: string
+  bookmarked?: any | null
 }
 
-const LargeLessonCard: FC<Props> = ({ path = `/`, lesson }) => {
+const LessonCard: FC<Props> = ({
+  path = `/`,
+  name,
+  readingTime = 3,
+  excerpt,
+  cover,
+  lesson,
+  slug,
+  bookmarked,
+}) => {
   const countHabits = lesson?.habit?.length
 
   return (
-    <Card to={path as string}>
+    <Card to={path}>
       <ImageContainer>
-        <Cover fluid={lesson?.cover?.fluid} />
+        <Cover fluid={cover} />
+        <LikeButton
+          name={name}
+          type="lesson"
+          slug={slug}
+          bookmarked={bookmarked}
+        />
         <Wrap>
           <Icon height="15px" width="15px" name="clock" />
-          <ReadingTime>
-            {Math.ceil(lesson?.lessonContent?.fields?.readingTime?.minutes)}m
-          </ReadingTime>
+          <ReadingTime>{Math.ceil(readingTime)}m</ReadingTime>
           {!!countHabits && (
             <Habits>
               <Icon height="20px" width="20px" name="task" />
@@ -33,19 +54,18 @@ const LargeLessonCard: FC<Props> = ({ path = `/`, lesson }) => {
         </Wrap>
       </ImageContainer>
       <InnerContent>
-        <Name>{lesson?.lessonName}</Name>
-        <Excerpt>
-          {truncate(lesson?.lessonContent?.fields?.excerpt, 100, true)}
-        </Excerpt>
+        <Name>{name}</Name>
+        <Excerpt>{truncate(excerpt, 100, true)}</Excerpt>
       </InnerContent>
     </Card>
   )
 }
 
-export default LargeLessonCard
+export default LessonCard
 
 const Card = styled(Link)`
   margin: 1rem 0.5rem;
+  overflow: hidden;
   display: block;
   box-sizing: border-box;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -72,28 +92,28 @@ const Card = styled(Link)`
   }
 
   @media ${device.desktop} {
-    max-width: calc(50% - 2 * 0.5rem);
-    flex: 1 1 calc(50% - 2 * 0.5rem);
+    max-width: calc(25% - 2 * 0.5rem);
+    flex: 1 1 calc(25% - 2 * 0.5rem);
   }
 
   @media ${device.laptopL} {
-    max-width: calc(50% - 2 * 0.5rem);
-    flex: 1 1 calc(50% - 2 * 0.5rem);
+    max-width: calc(33.3333% - 2 * 0.5rem);
+    flex: 1 1 calc(33.3333% - 2 * 0.5rem);
   }
 
   @media ${device.laptop} {
+    max-width: calc(33.3333% - 2 * 0.5rem);
+    flex: 1 1 calc(33.3333% - 2 * 0.5rem);
+  }
+
+  @media ${device.tabletL} {
     max-width: calc(50% - 2 * 0.5rem);
     flex: 1 1 calc(50% - 2 * 0.5rem);
   }
 
-  @media ${device.tabletL} {
-    max-width: calc(100% - 2 * 0.5rem);
-    flex: 1 1 calc(100% - 2 * 0.5rem);
-  }
-
   @media ${device.tablet} {
-    max-width: calc(100% - 2 * 0.5rem);
-    flex: 1 1 calc(100% - 2 * 0.5rem);
+    max-width: calc(50% - 2 * 0.5rem);
+    flex: 1 1 calc(50% - 2 * 0.5rem);
   }
 
   @media ${device.mobileL} {
@@ -126,6 +146,8 @@ const Cover = styled(Image)`
 const Name = styled.h3`
   margin: 0;
   font-weight: bold;
+  font-style: normal;
+  font-family: var(--semibold);
   color: var(--textPrimary);
 `
 
@@ -163,6 +185,25 @@ const Habits = styled.span`
   margin-left: 1rem;
   font-size: 0.9rem;
   display: inline-block;
+`
+
+const FavoriteButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  justify-content: center;
+`
+
+const Heart = styled(Icon).attrs(() => ({
+  fill: "black",
+  stroke: "none",
+}))`
+  margin: 0px;
 `
 
 const InnerContent = styled.div`
