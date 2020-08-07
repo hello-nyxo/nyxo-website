@@ -214,21 +214,21 @@ export const Content = styled.div`
   }
 
   ul {
-    counter-reset: cupcake;
+    counter-reset: counter;
     margin-bottom: 2rem;
     li {
-      counter-increment: cupcake;
+      counter-increment: counter;
       padding-left: 1.5rem;
       margin-bottom: 1rem;
+      font-size: 1.15rem;
       position: relative;
       &:before {
         display: inline;
-        left: 0;
-        bottom: 5px;
+        font-size: 2rem;
+        line-height: 2rem;
         margin-right: 10px;
-        font-size: 1rem;
         position: absolute;
-        content: "💡";
+        content: "•";
         color: hsl(255deg, 85%, 30%);
         font-weight: bold;
         font-family: "Montserrat-semibold", sans-serif;
@@ -240,13 +240,28 @@ export const Content = styled.div`
     }
   }
 
+  li {
+    font-size: 1.15rem;
+    line-height: 2rem;
+  }
+
   ol {
-    counter-reset: list ${({ start }) => (start ? start : 0)};
+    counter-reset: list;
     padding-left: 1rem;
     li {
       counter-increment: list;
       margin-bottom: 2rem;
       position: relative;
+      &:before {
+        display: inline;
+        content: counter(list);
+        margin-right: 15px;
+        color: hsl(255deg, 85%, 30%);
+        font-weight: bold;
+        font-size: 1rem;
+        line-height: 2rem;
+        font-family: "Montserrat-semibold", sans-serif;
+      }
       p {
         display: inline;
       }

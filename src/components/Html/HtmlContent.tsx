@@ -124,6 +124,7 @@ const P = styled.p`
   font-size: 1.15rem;
   line-height: 2rem;
   margin-bottom: 2rem;
+  white-space: pre-wrap;
 `
 
 const Bold = styled.b`
