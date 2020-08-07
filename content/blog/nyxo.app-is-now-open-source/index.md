@@ -10,7 +10,7 @@ thumbnailBlog: "./yosemite.jpg"
 
 #### Hello world!
 
-Today and I'm very excited to announce that we have just open source the Nyxo.app website, that means this one you're currently looking at. This is the first step in a larger project of making all Nyxo products open source. In the future, we will open-source more the things we've built here at Nyxo.
+Today and I'm very excited to announce that we have just open sourced the Nyxo.app website, that means this one you're currently looking at. This is the first step in a larger project of making all Nyxo products open source. In the future, we will open-source more the things we've built here at Nyxo.
 
 ### What is Nyxo
 
