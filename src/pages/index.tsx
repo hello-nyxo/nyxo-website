@@ -11,6 +11,7 @@ import Layout from "../components/layout"
 import NewsLetterForm from "../components/newsletter"
 import { Container, Demo } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
+import { CoachingHighlight } from "../components/coaching/CoachingHighlight"
 
 type Props = {
   datasource: GatsbyImage
@@ -67,6 +68,8 @@ const IndexPage: FC<PageProps<Props>> = ({
       </div>
 
       <Featured />
+
+      <CoachingHighlight />
 
       <IndexContainer>
         <div className={"features"}>

@@ -37,7 +37,7 @@ const HabitHighlights: FC<Props> = ({ locale }) => {
   return (
     <Container>
       <H3>Habits</H3>
-      <P>The world´s largest selection of sleep lessons</P>
+      <P>The world´s largest selection habits to try</P>
 
       <Habits>
         {habits.edges.map(({ node }: { node: ContentfulHabit }) => (
