@@ -63,32 +63,28 @@ export const Container = styled.div`
   padding: 0rem 2rem;
   box-sizing: border-box;
 
-  @media ${device.mobileS} {
+  @media ${minDevice.mobileS} {
     padding: 0rem 1rem;
   }
 
-  @media ${device.mobileM} {
+  @media ${minDevice.mobileM} {
     padding: 0rem 1rem;
   }
 
-  @media ${device.mobileL} {
+  @media ${minDevice.mobileL} {
     padding: 0rem 2rem;
   }
 
-  @media ${device.tablet} {
+  @media ${minDevice.tablet} {
     padding: 0rem 1rem;
   }
 
-  @media ${device.laptop} {
+  @media ${minDevice.laptop} {
     padding: 0rem 2rem;
   }
 
-  @media ${device.laptopL} {
+  @media ${minDevice.laptopL} {
     padding: 0rem 2rem;
-  }
-
-  @media screen and (max-width: 768px) {
-    width: 100vw;
   }
 `
 

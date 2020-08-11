@@ -52,6 +52,7 @@ export default BlogPost
 const Card = styled(Link)`
   padding: 0.5rem;
   box-sizing: border-box;
+  width: 100%;
 
   @media ${devices.mobileL} {
     flex: 0 0 100%;

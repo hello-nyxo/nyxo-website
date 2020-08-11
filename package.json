@@ -23,6 +23,7 @@
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-manifest": "^2.4.21",
+    "gatsby-plugin-netlify": "^2.3.13",
     "gatsby-plugin-no-sourcemaps": "^2.2.0",
     "gatsby-plugin-offline": "^3.2.21",
     "gatsby-plugin-preload-link-crossorigin": "^1.0.2",
