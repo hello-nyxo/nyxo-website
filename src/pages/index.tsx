@@ -9,9 +9,10 @@ import Featured from "../components/Featured/Featured"
 import Image from "../components/image"
 import Layout from "../components/layout"
 import NewsLetterForm from "../components/newsletter"
-import { Container, Demo } from "../components/Primitives"
+import { Container, Demo, Row } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import { CoachingHighlight } from "../components/coaching/CoachingHighlight"
+import { SyncFeatures } from "../components/features/SyncFeatures"
 
 type Props = {
   datasource: GatsbyImage
@@ -73,31 +74,7 @@ const IndexPage: FC<PageProps<Props>> = ({
 
       <IndexContainer>
         <div className={"features"}>
-          <div className={"feature__item"}>
-            <div className={"row"}>
-              <div className="col-6 first">
-                <div className={"thumbnail"}>
-                  <Image
-                    alt="Nyxo data sources"
-                    path={datasources.childImageSharp.fluid}
-                  />
-                </div>
-              </div>
-
-              <div className={"col-6"}>
-                <div className={"feature__content"}>
-                  <FeaturesHeroText>
-                    No need to buy a new sleep tracker
-                  </FeaturesHeroText>
-                  <p>
-                    Import your data from your existing sleep tracker. If you do
-                    not own a sleep tracker, you can also use Nyxo’s built in
-                    sleep diary feature to track your sleep.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <SyncFeatures />
 
           <div className={"feature__item"}>
             <div className={"row"}>
