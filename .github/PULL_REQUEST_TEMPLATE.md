@@ -1,28 +1,33 @@
-## Description
+# Description
 
-<!-- Write a brief description of the changes introduced by this PR -->
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
 
-### Documentation
+Fixes # (issue)
 
-<!--
-  Where is this feature or API documented?
+## Type of change
 
-  - If docs exist:
-    - Update any references, if relevant
-  - If no docs exist:
-    - Create a stub for documentation including bullet points for how to use the feature, code snippets, etc.
-  - Tag @plahteenlahti for review of the documentation
--->
+Please delete options that are not relevant.
 
-## Related Issues
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] This change requires a documentation update
 
-<!--
-  Link to the issue that is fixed by this PR (if there is one)
-  e.g. Fixes #1234
+# How Has This Been Tested?
 
-  Link to an issue that is partially addressed by this PR (if there are any)
-  e.g. Addresses #1234
+Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
 
-  Link to related issues (if there are any)
-  e.g. Related to #1234
--->
+- [ ] Test A
+- [ ] Test B
+
+
+# Checklist:
+
+- [ ] My code follows the style guidelines of this project
+- [ ] I have performed a self-review of my own code
+- [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] I have made corresponding changes to the documentation
+- [ ] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
+- [ ] Any dependent changes have been merged and published in downstream modules
