@@ -2,16 +2,16 @@
 
 exports[`HabitCard renders correctly 1`] = `
 <div
-  className="sc-fznKkj ctfgFC"
+  className="sc-fzoLsD wZIUF"
 >
   <div
-    className="sc-fznyAO gOhviz"
+    className="sc-fzozJi fElUoo"
   />
   <div
-    className="sc-fzqBZW kvyVsY"
+    className="sc-fznyAO hdDwJr"
   >
     <span
-      className="sc-fznZeY lbIPur"
+      className="sc-fzpans hbJJZj"
       style={
         Object {
           "color": "#F42D97",
@@ -65,13 +65,13 @@ exports[`HabitCard renders correctly 1`] = `
       MORNING
     </span>
     <h4
-      className="sc-fzokOt gzVxVz"
+      className="sc-fzplWN giDusN"
       data-testid="habit-title"
     >
       Test Habit
     </h4>
     <p
-      className="sc-fzqNJr eBQVuE"
+      className="sc-fznKkj fyCcVX"
     >
       
     </p>

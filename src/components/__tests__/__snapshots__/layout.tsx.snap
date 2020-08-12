@@ -3,17 +3,17 @@
 exports[`Layout renders correctly 1`] = `
 Array [
   <header
-    className="sc-fznZeY cbOnXA"
+    className="sc-fzoLsD eOTxVM"
   >
     <div
-      className="sc-fznKkj ccxexc"
+      className="sc-fzozJi iaPiKS"
     >
       <a
         href="/"
         title="Nyxo"
       >
         <svg
-          className="sc-fznyAO euBYmg"
+          className="sc-AxmLO huqxQS"
           fill="none"
           stroke="none"
           strokeWidth="1.5"
@@ -57,53 +57,53 @@ Array [
       </a>
     </div>
     <ul
-      className="sc-fzokOt iCnBni"
+      className="sc-fzpans idMlAx"
     >
       <li
-        className="sc-fzqBZW kHcRom"
+        className="sc-fzplWN icN"
       >
         <a
-          className="sc-fzqNJr hVFEDI"
+          className="sc-fznyAO kyoMRC"
           href="/for-you"
         >
           You
         </a>
       </li>
       <li
-        className="sc-fzqBZW kHcRom"
+        className="sc-fzplWN icN"
       >
         <a
-          className="sc-fzqNJr hVFEDI"
+          className="sc-fznyAO kyoMRC"
           href="/for-organizations"
         >
           Organizations
         </a>
       </li>
       <li
-        className="sc-fzqBZW kHcRom"
+        className="sc-fzplWN icN"
       >
         <a
-          className="sc-fzqNJr hVFEDI"
+          className="sc-fznyAO kyoMRC"
           href="/coaching"
         >
           Coaching
         </a>
       </li>
       <li
-        className="sc-fzqBZW kHcRom"
+        className="sc-fzplWN icN"
       >
         <a
-          className="sc-fzqNJr hVFEDI"
+          className="sc-fznyAO kyoMRC"
           href="/blog"
         >
           Blog
         </a>
       </li>
       <li
-        className="sc-fzqBZW kHcRom"
+        className="sc-fzplWN icN"
       >
         <a
-          className="sc-fzqNJr hVFEDI"
+          className="sc-fznyAO kyoMRC"
           href="/me/login"
         >
           Login
@@ -114,7 +114,7 @@ Array [
   <main />,
   <footer>
     <div
-      className="sc-fzoyAV gkNoxI"
+      className="sc-fznZeY gchNIp"
     >
       <div
         className="row"
@@ -139,7 +139,7 @@ Array [
               </a>
             </div>
             <div
-              className="sc-fzoLag cObHnD"
+              className="sc-fzokOt kFmdYZ"
             >
               <p>
                 Personalized sleep coaching that works!
@@ -285,7 +285,7 @@ Array [
                 title="Twitter"
               >
                 <svg
-                  className="sc-AxjAm eINkHy"
+                  className="sc-fznKkj lLzoJ"
                   fill="none"
                   height="30px"
                   stroke="#333"
@@ -310,7 +310,7 @@ Array [
                 title="LinkedIn"
               >
                 <svg
-                  className="sc-AxjAm eINkHy"
+                  className="sc-fznKkj lLzoJ"
                   fill="none"
                   height="30px"
                   stroke="#333"
@@ -341,7 +341,7 @@ Array [
                 title="GitHub"
               >
                 <svg
-                  className="sc-AxjAm eINkHy"
+                  className="sc-fznKkj lLzoJ"
                   fill="none"
                   height="30px"
                   stroke="#333"
@@ -366,7 +366,7 @@ Array [
                 title="Instagram"
               >
                 <svg
-                  className="sc-AxjAm eINkHy"
+                  className="sc-fznKkj lLzoJ"
                   fill="none"
                   height="30px"
                   stroke="#333"
@@ -397,7 +397,7 @@ Array [
         </div>
       </div>
       <div
-        className="sc-fzoXzr dLdspN"
+        className="sc-fzqBZW jrvPUk"
       >
         <p>
           Copyright 

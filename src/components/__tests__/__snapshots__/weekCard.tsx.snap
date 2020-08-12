@@ -2,14 +2,14 @@
 
 exports[`Week card renders correctly 1`] = `
 <a
-  className="sc-fznyAO kfPLJq"
+  className="sc-fznZeY gCXwDP"
   href="/week/week-name"
 >
   <div
-    className="sc-fznKkj bQdPJt"
+    className="sc-fzokOt bJFgDa"
   >
     <div
-      className="sc-fznZeY fzrXoh gatsby-image-wrapper"
+      className="sc-fzqBZW ieGBzv gatsby-image-wrapper"
       style={
         Object {
           "maxHeight": null,
@@ -62,7 +62,7 @@ exports[`Week card renders correctly 1`] = `
       onClick={[Function]}
     >
       <svg
-        className="sc-AxjAm eINkHy"
+        className="sc-AxmLO huqxQS"
         fill="none"
         height="25px"
         stroke="#F42D97"
@@ -80,13 +80,13 @@ exports[`Week card renders correctly 1`] = `
       </svg>
     </button>
     <div
-      className="sc-fzoyAV fTunDV"
+      className="sc-fzoXzr dRZYpr"
     >
       <span
-        className="sc-fzoLag cTvqsm"
+        className="sc-fzpjYC gZSBqH"
       >
         <svg
-          className="sc-AxjAm eINkHy"
+          className="sc-AxmLO huqxQS"
           fill="none"
           height="20px"
           stroke="currentColor"
@@ -129,15 +129,15 @@ exports[`Week card renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-fzokOt czvkBF"
+    className="sc-fzqNJr havePp"
   >
     <h3
-      className="sc-fzqBZW hLKXJV"
+      className="sc-fzoyAV eXHTwC"
     >
       Week name
     </h3>
     <span
-      className="sc-fzqNJr ckeJuU"
+      className="sc-fzoLag dVakYK"
     >
       Lorem ipsum
     </span>
