@@ -71,6 +71,12 @@ export const DataDrivenDemo: FC = () => {
   const [efficiency, setEfficiency] = useState(0)
 
   const [rows, set] = useState(sorted)
+  const [weights, setWeights] = useState({
+    duration: 75,
+    jetlag: 59,
+    consistency: 60,
+    efficiency: 75,
+  })
   let height = 0
 
   const handleChange = (event) => {
@@ -80,7 +86,7 @@ export const DataDrivenDemo: FC = () => {
       duration: Math.floor(Math.random() * (100 - 0 + 1) + 0),
       consistency: parseInt(event.target.value),
     }
-    setEfficiency(event.target.value)
+
     const array = nodes.sort((lessonA, lessonB) => {
       return (
         calculateMatchScore(lessonA.weights, weights) -
@@ -92,8 +98,6 @@ export const DataDrivenDemo: FC = () => {
     console.log(weights)
   }
 
-  console.log(nodes)
-
   const transitions = useTransition(
     rows.map((node) => ({
       ...node,
@@ -103,18 +107,20 @@ export const DataDrivenDemo: FC = () => {
     {
       from: { opacity: 0 },
       leave: { opacity: 0 },
-      enter: ({ y }) => ({ y, opacity: 1, scale: 1 }),
-      update: ({ y }) => ({ y, scale: 1 }),
+      enter: ({ y }) => ({ y, opacity: 1 }),
+      update: ({ y }) => ({ y }),
     }
   )
 
   useEffect(() => void setInterval(() => set(shuffle), 2000), [])
 
-  const values = useSprings(4, (index) => ({
+  const [springs] = useSprings(4, (index) => ({
     loop: true,
-    from: { value: 50 },
+    from: { value: Math.floor(Math.random() * (100 - 0 + 1) + 0) },
     to: { value: Math.floor(Math.random() * (100 - 0 + 1) + 0) },
   }))
+
+  console.log(springs)
 
   return (
     <Container>
@@ -129,22 +135,22 @@ export const DataDrivenDemo: FC = () => {
           <ListItem>
             <CheckIcon name="efficiency" height="18" width="18" />
             <Type>Efficiency</Type>
-            <Range type="range" value={values[1]} />
+            <Range type="range" value={springs[1].value} />
           </ListItem>
           <ListItem>
             <CheckIcon name="socialJetLag" height="18" width="18" />
             <Type>Social Jet Lag</Type>
-            <Range type="range" value={values[1]} />
+            <Range type="range" value={springs[1].value} />
           </ListItem>
           <ListItem>
             <CheckIcon name="clockBold" height="18" width="18" />
             <Type>Duration</Type>
-            <Range type="range" value={values[2]} />
+            <Range type="range" value={springs[2].value} />
           </ListItem>
           <ListItem>
             <CheckIcon name="consistency" height="18" width="18" />
             <Type>Consistency</Type>
-            <Range type="range" value={values[3]} />
+            <Range type="range" value={springs[3].value} />
           </ListItem>
         </List>
       </Column>
@@ -152,21 +158,15 @@ export const DataDrivenDemo: FC = () => {
         <Sources>
           <SourceList>
             {transitions.map(
-              ({ item: lesson, props: { y, scale, ...rest }, key }, index) => (
+              ({ item: lesson, props: { y, ...rest }, key }, index) => (
                 <Lesson
                   key={key}
                   style={{
                     zIndex: nodes.length - index,
                     transform: interpolate(
-                      [y, y],
-                      (y, [1, 1.2,1]) => `translate3d(0,${y}px,0) scale(${scale})`
+                      [y],
+                      (y) => `translate3d(0,${y}px,0)`
                     ),
-                    // transform: y
-                    // .interpolate({
-                    // 	range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
-                    // 	output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1]
-                    // })
-                    // .interpolate(x => `scale(${x})`)
                     ...rest,
                   }}>
                   <Cover fluid={lesson.cover.fluid} />
