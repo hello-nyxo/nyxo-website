@@ -8,6 +8,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import {
   useTrail,
   animated,
+  interpolate,
   useTransition,
   useSpring,
   useSprings,
@@ -102,8 +103,8 @@ export const DataDrivenDemo: FC = () => {
     {
       from: { opacity: 0 },
       leave: { opacity: 0 },
-      enter: ({ y }) => ({ y, opacity: 1 }),
-      update: ({ y }) => ({ y }),
+      enter: ({ y }) => ({ y, opacity: 1, scale: 1 }),
+      update: ({ y }) => ({ y, scale: 1 }),
     }
   )
 
@@ -151,12 +152,21 @@ export const DataDrivenDemo: FC = () => {
         <Sources>
           <SourceList>
             {transitions.map(
-              ({ item: lesson, props: { y, ...rest }, key }, index) => (
+              ({ item: lesson, props: { y, scale, ...rest }, key }, index) => (
                 <Lesson
                   key={key}
                   style={{
                     zIndex: nodes.length - index,
-                    transform: y.interpolate((y) => `translate3d(0,${y}px,0)`),
+                    transform: interpolate(
+                      [y, y],
+                      (y, [1, 1.2,1]) => `translate3d(0,${y}px,0) scale(${scale})`
+                    ),
+                    // transform: y
+                    // .interpolate({
+                    // 	range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
+                    // 	output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1]
+                    // })
+                    // .interpolate(x => `scale(${x})`)
                     ...rest,
                   }}>
                   <Cover fluid={lesson.cover.fluid} />
