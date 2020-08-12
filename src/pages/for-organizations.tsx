@@ -1,9 +1,10 @@
 import { graphql, PageProps } from "gatsby"
 import Image from "gatsby-image"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import GetAppBanner from "../components/GetAppBanner"
-import { H1 } from "../components/Html/HtmlContent"
+import { H1, H2, H3, P } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
 import NewsLetterForm from "../components/newsletter"
 import PageHeader from "../components/page/Header"
@@ -11,64 +12,51 @@ import PricingTable from "../components/PricingTable/PricingTable"
 import { Container, Demo } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 
-const ForOrganizations: FC<PageProps> = (props) => {
-  const {
-    location: { pathname },
-    data: {
-      forOrganizationsMeta,
-      allDataJson: { nodes },
-      organizationsCover,
-    },
-  } = props
-  const pageInfo = nodes[0].for_organizations
+type Props = {
+  forOrganizationsMeta: any
+  organizationsCover: any
+}
+
+const ForOrganizations: FC<PageProps<Props>> = ({
+  location: { pathname },
+  data: { forOrganizationsMeta, organizationsCover },
+}) => {
+  const { t } = useTranslation()
 
   return (
     <Layout>
       <SEO
-        title={pageInfo.title}
+        title={t("FOR_ORGANIZATIONS.TITLE")}
         pathName={pathname}
-        description={pageInfo.description}
+        description={t("FOR_ORGANIZATIONS.DESCRIPTION")}
         staticImage={true}
         image={forOrganizationsMeta.childImageSharp.fixed.src}
       />
 
       <Container>
         <PageHeader
-          title={pageInfo.title}
-          subtitle={pageInfo.description}
+          title={t("FOR_ORGANIZATIONS.TITLE")}
+          subtitle={t("FOR_ORGANIZATIONS.DESCRIPTION")}
           coverPhoto={organizationsCover.childImageSharp.fluid}
         />
 
         <div className={"targets"}>
           <div className={"title"}>
-            <h2>What Nyxo Provides For Your Organization</h2>
+            <H2>{t("FOR_ORGANIZATIONS.SUBTITLE")}</H2>
           </div>
 
           <div className={"row"}>
             <div className={"col-6"}>
               <div className={"item"}>
-                <h3>Nyxo for Teams</h3>
-                <p>
-                  Sleep is a key factor in both personal well-being and a
-                  balanced worklife. With Nyxo for Teams your whole organization
-                  can enjoy the benefits of Nyxo sleep coaching.
-                </p>
+                <H3>{t("FOR_ORGANIZATIONS.TITLE_1")}</H3>
+                <P>{t("FOR_ORGANIZATIONS.TEXT_1")}</P>
               </div>
             </div>
 
             <div className={"col-6"}>
               <div className={"item"}>
-                <h3>Unlock the Full Potential of Your Team</h3>
-                <p>
-                  Did you know that the productivity loss caused by insufficient
-                  sleep costs{" "}
-                  <a href="https://www.rand.org/randeurope/research/projects/the-value-of-the-sleep-economy.html">
-                    hundreds of billions
-                  </a>{" "}
-                  to the employers and the society every year? We help your
-                  organization to perform smoother and achieve your productivity
-                  goals without compromising employee well-being.
-                </p>
+                <H3>{t("FOR_ORGANIZATIONS.TITLE_2")}</H3>
+                <P>{t("FOR_ORGANIZATIONS.TEXT_2")}</P>
               </div>
             </div>
           </div>
@@ -76,39 +64,27 @@ const ForOrganizations: FC<PageProps> = (props) => {
           <div className={"row"}>
             <div className={"col-6"}>
               <div className={"item"}>
-                <h3>Group Analytics</h3>
-                <p>
-                  (Coming soon.) We highlight the main areas of improvement by
-                  providing group-level analytics and reports on how your
-                  organization is sleeping. The data are anonymized and cannot
-                  be connected to individual employees.
-                </p>
+                <H3>{t("FOR_ORGANIZATIONS.TITLE_3")}</H3>
+                <P>{t("FOR_ORGANIZATIONS.TEXT_3")}</P>
               </div>
             </div>
 
             <div className={"col-6"}>
               <div className={"item"}>
-                <h3>Happy and Energetic Working Community</h3>
-                <p>
-                  A well-rested and healthy employee is a happy and motivated
-                  employee. And happy faces set the mood for the whole working
-                  environment. Now who wouldn’t want to work in a joyful and
-                  supportive atmosphere?
-                </p>
+                <H3>{t("FOR_ORGANIZATIONS.TITLE_4")}</H3>
+                <P>{t("FOR_ORGANIZATIONS.TEXT_4")}</P>
               </div>
             </div>
           </div>
 
           <PricingTable />
 
-          <InfoText>
-            Contact us for more information on Nyxo for Teams!
-          </InfoText>
+          <InfoText>{t("FOR_ORGANIZATIONS.CONTACT")}</InfoText>
           <BookDemo
             rel="noopener"
             href="https://calendly.com/nyxo"
             target="_blank">
-            Book a Free Demo
+            {t("FOR_ORGANIZATIONS.DEMO_BUTTON")}
           </BookDemo>
         </div>
       </Container>

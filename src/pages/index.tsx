@@ -1,4 +1,4 @@
-import { graphql, Link, PageProps } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "../../@types/childImageSharp"
@@ -11,6 +11,13 @@ import Layout from "../components/layout"
 import NewsLetterForm from "../components/newsletter"
 import { Container, Demo } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
+import {
+  Link,
+  Trans,
+  useTranslation,
+  useI18next,
+} from "gatsby-plugin-react-i18next"
+import { P } from "../components/Html/HtmlContent"
 
 type Props = {
   datasource: GatsbyImage
@@ -35,6 +42,9 @@ const IndexPage: FC<PageProps<Props>> = ({
     },
   },
 }) => {
+  const { t } = useTranslation()
+  const { languages, originalPath } = useI18next()
+
   return (
     <Layout>
       <SEO
@@ -47,15 +57,19 @@ const IndexPage: FC<PageProps<Props>> = ({
       />
 
       <div className={"page-header home"}>
-        <HeroMessage>Your Search For Better Sleep Ends Here</HeroMessage>
+        <ul className="languages">
+          {languages.map((lng) => (
+            <li key={lng}>
+              <Link to={originalPath} language={lng}>
+                {lng}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <HeroMessage>{t("INDEX.TITLE")}</HeroMessage>
         <Container>
           <HeroContentWrap>
-            <p>
-              Nyxo is the best aid for improving your sleep quality. We combine
-              cutting edge sleep science with your sleep tracker’s data to
-              provide you with personalized and actionable coaching that will
-              make you sleep better.
-            </p>
+            <P>{t("INDEX.INTRODUCTION")}</P>
           </HeroContentWrap>
         </Container>
         <HeroImg>

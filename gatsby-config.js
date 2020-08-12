@@ -153,6 +153,26 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        path: `${__dirname}/locales`,
+        languages: [`en`, `fi`],
+        defaultLanguage: `en`,
+        redirect: false,
+        siteUrl: "https://nyxo.app",
+      },
+      i18nextOptions: {
+        debug: true,
+        lowerCaseLng: true,
+        saveMissing: false,
+        interpolation: {
+          escapeValue: false, // not needed for react as it escapes by default
+        },
+        keySeparator: ".",
+        nsSeparator: false,
+      },
+    },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sass`,
     {
@@ -196,14 +216,6 @@ module.exports = {
         id: process.env.GTAG_ID,
         includeInDevelopment: true,
         defaultDataLayer: { platform: "gatsby" },
-      },
-    },
-    {
-      resolve: "gatsby-plugin-i18n",
-      options: {
-        langKeyDefault: "en",
-        useLangKeyLayout: false,
-        prefixDefault: false,
       },
     },
     {

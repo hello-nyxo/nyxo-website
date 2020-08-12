@@ -12,7 +12,8 @@ ZZ/   ZZ/  ZZZZZZZ/ ZZ/ ZZ/  ZZZZZZ/        ZZ/   ZZ/  ZZZZZZZ |ZZ/   ZZ/  ZZZZZ
                                                       /  \\__ZZ |                    
                                                       ZZ    ZZ/                     
                                                        ZZZZZZ/                      
-Nice of you to drop in here!                                                                         `
+Nice of you to drop in here!
+Sadly we currently have no open positions.                                                                `
 const generateAscii = () => {
   console.log(string, "font-family:monospace")
 }

@@ -1,0 +1,60 @@
+{
+  "INDEX": {
+    "TITLE": "Your Search For Better Sleep Ends Here",
+    "INTRODUCTION": "Nyxo is the best aid for improving your sleep quality. We combine cutting edge sleep science with your sleep tracker’s data to provide you with personalized and actionable coaching that will make you sleep better.",
+    "GET_THE_APP": "Get The App"
+  },
+
+  "NAVIGATION": {
+    "YOU": "You",
+    "ORGANIZATIONS": "Organizations",
+    "COACHING": "Coaching",
+    "BLOG": "Blog",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout"
+  },
+
+  "NEWSLETTER": {
+    "TITLE": "Stay tuned",
+    "DESCRIPTION": "Subscribe to our newsletter and never miss out on free sleep coaching materials, product updates and more.",
+    "EMAIL": "Your email",
+    "PLACEHOLDER": "your@email.com",
+    "PRIVACY": "Read how we handle your data",
+    "THANK_YOU": "Thank You for subscribing!"
+  },
+
+  "GET_THE_APP": {
+    "TITLE": "Get the app",
+    "TEXT": "Download the app for free and sleep better starting tonight."
+  },
+
+  "FOR_YOU": {
+    "TITLE": "For You",
+    "DESCRIPTION": "Nyxo provides personalized and interactive sleep coaching, a wide support for different sleep tracker brands, sleep diary functionality, cloud backups, and much more!",
+    "NYXO_OFFERING": "What Nyxo Provides for You",
+    "TITLE_1": "Top Notch Sleep Tracking for Free",
+    "TEXT_1": "Our easy and highly compatible sleep tracking and diary functionality along with your sleep metrics are completely free to use. You can easily import your sleep data from a variety of different sleep trackers, as long as they are Apple Health or Google Fit compatible. Alternatively, you can use the App as a sleep diary and manually track your nights.",
+    "TITLE_2": "Personalized Sleep Coaching",
+    "TEXT_2": "We combine the latest sleep research and leading behavioral techniques with your sleep data and provide you with a 4-week long personalized coaching program that is designed to help you sleep better. It focuses on all aspects of your sleep and targets areas of improvement in your daily routines and sleeping habits. Premium feature available for 4.99 € / month.",
+    "TITLE_3": "Cloud Backups",
+    "TEXT_3": "Creating a Nyxo Cloud account (optional) allows you to sync and store all your data in the Nyxo Cloud. You also have an option to give other users, such as health care or insurance providers, access to your data via Nyxo Cloud. Nyxo Cloud website will be released later this year.",
+    "TITLE_4": "Health, Well-being and Productivity Benefits",
+    "TEXT_4": "We humans are like incredibly complex pieces of machinery that require day to day maintenance in order to function properly. Sleep is one of the few basic necessities in life. It affects our mental and physical well-being, performance, productivity, creativity and countless other things every day. Yet it is often overlooked. We help you to make the most out of the time you spend in bed."
+  },
+
+  "FOR_ORGANIZATIONS": {
+    "TITLE": "For Organizations",
+    "DESCRIPTION": "Nyxo allows knowledge workers to improve their sleep and day rhythm, allowing them to perform better at work and keep a work-life balance.",
+    "SUBTITLE": "What Nyxo Provides For Your Organization",
+    "TITLE_1": "Nyxo for Teams",
+    "TEXT_1": "Sleep is a key factor in both personal well-being and a balanced worklife. With Nyxo for Teams your whole organization can enjoy the benefits of Nyxo sleep coaching.",
+    "TITLE_2": "Unlock the Full Potential of Your Team",
+    "TEXT_2": "Did you know that the productivity loss caused by insufficient sleep costs hundreds of billions to the employers and the society every year? We help your organization to perform smoother and achieve your productivity goals without compromising employee well-being.",
+    "TITLE_3": "Group Analytics",
+    "TEXT_3": "(Coming soon.) We highlight the main areas of improvement by providing group-level analytics and reports on how your organization is sleeping. The data are anonymized and cannot be connected to individual employees.",
+    "TITLE_4": "Happy and Energetic Working Community",
+    "TEXT_4": "A well-rested and healthy employee is a happy and motivated employee. And happy faces set the mood for the whole working environment. Now who wouldn’t want to work in a joyful and supportive atmosphere?",
+    "CONTACT": "Contact us for more information on Nyxo for Teams!",
+    "DEMO_BUTTON": "Book a Free Demo"
+  }
+}

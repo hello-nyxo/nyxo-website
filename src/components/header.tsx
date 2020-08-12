@@ -1,10 +1,10 @@
-import { Link } from "gatsby"
-import React from "react"
-import styled from "styled-components"
-import { device, minDevice } from "../components/Primitives"
-import { isLoggedIn } from "../auth/AppUser"
-import { Auth } from "aws-amplify"
 import { navigate } from "@reach/router"
+import { Auth } from "aws-amplify"
+import { Link, useTranslation } from "gatsby-plugin-react-i18next"
+import React, { FC } from "react"
+import styled from "styled-components"
+import { isLoggedIn } from "../auth/AppUser"
+import { device, minDevice } from "../components/Primitives"
 import { NyxoLogo } from "./logo"
 
 const signOut = () => {
@@ -13,16 +13,18 @@ const signOut = () => {
     .catch((err) => console.log(err))
 }
 
-const Header = () => {
+const Header: FC = () => {
+  const { t } = useTranslation()
+
   const status = isLoggedIn()
-    ? { path: "me/login", title: "Logout" }
-    : { path: "me/login", title: "Login" }
+    ? { path: "me/login", title: "LOGOUT" }
+    : { path: "me/login", title: "LOGIN" }
 
   const links = [
-    { path: "for-you", title: "You" },
-    { path: "for-organizations", title: "Organizations" },
-    { path: "coaching", title: "Coaching" },
-    { path: "blog", title: "Blog" },
+    { path: "for-you", title: "YOU" },
+    { path: "for-organizations", title: "ORGANIZATIONS" },
+    { path: "coaching", title: "COACHING" },
+    { path: "blog", title: "BLOG" },
     { ...status },
   ]
   return (
@@ -34,15 +36,15 @@ const Header = () => {
       </Logo>
 
       <Links>
-        {links.map((item, index) => (
-          <Li key={index}>
-            {item.title === "Logout" && (
-              <MenuLink onClick={signOut} to={`/${item.path}`}>
-                {item.title}
+        {links.map(({ title, path }) => (
+          <Li key={title}>
+            {title === "LOGOUT" && (
+              <MenuLink onClick={signOut} to={`/${path}`}>
+                {t(`NAVIGATION.${title}`)}
               </MenuLink>
             )}
-            {item.title != "Logout" && (
-              <MenuLink to={`/${item.path}`}>{item.title}</MenuLink>
+            {title != "LOGOUT" && (
+              <MenuLink to={`/${path}`}>{t(`NAVIGATION.${title}`)}</MenuLink>
             )}
           </Li>
         ))}

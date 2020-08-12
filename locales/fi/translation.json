@@ -1,0 +1,60 @@
+{
+  "INDEX": {
+    "TITLE": "Nyxo – Yksilöllinen univalmennusohjelma",
+    "INTRODUCTION": "Nyxo on paras apuväline unenlaadun parantamiseksi. Yhdistämällä tieteellisen unitutkimuksen kovinta kärkeä älylaitteesi unenseurantadataan Nyxo tarjoaa henkilökohtaista ja interaktiivista univalmennusta, joka auttaa juuri sinua nukkumaan paremmin kuin koskaan.",
+    "GET_THE_APP": "Lataa sovellus"
+  },
+
+  "NAVIGATION": {
+    "YOU": "Sinulle",
+    "ORGANIZATIONS": "Yrityksille",
+    "COACHING": "Valmennus",
+    "BLOG": "Blogi",
+    "LOGIN": "Kirjaudu",
+    "LOGOUT": "Kirjaudu ulos"
+  },
+
+  "NEWSLETTER": {
+    "TITLE": "Pysy kuulolla",
+    "DESCRIPTION": "Tilaamalla uutiskirjeemme saat sähköpostiisi mm. viimeisimmät tuotepäivitykset ja kuulumiset, ilmaisia univalmennussisältöjä ja muuta kivaa!",
+    "EMAIL": "Sähköpostiosoitteesi",
+    "PLACEHOLDER": "sinä@sähköposti.fi",
+    "PRIVACY": "Lue kuinka käsittelemme tietojasi",
+    "THANK_YOU": "Kiitos liittymisestä!"
+  },
+
+  "GET_THE_APP": {
+    "TITLE": "Lataa sovellus",
+    "TEXT": "Lataa sovellus ilmaiseksi ja nuku paremmin jo tänään."
+  },
+
+  "FOR_YOU": {
+    "TITLE": "Sinulle",
+    "DESCRIPTION": "Nyxo tarjoaa yksilöllistä ja interaktiivista univalmennusta, laajan tuen eri valmistajien unenseurantalaitteille, helpon unipäiväkirjan, mahdollisuuden synkronoida ja jakaa tietojasi sekä paljon muuta!",
+    "NYXO_OFFERING": "Nyxo tarjoaa sinulle",
+    "TITLE_1": "Huippuluokan unenseurantaominaisuudet – ilmaiseksi",
+    "TEXT_1": "Nyxon helppokäyttöinen unenseurantatoiminto, unipäiväkirja ja unidatasi perusteella lasketut metriikat ovat käytössäsi täysin ilmaiseksi. Nyxo tukee kaikkia suurimpien valmistajien unenseurantalaitteita, kunhan ne ovat Apple Terveys tai Google Fit -yhteensopivia. Jos et omista unenseurantaan soveltuvaa laitetta, voit seurata untasi myös manuaalisesti Nyxon unipäiväkirjan avulla.",
+    "TITLE_2": "Yksilöllistä univalmennusta",
+    "TEXT_2": "Räätälöimme unidatasi perusteella viimeisimpään tieteelliseen tutkimustietoon ja johtaviin ohjaustekniikoihin perustuvan 4 viikon yksilöllisen univalmennusohjelman, joka on suunniteltu auttamaan sinua nukkumaan paremmin. Se keskittyy kaikkiin unen osa-alueisiin ja pyrkii tunnistamaan parannuskohdat päivittäisissä rutiineissasi ja unitottumuksissasi. Premium-ominaisuus (4,99 € / kk).",
+    "TITLE_3": "Vaivaton tietojen synkronointi ja jakaminen",
+    "TEXT_3": "Luomalla Nyxo Cloud -tunnuksen (valinnainen) voit synkronoida ja tallentaa uni- ja valmennustietosi Nyxo Cloud -pilvipalveluun. Voit myös halutessasi jakaa tietosi muiden käyttäjien, kuten terveydenhuollon palveluntarjoajasi, lääkärisi tai vakuutusyhtiösi kanssa. Nyxo Cloud -sivusto julkaistaan myöhemmin tänä vuonna.",
+    "TITLE_4": "Elät terveemmin, voit paremmin, saavutat enemmän",
+    "TEXT_4": "Ihmiskeho ja mieli ovat kuin äärimmäisen monimutkainen koneisto, joka tarvitsee päivittäistä huoltoa ja kunnossapitoa toimiakseen kunnolla. Uni on yksi harvoista elämän perustarpeista. Se vaikuttaa psyykkiseen ja fyysiseen hyvinvointiimme, suorituskykyyn, tehokkuuteen, luovuuteen ja lukemattomiin muihin asioihin elämässämme joka päivä. Silti sen laiminlyöminen on valitettavan yleistä. Me autamme sinua ottamaan kaiken irti ajasta, jonka vietät sängyssä."
+  },
+
+  "FOR_ORGANIZATIONS": {
+    "TITLE": "Yhteisöille",
+    "DESCRIPTION": "Nyxo auttaa koko työyhteisöäsi nukkumaan ja voimaan paremmin.",
+    "SUBTITLE": "Nyxo yrityksille ja yhteisöille",
+    "TITLE_1": "Nyxo for Teams",
+    "TEXT_1": "Riittävä ja laadukas uni on henkilökohtaisen hyvinvoinnin ja tasapainoisen työelämän avaintekijä. Nyxo for Teamsin avulla koko organisaatiosi voi nauttia Nyxo-univalmennuksen tarjoamista hyödyistä.",
+    "TITLE_2": "Vapauta tiimisi käyttämättömät voimavarat",
+    "TEXT_2": "Tiesitkö että yksin kehittyneemmissä maissa puutteellinen uni ja sen aiheuttama tehokkuusvaje maksaa satoja miljoonia työnantajille ja yhteiskunnalle joka vuosi? Me autamme organisaatiotasi toimimaan sulavammin ja saavuttamaan tehokkuustavoitteensa pitäen samalla työntekijöiden hyvinvoinnin etusijalla.",
+    "TITLE_3": "Ryhmätason unianalytiikkaa",
+    "TEXT_3": "(Tulossa pian.) Autamme löytämään ja vahvistamaan työryhmäsi potentiaalisia kehityskohteita ja olemassa olevia vahvuusalueita tarjoamalla ryhmätason analytiikkaa siitä, miten organisaatiossasi nukutaan. Kaikki tieto on keskiarvoistettu ja anonymisoitu eikä sitä voi yhdistää yksittäisiin työntekijöihin.",
+    "TITLE_4": "Hyvinvoiva työyhteisö ja energinen ilmapiiri",
+    "TEXT_4": "Hyvin levännyt ja terve työntekijä on tyytyväinen ja motivoitunut työyhteisön jäsen ja arvokas voimavara. Hymyilevät kasvot ja virkeä mieli parantavat työssä viihtymistä ja luovat kannustavaa ja energistä ilmapiiriä, jonka hedelmistä nauttii koko yhteisö.",
+    "CONTACT": "Ota yhteyttä niin kerromme, mitä Nyxo for Teams voi tarjota juuri teille!",
+    "DEMO_BUTTON": "Sovi ilmainen esittely"
+  }
+}
