@@ -8,12 +8,13 @@ interface Props {
 }
 
 const WeekHighlights = (props: Props) => {
+  const { data } = props
   return (
     <>
       {isLoggedIn() ? (
-        <LoggedInUserWeekList data={props.data} />
+        <LoggedInUserWeekList data={data} />
       ) : (
-        <LoggedOutUserWeekList data={props.data} />
+        <LoggedOutUserWeekList data={data} />
       )}
     </>
   )

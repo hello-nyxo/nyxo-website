@@ -6,7 +6,7 @@ import { Icon } from "../Icons"
 import Image, { FluidObject } from "gatsby-image"
 import colors from "../../colors"
 import { ContentfulLesson } from "../../../graphql-types"
-import LikeButton from "../LikeButton/likeButton"
+import BookmarkButton from "../BookmarkButton/bookmarkButton"
 
 type Props = {
   key: string
@@ -17,7 +17,7 @@ type Props = {
   lessons: ContentfulLesson[]
   coverPhoto: FluidObject
   slug: string
-  excerpt: string
+  excerpt?: string
   bookmarked?: any | null
 }
 
@@ -41,7 +41,7 @@ const WeekCard: FC<Props> = ({
     <Card to={path}>
       <Cover>
         <CoverPhoto fluid={coverPhoto} />
-        <LikeButton
+        <BookmarkButton
           name={name}
           type="week"
           slug={slug}

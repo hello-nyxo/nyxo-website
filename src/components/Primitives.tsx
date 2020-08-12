@@ -130,34 +130,3 @@ export const Row = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 `
-export const LikeButtonContainer = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  border: none;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  padding: 0px;
-  justify-content: center;
-  cursor: pointer;
-`
-
-export const Heart = styled(Icon).attrs(() => ({
-  fill: "none",
-  stroke: "#F42D97",
-}))`
-  margin: 0px;
-`
-
-export const HeartLiked = styled(Icon).attrs(() => ({
-  fill: "#F42D97",
-  stroke: "#F42D97",
-}))`
-  margin: 0px;
-`
-
-export const LikeButtonTemplateContainer = styled.div`
-  float: right;
-  margin-top: 30px;
-`

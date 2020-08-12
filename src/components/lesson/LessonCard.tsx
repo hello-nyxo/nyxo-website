@@ -6,7 +6,7 @@ import { ContentfulLesson } from "../../../graphql-types"
 import { truncate } from "../../Helpers/string-truncater"
 import { Icon } from "../Icons"
 import { device } from "../Primitives"
-import LikeButton from "../LikeButton/likeButton"
+import BookmarkButton from "../BookmarkButton/bookmarkButton"
 
 type Props = {
   name?: string | null
@@ -36,7 +36,7 @@ const LessonCard: FC<Props> = ({
     <Card to={path}>
       <ImageContainer>
         <Cover fluid={cover} />
-        <LikeButton
+        <BookmarkButton
           name={name}
           type="lesson"
           slug={slug}

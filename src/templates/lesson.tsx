@@ -12,19 +12,15 @@ import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H4 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
 import LargeLessonCard from "../components/lesson/LargeLessonCard"
-import {
-  Container,
-  TextContainer,
-  LikeButtonTemplateContainer,
-} from "../components/Primitives"
+import { Container, TextContainer } from "../components/Primitives"
+import { BookmarkButtonTemplateContainer } from "../components/StyledComponents/styledComponents"
 import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import getFirstAuthor from "../Helpers/AuthorHelper"
 import { getLocalizedPath } from "../Helpers/i18n-helpers"
-import LikeButton from "../components/LikeButton/likeButtonForTemplate"
-import { listLikedContents } from "../graphql/queries"
-import { API, graphqlOperation } from "aws-amplify"
+import BookmarkButton from "../components/BookmarkButton/bookmarkButtonForTemplate"
 import { useQuery } from "react-query"
+import { FetchLessonBookmark } from "../components/BookmarkButton/fetchBookmarks"
 
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
@@ -52,7 +48,17 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
     previousLesson: ContentfulLesson
   }
 
-  const description = content.fields.excerpt
+  const description = content?.fields?.excerpt
+
+  const { data: bookmarkData, status } = useQuery(
+    "lessonTemplateKey",
+    FetchLessonBookmark
+  )
+
+  const bookmarked = bookmarkData?.data.listLikedContents.items.find(
+    (item) => item.slug == slug
+  )
+
   return (
     <Layout>
       <SEO
@@ -74,9 +80,14 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
 
         <Cover>
           <CoverImage fluid={cover?.fluid} />
-          <LikeButtonTemplateContainer>
-            <LikeButton name={title} type="lesson" slug={slug} />
-          </LikeButtonTemplateContainer>
+          <BookmarkButtonTemplateContainer>
+            <BookmarkButton
+              name={title}
+              type="lesson"
+              slug={slug}
+              bookmarked={bookmarked}
+            />
+          </BookmarkButtonTemplateContainer>
         </Cover>
 
         <HtmlContent document={content.json} />

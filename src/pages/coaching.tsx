@@ -11,9 +11,6 @@ import Layout from "../components/layout"
 import LessonHighlights from "../components/LessonHighlights/LessonHighlights"
 import { Container, P } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
-import { API, graphqlOperation } from "aws-amplify"
-import { listLikedContents } from "../graphql/queries"
-import { useQuery } from "react-query"
 import WeekHighlights from "../components/week/WeekHighlights"
 
 const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
@@ -29,12 +26,6 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
   } = props
   const weeks = allContentfulWeek.edges
   const pageInfo = nodes[0].coaching
-
-  const fetchLikes = async () => {
-    return await API.graphql(graphqlOperation(listLikedContents))
-  }
-
-  const { data, status } = useQuery("someKeyName", fetchLikes)
 
   return (
     <Layout>
@@ -74,6 +65,7 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
         <LessonHighlights />
 
         <H2>Coaching weeks</H2>
+
         <WeekHighlights data={weeks} />
 
         <HabitHighlights locale={locale} />

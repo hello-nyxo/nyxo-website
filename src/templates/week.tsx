@@ -14,20 +14,16 @@ import HtmlContent, { H1, H3, H5, H6 } from "../components/Html/HtmlContent"
 import { Icon } from "../components/Icons"
 import Layout from "../components/layout"
 import LessonCard from "../components/lesson/LessonCard"
-import {
-  Container,
-  device,
-  Row,
-  LikeButtonTemplateContainer,
-} from "../components/Primitives"
+import { Container, device, Row } from "../components/Primitives"
+import { BookmarkButtonTemplateContainer } from "../components/StyledComponents/styledComponents"
 import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import LargeWeekCard from "../components/week/LargeWeekCard"
 import { getLocalizedPath } from "../Helpers/i18n-helpers"
-import LikeButton from "../components/LikeButton/likeButtonForTemplate"
+import BookmarkButton from "../components/BookmarkButton/bookmarkButtonForTemplate"
 import { useQuery } from "react-query"
-import { listLikedContents } from "../graphql/queries"
-import { API, graphqlOperation } from "aws-amplify"
+import { FetchWeekLessonBookmark } from "../components/BookmarkButton/fetchBookmarks"
+import { ContentLoader } from "../components/StyledComponents/styledComponents"
 
 type Props = {
   contentfulWeek: ContentfulWeek
@@ -79,11 +75,14 @@ const Week: FC<PageProps<Props>> = (props) => {
     }
   })
 
-  const fetchLikes = async () => {
-    return await API.graphql(graphqlOperation(listLikedContents))
-  }
+  const { data, status } = useQuery(
+    "lessonTemplateKey",
+    FetchWeekLessonBookmark
+  )
 
-  const { data, status } = useQuery("someKeyName", fetchLikes)
+  const bookmarked = data?.data.listLikedContents.items.find(
+    (item) => item.slug == slug
+  )
 
   return (
     <Layout>
@@ -102,9 +101,14 @@ const Week: FC<PageProps<Props>> = (props) => {
 
         <Cover>
           <CoverImage fluid={coverPhoto?.fluid} />
-          <LikeButtonTemplateContainer>
-            <LikeButton name={title} type="week" slug={slug} />
-          </LikeButtonTemplateContainer>
+          <BookmarkButtonTemplateContainer>
+            <BookmarkButton
+              name={title}
+              type="week"
+              slug={slug}
+              bookmarked={bookmarked}
+            />
+          </BookmarkButtonTemplateContainer>
         </Cover>
 
         <H3>About this week:</H3>
@@ -136,31 +140,63 @@ const Week: FC<PageProps<Props>> = (props) => {
           <Section key={section.header.id}>
             <H6>{section.header.title}</H6>
             <HtmlContent document={section.header.description?.json} />
-
-            <Lessons>
-              {section.data.map((lesson: ContentfulLesson) => {
-                const bookmarkedLesson = data?.data.listLikedContents.items.find(
-                  (item) => item.slug == lesson.slug
-                )
-
-                return (
-                  <LessonCard
-                    key={lesson.slug}
-                    slug={lesson.slug}
-                    name={lesson.lessonName}
-                    path={`/lesson/${lesson.slug}`}
-                    lesson={lesson}
-                    readingTime={
-                      lesson.lessonContent?.fields?.readingTime?.minutes
-                    }
-                    cover={lesson.cover?.fluid}
-                    excerpt={lesson.lessonContent?.fields?.excerpt}
-                    bookmarked={bookmarkedLesson}
+            {status === "loading" ||
+              (status === "error" && (
+                <>
+                  <P>Loading additional data....</P>
+                  <ContentLoader
+                    type="Oval"
+                    color="#4a5aef"
+                    height={24}
+                    width={24}
+                    timeout={3000}
                   />
-                  // JSON.stringify(data)
-                )
-              })}
-            </Lessons>
+                  <Lessons>
+                    {section.data.map((lesson: ContentfulLesson) => {
+                      return (
+                        <LessonCard
+                          key={lesson.slug}
+                          slug={lesson.slug}
+                          name={lesson.lessonName}
+                          path={`/lesson/${lesson.slug}`}
+                          lesson={lesson}
+                          readingTime={
+                            lesson.lessonContent?.fields?.readingTime?.minutes
+                          }
+                          cover={lesson.cover?.fluid}
+                          excerpt={lesson.lessonContent?.fields?.excerpt}
+                        />
+                      )
+                    })}
+                  </Lessons>
+                </>
+              ))}
+
+            {status === "success" && (
+              <Lessons>
+                {section.data.map((lesson: ContentfulLesson) => {
+                  const bookmarkedLesson = data?.data.listLikedContents.items.find(
+                    (item) => item.slug == lesson.slug
+                  )
+
+                  return (
+                    <LessonCard
+                      key={lesson.slug}
+                      slug={lesson.slug}
+                      name={lesson.lessonName}
+                      path={`/lesson/${lesson.slug}`}
+                      lesson={lesson}
+                      readingTime={
+                        lesson.lessonContent?.fields?.readingTime?.minutes
+                      }
+                      cover={lesson.cover?.fluid}
+                      excerpt={lesson.lessonContent?.fields?.excerpt}
+                      bookmarked={bookmarkedLesson}
+                    />
+                  )
+                })}
+              </Lessons>
+            )}
           </Section>
         ))}
 
@@ -362,4 +398,8 @@ const Tags = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+`
+const P = styled.p`
+  display: inline-block;
+  margin-right: 15px;
 `

@@ -1,5 +1,8 @@
 import React from "react"
-import { LikeButtonContainer, HeartLiked, Heart } from "../Primitives"
+import {
+  BookmarkButtonContainer,
+  Heart,
+} from "../StyledComponents/styledComponents"
 import { API, graphqlOperation } from "aws-amplify"
 import { deleteLikedContent, createLikedContent } from "../../graphql/mutations"
 import { isLoggedIn } from "../../auth/AppUser"
@@ -12,24 +15,25 @@ interface Props {
   bookmarked?: any
 }
 
-const LikeButton = (props: Props) => {
-  const likeDetails = {
-    name: props.name,
-    slug: props.slug,
-    type: props.type,
-  }
-
-  const unlikeDetails = {
-    id: props.bookmarked?.id,
-  }
+const BookmarkButton = (props: Props) => {
+  const { name, slug, type, bookmarked } = props
 
   const unlikeHandler = async () => {
+    const unlikeDetails = {
+      id: bookmarked?.id,
+    }
     await API.graphql(
       graphqlOperation(deleteLikedContent, { input: unlikeDetails })
     )
   }
 
   const likeHandler = async () => {
+    const likeDetails = {
+      name: name,
+      slug: slug,
+      type: type,
+    }
+
     isLoggedIn()
       ? await API.graphql(
           graphqlOperation(createLikedContent, { input: likeDetails })
@@ -37,15 +41,18 @@ const LikeButton = (props: Props) => {
       : navigate("/me/login")
   }
 
-  return props.bookmarked ? (
-    <LikeButtonContainer onClick={unlikeHandler}>
-      <HeartLiked height="25px" width="25px" name="heart" viewBox="0 0 28 30" />
-    </LikeButtonContainer>
-  ) : (
-    <LikeButtonContainer onClick={likeHandler}>
-      <Heart height="25px" width="25px" name="heart" viewBox="0 0 28 30" />
-    </LikeButtonContainer>
+  return (
+    <BookmarkButtonContainer
+      onClick={bookmarked ? unlikeHandler : likeHandler}
+      className={bookmarked ? "active" : ""}>
+      <Heart
+        height="25px"
+        width="25px"
+        name={bookmarked ? "heartLiked" : "heart"}
+        viewBox="0 0 28 30"
+      />
+    </BookmarkButtonContainer>
   )
 }
 
-export default LikeButton
+export default BookmarkButton

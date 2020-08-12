@@ -8,19 +8,21 @@ interface Props {
 }
 
 const LoggedOutUserlessonsList = (props: Props) => {
+  const { data } = props
+
   return (
     <Lessons>
-      {props.data.edges.map(({ node }: { node: ContentfulLesson }) => {
+      {data.edges.map(({ node: lesson }: { node: ContentfulLesson }) => {
         return (
           <LessonCard
-            key={node.slug}
-            slug={node.slug}
-            name={node.lessonName}
-            path={`/lesson/${node.slug}`}
-            lesson={node}
-            readingTime={node.lessonContent?.fields?.readingTime?.minutes}
-            cover={node.cover?.fluid}
-            excerpt={node.lessonContent?.fields?.excerpt}
+            key={lesson.slug}
+            slug={lesson.slug}
+            name={lesson.lessonName}
+            path={`/lesson/${lesson.slug}`}
+            lesson={lesson}
+            readingTime={lesson.lessonContent?.fields?.readingTime?.minutes}
+            cover={lesson.cover?.fluid}
+            excerpt={lesson.lessonContent?.fields?.excerpt}
           />
         )
       })}

@@ -6,50 +6,46 @@ import { Auth } from "aws-amplify"
 import styled from "styled-components"
 import colors from "../../colors"
 import { Container } from "../../components/Primitives"
-import { listLikedContents } from "../../graphql/queries"
-import { API, graphqlOperation } from "aws-amplify"
 import LessonCard from "../../components/lesson/LessonCard"
 import WeekCard from "../week/WeekCard"
 import HabitCard from "../Habit/HabitCard"
-import { ContentfulLesson } from "../../../graphql-types"
 import { H2, H3 } from "../Html/HtmlContent"
 import { Icon } from "../Icons"
 import PageHeader from "../PageHeader"
 import UserHabits from "../user/UserHabits"
 import { useQuery } from "react-query"
+import { FetchAllBookmark } from "../BookmarkButton/fetchBookmarks"
+import {
+  ContentLoader,
+  Button,
+} from "../../components/StyledComponents/styledComponents"
 
 const Details = () => {
   const graphqlData = useStaticQuery(graphql`
     query {
       allContentfulHabit {
-        edges {
-          node {
-            ...HabitFragment
-          }
+        nodes {
+          ...HabitFragment
         }
       }
 
       allContentfulLesson(filter: { node_locale: { eq: "en-US" } }) {
-        edges {
-          node {
-            ...LessonFragment
-          }
+        nodes {
+          ...LessonFragment
         }
       }
 
       allContentfulWeek(filter: { node_locale: { eq: "en-US" } }) {
-        edges {
-          node {
-            ...WeekFragment
-          }
+        nodes {
+          ...WeekFragment
         }
       }
     }
   `)
 
-  const weeksEN = graphqlData.allContentfulWeek.edges
-  const habits = graphqlData.allContentfulHabit.edges
-  const lessonsEN = graphqlData.allContentfulLesson.edges
+  const weeksEN = graphqlData.allContentfulWeek.nodes
+  const habits = graphqlData.allContentfulHabit.nodes
+  const lessonsEN = graphqlData.allContentfulLesson.nodes
 
   const user = getCurrentUser()
 
@@ -63,11 +59,22 @@ const Details = () => {
       })
   }
 
-  const fetchLikes = async () => {
-    return await API.graphql(graphqlOperation(listLikedContents))
+  const { data: bookmarkData, status } = useQuery(
+    "detailsKey",
+    FetchAllBookmark
+  )
+
+  let i = 0
+  const limit = 3
+  if (status === "error") {
+    for (i; i < limit; i++) {
+      const { data, status } = useQuery("detailsKey", FetchAllBookmark)
+    }
   }
 
-  const { data, status } = useQuery("someKeyName", fetchLikes)
+  const fetchData = () => {
+    useQuery("detailsKey", FetchAllBookmark)
+  }
 
   return (
     <>
@@ -91,29 +98,42 @@ const Details = () => {
         </ul>
         <H3>Bookmarked Content</H3>
         <BookmarkContainer>
-          {status === "loading" && <div>Loading bookmarks ...</div>}
-
-          {status === "error" && <div>Error fetching bookmarked data</div>}
+          {status === "loading" ||
+            (status === "error" && (
+              <>
+                <P>Loading additional data....</P>
+                <ContentLoader
+                  type="Oval"
+                  color="#4a5aef"
+                  height={24}
+                  width={24}
+                  timeout={3000}
+                />
+                {i >= limit && (
+                  <>
+                    <p>There was a problem loading your data.</p>
+                    <Button onClick={fetchData}>Retry loading data</Button>
+                  </>
+                )}
+              </>
+            ))}
 
           {status === "success" &&
-            lessonsEN.map(({ node }: { node: ContentfulLesson }) => {
-              const bookmarked = data.data.listLikedContents.items.find(
-                (item) => item.slug == node.slug
+            lessonsEN.map(({ slug, lessonName, lessonContent, cover }: any) => {
+              const bookmarked = bookmarkData?.data.listLikedContents.items.find(
+                (item) => item.slug == slug
               )
 
               return (
                 bookmarked && (
                   <LessonCard
                     key={bookmarked.id}
-                    slug={node.slug}
-                    name={node.lessonName}
-                    path={`/lesson/${node.slug}`}
-                    lesson={node}
-                    readingTime={
-                      node.lessonContent?.fields?.readingTime?.minutes
-                    }
-                    cover={node.cover?.fluid}
-                    excerpt={node.lessonContent?.fields?.excerpt}
+                    slug={slug}
+                    name={lessonName}
+                    path={`/lesson/${slug}`}
+                    readingTime={lessonContent?.fields?.readingTime?.minutes}
+                    cover={cover?.fluid}
+                    excerpt={lessonContent?.fields?.excerpt}
                     bookmarked={bookmarked}
                   />
                 )
@@ -121,27 +141,36 @@ const Details = () => {
             })}
 
           {status === "success" &&
-            weeksEN.map(({ node }: any) => {
-              const bookmarked = data.data.listLikedContents.items.find(
-                (item) => item.slug == node.slug
-              )
-
-              return (
-                bookmarked && (
-                  <WeekCard
-                    key={bookmarked.id}
-                    path={`/week/${node.slug}`}
-                    intro={node.intro}
-                    name={node.weekName}
-                    duration={node.duration}
-                    lessons={node.lessons}
-                    coverPhoto={node.coverPhoto.fluid}
-                    slug={node.slug}
-                    bookmarked={bookmarked}
-                  />
+            weeksEN.map(
+              ({
+                slug,
+                intro,
+                weekName,
+                duration,
+                lessons,
+                coverPhoto,
+              }: any) => {
+                const bookmarked = bookmarkData?.data.listLikedContents.items.find(
+                  (item) => item.slug == slug
                 )
-              )
-            })}
+
+                return (
+                  bookmarked && (
+                    <WeekCard
+                      key={bookmarked.id}
+                      path={`/week/${slug}`}
+                      intro={intro}
+                      name={weekName}
+                      duration={duration}
+                      lessons={lessons}
+                      coverPhoto={coverPhoto.fluid}
+                      slug={slug}
+                      bookmarked={bookmarked}
+                    />
+                  )
+                )
+              }
+            )}
         </BookmarkContainer>
 
         <H2>Sleep Coaching</H2>
@@ -165,4 +194,8 @@ const BookmarkContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0 -0.5rem;
+`
+const P = styled.p`
+  display: inline-block;
+  margin-right: 15px;
 `

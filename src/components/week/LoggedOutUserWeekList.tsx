@@ -8,9 +8,10 @@ interface Props {
 }
 
 const LoggedOutUserWeekList = (props: Props) => {
+  const { data } = props
   return (
     <Weeks>
-      {props.data.map(({ node: week }: { node: ContentfulWeek }) => {
+      {data.map(({ node: week }: { node: ContentfulWeek }) => {
         return (
           <WeekCard
             key={week.slug}
@@ -19,7 +20,7 @@ const LoggedOutUserWeekList = (props: Props) => {
             name={week.weekName}
             duration={week.duration}
             lessons={week.lessons}
-            coverPhoto={week.coverPhoto.fluid}
+            coverPhoto={week.coverPhoto?.fluid}
             slug={week.slug}
           />
         )
