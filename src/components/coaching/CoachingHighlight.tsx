@@ -56,6 +56,7 @@ const Container = styled.div``
 
 const SlideShow = styled.div`
   position: relative;
+  overflow: hidden;
   transform: translate3d(0, 0, 0);
 `
 

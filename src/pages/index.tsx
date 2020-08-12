@@ -13,6 +13,7 @@ import { Container, Demo, Row } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import { CoachingHighlight } from "../components/coaching/CoachingHighlight"
 import { SyncFeatures } from "../components/features/SyncFeatures"
+import { DataDrivenDemo } from "../components/features/DataDriven"
 
 type Props = {
   datasource: GatsbyImage
@@ -75,7 +76,7 @@ const IndexPage: FC<PageProps<Props>> = ({
       <IndexContainer>
         <div className={"features"}>
           <SyncFeatures />
-
+          <DataDrivenDemo />
           <div className={"feature__item"}>
             <div className={"row"}>
               <div className={"col-6"}>

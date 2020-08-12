@@ -9,7 +9,7 @@ import { useTrail, animated } from "react-spring"
 import { useInView } from "react-intersection-observer"
 import devices from "../../devices"
 
-export const SyncFeatures: FC = () => {
+export const AskExperts: FC = () => {
   const {
     googleFit: {
       childImageSharp: { fluid: googleFitFluid },
