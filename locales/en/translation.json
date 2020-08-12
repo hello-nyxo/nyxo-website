@@ -56,5 +56,60 @@
     "TEXT_4": "A well-rested and healthy employee is a happy and motivated employee. And happy faces set the mood for the whole working environment. Now who wouldn’t want to work in a joyful and supportive atmosphere?",
     "CONTACT": "Contact us for more information on Nyxo for Teams!",
     "DEMO_BUTTON": "Book a Free Demo"
-  }
+  },
+
+  "COACHING": {
+    "TITLE": "Want Sleep Better? Get Nyxo Sleep Coaching Now",
+    "SUBTITLE": "The secret to good sleep is at your fingertips",
+
+    "INTRODUCTION": "A good night’s sleep is the key to success. It makes you feel better, think better, and makes your more productive. The question is how can one improve their sleep? Once you go to bed, there isn’t much you can do to improve your sleep quality. However, there´s a clear connection between what you do during the day and your nightly sleep quality, and this is the central thesis of our sleep coaching.",
+
+    "HOW_IT_WORKS": "How Nyxo Sleep Coaching Works",
+    "HOW_IT_WORKS_TEXT": "Nyxo Sleep Coaching is structured into four weeks, each one them focusing on a different part of good sleep. By connecting your sleep tracker to Nyxo, through the Nyxo app, we use your sleep data to personalize the coaching program to your unique needs. By examining different parts of daily activity, such as exercise, sleep, heart rate, and daily activity levels, we can bring you personalized advice in the form of lessons, practices, and facilitated habit change.",
+    "LESSONS": "Lessons",
+    "LESSONS_TEXT": "The world´s largest selection of sleep lessons",
+    "WEEKS": "Coaching weeks",
+    "WEEKS_TEXT": "Browse the different coaching weeks",
+    "HABITS": "Habits",
+    "HABITS_TEXT": "Below is a small sample of habits and exercises from the Nyxo Sleep Coaching",
+    "AUTHORS": "Authors",
+    "AUTHORS_TEXT": "These are the authors behind the Nyxo materials you love. Here you can learn more about the authors, including their areas of expertise, and find all materials they've written."
+  },
+
+  "BLOG": {
+    "TITLE": "Nyxo Blog",
+    "DESCRIPTION": "Follow the Nyxo blog for the latest tips on sleep health and well-being as well as software engineering. Be the first to hear about new product features, announcements and company updates."
+  },
+
+  "FOOTER": {
+    "TITLE": "Personalized sleep coaching that works!",
+    "YOU": "For You",
+    "ORGANIZATIONS": "For Organizations",
+    "COACHING": "Coaching",
+    "BLOG": "Blog",
+    "ABOUT_US": "About Us",
+    "PRESS_KIT": "Press Kit",
+    "SUPPORT": "Support",
+    "CONTACT": "Contact",
+    "PRIVACY": "Privacy",
+    "TERMS": "Terms of Use"
+  },
+
+  "CONTACT": {
+    "TITLE": "Contact",
+    "TEXT": "We take the commitment to our users seriously. If you have questions on how to use Nyxo, are experiencing technical difficulties or want to know more about our products, please do not hesitate to contact us. We also encourage you to send any feedback or suggestions you might have!",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "SUBJECT": "Subject",
+    "MESSAGE": "Message",
+    "SEND": "Send"
+  },
+
+  "TAGS": "Tags",
+  "RELATED": "Related Blog Posts",
+  "LESSONS": "Lessons",
+  "HABITS": "Habits",
+  "MORNING": "Morning",
+  "AFTERNOON": "Afternoon",
+  "EVENING": "Evening"
 }

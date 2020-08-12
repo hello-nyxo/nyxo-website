@@ -1,9 +1,9 @@
-import { Link } from "gatsby"
 import Img from "gatsby-image"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "../../@types/childImageSharp"
 import devices from "../devices"
+import { Link } from "gatsby-plugin-react-i18next"
 
 type Props = {
   title?: string | null | undefined

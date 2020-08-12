@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { ContentfulHabit } from "../../../graphql-types"
@@ -33,11 +34,12 @@ const HabitHighlights: FC<Props> = ({ locale }) => {
       }
     }
   `)
+  const { t } = useTranslation()
 
   return (
     <Container>
-      <H3>Habits</H3>
-      <P>The world´s largest selection of sleep lessons</P>
+      <H3>{t("COACHING.AUTHORS")}</H3>
+      <P>{t("COACHING.HABITS_TEXT")}</P>
 
       <Habits>
         {habits.edges.map(({ node }: { node: ContentfulHabit }) => (

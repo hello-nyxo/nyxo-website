@@ -56,5 +56,61 @@
     "TEXT_4": "Hyvin levännyt ja terve työntekijä on tyytyväinen ja motivoitunut työyhteisön jäsen ja arvokas voimavara. Hymyilevät kasvot ja virkeä mieli parantavat työssä viihtymistä ja luovat kannustavaa ja energistä ilmapiiriä, jonka hedelmistä nauttii koko yhteisö.",
     "CONTACT": "Ota yhteyttä niin kerromme, mitä Nyxo for Teams voi tarjota juuri teille!",
     "DEMO_BUTTON": "Sovi ilmainen esittely"
-  }
+  },
+
+  "COACHING": {
+    "TITLE": "Nyxo Univalmennus",
+    "SUBTITLE": "Tutustu hyvien yöunien salaisuuksiin",
+
+    "INTRODUCTION": "A good night’s sleep is the key to success. It makes you feel better, think better, and makes your more productive. The question is how can one improve their sleep? Once you go to bed, there isn’t much you can do to improve your sleep quality. However, there´s a clear connection between what you do during the day and your nightly sleep quality, and this is the central thesis of our sleep coaching.",
+
+    "HOW_IT_WORKS": "Kuinka Nyxo Univalmennus toimii",
+    "HOW_IT_WORKS_TEXT": "Nyxo Sleep Coaching is structured into four weeks, each one them focusing on a different part of good sleep. By connecting your sleep tracker to Nyxo, through the Nyxo app, we use your sleep data to personalize the coaching program to your unique needs. By examining different parts of daily activity, such as exercise, sleep, heart rate, and daily activity levels, we can bring you personalized advice in the form of lessons, practices, and facilitated habit change.",
+    "LESSONS": "Oppitunnit",
+    "LESSONS_TEXT": "Maailman laajin valikoima oppitunteja unesta",
+    "WEEKS": "Valmennusviikot",
+    "WEEKS_TEXT": "Selaa univalmennuksen valmennusviikkoja",
+    "HABITS": "Tavoitteet",
+    "HABITS_TEXT": "Alla pieni läpileikkaus Nyxo Univalmennuksessa valittavista harjoitteista ja tavoitteista.",
+    "AUTHORS": "Kirjoittajat",
+    "AUTHORS_TEXT": "Alla olevat henkilöt ovat luoneet Nyxo Univalmennuksen."
+  },
+
+  "BLOG": {
+    "TITLE": "Nyxon Blogi",
+    "DESCRIPTION": "Seuraamalla blogiamme pääset tutustumaan tuoreimpiin uni- ja hyvinvointivinkkeihin sekä ohjelmistotuotannon saloihin. Lue ensimmäisten joukossa mm. uusista tuotepäivityksistä ja muista kuulumisistamme."
+  },
+
+  "FOOTER": {
+    "TITLE": "Yksilöllistä univalmennusta joka toimii",
+    "YOU": "Sinulle",
+    "ORGANIZATIONS": "Yrityksille",
+    "COACHING": "Valmennus",
+    "BLOG": "Blogi",
+    "ABOUT_US": "Meistä",
+    "PRESS_KIT": "Lehdistö",
+    "SUPPORT": "Tuki",
+    "CONTACT": "Ota yhteyttä",
+    "PRIVACY": "Tietosuojaseloste",
+    "TERMS": "Käyttöehdot"
+  },
+
+  "CONTACT": {
+    "TITLE": "Ota Yhteyttä",
+    "TEXT": "Otamme sitoutumisen käyttäjiämme kohtaan tosissaan. Jos sinulla on kysymyksiä Nyxon käytöstä, teknisiä ongelmia tai haluat tietää lisää tuotteistamme, älä epäröi ottaa yhteyttä. Kannustamme myös lähettämään mitä tahansa palautetta, ehdotuksia, toiveita tai huomioita tuotteisiimme tai palveluun liittyen.",
+    "NAME": "Nimi",
+    "EMAIL": "Sähköposti",
+    "SUBJECT": "Aihe",
+    "MESSAGE": "Viesti",
+    "SEND": "Lähetä"
+  },
+
+  "TAGS": "Aiheet",
+  "RELATED": "Lisää artikkeleita samasta aiheesta",
+  "LESSONS": "Oppituntia",
+  "HABITS": "Tapaa",
+  "MORNING": "Aamu",
+  "AFTERNOON": "Iltapäivä",
+  "EVENING": "Ilta",
+  "MORE_COACHING_WEEKS": "Lisää valmennusviikkoja"
 }

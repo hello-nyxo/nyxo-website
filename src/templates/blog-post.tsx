@@ -12,6 +12,7 @@ import TagSection from "../components/tags/Tags"
 import { RelatedContentFactory } from "../Helpers/related-content"
 import { BlogPostNode } from "../typings/blog-types"
 import BlogPost from "../components/BlogPost"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 type Props = {
   markdownRemark: BlogPostNode
@@ -51,6 +52,8 @@ const BlogPostTemplate: FC<PageProps<Props>> = ({
     .setTags(tags)
     .getArticles()
 
+  const { t } = useTranslation()
+
   return (
     <Layout>
       <>
@@ -79,14 +82,14 @@ const BlogPostTemplate: FC<PageProps<Props>> = ({
           {!!author && <AuthorCard author={author} />}
 
           <Tags>
-            <H3>Tags</H3>
+            <H3>{t("TAGS")}</H3>
             <TagSection largeTags tags={tags} />
           </Tags>
 
           <ShareArea></ShareArea>
         </TextContainer>
         <Container>
-          <H3>Related Blog Posts</H3>
+          <H3>{t("RELATED")}</H3>
           <RelatedContentSection>
             {relatedBlogPosts.map(
               ({ article: blogPost }: { article: BlogPostNode }) => (
