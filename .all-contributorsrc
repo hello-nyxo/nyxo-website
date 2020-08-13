@@ -11,6 +11,15 @@
   "commitConvention": "none",
   "contributors": [
     {
+      "login": "turq84",
+      "name": "Kayla Gordon",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/13418428?v=4",
+      "profile": "https://www.kayla-gordon.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
       "login": "plahteenlahti",
       "name": "Perttu",
       "avatar_url": "https://avatars0.githubusercontent.com/u/7436554?v=4",
@@ -20,5 +29,10 @@
       ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "projectName": "nyxo-website",
+  "projectOwner": "hello-nyxo",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
 }

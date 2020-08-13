@@ -60,6 +60,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/plahteenlahti"><img src="https://avatars0.githubusercontent.com/u/7436554?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Perttu</b></sub></a><br /><a href="https://github.com/hello-nyxo/nyxo-website/commits?author=plahteenlahti" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.kayla-gordon.com/"><img src="https://avatars3.githubusercontent.com/u/13418428?v=4" width="100px;" alt=""/><br /><sub><b>Kayla Gordon</b></sub></a><br /><a href="https://github.com/hello-nyxo/nyxo-website/commits?author=turq84" title="Code">💻</a></td>
   </tr>
 </table>
 
