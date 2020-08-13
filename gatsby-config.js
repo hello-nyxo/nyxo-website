@@ -147,13 +147,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
-    {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         path: `${__dirname}/locales`,
@@ -172,7 +165,21 @@ module.exports = {
         keySeparator: ".",
         nsSeparator: false,
       },
+      pages: [
+        {
+          matchPath: "/fi/week/:uid",
+          languages: [],
+        },
+      ],
     },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sass`,
     {

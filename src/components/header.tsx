@@ -17,8 +17,8 @@ const Header: FC = () => {
   const { t } = useTranslation()
 
   const status = isLoggedIn()
-    ? { path: "me/login", title: "LOGOUT" }
-    : { path: "me/login", title: "LOGIN" }
+    ? { path: "me/login", language: "en", title: "LOGOUT" }
+    : { path: "me/login", language: "en", title: "LOGIN" }
 
   const links = [
     { path: "for-you", title: "YOU" },
@@ -36,10 +36,13 @@ const Header: FC = () => {
       </Logo>
 
       <Links>
-        {links.map(({ title, path }) => (
+        {links.map(({ title, path, language }) => (
           <Li key={title}>
             {title === "LOGOUT" && (
-              <MenuLink onClick={signOut} to={`/${path}`}>
+              <MenuLink
+                onClick={signOut}
+                {...(language ? language : "en")}
+                to={`/${path}`}>
                 {t(`NAVIGATION.${title}`)}
               </MenuLink>
             )}

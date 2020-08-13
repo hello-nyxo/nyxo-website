@@ -111,5 +111,9 @@
   "HABITS": "Habits",
   "MORNING": "Morning",
   "AFTERNOON": "Afternoon",
-  "EVENING": "Evening"
+  "EVENING": "Evening",
+  "MORE_COACHING_WEEKS": "More Coaching Weeks",
+  "MORE_HABITS": "More Habits",
+  "DESCRIPTION": "Description",
+  "HABIT": "Habit"
 }

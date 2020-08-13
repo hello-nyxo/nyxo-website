@@ -108,9 +108,19 @@
   "TAGS": "Aiheet",
   "RELATED": "Lisää artikkeleita samasta aiheesta",
   "LESSONS": "Oppituntia",
-  "HABITS": "Tapaa",
+  "HABITS": "Tavoitetta",
   "MORNING": "Aamu",
   "AFTERNOON": "Iltapäivä",
   "EVENING": "Ilta",
-  "MORE_COACHING_WEEKS": "Lisää valmennusviikkoja"
+  "MORE_COACHING_WEEKS": "Lisää valmennusviikkoja",
+  "MORE_HABITS": "Lisää Tavoitteita",
+  "DESCRIPTION": "Kuvaus",
+  "HABIT": "Tavoite",
+
+  "ABOUT_THIS_WEEK": "Tietoa viikosta",
+  "LESSONS_FOR_THIS_WEEK": "Tämän viikon oppitunteja",
+
+  "LESSON_BY": "Oppitunnin laatinut",
+  "HABITS_TO_TRY": "Oppituntiin liittyviä tavoitteita",
+  "ADDITIONAL_READING": "Lisää luettavaa"
 }

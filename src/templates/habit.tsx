@@ -10,6 +10,7 @@ import { Container } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import { getLocalizedPath } from "../Helpers/i18n-helpers"
 import { getIcon } from "../Helpers/IconHelper"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 type Props = {
   contentfulHabit: ContentfulHabit
@@ -21,6 +22,7 @@ const Habit: FC<PageProps<Props>> = ({ data, location: { pathname } }) => {
   const { contentfulHabit: habit, nextHabit, previousHabit } = data
   const icon = getIcon(habit.period)
 
+  const { t } = useTranslation()
   return (
     <Layout>
       <SEO
@@ -30,7 +32,7 @@ const Habit: FC<PageProps<Props>> = ({ data, location: { pathname } }) => {
       />
 
       <Container>
-        <Type>Habit</Type>
+        <Type>{t("HABIT")}</Type>
         <Title>{habit.title}</Title>
         <Period style={{ color: `${icon.color}` }}>
           <Icon
@@ -39,11 +41,11 @@ const Habit: FC<PageProps<Props>> = ({ data, location: { pathname } }) => {
             width="25px"
             stroke={icon.color}
           />
-          {habit.period}
+          {t(habit.period as string)}
         </Period>
 
         <LessonContainer>
-          <H3>Description</H3>
+          <H3>{t("DESCRIPTION")}</H3>
           <HtmlContent document={habit.description?.json} />
 
           {habit.lesson?.habit?.map((habit: ContentfulHabit) => (
@@ -58,7 +60,7 @@ const Habit: FC<PageProps<Props>> = ({ data, location: { pathname } }) => {
           ))}
         </LessonContainer>
 
-        <H4>More Habits to Explore</H4>
+        <H4>{t("MORE_HABITS")}</H4>
         <MoreHabitsContainer>
           {nextHabit && (
             <HabitCard

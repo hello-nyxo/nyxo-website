@@ -17,7 +17,7 @@ import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import getFirstAuthor from "../Helpers/AuthorHelper"
 import { getLocalizedPath } from "../Helpers/i18n-helpers"
-
+import { useTranslation } from "gatsby-plugin-react-i18next"
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
   pageContext: { locale },
@@ -42,7 +42,7 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
     nextLesson: ContentfulLesson
     previousLesson: ContentfulLesson
   }
-
+  const { t } = useTranslation()
   const description = content.fields.excerpt
   return (
     <Layout>
@@ -68,7 +68,7 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
         </Cover>
 
         <HtmlContent document={content.json} />
-        {habits && <H3>Example Habits to try</H3>}
+        {habits && <H3>{t("HABITS_TO_TRY")}</H3>}
         <Habits>
           {habits?.map((habit: any, index: number) => (
             <HabitCard
@@ -83,19 +83,19 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
         </Habits>
         {readMore && (
           <>
-            <H3>Additional Reading</H3>
+            <H3>{t("ADDITIONAL_READING")}</H3>
             <HtmlContent document={readMore.json} />
           </>
         )}
 
-        <H4>Lesson By</H4>
+        <H4>{t("LESSON_BY")}</H4>
         <Authors>
           {authorCard?.map((author: ContentfulAuthor) => (
             <AuthorCard key={author.slug} author={author} />
           ))}
         </Authors>
 
-        <H4>Tags</H4>
+        <H4>{t("TAGS")}</H4>
         <Tags>
           <TagSection tags={keywords} />
         </Tags>

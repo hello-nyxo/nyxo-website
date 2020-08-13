@@ -3,8 +3,9 @@ import React, { FC } from "react"
 import styled from "styled-components"
 import { ContentfulLesson } from "../../../graphql-types"
 import LessonCard from "../LessonCard"
-import { H3 } from "../Html/HtmlContent"
+import { H2 } from "../Html/HtmlContent"
 import { P } from "../Primitives"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 const LessonHighlights: FC = () => {
   const { allContentfulLessonEN } = useStaticQuery(graphql`
@@ -22,10 +23,11 @@ const LessonHighlights: FC = () => {
     }
   `)
 
+  const { t } = useTranslation()
   return (
     <Container>
-      <H3>Lessons</H3>
-      <P>The world´s largest selection of sleep lessons</P>
+      <H2>{t("COACHING.LESSONS")}</H2>
+      <P>{t("COACHING.LESSONS_TEXT")}</P>
 
       <Lessons>
         {allContentfulLessonEN.edges.map(

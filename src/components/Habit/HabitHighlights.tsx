@@ -38,7 +38,7 @@ const HabitHighlights: FC<Props> = ({ locale }) => {
 
   return (
     <Container>
-      <H3>{t("COACHING.AUTHORS")}</H3>
+      <H3>{t("COACHING.HABITS")}</H3>
       <P>{t("COACHING.HABITS_TEXT")}</P>
 
       <Habits>
