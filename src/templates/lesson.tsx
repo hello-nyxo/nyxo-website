@@ -76,7 +76,7 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
               key={index}
               title={habit.title}
               period={habit.period}
-              slug={getLocalizedPath(`/habit/${habit.slug}`, locale)}
+              slug={`/habit/${habit.slug}`}
               excerpt={habit.description.fields.excerpt}
             />
           ))}
@@ -106,13 +106,13 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
         <MoreLessonsContainer>
           {previousLesson && (
             <LargeLessonCard
-              path={getLocalizedPath(`/lesson/${previousLesson.slug}`, locale)}
+              path={`/lesson/${previousLesson.slug}`}
               lesson={previousLesson}
             />
           )}
           {nextLesson && (
             <LargeLessonCard
-              path={getLocalizedPath(`/lesson/${nextLesson.slug}`, locale)}
+              path={`/lesson/${nextLesson.slug}`}
               lesson={nextLesson}
             />
           )}

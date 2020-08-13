@@ -13,21 +13,34 @@ type Props = {
 }
 
 const HabitHighlights: FC<Props> = ({ locale }) => {
-  const { habits } = useStaticQuery(graphql`
+  const { habitsEN, habitsFI } = useStaticQuery(graphql`
     {
-      habits: allContentfulHabit(
+      habitsEN: allContentfulHabit(
         filter: { node_locale: { eq: "en-US" } }
         limit: 8
       ) {
-        edges {
-          node {
-            title
-            slug
-            period
-            description {
-              fields {
-                excerpt
-              }
+        nodes {
+          title
+          slug
+          period
+          description {
+            fields {
+              excerpt
+            }
+          }
+        }
+      }
+      habitsFI: allContentfulHabit(
+        filter: { node_locale: { eq: "fi-FI" } }
+        limit: 8
+      ) {
+        nodes {
+          title
+          slug
+          period
+          description {
+            fields {
+              excerpt
             }
           }
         }
@@ -35,14 +48,14 @@ const HabitHighlights: FC<Props> = ({ locale }) => {
     }
   `)
   const { t } = useTranslation()
-
+  const habits = locale === "fi" ? habitsFI : habitsEN
   return (
     <Container>
       <H3>{t("COACHING.HABITS")}</H3>
       <P>{t("COACHING.HABITS_TEXT")}</P>
 
       <Habits>
-        {habits.edges.map(({ node }: { node: ContentfulHabit }) => (
+        {habits.nodes.map((node: ContentfulHabit) => (
           <HabitCard
             link
             key={node.slug as string}

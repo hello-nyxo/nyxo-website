@@ -61,7 +61,7 @@ const BlogPostTemplate: FC<PageProps<Props>> = ({
           title={title as string}
           pathName={pathname}
           image={thumbnailBlog?.childImageSharp?.fixed?.src}
-          description={description || excerpt}
+          description={(description || excerpt) as string}
           staticImage={true}
           canonical={canonical}
         />

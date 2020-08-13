@@ -14,26 +14,14 @@ import { useTranslation } from "gatsby-plugin-react-i18next"
 
 const pricing = {
   free: {
-    title: "Free",
+    title: "FREE",
     price: "0€",
-    perks: [
-      "Sleep tracking & metrics",
-      "Sleep diary & daily habits",
-      " Nyxo Cloud service",
-      "Quick and responsive tech support",
-    ],
+    perks: ["TRACKING", "DIARY", "CLOUD", "SERVICE"],
   },
   premium: {
-    title: "Premium",
+    title: "PREMIUM",
     price: "4.99€",
-    perks: [
-      "Sleep tracking & metrics",
-      "Sleep diary & daily habits",
-      " Nyxo Cloud service",
-      "Quick and responsive tech support",
-      "4-week data-driven sleep coaching program",
-      " Full access to the coaching materials",
-    ],
+    perks: ["TRACKING", "DIARY", "CLOUD", "SERVICE", "COACHING", "ACCESS"],
   },
 }
 

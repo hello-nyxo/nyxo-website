@@ -15,7 +15,6 @@ import WeekCard from "../components/WeekCard"
 import { useTranslation } from "gatsby-plugin-react-i18next"
 
 const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
-  const locale = "en-US"
   const {
     data: {
       weeksFI: { nodes: fiWeeks },
@@ -53,7 +52,7 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
         <H3>{t("COACHING.HOW_IT_WORKS")}</H3>
         <P>{t("COACHING.HOW_IT_WORKS_TEXT")}</P>
 
-        <LessonHighlights />
+        <LessonHighlights language={language} />
 
         <H2>{t("COACHING.WEEKS")}</H2>
         <P>{t("COACHING.WEEKS_TEXT")}</P>
@@ -84,11 +83,11 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
               ))}
         </Weeks>
 
-        <HabitHighlights locale={locale} />
+        <HabitHighlights locale={language} />
 
         <H2>{t("COACHING.AUTHORS")}</H2>
         <P>{t("COACHING.AUTHORS_TEXT")}</P>
-        <AuthorList locale={locale} />
+        <AuthorList locale={language} />
       </Container>
       <GetAppBanner />
     </Layout>

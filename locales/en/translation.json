@@ -54,7 +54,17 @@
     "TITLE_3": "Cloud Backups",
     "TEXT_3": "Creating a Nyxo Cloud account (optional) allows you to sync and store all your data in the Nyxo Cloud. You also have an option to give other users, such as health care or insurance providers, access to your data via Nyxo Cloud. Nyxo Cloud website will be released later this year.",
     "TITLE_4": "Health, Well-being and Productivity Benefits",
-    "TEXT_4": "We humans are like incredibly complex pieces of machinery that require day to day maintenance in order to function properly. Sleep is one of the few basic necessities in life. It affects our mental and physical well-being, performance, productivity, creativity and countless other things every day. Yet it is often overlooked. We help you to make the most out of the time you spend in bed."
+    "TEXT_4": "We humans are like incredibly complex pieces of machinery that require day to day maintenance in order to function properly. Sleep is one of the few basic necessities in life. It affects our mental and physical well-being, performance, productivity, creativity and countless other things every day. Yet it is often overlooked. We help you to make the most out of the time you spend in bed.",
+
+    "FREE": "Free",
+    "PREMIUM": "Premium",
+    "TRACKING": "Sleep tracking & metrics",
+    "DIARY": "Sleep diary & daily habits",
+    "CLOUD": "Nyxo Cloud service",
+    "SERVICE": "Quick and responsive tech support",
+    "COACHING": "4-week data-driven sleep coaching program",
+    "ACCESS": "Full access to the coaching materials",
+    "MONTH": "/ month"
   },
 
   "FOR_ORGANIZATIONS": {
@@ -70,7 +80,16 @@
     "TITLE_4": "Happy and Energetic Working Community",
     "TEXT_4": "A well-rested and healthy employee is a happy and motivated employee. And happy faces set the mood for the whole working environment. Now who wouldn’t want to work in a joyful and supportive atmosphere?",
     "CONTACT": "Contact us for more information on Nyxo for Teams!",
-    "DEMO_BUTTON": "Book a Free Demo"
+    "DEMO_BUTTON": "Book a Free Demo",
+
+    "REGULAR": "Regular",
+    "EXCLUSIVE": "Exclusive",
+    "TRACKING": "Individual sleep tracking & metrics",
+    "ACCESS": "Full access to the coaching program & materials",
+    "CLOUD": "Nyxo Cloud service",
+    "ANALYTICS": "Group-level sleep analytics (coming soon)",
+    "SUPPORT": "Quick and responsive tech support",
+    "CONSULTING": "Private consulting & intervention plans"
   },
 
   "COACHING": {
@@ -137,5 +156,25 @@
 
   "LESSON_BY": "Authors",
   "HABITS_TO_TRY": "Habits From This Lesson",
-  "ADDITIONAL_READING": "Additional Reading"
+  "ADDITIONAL_READING": "Additional Reading",
+
+  "LESSONS_BY": "Lessons by",
+
+  "CHECKOUT_BLOG": "Check Out Our Blog",
+  "MORE_FROM_BLOG": "More From Our Blog",
+
+  "ABOUT": {
+    "TITLE": "We’re on a mission to make the world sleep better",
+    "NYXO": "Our Story",
+    "INTRODUCTION_1": "Nyxo was founded in early 2019 with a mission to help people to improve their sleep and day rhythm. Our first product is Nyxo, a personalized sleep coaching program that operates from your phone, evaluates your sleeping habits and helps you tackle the issues you might have in your sleep and daily routines.",
+    "INTRODUCTION_2": "The roots of Nyxo are deeply rooted in scientific research, in a research commercialization project conducted at the University of Helsinki.",
+    "INTRODUCTION_3": "Before founding Nyxo, the founders did pioneering work on startup–corporate collaboration. With these methods, the company has had the opportunity to kick-start their business and work with the leading companies in Finland in insurance and health care business.",
+    "SCIENTISTS": "Scientific Advisory",
+    "SCIENTISTS_TEXT": "Nyxo’s roots are deeply rooted in science and we constantly collaborate with the leading sleep researchers, in order to build the best possible products for improving sleep and well-being.",
+
+    "WORK_FOR_US": "Join Us!",
+    "WORK_FOR_US_TEXT": "We’re a small team but growing quickly. As an early team member, you’ll have an outsized impact on what we build and how we build it. If you’re interested, we’d love to hear from you.",
+
+    "INSTAGRAM": "Follow Us"
+  }
 }

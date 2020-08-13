@@ -27,7 +27,8 @@ const Author: FC<PageProps<Props>> = ({
   },
   location: { pathname },
 }) => {
-  const { t } = useTranslation
+  const { t } = useTranslation()
+
   return (
     <Layout>
       <SEO

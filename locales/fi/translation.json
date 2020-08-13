@@ -54,7 +54,17 @@
     "TITLE_3": "Vaivaton tietojen synkronointi ja jakaminen",
     "TEXT_3": "Luomalla Nyxo Cloud -tunnuksen (valinnainen) voit synkronoida ja tallentaa uni- ja valmennustietosi Nyxo Cloud -pilvipalveluun. Voit myös halutessasi jakaa tietosi muiden käyttäjien, kuten terveydenhuollon palveluntarjoajasi, lääkärisi tai vakuutusyhtiösi kanssa. Nyxo Cloud -sivusto julkaistaan myöhemmin tänä vuonna.",
     "TITLE_4": "Elät terveemmin, voit paremmin, saavutat enemmän",
-    "TEXT_4": "Ihmiskeho ja mieli ovat kuin äärimmäisen monimutkainen koneisto, joka tarvitsee päivittäistä huoltoa ja kunnossapitoa toimiakseen kunnolla. Uni on yksi harvoista elämän perustarpeista. Se vaikuttaa psyykkiseen ja fyysiseen hyvinvointiimme, suorituskykyyn, tehokkuuteen, luovuuteen ja lukemattomiin muihin asioihin elämässämme joka päivä. Silti sen laiminlyöminen on valitettavan yleistä. Me autamme sinua ottamaan kaiken irti ajasta, jonka vietät sängyssä."
+    "TEXT_4": "Ihmiskeho ja mieli ovat kuin äärimmäisen monimutkainen koneisto, joka tarvitsee päivittäistä huoltoa ja kunnossapitoa toimiakseen kunnolla. Uni on yksi harvoista elämän perustarpeista. Se vaikuttaa psyykkiseen ja fyysiseen hyvinvointiimme, suorituskykyyn, tehokkuuteen, luovuuteen ja lukemattomiin muihin asioihin elämässämme joka päivä. Silti sen laiminlyöminen on valitettavan yleistä. Me autamme sinua ottamaan kaiken irti ajasta, jonka vietät sängyssä.",
+
+    "FREE": "Ilmainen",
+    "PREMIUM": "Premium",
+    "TRACKING": "Unenseuranta ja unimetriikka",
+    "DIARY": "Unipäiväkirja ja päivittäiset tavoitteet",
+    "CLOUD": "Nyxo Cloud -palvelu",
+    "SERVICE": "Nopea ja palveleva tekninen tuki",
+    "COACHING": "4 viikon dataan perustuva univalmennusohjelma",
+    "ACCESS": "Käyttöoikeus kaikkiin valmennusmateriaaleihin",
+    "MONTH": "kuukaudessa"
   },
 
   "FOR_ORGANIZATIONS": {
@@ -70,7 +80,16 @@
     "TITLE_4": "Hyvinvoiva työyhteisö ja energinen ilmapiiri",
     "TEXT_4": "Hyvin levännyt ja terve työntekijä on tyytyväinen ja motivoitunut työyhteisön jäsen ja arvokas voimavara. Hymyilevät kasvot ja virkeä mieli parantavat työssä viihtymistä ja luovat kannustavaa ja energistä ilmapiiriä, jonka hedelmistä nauttii koko yhteisö.",
     "CONTACT": "Ota yhteyttä niin kerromme, mitä Nyxo for Teams voi tarjota juuri teille!",
-    "DEMO_BUTTON": "Sovi ilmainen esittely"
+    "DEMO_BUTTON": "Sovi ilmainen esittely",
+
+    "REGULAR": "Tavallinen",
+    "EXCLUSIVE": "Laaja",
+    "TRACKING": "Henkilökohtainen unenseuranta ja unimetriikka",
+    "ACCESS": "Käyttöoikeus univalmennusohjelmaan ja materiaaleihin",
+    "CLOUD": "Nyxo Cloud -palvelu",
+    "ANALYTICS": "Ryhmätason unianalytiikka",
+    "SUPPORT": "Nopea ja palveleva tekninen tuki",
+    "CONSULTING": "Yksityinen konsultointi ja jatkotoimien suunnittelu"
   },
 
   "COACHING": {
@@ -137,5 +156,25 @@
 
   "LESSON_BY": "Oppitunnin laatinut",
   "HABITS_TO_TRY": "Oppituntiin liittyviä tavoitteita",
-  "ADDITIONAL_READING": "Lisää luettavaa"
+  "ADDITIONAL_READING": "Lisää luettavaa",
+
+  "LESSONS_BY": "Oppitunteja henkilöltä",
+
+  "CHECKOUT_BLOG": "Blogistamme",
+  "MORE_FROM_BLOG": "Lisää blogikirjoituksia",
+
+  "ABOUT": {
+    "TITLE": "Jokaisella ihmisellä on oikeus hyviin yöuniin",
+    "NYXO": "Tietoa meistä",
+    "INTRODUCTION_1": "Nyxo perustettiin alkuvuodesta 2019 tarkoituksenaan auttaa ihmisiä nukkumaan paremmin ja parantamaan jaksamistaan. Ensimmäinen tuotteemme on Nyxo, sovelluspohjainen univalmennusohjelma, joka auttaa parantamaan erityisesti niitä vuorokausirytmin osa-alueita, joissa kullakin ihmisellä henkilökohtaisesti on eniten parantamisen varaa.",
+    "INTRODUCTION_2": "Nyxon juuret ovat syvällä tieteellisessä tutkimuksessa. Yrityksen perusta valettiin Helsingin yliopistossa toteutetussa tieteen kaupallistamisprojektissa.",
+    "INTRODUCTION_3": "Ennen Nyxoa yrityksen perustajat ovat toimineet startupien ja yritysten välisen yhteistyön pioneereina Suomessa. Vahvan kokemuspohjan ansiosta Nyxolla on ollut mahdollisuus polkaista liiketoiminta käyntiin Suomen johtavien terveys- ja vakuutuspalveluiden tarjoajien kanssa.",
+    "SCIENTISTS": "Tieteellinen asiantuntijatiimi",
+    "SCIENTISTS_TEXT": "Nyxon juuret ovat syvällä tieteessä ja teemme jatkuvasti yhteistyötä johtavien unitutkijoiden kanssa tarjotaksemme parhaat mahdolliset työkalut unen ja vuorokausirytmin parantamiseen.",
+
+    "WORK_FOR_US": "Tule meille töihin!",
+    "WORK_FOR_US_TEXT": "Olemme pieni, mutta jatkuvasti kasvava tiimi. Liittymällä mukaan varhaisessa vaiheessa pääset vaikuttamaan vahvasti siihen, miten rakennamme ja kehitämme tuotteitamme tulevaisuudessa. Jos olet kiinnostunut, ota ihmeessä yhteyttä!",
+
+    "INSTAGRAM": "Seuraa meitä"
+  }
 }

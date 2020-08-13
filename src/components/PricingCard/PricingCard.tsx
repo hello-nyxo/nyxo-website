@@ -1,7 +1,8 @@
-import React from "react"
+import React, { FC } from "react"
 import styled from "styled-components"
 import { Icon } from "../Icons"
 import devices from "../../devices"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 interface Props {
   name: string
@@ -9,15 +10,15 @@ interface Props {
   perks: string[]
 }
 
-const PricingCard = (props: Props) => {
-  const { name, price, perks } = props
+const PricingCard: FC<Props> = ({ name, price, perks }) => {
+  const { t } = useTranslation()
 
   return (
     <PriceCard>
       <Top>
-        <h3>{name}</h3>
+        <h3>{t(`COACHING.${name}`)}</h3>
         <h2>{price}</h2>
-        <small>/month</small>
+        <small>{t(`COACHING.MONTH)`)}</small>
       </Top>
       <Bottom>
         <ul>
@@ -30,7 +31,7 @@ const PricingCard = (props: Props) => {
                 viewBox="0 0 30 30"
                 name="checkMark"
               />
-              {perk}
+              {t(`COACHING.${perk}`)}
             </li>
           ))}
         </ul>
