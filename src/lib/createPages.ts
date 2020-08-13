@@ -59,6 +59,7 @@ export const createPages: GatsbyCreatePages = async ({
     })
   })
 
+  // Merge different types of tags
   const allTags = [
     ...new Set([
       ...tags.map((tag: ContentfulTag) => tag.fieldValue),
@@ -67,13 +68,15 @@ export const createPages: GatsbyCreatePages = async ({
   ]
 
   allTags.forEach((tag: string) => {
-    createPage({
-      path: `/tags/${kebabCase(tag)}/`,
-      component: path.resolve(`./src/templates/tag.tsx`),
-      context: {
-        tag: tag,
-      },
-    })
+    if (typeof tag !== undefined) {
+      createPage({
+        path: `/tags/${kebabCase(tag)}/`,
+        component: path.resolve(`./src/templates/tag.tsx`),
+        context: {
+          tag: tag,
+        },
+      })
+    }
   })
 
   weeks.forEach((week: ContentfulWeek, index: number) => {
