@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "turq84",
+      "name": "Kayla Gordon",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/13418428?v=4",
+      "profile": "https://www.kayla-gordon.com/",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "nyxo-website",
+  "projectOwner": "hello-nyxo",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
