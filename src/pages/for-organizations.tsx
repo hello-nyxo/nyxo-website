@@ -134,25 +134,6 @@ const BookDemo = styled(Demo)`
   margin: 0px auto 50px auto;
 `
 
-const Title = styled(H1)`
-  text-align: center;
-  margin-top: 5rem;
-  font-size: 4rem;
-`
-
-const Subtitle = styled.h4`
-  text-align: center;
-`
-
-const CoverPhotoContainer = styled.div`
-  margin: 5rem 0rem;
-  height: 30rem;
-  max-height: 50vh;
-  width: 100%;
-  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.2),
-    0 18px 36px -18px rgba(0, 0, 0, 0.22);
-`
-
 const Cover = styled(Image)`
   width: 100%;
   height: 100%;

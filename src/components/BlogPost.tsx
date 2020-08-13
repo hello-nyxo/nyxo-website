@@ -94,6 +94,7 @@ const Excerpt = styled.p`
   font-size: 0.9rem;
   color: var(--textSecondary);
   line-height: 22px;
+  white-space: normal;
 `
 const ImageContainer = styled.div`
   width: 100%;

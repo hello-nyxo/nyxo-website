@@ -6,7 +6,6 @@ import styled from "styled-components"
 import { isLoggedIn } from "../auth/AppUser"
 import { Link as NonLocalizedLink } from "gatsby"
 import { device, minDevice } from "../components/Primitives"
-import { NyxoLogo } from "./logo"
 
 const signOut = () => {
   Auth.signOut()
@@ -16,7 +15,7 @@ const signOut = () => {
 
 const Header: FC = () => {
   const { t } = useTranslation()
-  const { languages, originalPath } = useI18next()
+  const { languages, originalPath, language } = useI18next()
 
   const status = isLoggedIn()
     ? { path: "me/details", title: "ME" }
@@ -29,24 +28,16 @@ const Header: FC = () => {
     { path: "blog", title: "BLOG" },
     { ...status },
   ]
+
+  console.log(language)
+
   return (
     <HeaderContainer>
       <Logo>
         <Link to="/" title={"Nyxo"}>
-          <NyxoLogo name="Nyxo" />
+          Nyxo
         </Link>
       </Logo>
-
-      <ul className="languages">
-        {languages.map((lng) => (
-          <li key={lng}>
-            <Link to={originalPath} language={lng}>
-              {lng}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
       <Links>
         {links.map(({ title, path }) => (
           <Li key={title}>
@@ -60,6 +51,15 @@ const Header: FC = () => {
             )}
           </Li>
         ))}
+        {languages.map((lang) =>
+          lang === language ? null : (
+            <Li key={lang}>
+              <MenuLink to={originalPath} language={lang}>
+                {t(lang)}
+              </MenuLink>
+            </Li>
+          )
+        )}
       </Links>
     </HeaderContainer>
   )
@@ -68,15 +68,18 @@ const Header: FC = () => {
 export default Header
 
 const Logo = styled.div`
-  img {
-    @media ${device.mobileS} {
-      width: 5rem;
-    }
-    width: 5rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  font-style: normal;
+  font-family: var(--semibold);
+
+  a {
+    color: hsl(255deg, 85%, 30%);
   }
 
   @media ${minDevice.mobileS} {
-    margin-bottom: 1rem;
+    flex: 1;
+    margin-bottom: 1.5rem;
   }
 
   @media ${minDevice.tablet} {
@@ -87,31 +90,35 @@ const Logo = styled.div`
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
-  background-color: var(--bg);
   justify-content: space-between;
 
-  @media ${device.mobileL} {
+  @media ${minDevice.mobileL} {
     flex-direction: column;
-    padding: 1rem;
+    align-items: center;
+    padding: 1rem 2rem;
   }
 
   @media ${minDevice.mobileS} {
     flex-direction: column;
-    padding: 1rem;
+    align-items: center;
+    padding: 1rem 1rem;
   }
 
   @media ${minDevice.tablet} {
     flex-direction: row;
+    align-items: flex-end;
     padding: 1.5rem;
   }
 
   @media ${minDevice.tabletL} {
     flex-direction: row;
+    align-items: flex-end;
     padding: 1.5rem;
   }
 
   @media ${minDevice.laptopL} {
     flex-direction: row;
+    align-items: flex-end;
     padding: 2rem;
   }
 `
@@ -119,32 +126,32 @@ const HeaderContainer = styled.header`
 const Links = styled.ul`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 
   @media ${minDevice.mobileS} {
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 0rem 0rem;
   }
 
   @media ${minDevice.tablet} {
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding: 0rem 1rem;
   }
 `
 
 const Li = styled.li`
   list-style: none;
-  font-family: var(--semibold);
-  font-weight: 600;
+  font-family: var(--medium);
+  font-weight: 500;
   font-style: normal;
-  padding-left: 1rem;
 
-  @media ${device.mobileS} {
+  @media ${minDevice.mobileS} {
     font-size: 0.9rem;
-    margin-left: 0.5rem;
+    margin: 0rem 0.5rem 0rem 0.5rem;
   }
 
-  @media ${device.tablet} {
+  @media ${minDevice.tablet} {
     font-size: 1rem;
   }
 `
@@ -152,14 +159,11 @@ const Li = styled.li`
 const MenuLink = styled(Link)`
   transition: 0.2s opacity cubic-bezier(0.075, 0.82, 0.165, 1);
 
-  &:hover {
-    opacity: 0.8;
-  }
-
   color: var(--radiantBlue);
-
+  opacity: 0.9;
   &:hover,
   &:active {
+    opacity: 1;
     color: var(--radiantBlue);
     border-bottom: 3px solid var(--radiantBlue);
     padding-bottom: 10px;
@@ -169,14 +173,12 @@ const MenuLink = styled(Link)`
 const NonLocalizedMenuLink = styled(NonLocalizedLink)`
   transition: 0.2s opacity cubic-bezier(0.075, 0.82, 0.165, 1);
 
-  &:hover {
-    opacity: 0.8;
-  }
-
   color: var(--radiantBlue);
+  opacity: 0.9;
 
   &:hover,
   &:active {
+    opacity: 1;
     color: var(--radiantBlue);
     border-bottom: 3px solid var(--radiantBlue);
     padding-bottom: 10px;

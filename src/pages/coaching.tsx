@@ -107,7 +107,7 @@ const Weeks = styled.div`
 const Title = styled(H1)`
   text-align: center;
   margin-top: 5rem;
-  font-size: 4rem;
+  font-size: 2.8rem;
 `
 
 const Subtitle = styled.h4`

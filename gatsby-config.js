@@ -155,7 +155,6 @@ module.exports = {
         redirect: false,
         siteUrl: "https://nyxo.app",
         i18nextOptions: {
-          debug: true,
           lowerCaseLng: true,
           saveMissing: false,
           interpolation: {

@@ -65,7 +65,7 @@ const BlogPreview: FC = () => {
               key={slug as string}
               author={author}
               title={title}
-              slug={slug}
+              slug={`/${slug}`}
               description={description}
               thumbnailBlog={thumbnailBlog}
               tags={tags}

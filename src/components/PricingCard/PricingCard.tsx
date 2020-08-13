@@ -16,9 +16,9 @@ const PricingCard: FC<Props> = ({ name, price, perks }) => {
   return (
     <PriceCard>
       <Top>
-        <h3>{t(`COACHING.${name}`)}</h3>
+        <h3>{t(`FOR_YOU.${name}`)}</h3>
         <h2>{price}</h2>
-        <small>{t(`COACHING.MONTH)`)}</small>
+        <small>{t(`FOR_YOU.MONTH`)}</small>
       </Top>
       <Bottom>
         <ul>
@@ -31,7 +31,7 @@ const PricingCard: FC<Props> = ({ name, price, perks }) => {
                 viewBox="0 0 30 30"
                 name="checkMark"
               />
-              {t(`COACHING.${perk}`)}
+              {t(`FOR_YOU.${perk}`)}
             </li>
           ))}
         </ul>
