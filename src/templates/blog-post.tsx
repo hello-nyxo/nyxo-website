@@ -223,15 +223,14 @@ export const Content = styled.div`
       position: relative;
       &:before {
         display: inline;
-        left: 0;
-        bottom: 5px;
+        font-size: 2rem;
+        line-height: 2rem;
         margin-right: 10px;
-        font-size: 1rem;
-        position: absolute;
-        content: "💡";
-        color: hsl(255deg, 85%, 30%);
+        position: relative;
+        content: "•";
+        color: rgb(44, 11, 142);
         font-weight: bold;
-        font-family: "Montserrat-semibold", sans-serif;
+        font-family: Montserrat-semibold, sans-serif;
       }
 
       p {
