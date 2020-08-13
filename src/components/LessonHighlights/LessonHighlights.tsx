@@ -20,6 +20,17 @@ const LessonHighlights: FC = () => {
           }
         }
       }
+
+      allContentfulLessonFI: allContentfulLesson(
+        filter: { node_locale: { eq: "fi-FI" } }
+        limit: 8
+      ) {
+        edges {
+          node {
+            ...LessonFragment
+          }
+        }
+      }
     }
   `)
 

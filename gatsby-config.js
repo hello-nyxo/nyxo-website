@@ -154,23 +154,44 @@ module.exports = {
         defaultLanguage: `en`,
         redirect: false,
         siteUrl: "https://nyxo.app",
-      },
-      i18nextOptions: {
-        debug: true,
-        lowerCaseLng: true,
-        saveMissing: false,
-        interpolation: {
-          escapeValue: false, // not needed for react as it escapes by default
+        i18nextOptions: {
+          debug: true,
+          lowerCaseLng: true,
+          saveMissing: false,
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+          keySeparator: ".",
+          nsSeparator: false,
         },
-        keySeparator: ".",
-        nsSeparator: false,
+        pages: [
+          {
+            matchPath: "/:lang?/week/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["fi"],
+          },
+          {
+            matchPath: "/:lang?/lesson/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["fi"],
+          },
+          {
+            matchPath: "/:lang?/author/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["fi"],
+          },
+          {
+            matchPath: "/:lang?/habit/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["fi"],
+          },
+          {
+            matchPath: "/:lang?/questionnaire/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["fi"],
+          },
+        ],
       },
-      pages: [
-        {
-          matchPath: "/fi/week/:uid",
-          languages: [],
-        },
-      ],
     },
     {
       resolve: `gatsby-source-contentful`,

@@ -48,7 +48,6 @@ const AuthorFeaturette: FC = () => {
 
   return (
     <Container>
-      <Title>Lessons By:</Title>
       {authors.map((author: ContentfulAuthor) => (
         <AuthorCard key={author.id} author={author} />
       ))}

@@ -192,13 +192,19 @@ export const pageQuery = graphql`
         fieldValue
       }
     }
-    nextWeek: contentfulWeek(slug: { eq: $next }) {
+    nextWeek: contentfulWeek(
+      slug: { eq: $next }
+      node_locale: { eq: $locale }
+    ) {
       ...WeekFragment
     }
-    previousWeek: contentfulWeek(slug: { eq: $previous }) {
+    previousWeek: contentfulWeek(
+      slug: { eq: $previous }
+      node_locale: { eq: $locale }
+    ) {
       ...WeekFragment
     }
-    contentfulWeek(slug: { eq: $slug }) {
+    contentfulWeek(slug: { eq: $slug }, node_locale: { eq: $locale }) {
       ...WeekFragment
     }
 

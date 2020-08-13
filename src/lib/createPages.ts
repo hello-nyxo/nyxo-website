@@ -60,6 +60,7 @@ export const createPages: GatsbyCreatePages = async ({
   })
 
   // Merge different types of tags
+
   const allTags = [
     ...new Set([
       ...tags.map((tag: ContentfulTag) => tag.fieldValue),
@@ -73,6 +74,7 @@ export const createPages: GatsbyCreatePages = async ({
         path: `/tags/${kebabCase(tag)}/`,
         component: path.resolve(`./src/templates/tag.tsx`),
         context: {
+          locale: "en-US",
           tag: tag,
         },
       })
@@ -156,7 +158,7 @@ export const createPages: GatsbyCreatePages = async ({
     const scholar = author.slug ? author.slug.replace(/-/g, " ") : "no"
 
     createPage({
-      path: getLocalizedPath(`author/${author.slug}`, author.node_locale),
+      path: getLocalizedPath(`/author/${author.slug}`, author.node_locale),
       component: path.resolve(`./src/templates/author.tsx`),
       context: {
         slug: author.slug,

@@ -43,7 +43,6 @@ const IndexPage: FC<PageProps<Props>> = ({
   },
 }) => {
   const { t } = useTranslation()
-  const { languages, originalPath } = useI18next()
 
   return (
     <Layout>
@@ -57,15 +56,6 @@ const IndexPage: FC<PageProps<Props>> = ({
       />
 
       <div className={"page-header home"}>
-        <ul className="languages">
-          {languages.map((lng) => (
-            <li key={lng}>
-              <Link to={originalPath} language={lng}>
-                {lng}
-              </Link>
-            </li>
-          ))}
-        </ul>
         <HeroMessage>{t("INDEX.TITLE")}</HeroMessage>
         <Container>
           <HeroContentWrap>
@@ -97,14 +87,8 @@ const IndexPage: FC<PageProps<Props>> = ({
 
               <div className={"col-6"}>
                 <div className={"feature__content"}>
-                  <FeaturesHeroText>
-                    No need to buy a new sleep tracker
-                  </FeaturesHeroText>
-                  <p>
-                    Import your data from your existing sleep tracker. If you do
-                    not own a sleep tracker, you can also use Nyxo’s built in
-                    sleep diary feature to track your sleep.
-                  </p>
+                  <FeaturesHeroText>{t("INDEX.IMPORTING")}</FeaturesHeroText>
+                  <P>{t("INDEX.IMPORTING_TEXT")}</P>
                 </div>
               </div>
             </div>
@@ -114,15 +98,8 @@ const IndexPage: FC<PageProps<Props>> = ({
             <div className={"row"}>
               <div className={"col-6"}>
                 <div className={"feature__content"}>
-                  <FeaturesHeroText>
-                    Developed together with the leading sleep researchers
-                  </FeaturesHeroText>
-                  <p>
-                    Nyxo sleep coaching program is based on the latest
-                    scientific evidence. It focuses on improving all aspects of
-                    your sleep and daily rhythm of life. See all the authors{" "}
-                    <Link to="/author">here</Link>
-                  </p>
+                  <FeaturesHeroText>{t("INDEX.AUTHORS")}</FeaturesHeroText>
+                  <P>{t("INDEX.AUTHORS_TEXT")}</P>
                 </div>
               </div>
               <div className="col-6 first">
@@ -143,13 +120,8 @@ const IndexPage: FC<PageProps<Props>> = ({
               </div>
               <div className={"col-6"}>
                 <div className={"feature__content"}>
-                  <FeaturesHeroText>
-                    Improving your sleep has never been this easy
-                  </FeaturesHeroText>
-                  <p>
-                    See what four weeks of personalized sleep coaching can do
-                    for your well-being and productivity.
-                  </p>
+                  <FeaturesHeroText>{t("INDEX.EASE_OF_USE")}</FeaturesHeroText>
+                  <P>{t("INDEX.EASE_OF_USE_TEXT")}</P>
                 </div>
               </div>
             </div>
@@ -158,11 +130,8 @@ const IndexPage: FC<PageProps<Props>> = ({
             <div className={"row"}>
               <div className={"col-6"}>
                 <div className={"feature__content"}>
-                  <FeaturesHeroText>Data-driven coaching</FeaturesHeroText>
-                  <p>
-                    Nyxo uses your sleep data to personalize the coaching to fit
-                    your needs.
-                  </p>
+                  <FeaturesHeroText>{t("INDEX.DATA")}</FeaturesHeroText>
+                  <P>{t("INDEX.DATA_TEXT")}</P>
                 </div>
               </div>
 
@@ -191,20 +160,15 @@ const IndexPage: FC<PageProps<Props>> = ({
               <div className={"col-6"}>
                 <div className={"feature__content"}>
                   <FeaturesHeroText>
-                    Supercharge your organization
+                    {t("INDEX.ORGANIZATIONS")}
                   </FeaturesHeroText>
-                  <p>
-                    With Nyxo for teams (coming soon), you can enroll your team
-                    or even your whole organization into the coaching program.
-                    We will help your employees to sleep better and improve both
-                    their well-being and work performance.
-                  </p>
+                  <P>{t("INDEX.ORGANIZATIONS_TEXT")}</P>
 
                   <Demo
                     rel="noopener"
                     href="https://calendly.com/nyxo"
                     target="_blank">
-                    Book a Free Demo
+                    {t("FOR_ORGANIZATIONS.DEMO_BUTTON")}
                   </Demo>
                 </div>
               </div>

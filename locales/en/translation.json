@@ -2,13 +2,28 @@
   "INDEX": {
     "TITLE": "Your Search For Better Sleep Ends Here",
     "INTRODUCTION": "Nyxo is the best aid for improving your sleep quality. We combine cutting edge sleep science with your sleep tracker’s data to provide you with personalized and actionable coaching that will make you sleep better.",
-    "GET_THE_APP": "Get The App"
+    "GET_THE_APP": "Get The App",
+
+    "IMPORTING": "No Need to Buy a New Sleep Tracker",
+    "IMPORTING_TEXT": "Import your data from your existing sleep tracker. If you do not own a sleep tracker, you can also use Nyxo’s built in sleep diary feature to track your sleep.",
+
+    "AUTHORS": "Developed Together With The Leading Sleep Researchers",
+    "AUTHORS_TEXT": "Nyxo sleep coaching program is based on the latest scientific evidence. It focuses on improving all aspects of your sleep and daily rhythm of life.",
+
+    "EASE_OF_USE": "Improving your sleep has never been this easy",
+    "EASE_OF_USE_TEXT": "See what four weeks of personalized sleep coaching can do for your well-being and productivity.",
+
+    "DATA": "Data-Driven Coaching",
+    "DATA_TEXT": "Nyxo uses your sleep data to personalize the coaching to fit your needs.",
+
+    "ORGANIZATIONS": "Supercharge Your Organization",
+    "ORGANIZATIONS_TEXT": "With Nyxo for teams (coming soon), you can enroll your team or even your whole organization into the coaching program. We will help your employees to sleep better and improve both their well-being and work performance."
   },
 
   "NAVIGATION": {
     "YOU": "You",
     "ORGANIZATIONS": "Organizations",
-    "COACHING": "Coaching",
+    "COACHING": "Sleep",
     "BLOG": "Blog",
     "LOGIN": "Login",
     "LOGOUT": "Logout"
@@ -115,5 +130,12 @@
   "MORE_COACHING_WEEKS": "More Coaching Weeks",
   "MORE_HABITS": "More Habits",
   "DESCRIPTION": "Description",
-  "HABIT": "Habit"
+  "HABIT": "Habit",
+
+  "ABOUT_THIS_WEEK": "About This Week",
+  "LESSONS_FOR_THIS_WEEK": "Lessons From This Week",
+
+  "LESSON_BY": "Authors",
+  "HABITS_TO_TRY": "Habits From This Lesson",
+  "ADDITIONAL_READING": "Additional Reading"
 }

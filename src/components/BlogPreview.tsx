@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
+import { Link, useTranslation } from "gatsby-plugin-react-i18next"
 import { graphql, useStaticQuery } from "gatsby"
 import BlogPost from "./BlogPost"
 import { H2 } from "../components/Html/HtmlContent"
@@ -43,10 +43,10 @@ const BlogPreview: FC = () => {
   `)
 
   const posts = data.allMarkdownRemark.edges
-
+  const { t } = useTranslation()
   return (
     <>
-      <BlogSection>Check out our blog!</BlogSection>
+      <BlogSection>{t("CHECKOUT_BLOG")}</BlogSection>
       <Posts>
         {posts.map(({ node }: { node: BlogPostNode }) => {
           const frontmatter = node.frontmatter
@@ -75,7 +75,7 @@ const BlogPreview: FC = () => {
       </Posts>
 
       <BlogText>
-        <BlogLink to="/blog">More from our blog</BlogLink>
+        <BlogLink to="/blog">{t("MORE_FROM_BLOG")}</BlogLink>
       </BlogText>
     </>
   )

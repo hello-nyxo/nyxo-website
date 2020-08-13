@@ -25,7 +25,7 @@ const BlogPost: FC<Props> = ({
   const mainTag = tags ? tags[0] : ["sleep"]
 
   return (
-    <Card to={`${slug}`}>
+    <Card to={`/${slug}`}>
       <ImageContainer>
         <Image
           alt="Blog Cover Image"

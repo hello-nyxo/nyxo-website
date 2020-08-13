@@ -17,10 +17,16 @@ import { useTranslation } from "gatsby-plugin-react-i18next"
 const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
   const locale = "en-US"
   const {
-    data: { allContentfulWeek, coachingMeta, coachingCover },
+    data: {
+      weeksFI: { nodes: fiWeeks },
+      weeksEN: { nodes: enWeeks },
+      coachingMeta,
+      coachingCover,
+    },
+    pathContext: { language },
     location: { pathname },
   } = props
-  const weeks = allContentfulWeek.edges
+  console.log(props)
 
   const { t } = useTranslation()
 
@@ -51,18 +57,31 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
 
         <H2>{t("COACHING.WEEKS")}</H2>
         <P>{t("COACHING.WEEKS_TEXT")}</P>
+
         <Weeks>
-          {weeks.map(({ node: week }: { node: ContentfulWeek }) => (
-            <WeekCard
-              key={week.slug}
-              path={`/week/${week.slug}`}
-              intro={week.intro}
-              name={week.weekName}
-              duration={week.duration}
-              lessons={week.lessons}
-              coverPhoto={week.coverPhoto.fluid}
-            />
-          ))}
+          {language === "fi"
+            ? fiWeeks.map((week: ContentfulWeek) => (
+                <WeekCard
+                  key={week.slug}
+                  path={`/week/${week.slug}`}
+                  intro={week.intro}
+                  name={week.weekName}
+                  duration={week.duration}
+                  lessons={week.lessons}
+                  coverPhoto={week.coverPhoto.fluid}
+                />
+              ))
+            : enWeeks.map((week: ContentfulWeek) => (
+                <WeekCard
+                  key={week.slug}
+                  path={`/week/${week.slug}`}
+                  intro={week.intro}
+                  name={week.weekName}
+                  duration={week.duration}
+                  lessons={week.lessons}
+                  coverPhoto={week.coverPhoto.fluid}
+                />
+              ))}
         </Weeks>
 
         <HabitHighlights locale={locale} />
@@ -134,23 +153,20 @@ export const pageQueryCoaching = graphql`
       }
     }
 
-    allDataJson {
-      nodes {
-        coaching {
-          title
-          description
-        }
-      }
-    }
-
-    allContentfulWeek(
+    weeksEN: allContentfulWeek(
       filter: { node_locale: { eq: "en-US" }, slug: { ne: "introduction" } }
       sort: { fields: order }
     ) {
-      edges {
-        node {
-          ...WeekFragment
-        }
+      nodes {
+        ...WeekFragment
+      }
+    }
+    weeksFI: allContentfulWeek(
+      filter: { node_locale: { eq: "fi-FI" }, slug: { ne: "introduction" } }
+      sort: { fields: order }
+    ) {
+      nodes {
+        ...WeekFragment
       }
     }
   }

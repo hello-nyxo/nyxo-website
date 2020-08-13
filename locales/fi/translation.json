@@ -2,13 +2,28 @@
   "INDEX": {
     "TITLE": "Nyxo – Yksilöllinen univalmennusohjelma",
     "INTRODUCTION": "Nyxo on paras apuväline unenlaadun parantamiseksi. Yhdistämällä tieteellisen unitutkimuksen kovinta kärkeä älylaitteesi unenseurantadataan Nyxo tarjoaa henkilökohtaista ja interaktiivista univalmennusta, joka auttaa juuri sinua nukkumaan paremmin kuin koskaan.",
-    "GET_THE_APP": "Lataa sovellus"
+    "GET_THE_APP": "Lataa sovellus",
+
+    "IMPORTING": "Et tarvitse uutta unen seurantalaitetta",
+    "IMPORTING_TEXT": "Nyxo on yhteensopiva lähes kaikkien markkinoilla olevien aktiivisuusrannekkeiden, älykellojen, -sormusten ja muiden unen seurantaa tukevien laitteiden kanssa.  Jos et omista unen seurantaan soveltuvaa laitetta, voit pitää kirjaa öistäsi myös Nyxon sisäänrakennetun unipäiväkirjan avulla.",
+
+    "AUTHORS": "Kehitetty yhdessä Suomen johtavien unitutkijoiden kanssa",
+    "AUTHORS_TEXT": "Nyxo-univalmennusohjelma on rakennettu viimeisimmän tieteellisen tutkimustiedon pohjalta. Se on suunniteltu tukemaan kokonaisvaltaisesti unen kaikkia osa-alueita ja elämänrytmin hallintaa yksilöllisiin kehityskohtiin pureutuen.",
+
+    "EASE_OF_USE": "Unenlaadun parantaminen ei ole koskaan ollut näin helppoa",
+    "EASE_OF_USE_TEXT": "Paranna jaksamistasi ja kokonaishyvinvointiasi neljän viikon valmennusjakson avulla.",
+
+    "DATA": "Dataan perustuva valmennus",
+    "DATA_TEXT": "Nyxo käyttää unidataasi tunnistaakseen unesi ongelmakohdat ja tarjotakseen yksilöllistettyä valmennusta henkilökohtaisten tarpeittesi mukaan.",
+
+    "ORGANIZATIONS": "Valjasta tiimisi täyteen potentiaaliinsa",
+    "ORGANIZATIONS_TEXT": "Tiedätkö miten teillä nukutaan? Nyxo for Teamsin (tulossa pian) avulla voit lisätä koko tiimisi mukaan univalmennukseen. Autamme työntekijöitäsi nukkumaan paremmin, lisäämään hyvinvointiaan ja kasvattamaan suorituskykyään."
   },
 
   "NAVIGATION": {
     "YOU": "Sinulle",
     "ORGANIZATIONS": "Yrityksille",
-    "COACHING": "Valmennus",
+    "COACHING": "Uni",
     "BLOG": "Blogi",
     "LOGIN": "Kirjaudu",
     "LOGOUT": "Kirjaudu ulos"
@@ -62,10 +77,10 @@
     "TITLE": "Nyxo Univalmennus",
     "SUBTITLE": "Tutustu hyvien yöunien salaisuuksiin",
 
-    "INTRODUCTION": "A good night’s sleep is the key to success. It makes you feel better, think better, and makes your more productive. The question is how can one improve their sleep? Once you go to bed, there isn’t much you can do to improve your sleep quality. However, there´s a clear connection between what you do during the day and your nightly sleep quality, and this is the central thesis of our sleep coaching.",
+    "INTRODUCTION": "Hyvät unet ovat avain menestykseen. Tunnet olosi paremmaksi, ajatukset ovat kirkkaat, ja saat enemmän aikaan. Kysymys kuuluukin, miten unta pystyy parantamaan? Sänkyyn mentyäsi ei unen laatuun varsinaisesti voi vaikuttaa. Tästä huolimatta, sillä mitä teet päivän aikana ja sillä miten nukut on suora yhteys toisiinsa. Tähän valmennuksemme perustuu.",
 
     "HOW_IT_WORKS": "Kuinka Nyxo Univalmennus toimii",
-    "HOW_IT_WORKS_TEXT": "Nyxo Sleep Coaching is structured into four weeks, each one them focusing on a different part of good sleep. By connecting your sleep tracker to Nyxo, through the Nyxo app, we use your sleep data to personalize the coaching program to your unique needs. By examining different parts of daily activity, such as exercise, sleep, heart rate, and daily activity levels, we can bring you personalized advice in the form of lessons, practices, and facilitated habit change.",
+    "HOW_IT_WORKS_TEXT": "Nyxo-univalmennus on jaettu neljään viikkoon ja jokaisen viikon aikana keskitytään yhteen hyvän unen osa-alueeseen. Jos yhdistät untasi mittaavan laitteen Nyxoon, pystymme hyödyntämään antamaasi dataa antamalla sinulle personoituja valmennussisältöjä, jotka sopivat juuri sinun tapaukseesi. Tarkastelemme unen määrää, sydämen sykettä, sekä aktiivisuustasoasi, jonka perusteella annamme oppitunteja, harjoitteita ja ohjausta kohti pysyviä tapojen muutosta.",
     "LESSONS": "Oppitunnit",
     "LESSONS_TEXT": "Maailman laajin valikoima oppitunteja unesta",
     "WEEKS": "Valmennusviikot",

@@ -1,9 +1,10 @@
 import { navigate } from "@reach/router"
 import { Auth } from "aws-amplify"
-import { Link, useTranslation } from "gatsby-plugin-react-i18next"
+import { Link, useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { isLoggedIn } from "../auth/AppUser"
+import { Link as NonLocalizedLink } from "gatsby"
 import { device, minDevice } from "../components/Primitives"
 import { NyxoLogo } from "./logo"
 
@@ -15,10 +16,11 @@ const signOut = () => {
 
 const Header: FC = () => {
   const { t } = useTranslation()
+  const { languages, originalPath } = useI18next()
 
   const status = isLoggedIn()
-    ? { path: "me/login", language: "en", title: "LOGOUT" }
-    : { path: "me/login", language: "en", title: "LOGIN" }
+    ? { path: "me/details", title: "ME" }
+    : { path: "me/login", title: "LOGIN" }
 
   const links = [
     { path: "for-you", title: "YOU" },
@@ -35,18 +37,25 @@ const Header: FC = () => {
         </Link>
       </Logo>
 
+      <ul className="languages">
+        {languages.map((lng) => (
+          <li key={lng}>
+            <Link to={originalPath} language={lng}>
+              {lng}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
       <Links>
-        {links.map(({ title, path, language }) => (
+        {links.map(({ title, path }) => (
           <Li key={title}>
-            {title === "LOGOUT" && (
-              <MenuLink
-                onClick={signOut}
-                {...(language ? language : "en")}
-                to={`/${path}`}>
+            {(title === "LOGIN" || title === "ME") && (
+              <NonLocalizedMenuLink to={`/${path}`}>
                 {t(`NAVIGATION.${title}`)}
-              </MenuLink>
+              </NonLocalizedMenuLink>
             )}
-            {title != "LOGOUT" && (
+            {title != "LOGIN" && (
               <MenuLink to={`/${path}`}>{t(`NAVIGATION.${title}`)}</MenuLink>
             )}
           </Li>
@@ -141,6 +150,23 @@ const Li = styled.li`
 `
 
 const MenuLink = styled(Link)`
+  transition: 0.2s opacity cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  color: var(--radiantBlue);
+
+  &:hover,
+  &:active {
+    color: var(--radiantBlue);
+    border-bottom: 3px solid var(--radiantBlue);
+    padding-bottom: 10px;
+  }
+`
+
+const NonLocalizedMenuLink = styled(NonLocalizedLink)`
   transition: 0.2s opacity cubic-bezier(0.075, 0.82, 0.165, 1);
 
   &:hover {

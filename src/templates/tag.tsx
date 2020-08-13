@@ -157,7 +157,7 @@ const Tag: FC<PageProps<Props, Context>> = ({
 export default Tag
 
 export const pageQuery = graphql`
-  query Tags($tag: String) {
+  query Tags($tag: String, $locale: String) {
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
@@ -189,7 +189,7 @@ export const pageQuery = graphql`
     }
 
     allContentfulLesson(
-      filter: { node_locale: { eq: "en-US" }, keywords: { in: [$tag] } }
+      filter: { node_locale: { eq: $locale }, keywords: { in: [$tag] } }
     ) {
       totalCount
       edges {

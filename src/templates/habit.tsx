@@ -99,10 +99,16 @@ export const pageQuery = graphql`
     contentfulHabit(slug: { eq: $slug }, node_locale: { eq: $locale }) {
       ...HabitFragment
     }
-    nextHabit: contentfulHabit(slug: { eq: $next }) {
+    nextHabit: contentfulHabit(
+      slug: { eq: $next }
+      node_locale: { eq: $locale }
+    ) {
       ...HabitFragment
     }
-    previousHabit: contentfulHabit(slug: { eq: $previous }) {
+    previousHabit: contentfulHabit(
+      slug: { eq: $previous }
+      node_locale: { eq: $locale }
+    ) {
       ...HabitFragment
     }
   }
