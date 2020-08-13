@@ -1,11 +1,11 @@
 import { navigate } from "@reach/router"
 import { Auth } from "aws-amplify"
-import { Link, useTranslation, useI18next } from "gatsby-plugin-react-i18next"
+import { Link as NonLocalizedLink } from "gatsby"
+import { Link, useI18next, useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { isLoggedIn } from "../auth/AppUser"
-import { Link as NonLocalizedLink } from "gatsby"
-import { device, minDevice } from "../components/Primitives"
+import { minDevice } from "../components/Primitives"
 
 const signOut = () => {
   Auth.signOut()
@@ -28,8 +28,6 @@ const Header: FC = () => {
     { path: "blog", title: "BLOG" },
     { ...status },
   ]
-
-  console.log(language)
 
   return (
     <HeaderContainer>

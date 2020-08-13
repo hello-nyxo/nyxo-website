@@ -25,7 +25,6 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
     pathContext: { language },
     location: { pathname },
   } = props
-  console.log(props)
 
   const { t } = useTranslation()
 

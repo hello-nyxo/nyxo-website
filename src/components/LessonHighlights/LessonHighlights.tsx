@@ -35,8 +35,6 @@ const LessonHighlights: FC<Props> = ({ language }) => {
     }
   `)
 
-  console.log(language)
-
   const { t } = useTranslation()
   const lessons = language === "fi" ? lessonsFI : lessonsEN
   return (
