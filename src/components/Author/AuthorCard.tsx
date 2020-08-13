@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 import { ContentfulAuthor } from "../../../graphql-types"
 import Image, { FluidObject } from "gatsby-image"
 import { device } from "../Primitives"
+import { Link } from "gatsby-plugin-react-i18next"
 
 type Author = {
   author: ContentfulAuthor

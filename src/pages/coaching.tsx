@@ -12,85 +12,81 @@ import LessonHighlights from "../components/LessonHighlights/LessonHighlights"
 import { Container, P } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import WeekCard from "../components/WeekCard"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
-  const locale = "en-US"
   const {
     data: {
-      allDataJson: { nodes },
-      allContentfulWeek,
+      weeksFI: { nodes: fiWeeks },
+      weeksEN: { nodes: enWeeks },
       coachingMeta,
       coachingCover,
     },
+    pathContext: { language },
     location: { pathname },
   } = props
-  const weeks = allContentfulWeek.edges
-  const pageInfo = nodes[0].coaching
+
+  const { t } = useTranslation()
 
   return (
     <Layout>
       <SEO
-        title={pageInfo.title}
-        description={pageInfo.description}
+        title={t("COACHING.TITLE")}
+        description={t("COACHING.DESCRIPTION")}
         pathName={pathname}
         image={coachingMeta.childImageSharp.fixed.src}
         staticImage={true}
       />
 
       <Container>
-        <Title>{pageInfo.title}</Title>
-        <Subtitle>The secret to good sleep is at your fingertips</Subtitle>
+        <Title>{t("COACHING.TITLE")}</Title>
+        <Subtitle>{t("COACHING.SUBTITLE")}</Subtitle>
 
         <CoverPhotoContainer>
           <Cover fluid={coachingCover.childImageSharp.fluid} />
         </CoverPhotoContainer>
 
-        <P>
-          A good night’s sleep is the key to success. It makes you feel better,
-          think better, and makes your more productive. The question is how can
-          one improve their sleep? Once you go to bed, there isn’t much you can
-          do to improve your sleep quality. However, there´s a clear connection
-          between what you do during the day and your nightly sleep quality, and
-          this is the central thesis of our sleep coaching.
-        </P>
+        <P>{t("COACHING.INTRODUCTION")}</P>
 
-        <H3>How Nyxo Sleep Coaching Works</H3>
-        <P>
-          Nyxo Sleep Coaching is structured into four weeks, each one them
-          focusing on a different part of good sleep. By connecting your sleep
-          tracker to Nyxo, through the Nyxo app, we use your sleep data to
-          personalize the coaching program to your unique needs. By examining
-          different parts of daily activity, such as exercise, sleep, heart
-          rate, and daily activity levels, we can bring you personalized advice
-          in the form of lessons, practices, and facilitated habit change.
-        </P>
+        <H3>{t("COACHING.HOW_IT_WORKS")}</H3>
+        <P>{t("COACHING.HOW_IT_WORKS_TEXT")}</P>
 
-        <LessonHighlights />
+        <LessonHighlights language={language} />
 
-        <H2>Coaching weeks</H2>
+        <H2>{t("COACHING.WEEKS")}</H2>
+        <P>{t("COACHING.WEEKS_TEXT")}</P>
+
         <Weeks>
-          {weeks.map(({ node: week }: { node: ContentfulWeek }) => (
-            <WeekCard
-              key={week.slug}
-              path={`/week/${week.slug}`}
-              intro={week.intro}
-              name={week.weekName}
-              duration={week.duration}
-              lessons={week.lessons}
-              coverPhoto={week.coverPhoto.fluid}
-            />
-          ))}
+          {language === "fi"
+            ? fiWeeks.map((week: ContentfulWeek) => (
+                <WeekCard
+                  key={week.slug}
+                  path={`/week/${week.slug}`}
+                  intro={week.intro}
+                  name={week.weekName}
+                  duration={week.duration}
+                  lessons={week.lessons}
+                  coverPhoto={week.coverPhoto.fluid}
+                />
+              ))
+            : enWeeks.map((week: ContentfulWeek) => (
+                <WeekCard
+                  key={week.slug}
+                  path={`/week/${week.slug}`}
+                  intro={week.intro}
+                  name={week.weekName}
+                  duration={week.duration}
+                  lessons={week.lessons}
+                  coverPhoto={week.coverPhoto.fluid}
+                />
+              ))}
         </Weeks>
 
-        <HabitHighlights locale={locale} />
+        <HabitHighlights locale={language} />
 
-        <H2>Authors</H2>
-        <P>
-          These are the authors behind the Nyxo materials you love. Here you can
-          learn more about the authors, including their areas of expertise, and
-          find all materials they&apos;ve written.
-        </P>
-        <AuthorList locale={locale} />
+        <H2>{t("COACHING.AUTHORS")}</H2>
+        <P>{t("COACHING.AUTHORS_TEXT")}</P>
+        <AuthorList locale={language} />
       </Container>
       <GetAppBanner />
     </Layout>
@@ -110,7 +106,7 @@ const Weeks = styled.div`
 const Title = styled(H1)`
   text-align: center;
   margin-top: 5rem;
-  font-size: 4rem;
+  font-size: 2.8rem;
 `
 
 const Subtitle = styled.h4`
@@ -155,23 +151,20 @@ export const pageQueryCoaching = graphql`
       }
     }
 
-    allDataJson {
-      nodes {
-        coaching {
-          title
-          description
-        }
-      }
-    }
-
-    allContentfulWeek(
+    weeksEN: allContentfulWeek(
       filter: { node_locale: { eq: "en-US" }, slug: { ne: "introduction" } }
       sort: { fields: order }
     ) {
-      edges {
-        node {
-          ...WeekFragment
-        }
+      nodes {
+        ...WeekFragment
+      }
+    }
+    weeksFI: allContentfulWeek(
+      filter: { node_locale: { eq: "fi-FI" }, slug: { ne: "introduction" } }
+      sort: { fields: order }
+    ) {
+      nodes {
+        ...WeekFragment
       }
     }
   }

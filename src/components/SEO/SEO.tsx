@@ -1,5 +1,5 @@
 import React from "react"
-import { Helmet } from "react-helmet"
+import { Helmet } from "gatsby-plugin-react-i18next"
 
 interface HelmetProps {
   children?: React.ReactChildren

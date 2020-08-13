@@ -1,10 +1,11 @@
-import React from "react"
+import React, { FC } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import devices from "../../devices"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
-const GetAppBanner = () => {
+const GetAppBanner: FC = () => {
   const data = useStaticQuery(graphql`
     {
       apple: file(name: { eq: "app-store-button" }) {
@@ -15,13 +16,12 @@ const GetAppBanner = () => {
       }
     }
   `)
+  const { t } = useTranslation()
 
   return (
     <CallToAction>
-      <H2>Get the app</H2>
-      <Description>
-        Download the app for free and sleep better starting tonight.
-      </Description>
+      <H2>{t("GET_THE_APP.TITLE")}</H2>
+      <Description>{t("GET_THE_APP.TEXT")}</Description>
 
       <Buttons>
         <Button

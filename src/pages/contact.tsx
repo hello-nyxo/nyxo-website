@@ -1,35 +1,28 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/SEO/SEO"
+import { graphql, PageProps } from "gatsby"
+import { useTranslation } from "gatsby-plugin-react-i18next"
+import React, { FC } from "react"
 import styled from "styled-components"
-import { PageQuery } from "../typings/PageQuery"
-import PageHeader from "../components/PageHeader"
+import { H1, P } from "../components/Html/HtmlContent"
+import Layout from "../components/layout"
 import { Container } from "../components/Primitives"
+import SEO from "../components/SEO/SEO"
 
-const ContactPage = (props: PageQuery) => {
+type Props = {
+  contactMeta: any
+}
+
+const ContactPage: FC<PageProps<Props>> = (props) => {
   const {
     location: { pathname },
-    data: {
-      contactMeta,
-      allDataJson: { nodes },
-    },
+    data: { contactMeta },
   } = props
-  const pageInfo = nodes[0].contact
-
+  const { t } = useTranslation()
   return (
     <Layout>
       <SEO
-        title={pageInfo.title}
-        description={pageInfo.description}
+        title={t("CONTACT.TITLE")}
+        description={t("CONTACT.TEXT")}
         pathName={pathname}
-        staticImage={true}
-        image={contactMeta.childImageSharp.fixed.src}
-      />
-      <SEO
-        title={pageInfo.title}
-        pathName={pathname}
-        description={pageInfo.description}
         staticImage={true}
         image={contactMeta.childImageSharp.fixed.src}
       />
@@ -37,13 +30,8 @@ const ContactPage = (props: PageQuery) => {
         <div className={"content"}>
           <div className={"row"}>
             <div className={"col-7"}>
-              <p>
-                We take the commitment to our users seriously. If you have
-                questions on how to use Nyxo, are experiencing technical
-                difficulties or want to know more about our products, please do
-                not hesitate to contact us. We also encourage you to send any
-                feedback or suggestions you might have!
-              </p>
+              <H1>{t("CONTACT.TITLE")}</H1>
+              <P>{t("CONTACT.TEXT")}</P>
             </div>
 
             <div className={"col-5"}>
@@ -59,31 +47,33 @@ const ContactPage = (props: PageQuery) => {
                     type="text"
                     name="name"
                     id="name"
-                    placeholder="Name"
+                    placeholder={t("CONTACT.NAME")}
                   />
 
                   <TextBox
                     type="email"
                     name="email"
                     id="email"
-                    placeholder="Email"
+                    placeholder={t("CONTACT.EMAIL")}
                   />
 
                   <TextBox
                     type="text"
                     name="subject"
                     id="subject"
-                    placeholder="Subject"
+                    placeholder={t("CONTACT.SUBJECT")}
                   />
 
                   <TextArea
                     name="message"
                     id="message"
                     rows={5}
-                    placeholder="Message"
+                    placeholder={t("CONTACT.MESSAGE")}
                   />
 
-                  <ContactButton type="submit">Send Message</ContactButton>
+                  <ContactButton type="submit">
+                    {t("CONTACT.SEND")}
+                  </ContactButton>
                 </Form>
               </div>
             </div>

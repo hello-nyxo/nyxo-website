@@ -120,7 +120,7 @@ const HtmlContent = ({ document }: Props): JSX.Element => {
 
 export default HtmlContent
 
-const P = styled.p`
+export const P = styled.p`
   font-size: 1.15rem;
   line-height: 2rem;
   margin-bottom: 2rem;

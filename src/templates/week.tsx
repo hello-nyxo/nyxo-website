@@ -19,6 +19,7 @@ import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import LargeWeekCard from "../components/week/LargeWeekCard"
 import { getLocalizedPath } from "../Helpers/i18n-helpers"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 type Props = {
   contentfulWeek: ContentfulWeek
@@ -32,26 +33,25 @@ type Props = {
   }
 }
 
-const Week: FC<PageProps<Props>> = (props) => {
-  const {
-    data: {
-      tags,
-      habits,
-      previousWeek,
-      nextWeek,
-      contentfulWeek: {
-        lessons,
-        weekDescription,
-        createdAt,
-        updatedAt,
-        weekName: title,
-        coverPhoto,
-      },
+const Week: FC<PageProps<Props>> = ({
+  data: {
+    tags,
+    habits,
+    previousWeek,
+    nextWeek,
+    contentfulWeek: {
+      lessons,
+      weekDescription,
+      createdAt,
+      updatedAt,
+      weekName: title,
+      coverPhoto,
     },
-    pageContext: { locale },
-    location: { pathname },
-  } = props
-
+  },
+  pageContext: { locale },
+  location: { pathname },
+}) => {
+  const { t } = useTranslation()
   const description = documentToPlainTextString(weekDescription.json)
 
   const groupedLessons = groupBy(lessons, (lesson) => lesson?.section?.title)
@@ -88,7 +88,7 @@ const Week: FC<PageProps<Props>> = (props) => {
           <CoverImage fluid={coverPhoto?.fluid} />
         </Cover>
 
-        <H3>About this week:</H3>
+        <H3>{t("ABOUT_THIS_WEEK")}</H3>
 
         <Row>
           <Column>
@@ -98,7 +98,7 @@ const Week: FC<PageProps<Props>> = (props) => {
             <Column>
               <TagTitle>
                 <TagIcon />
-                Tags
+                {t("TAGS")}
               </TagTitle>
               <Tags>
                 <TagSection
@@ -111,7 +111,7 @@ const Week: FC<PageProps<Props>> = (props) => {
           )}
         </Row>
 
-        <H3>Lessons for this week</H3>
+        <H3>{t("LESSONS_FOR_THIS_WEEK")}</H3>
 
         <>
           {sections.map((section) => (
@@ -139,7 +139,7 @@ const Week: FC<PageProps<Props>> = (props) => {
         </>
         {habits?.edges.length > 0 && (
           <>
-            <H3>Habits</H3>
+            <H3>{t("COACHING.HABITS")}</H3>
             <Habits>
               {habits.edges.map(({ node }: { node: ContentfulHabit }) => (
                 <HabitCard
@@ -156,7 +156,7 @@ const Week: FC<PageProps<Props>> = (props) => {
         )}
 
         <hr />
-        <H3>More Coaching Weeks</H3>
+        <H3>{t("MORE_COACHING_WEEKS")}</H3>
         <NextWeeksContainer>
           {previousWeek && (
             <LargeWeekCard
@@ -192,13 +192,19 @@ export const pageQuery = graphql`
         fieldValue
       }
     }
-    nextWeek: contentfulWeek(slug: { eq: $next }) {
+    nextWeek: contentfulWeek(
+      slug: { eq: $next }
+      node_locale: { eq: $locale }
+    ) {
       ...WeekFragment
     }
-    previousWeek: contentfulWeek(slug: { eq: $previous }) {
+    previousWeek: contentfulWeek(
+      slug: { eq: $previous }
+      node_locale: { eq: $locale }
+    ) {
       ...WeekFragment
     }
-    contentfulWeek(slug: { eq: $slug }) {
+    contentfulWeek(slug: { eq: $slug }, node_locale: { eq: $locale }) {
       ...WeekFragment
     }
 

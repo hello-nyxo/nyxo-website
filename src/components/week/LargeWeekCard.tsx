@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import Image, { FluidObject } from "gatsby-image"
 import React, { FC } from "react"
 import styled from "styled-components"
@@ -6,6 +5,7 @@ import { ContentfulWeek } from "../../../graphql-types"
 import colors from "../../colors"
 import { Icon } from "../Icons"
 import { device } from "../Primitives"
+import { Link } from "gatsby-plugin-react-i18next"
 
 type Props = {
   path: string
