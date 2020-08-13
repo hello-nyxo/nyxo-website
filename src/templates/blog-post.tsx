@@ -230,11 +230,11 @@ export const Content = styled.div`
         font-size: 2rem;
         line-height: 2rem;
         margin-right: 10px;
-        position: absolute;
+        position: relative;
         content: "•";
         color: hsl(255deg, 85%, 30%);
         font-weight: bold;
-        font-family: "Montserrat-semibold", sans-serif;
+        font-family: Montserrat-semibold, sans-serif;
       }
 
       p {

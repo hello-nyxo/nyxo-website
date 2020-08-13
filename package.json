@@ -98,6 +98,7 @@
     "@types/zen-observable": "^0.8.0",
     "@typescript-eslint/eslint-plugin": "^3.7.0",
     "@typescript-eslint/parser": "^3.7.0",
+    "all-contributors-cli": "^6.17.0",
     "amphtml-validator": "^1.0.31",
     "babel-jest": "^26.1.0",
     "babel-preset-gatsby": "^0.5.4",
