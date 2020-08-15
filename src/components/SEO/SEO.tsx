@@ -1,5 +1,6 @@
-import React from "react"
-import { Helmet } from "gatsby-plugin-react-i18next"
+import React, { FC } from "react"
+import { Helmet } from "react-helmet"
+import { useI18next } from "gatsby-plugin-react-i18next"
 
 interface HelmetProps {
   children?: React.ReactChildren
@@ -30,7 +31,7 @@ const addHttps = (path: string | undefined) => {
 
 const seoDescription = `Nyxo is the best aid for improving your sleep quality. We combine leading sleep research techniques with your sleep tracker’s data to provide you with personalized and actionable coaching, to improve your sleep.`
 
-const SEO = ({
+const SEO: FC<HelmetProps> = ({
   children,
   title = "Nyxo Sleep Coaching",
   description = seoDescription,
@@ -46,13 +47,28 @@ const SEO = ({
   readingTime,
   author = "Nyxo",
   staticImage,
-}: HelmetProps) => {
+}) => {
+  const {
+    languages,
+    language,
+    originalPath,
+    defaultLanguage,
+    siteUrl = "",
+  } = useI18next()
+
+  const createUrlWithLang = (lng: string) => {
+    const url = `${siteUrl}${
+      lng === defaultLanguage ? "" : `/${lng}`
+    }${originalPath}`
+    return url.endsWith("/") ? url : `${url}/`
+  }
+
   const canonicalUrl = canonical
     ? canonical
-    : `https://www.nyxo.app/${pathName.replace(/^\/+/g, "")}`
+    : createUrlWithLang(`https://www.nyxo.app/${pathName.replace(/^\/+/g, "")}`)
 
   return (
-    <Helmet htmlAttributes={{ lang: "en" }} title={`${title} – Nyxo`}>
+    <Helmet htmlAttributes={{ lang: language }} title={`${title} – Nyxo`}>
       {children}
       <link rel="canonical" href={canonicalUrl} />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -73,7 +89,20 @@ const SEO = ({
           <meta name="twitter:data1" content={readingTime} />
         </>
       )}
-
+      {languages.map((lng) => (
+        <link
+          rel="alternate"
+          key={lng}
+          href={createUrlWithLang(lng)}
+          hrefLang={lng}
+        />
+      ))}
+      {/* adding a fallback page for unmatched languages */}
+      <link
+        rel="alternate"
+        href={createUrlWithLang(defaultLanguage)}
+        hrefLang="x-default"
+      />
       {published && <meta name="article:published_time" content={published} />}
       {updated && <meta name="article:modified_time" content={updated} />}
       {category && <meta name="article:section" content={category} />}

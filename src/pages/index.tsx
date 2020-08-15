@@ -31,25 +31,16 @@ type Props = {
 
 const IndexPage: FC<PageProps<Props>> = ({
   location: { pathname },
-  data: {
-    indexMeta,
-    datasources,
-    lessons,
-    cover,
-    data,
-    dataJson: {
-      index: { title, description },
-    },
-  },
+  data: { indexMeta, datasources, lessons, cover, data },
 }) => {
   const { t } = useTranslation()
 
   return (
     <Layout>
       <SEO
-        title={title}
+        title={t("INDEX.TITLE")}
         pathName={pathname}
-        description={description}
+        description={t("INDEX.INTRODUCTION")}
         staticImage={true}
         image={indexMeta.childImageSharp.fixed.src}
         canonical={pathname}
@@ -249,12 +240,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    dataJson {
-      index {
-        title
-        description
-      }
-    }
+
     cover: file(relativePath: { eq: "cover.png" }) {
       childImageSharp {
         fluid(maxWidth: 1000) {

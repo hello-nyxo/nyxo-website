@@ -170,13 +170,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    allDataJson {
-      nodes {
-        contact {
-          title
-          description
-        }
-      }
-    }
   }
 `
