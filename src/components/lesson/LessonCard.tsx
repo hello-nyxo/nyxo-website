@@ -1,12 +1,12 @@
-import { Link } from "gatsby"
+import { Link } from "gatsby-plugin-react-i18next"
 import Image, { FluidObject } from "gatsby-image"
-import React, { FC } from "react"
+import React, { FC, EventHandler, MouseEvent } from "react"
 import styled from "styled-components"
 import { ContentfulLesson } from "../../../graphql-types"
 import { truncate } from "../../Helpers/string-truncater"
 import { Icon } from "../Icons"
 import { device } from "../Primitives"
-import BookmarkButton from "../BookmarkButton/bookmarkButton"
+import BookmarkButton from "../BookmarkButton/BookmarkButtonSmall"
 
 type Props = {
   name?: string | null
@@ -17,7 +17,9 @@ type Props = {
   lesson?: ContentfulLesson | null
   slug: string
   key?: string
-  bookmarked?: any | null
+  loading: boolean
+  onClick: EventHandler<MouseEvent<HTMLButtonElement>>
+  bookmarked?: boolean
 }
 
 const LessonCard: FC<Props> = ({
@@ -28,23 +30,23 @@ const LessonCard: FC<Props> = ({
   cover,
   lesson,
   slug,
-  bookmarked,
+  onClick,
+  loading = true,
+  bookmarked = false,
 }) => {
   const countHabits = lesson?.habit?.length
-
   return (
-    <Card to={path}>
+    <Card to={path as string}>
       <ImageContainer>
-        <Cover fluid={cover} />
+        <Cover fluid={cover as FluidObject} />
         <BookmarkButton
-          name={name}
-          type="lesson"
-          slug={slug}
+          onClick={onClick}
+          loading={loading}
           bookmarked={bookmarked}
         />
         <Wrap>
           <Icon height="15px" width="15px" name="clock" />
-          <ReadingTime>{Math.ceil(readingTime)}m</ReadingTime>
+          <ReadingTime>{Math.ceil(readingTime as number)}m</ReadingTime>
           {!!countHabits && (
             <Habits>
               <Icon height="20px" width="20px" name="task" />

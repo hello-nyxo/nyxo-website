@@ -14,7 +14,7 @@ import { Icon } from "../Icons"
 import PageHeader from "../PageHeader"
 import UserHabits from "../user/UserHabits"
 import { useQuery } from "react-query"
-import { FetchAllBookmark } from "../BookmarkButton/fetchBookmarks"
+import { fetchAllBookmarks } from "../BookmarkButton/fetchBookmarks"
 import {
   ContentLoader,
   Button,
@@ -61,19 +61,19 @@ const Details = () => {
 
   const { data: bookmarkData, status } = useQuery(
     "detailsKey",
-    FetchAllBookmark
+    fetchAllBookmarks
   )
 
   let i = 0
   const limit = 3
   if (status === "error") {
     for (i; i < limit; i++) {
-      const { data, status } = useQuery("detailsKey", FetchAllBookmark)
+      const { data, status } = useQuery("detailsKey", fetchAllBookmarks)
     }
   }
 
   const fetchData = () => {
-    useQuery("detailsKey", FetchAllBookmark)
+    useQuery("detailsKey", fetchAllBookmarks)
   }
 
   return (

@@ -23,7 +23,7 @@ export const Heart = styled(Icon).attrs(() => ({
   margin: 0px;
 `
 
-export const BookmarkButtonTemplateContainer = styled.div`
+export const BookmarkContainer = styled.div`
   float: right;
   margin-top: 30px;
 `

@@ -1,54 +1,56 @@
 import React, { FC } from "react"
 import { Icon } from "../../components/Icons"
 import styled from "styled-components"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 const rows = [
   {
-    title: "Individual sleep tracking & metrics",
+    title: "TRACKING",
     regular: true,
     exclusive: true,
   },
   {
-    title: "Full access to the coaching program & materials",
+    title: "ACCESS",
     regular: true,
     exclusive: true,
   },
   {
-    title: "Nyxo Cloud service",
+    title: "CLOUD",
     regular: true,
     exclusive: true,
   },
   {
-    title: "Group-level sleep analytics (coming soon)",
+    title: "ANALYTICS",
     regular: true,
     exclusive: true,
   },
   {
-    title: "Quick and responsive tech support",
+    title: "SUPPORT",
     regular: true,
     exclusive: true,
   },
   {
-    title: "Private consulting & intervention plans	",
+    title: "CONSULTING",
     regular: false,
     exclusive: true,
   },
 ]
 
 const PricingTable: FC = () => {
+  const { t } = useTranslation()
   return (
     <Table>
       <thead>
         <tr>
           <th></th>
-          <th>Regular</th>
-          <th>Exclusive</th>
+          <th>{t("FOR_ORGANIZATIONS.REGULAR")}</th>
+          <th>{t("FOR_ORGANIZATIONS.EXCLUSIVE")}</th>
         </tr>
       </thead>
       <tbody>
         {rows.map((row) => (
           <tr key={row.title}>
-            <td>{row.title}</td>
+            <td>{t(`FOR_ORGANIZATIONS.${row.title}`)}</td>
             <td>
               {row.regular && (
                 <Icon

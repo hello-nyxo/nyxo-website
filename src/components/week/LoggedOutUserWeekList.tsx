@@ -11,7 +11,7 @@ const LoggedOutUserWeekList = (props: Props) => {
   const { data } = props
   return (
     <Weeks>
-      {data.map(({ node: week }: { node: ContentfulWeek }) => {
+      {/* {data.map(({ node: week }: { node: ContentfulWeek }) => {
         return (
           <WeekCard
             key={week.slug}
@@ -24,7 +24,7 @@ const LoggedOutUserWeekList = (props: Props) => {
             slug={week.slug}
           />
         )
-      })}
+      })} */}
     </Weeks>
   )
 }

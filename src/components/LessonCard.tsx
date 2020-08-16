@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import Image, { FluidObject } from "gatsby-image"
 import React, { FC } from "react"
 import styled from "styled-components"
@@ -6,7 +5,7 @@ import { ContentfulLesson } from "../../graphql-types"
 import { truncate } from "../Helpers/string-truncater"
 import { Icon } from "./Icons"
 import { device } from "./Primitives"
-
+import { Link } from "gatsby-plugin-react-i18next"
 type Props = {
   name?: string | null
   path?: string | null

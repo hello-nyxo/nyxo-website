@@ -1,12 +1,12 @@
-import { Link } from "gatsby"
+import Image, { FluidObject } from "gatsby-image"
+import { Link, useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
-import { device } from "../Primitives"
-import { Icon } from "../Icons"
-import Image, { FluidObject } from "gatsby-image"
-import colors from "../../colors"
 import { ContentfulLesson } from "../../../graphql-types"
-import BookmarkButton from "../BookmarkButton/bookmarkButton"
+import colors from "../../colors"
+import BookmarkButton from "../BookmarkButton/BookmarkButtonSmall"
+import { Icon } from "../Icons"
+import { device } from "../Primitives"
 
 type Props = {
   key: string
@@ -37,6 +37,8 @@ const WeekCard: FC<Props> = ({
     0
   )
 
+  const { t } = useTranslation()
+
   return (
     <Card to={path}>
       <Cover>
@@ -55,7 +57,7 @@ const WeekCard: FC<Props> = ({
               name="presentation"
               stroke="currentColor"
             />
-            {lessons.length} Lessons
+            {lessons.length} {t("LESSONS")}
           </Lessons>
           {!!countHabits && (
             <Habits>
@@ -65,7 +67,7 @@ const WeekCard: FC<Props> = ({
                 name="task"
                 stroke="currentColor"
               />
-              {countHabits > 1 && `${countHabits} Habits`}
+              {countHabits > 1 && `${countHabits} ${t("HABITS")}`}
             </Habits>
           )}
         </InformationRow>

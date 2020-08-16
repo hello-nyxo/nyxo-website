@@ -11,6 +11,7 @@ import SEO from "../components/SEO/SEO"
 import { Meta } from "../../@types/content/meta"
 import { GatsbyImage } from "../../@types/childImageSharp"
 import { BlogPostNode } from "../typings/blog-types"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 type Props = {
   dataJson: Meta
@@ -27,16 +28,15 @@ const BlogPage: FC<PageProps<Props>> = ({
     allMarkdownRemark: { nodes: blogPosts },
     blogMeta,
     blogCover,
-    dataJson: {
-      blog: { title, description },
-    },
   },
 }) => {
+  const { t } = useTranslation()
+
   return (
     <Layout>
       <SEO
-        title={title}
-        description={description}
+        title={t("BLOG.TITLE")}
+        description={t("BLOG.DESCRIPTION")}
         pathName={pathname}
         image={blogMeta.childImageSharp.fixed.src}
         staticImage={true}
@@ -44,8 +44,8 @@ const BlogPage: FC<PageProps<Props>> = ({
 
       <Container>
         <PageHeader
-          title={title}
-          subtitle={description}
+          title={t("BLOG.TITLE")}
+          subtitle={t("BLOG.DESCRIPTION")}
           coverPhoto={blogCover.childImageSharp.fluid}
         />
         <TagWrap>
@@ -107,12 +107,6 @@ const TagWrap = styled.div`
 
 export const pageQuery = graphql`
   query BlogPageQuery {
-    dataJson {
-      blog {
-        title
-        description
-      }
-    }
     site {
       siteMetadata {
         title

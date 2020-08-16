@@ -1,14 +1,12 @@
 import React from "react"
-import styled from "styled-components"
-import { useQuery } from "react-query"
-import { ContentfulWeek } from "../../../graphql-types"
-import WeekCard from "./WeekCard"
-import { FetchWeekBookmark } from "../BookmarkButton/fetchBookmarks"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner"
-import { Weeks, Button } from "../StyledComponents/styledComponents"
-import { listLikedContents } from "../../graphql/queries"
-import { API, graphqlOperation } from "aws-amplify"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import { useQuery } from "react-query"
+import styled from "styled-components"
+import { ContentfulWeek } from "../../../graphql-types"
+import { fetchWeekBookmarks } from "../BookmarkButton/fetchBookmarks"
+import { Button, Weeks } from "../StyledComponents/styledComponents"
+import WeekCard from "./WeekCard"
 
 interface Props {
   data: any
@@ -16,18 +14,18 @@ interface Props {
 
 const LoggedInUserWeekList = (props: Props) => {
   const { data } = props
-  const { data: bookmarkData, status } = useQuery("weekKey", FetchWeekBookmark)
+  const { data: bookmarkData, status } = useQuery("weekKey", fetchWeekBookmarks)
 
   let i = 0
   const limit = 3
   if (status === "error") {
     for (i; i < limit; i++) {
-      const { data, status } = useQuery("weekKey", FetchWeekBookmark)
+      const { data, status } = useQuery("weekKey", fetchWeekBookmarks)
     }
   }
 
   const fetchData = () => {
-    useQuery("weekKey", FetchWeekBookmark)
+    useQuery("weekKey", fetchWeekBookmarks)
   }
 
   return (
@@ -49,7 +47,7 @@ const LoggedInUserWeekList = (props: Props) => {
             </>
           )}
           <Weeks>
-            {data.map(({ node: week }: { node: ContentfulWeek }) => {
+            {data.map((week: ContentfulWeek) => {
               return (
                 <WeekCard
                   key={week.slug}
@@ -68,10 +66,10 @@ const LoggedInUserWeekList = (props: Props) => {
       )),
     status === "success" && (
       <Weeks>
-        {data.map(({ node: week }: { node: ContentfulWeek }) => {
-          const bookmarked = bookmarkData?.data.listLikedContents.items.find(
-            (item) => item.slug == week.slug
-          )
+        {data.map((week: ContentfulWeek) => {
+          // const bookmarked = bookmarkData?.data.listLikedContents.items.find(
+          //   (item) => item.slug == week.slug
+          // )
           return (
             <WeekCard
               key={week.slug}
@@ -82,7 +80,7 @@ const LoggedInUserWeekList = (props: Props) => {
               lessons={week.lessons}
               coverPhoto={week.coverPhoto.fluid}
               slug={week.slug}
-              bookmarked={bookmarked}
+              bookmarked={false}
             />
           )
         })}

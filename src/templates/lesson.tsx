@@ -1,30 +1,38 @@
-import { graphql, PageProps } from "gatsby"
-import Image from "gatsby-image"
+import { API, graphqlOperation } from "aws-amplify"
+import { graphql, navigate, PageProps } from "gatsby"
+import Image, { FluidObject } from "gatsby-image"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
+import { queryCache, useMutation, useQuery } from "react-query"
 import styled from "styled-components"
+import { ContentfulLesson, LessonByIdQuery } from "../../graphql-types"
 import {
-  ContentfulAuthor,
-  ContentfulLesson,
-  LessonByIdQuery,
-} from "../../graphql-types"
+  CreateLikedContentInput,
+  CreateLikedContentMutation,
+  DeleteLikedContentMutation,
+} from "../API"
+import { isLoggedIn } from "../auth/AppUser"
 import AuthorCard from "../components/Author/AuthorCard"
+import BookmarkButton from "../components/BookmarkButton/BookmarkButton"
+import { fetchLessonBookmarks } from "../components/BookmarkButton/fetchBookmarks"
 import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H4 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
 import LargeLessonCard from "../components/lesson/LargeLessonCard"
 import { Container, TextContainer } from "../components/Primitives"
-import { BookmarkButtonTemplateContainer } from "../components/StyledComponents/styledComponents"
 import SEO from "../components/SEO/SEO"
+import { BookmarkContainer } from "../components/StyledComponents/styledComponents"
 import TagSection from "../components/tags/Tags"
+import { createLikedContent, deleteLikedContent } from "../graphql/mutations"
 import getFirstAuthor from "../Helpers/AuthorHelper"
-import { getLocalizedPath } from "../Helpers/i18n-helpers"
-import BookmarkButton from "../components/BookmarkButton/bookmarkButtonForTemplate"
-import { useQuery } from "react-query"
-import { FetchLessonBookmark } from "../components/BookmarkButton/fetchBookmarks"
+import {
+  useDeleteBookmark,
+  useAddBookmark,
+  useGetBookmark,
+} from "../hooks/data-fetching"
 
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
-  pageContext: { locale },
   location: { pathname },
 }) => {
   const {
@@ -49,15 +57,25 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   }
 
   const description = content?.fields?.excerpt
+  const { t } = useTranslation()
+  const {
+    data: { bookmarked, id },
+    isLoading,
+  } = useGetBookmark(slug as string)
+  const [remove, { isLoading: removeLoading }] = useDeleteBookmark()
+  const [add, { isLoading: addLoading }] = useAddBookmark()
 
-  const { data: bookmarkData, status } = useQuery(
-    "lessonTemplateKey",
-    FetchLessonBookmark
-  )
-
-  const bookmarked = bookmarkData?.data.listLikedContents.items.find(
-    (item) => item.slug == slug
-  )
+  const handleBookmarking = async () => {
+    if (bookmarked) {
+      remove({ id: id })
+    } else {
+      await add({
+        name: title,
+        slug: slug as string,
+        type: "lesson",
+      })
+    }
+  }
 
   return (
     <Layout>
@@ -67,7 +85,7 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
         description={description}
         published={createdAt}
         updated={updatedAt}
-        image={cover.fixed.src}
+        image={cover?.fixed?.src}
         category="Health"
         tags="Sleep"
         author={getFirstAuthor(authorCard)}
@@ -79,46 +97,46 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
         </TitleContainer>
 
         <Cover>
-          <CoverImage fluid={cover?.fluid} />
-          <BookmarkButtonTemplateContainer>
+          <CoverImage fluid={cover?.fluid as FluidObject} />
+          <BookmarkContainer>
             <BookmarkButton
-              name={title}
-              type="lesson"
-              slug={slug}
+              onClick={handleBookmarking}
               bookmarked={bookmarked}
+              loading={removeLoading || addLoading || isLoading}
             />
-          </BookmarkButtonTemplateContainer>
+          </BookmarkContainer>
         </Cover>
 
-        <HtmlContent document={content.json} />
-        {habits && <H3>Example Habits to try</H3>}
+        <HtmlContent document={content?.json} />
+        {habits && <H3>{t("HABITS_TO_TRY")}</H3>}
+
         <Habits>
-          {habits?.map((habit: any, index: number) => (
+          {habits?.map((habit) => (
             <HabitCard
               link
-              key={index}
-              title={habit.title}
-              period={habit.period}
-              slug={getLocalizedPath(`/habit/${habit.slug}`, locale)}
-              excerpt={habit.description.fields.excerpt}
+              key={`${habit?.slug}`}
+              title={habit?.title}
+              period={habit?.period}
+              slug={`/habit/${habit?.slug}`}
+              excerpt={habit?.description?.fields?.excerpt}
             />
           ))}
         </Habits>
         {readMore && (
           <>
-            <H3>Additional Reading</H3>
+            <H3>{t("ADDITIONAL_READING")}</H3>
             <HtmlContent document={readMore.json} />
           </>
         )}
 
-        <H4>Lesson By</H4>
+        <H4>{t("LESSON_BY")}</H4>
         <Authors>
-          {authorCard?.map((author: ContentfulAuthor) => (
-            <AuthorCard key={author.slug} author={author} />
+          {authorCard?.map((author) => (
+            <AuthorCard key={`${author?.slug}`} author={author} />
           ))}
         </Authors>
 
-        <H4>Tags</H4>
+        <H4>{t("TAGS")}</H4>
         <Tags>
           <TagSection tags={keywords} />
         </Tags>
@@ -129,13 +147,13 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
         <MoreLessonsContainer>
           {previousLesson && (
             <LargeLessonCard
-              path={getLocalizedPath(`/lesson/${previousLesson.slug}`, locale)}
+              path={`/lesson/${previousLesson.slug}`}
               lesson={previousLesson}
             />
           )}
           {nextLesson && (
             <LargeLessonCard
-              path={getLocalizedPath(`/lesson/${nextLesson.slug}`, locale)}
+              path={`/lesson/${nextLesson.slug}`}
               lesson={nextLesson}
             />
           )}

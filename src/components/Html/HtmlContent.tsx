@@ -120,7 +120,7 @@ const HtmlContent = ({ document }: Props): JSX.Element => {
 
 export default HtmlContent
 
-const P = styled.p`
+export const P = styled.p`
   font-size: 1.15rem;
   line-height: 2rem;
   margin-bottom: 2rem;
@@ -217,16 +217,15 @@ const Ul = styled.ul`
     margin-bottom: 1rem;
     position: relative;
     &:before {
-      display: block;
-      left: 0;
-      bottom: 5px;
+      display: inline;
+      font-size: 2rem;
+      line-height: 2rem;
       margin-right: 10px;
-      font-size: 1.3rem;
-      position: absolute;
-      content: "💡";
-      color: hsl(255deg, 85%, 30%);
+      position: relative;
+      content: "•";
+      color: rgb(44, 11, 142);
       font-weight: bold;
-      font-family: "Montserrat", sans-serif;
+      font-family: Montserrat-semibold, sans-serif;
     }
 
     p {

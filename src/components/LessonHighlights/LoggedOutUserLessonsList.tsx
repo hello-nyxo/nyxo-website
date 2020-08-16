@@ -12,7 +12,7 @@ const LoggedOutUserlessonsList = (props: Props) => {
 
   return (
     <Lessons>
-      {data.edges.map(({ node: lesson }: { node: ContentfulLesson }) => {
+      {data.nodes.map((lesson: ContentfulLesson) => {
         return (
           <LessonCard
             key={lesson.slug}

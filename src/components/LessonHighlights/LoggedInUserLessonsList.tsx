@@ -1,9 +1,9 @@
-import React from "react"
+import React, { FC } from "react"
 import styled from "styled-components"
 import { ContentfulLesson } from "../../../graphql-types"
 import LessonCard from "../lesson/LessonCard"
 import { useQuery } from "react-query"
-import { FetchLessonBookmark } from "../BookmarkButton/fetchBookmarks"
+import { fetchLessonBookmarks } from "../BookmarkButton/fetchBookmarks"
 import { ContentLoader, Button } from "../StyledComponents/styledComponents"
 import { listLikedContents } from "../../graphql/queries"
 import { API, graphqlOperation } from "aws-amplify"
@@ -12,24 +12,22 @@ interface Props {
   data: any
 }
 
-const LoggedInUserlessonsList = (props: Props) => {
-  const { data } = props
-
+const LoggedInUserlessonsList: FC<Props> = ({ data }) => {
   const { data: bookmarkData, status } = useQuery(
     "lessonKey",
-    FetchLessonBookmark
+    fetchLessonBookmarks
   )
 
   let i
   const limit = 3
   if (status === "error") {
     for (i = 0; i < limit; i++) {
-      const { data, status } = useQuery("lessonKey", FetchLessonBookmark)
+      const { data, status } = useQuery("lessonKey", fetchLessonBookmarks)
     }
   }
 
   const fetchData = () => {
-    useQuery("lessonKey", FetchLessonBookmark)
+    useQuery("lessonKey", fetchLessonBookmarks)
   }
 
   return (
@@ -73,9 +71,9 @@ const LoggedInUserlessonsList = (props: Props) => {
     status === "success" && (
       <Lessons>
         {data.edges.map(({ node: lesson }: { node: ContentfulLesson }) => {
-          const bookmarked = bookmarkData?.data.listLikedContents.items.find(
-            (item) => item.slug == lesson.slug
-          )
+          // const bookmarked = bookmarkData?.data.listLikedContents.items.find(
+          //   (item) => item.slug == lesson.slug
+          // )
 
           return (
             <LessonCard
@@ -87,7 +85,7 @@ const LoggedInUserlessonsList = (props: Props) => {
               readingTime={lesson.lessonContent?.fields?.readingTime?.minutes}
               cover={lesson.cover?.fluid}
               excerpt={lesson.lessonContent?.fields?.excerpt}
-              bookmarked={bookmarked}
+              bookmarked={false}
             />
           )
         })}

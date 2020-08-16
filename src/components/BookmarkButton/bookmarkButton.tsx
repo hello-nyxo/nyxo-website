@@ -1,58 +1,84 @@
-import React from "react"
-import {
-  BookmarkButtonContainer,
-  Heart,
-} from "../StyledComponents/styledComponents"
-import { API, graphqlOperation } from "aws-amplify"
-import { deleteLikedContent, createLikedContent } from "../../graphql/mutations"
-import { isLoggedIn } from "../../auth/AppUser"
-import { navigate } from "@reach/router"
+import React, { EventHandler, FC, MouseEvent } from "react"
+import styled, { css } from "styled-components"
+import { Icon } from "../Icons"
 
-interface Props {
-  name: string
-  slug: string
-  type: string
-  bookmarked?: any
+type Props = {
+  bookmarked: boolean
+  loading: boolean
+  onClick: EventHandler<MouseEvent<HTMLButtonElement>>
 }
 
-const BookmarkButton = (props: Props) => {
-  const { name, slug, type, bookmarked } = props
-
-  const unlikeHandler = async () => {
-    const unlikeDetails = {
-      id: bookmarked?.id,
-    }
-    await API.graphql(
-      graphqlOperation(deleteLikedContent, { input: unlikeDetails })
-    )
-  }
-
-  const likeHandler = async () => {
-    const likeDetails = {
-      name: name,
-      slug: slug,
-      type: type,
-    }
-
-    isLoggedIn()
-      ? await API.graphql(
-          graphqlOperation(createLikedContent, { input: likeDetails })
-        )
-      : navigate("/me/login")
-  }
-
+const BookmarkButton: FC<Props> = ({ bookmarked, onClick, loading }) => {
   return (
-    <BookmarkButtonContainer
-      onClick={bookmarked ? unlikeHandler : likeHandler}
-      className={bookmarked ? "active" : ""}>
-      <Heart
+    <BookmarkContainer
+      disabled={loading}
+      onClick={onClick}
+      bookmarked={bookmarked}>
+      <HeartIcon
         height="25px"
         width="25px"
-        name={bookmarked ? "heartLiked" : "heart"}
-        viewBox="0 0 28 30"
+        bookmarked={bookmarked}
+        viewBox="0 0 30 30"
       />
-    </BookmarkButtonContainer>
+      <Text>{bookmarked ? "Remove Bookmark" : "Add to Bookmarks"}</Text>
+    </BookmarkContainer>
   )
 }
 
 export default BookmarkButton
+
+const BookmarkContainer = styled.button<HeartIconProps>`
+  position: relative;
+  background-color: var(--morning);
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1rem;
+  transition: 0.2s ease-in-out;
+  color: var(--morningAccent);
+  outline: var(--morningAccent);
+  box-shadow: var(--shadow);
+
+  &:hover {
+    background-color: var(--morning);
+    transition: 0.2s;
+  }
+  &:active {
+    box-shadow: inset 1px 1px 3px 3px #6d676712;
+  }
+
+  ${({ bookmarked }) =>
+    bookmarked &&
+    css`
+      box-shadow: var(--shadow);
+      background-color: var(--morning);
+      &:active {
+        box-shadow: inset 1px 1px 3px 3px #6d676712;
+      }
+    `}
+`
+
+const Text = styled.span`
+  min-width: 9rem;
+  display: block;
+  font-size: 0.9rem;
+  font-family: var(--medium);
+`
+
+type HeartIconProps = {
+  bookmarked: boolean
+}
+
+export const HeartIcon = styled(Icon).attrs(
+  ({ bookmarked }: HeartIconProps) => ({
+    fill: "#F42D97",
+    stroke: "none",
+    name: bookmarked ? "heartBookmarkFilled" : "heartBookmarkOutline",
+  })
+)<HeartIconProps>`
+  margin: 0px;
+  flex: 1;
+`
