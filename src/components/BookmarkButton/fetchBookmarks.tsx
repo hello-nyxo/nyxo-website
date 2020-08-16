@@ -1,19 +1,22 @@
-import React from "react"
-import { listLikedContents, likedContentBySlug } from "../../graphql/queries"
 import { API, graphqlOperation } from "aws-amplify"
-import {
-  ListLikedContentsQuery,
-  GetLikedContentQueryVariables,
-  LikedContentBySlugQueryVariables,
-  GetLikedContentQuery,
-  LikedContentBySlugQuery,
-} from "../../API"
-import { string } from "prop-types"
 import { ContentfulLesson } from "../../../graphql-types"
+import {
+  LikedContentBySlugQuery,
+  LikedContentBySlugQueryVariables,
+  ListLikedContentsQuery,
+} from "../../API"
+import { likedContentBySlug, listLikedContents } from "../../graphql/queries"
+
+// FIXME, remove when types for react-query become stable
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
 export const fetchAllBookmarks = async () => {
-  return (await API.graphql(graphqlOperation(listLikedContents))) as {
-    data: ListLikedContentsQuery
+  try {
+    return (await API.graphql(graphqlOperation(listLikedContents))) as {
+      data: ListLikedContentsQuery
+    }
+  } catch (error) {
+    return error
   }
 }
 
@@ -25,12 +28,6 @@ export const fetchWeekBookmarks = async () => {
   console.log(data)
 
   return data
-}
-
-type Response = {
-  bookmarked: boolean
-  id: string
-  error?: any
 }
 
 export const fetchLessonBookmarks = async (
@@ -74,8 +71,6 @@ export const fetchWeekNLessonBookmarks = async (
   key: string,
   { initialLessons }: { initialLessons: ContentfulLesson[] }
 ) => {
-  console.log("initialData", initialLessons)
-
   try {
     const {
       data: { listLikedContents: res },
@@ -83,15 +78,13 @@ export const fetchWeekNLessonBookmarks = async (
       data: ListLikedContentsQuery
     }
 
-    const data = initialLessons.map((lesson) => {
+    return initialLessons.map((lesson) => {
       if (res?.items?.some((item) => item?.slug === lesson.slug)) {
         return { ...lesson, bookmarked: true }
       } else {
         return lesson
       }
     })
-    console.log(data)
-    return data
   } catch (error) {
     console.log(error)
     return error

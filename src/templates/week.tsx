@@ -57,7 +57,7 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
     previousWeek,
     nextWeek,
     contentfulWeek: {
-      lessons,
+      lessons: pageLessons,
       weekDescription,
       createdAt,
       slug,
@@ -73,18 +73,18 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
   const {
     data: { bookmarked: weekBookmarked, id },
     isLoading: getLoading,
-  } = useGetBookmark(slug as string)
+  } = useGetBookmark(slug as string, "week")
   const [remove, { isLoading: removeLoading }] = useDeleteBookmark()
   const [add, { isLoading: addLoading }] = useAddBookmark()
 
   // Lesson bookmark data
-  const initialLessons: Lesson[] = lessons?.map((lesson) => ({
+  const initialLessons: Lesson[] = pageLessons?.map((lesson) => ({
     ...(lesson as ContentfulLesson),
     bookmarked: false,
   }))
 
   const { data, status, isLoading } = useQuery(
-    ["week", { initialLessons }],
+    ["allLessonBookmarks", { initialLessons }],
     fetchWeekNLessonBookmarks,
     {
       initialData: initialLessons,
@@ -106,13 +106,13 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
     const header = sectionData.find((section) => section.title === group[0])
     return {
       header: header,
-      data: group[1],
+      lessons: group[1],
     }
   })
 
   const handleBookmark = async () => {
     if (weekBookmarked) {
-      remove({ id: id })
+      remove({ id: id, type: "week" })
     } else {
       await add({
         name: title,
@@ -122,7 +122,26 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
     }
   }
 
-  console.log(sections)
+  const handleLessonBookmark = async ({
+    bookmarkTitle,
+    bookmarkSlug,
+    bookmarkType,
+  }: {
+    bookmarkTitle: string
+    bookmarkSlug: string
+    bookmarkType: string
+  }) => {
+    if (weekBookmarked) {
+      remove({ id: id, type: "lesson" })
+    } else {
+      await add({
+        name: bookmarkTitle,
+        slug: bookmarkSlug,
+        type: bookmarkType,
+      })
+    }
+  }
+
   return (
     <Layout>
       <SEO
@@ -172,7 +191,7 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
         <Loading>
           {status === "loading" && (
             <>
-              <P>Loading additional data....</P>
+              <P>{t("LOADING_DATA")}</P>
               <ContentLoader
                 type="Oval"
                 color="#4a5aef"
@@ -184,13 +203,21 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
           )}
         </Loading>
 
-        {sections.map(({ header, data }) => (
+        {sections.map(({ header, lessons }) => (
           <Section key={header?.id}>
             <H6>{header?.title}</H6>
             <HtmlContent document={header?.description?.json as Document} />
 
             <Lessons>
-              {data.map((lesson) => {
+              {lessons.map((lesson) => {
+                const bookmark = () => {
+                  handleLessonBookmark({
+                    bookmarkTitle: lesson.lessonName,
+                    bookmarkSlug: lesson.slug,
+                    bookmarkType: "lesson",
+                  })
+                }
+
                 return (
                   <LessonCard
                     bookmarked={lesson?.bookmarked}
@@ -198,7 +225,7 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
                     slug={`${lesson?.slug}`}
                     name={lesson?.lessonName}
                     path={`/lesson/${lesson?.slug}`}
-                    onClick={handleBookmark}
+                    onClick={bookmark}
                     lesson={lesson}
                     loading={isLoading}
                     readingTime={

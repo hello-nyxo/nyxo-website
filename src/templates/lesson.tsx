@@ -61,13 +61,13 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   const {
     data: { bookmarked, id },
     isLoading,
-  } = useGetBookmark(slug as string)
+  } = useGetBookmark(slug as string, "lesson")
   const [remove, { isLoading: removeLoading }] = useDeleteBookmark()
   const [add, { isLoading: addLoading }] = useAddBookmark()
 
   const handleBookmarking = async () => {
     if (bookmarked) {
-      remove({ id: id })
+      remove({ id: id, type: "lesson" })
     } else {
       await add({
         name: title,

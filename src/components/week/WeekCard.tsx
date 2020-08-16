@@ -2,23 +2,22 @@ import Image, { FluidObject } from "gatsby-image"
 import { Link, useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
-import { ContentfulLesson } from "../../../graphql-types"
+import { ContentfulLesson, Maybe } from "../../../graphql-types"
 import colors from "../../colors"
 import BookmarkButton from "../BookmarkButton/BookmarkButtonSmall"
 import { Icon } from "../Icons"
 import { device } from "../Primitives"
 
 type Props = {
-  key: string
-  name: string
-  path: string
-  duration: number
-  intro: string
-  lessons: ContentfulLesson[]
-  coverPhoto: FluidObject
-  slug: string
-  excerpt?: string
-  bookmarked?: any | null
+  name?: string | null
+  path?: string | null
+  duration?: number | null
+  intro?: string | null
+  lessons?: Maybe<Array<ContentfulLesson>> | null
+  coverPhoto?: FluidObject | null
+  slug?: string | null
+  excerpt?: string | null
+  bookmarked: boolean
 }
 
 const WeekCard: FC<Props> = ({
@@ -30,23 +29,21 @@ const WeekCard: FC<Props> = ({
   slug,
   bookmarked,
 }) => {
-  const countHabits: number = lessons.reduce(
-    (accumulator: number, currentValue: number) =>
-      accumulator +
-      parseInt(currentValue.habit ? currentValue.habit?.length : 0),
+  const countHabits: number = lessons?.reduce(
+    (accumulator: number, currentValue: ContentfulLesson) =>
+      accumulator + currentValue?.habit ? currentValue?.habit?.length : 0,
     0
   )
 
   const { t } = useTranslation()
 
   return (
-    <Card to={path}>
+    <Card to={`${path}`}>
       <Cover>
-        <CoverPhoto fluid={coverPhoto} />
+        <CoverPhoto fluid={coverPhoto as FluidObject} />
         <BookmarkButton
-          name={name}
-          type="week"
-          slug={slug}
+          onClick={() => {}}
+          loading={false}
           bookmarked={bookmarked}
         />
         <InformationRow>
@@ -57,7 +54,7 @@ const WeekCard: FC<Props> = ({
               name="presentation"
               stroke="currentColor"
             />
-            {lessons.length} {t("LESSONS")}
+            {lessons?.length} {t("LESSONS")}
           </Lessons>
           {!!countHabits && (
             <Habits>

@@ -9,9 +9,12 @@ import {
 import { deleteLikedContent, createLikedContent } from "../graphql/mutations"
 import { isLoggedIn } from "../auth/AppUser"
 import { navigate } from "gatsby"
-import { fetchLessonBookmarks } from "../components/BookmarkButton/fetchBookmarks"
+import {
+  fetchLessonBookmarks,
+  fetchAllBookmarks,
+} from "../components/BookmarkButton/fetchBookmarks"
 
-const removeBookmark = async ({ id }: { id: string }) => {
+const removeBookmark = async ({ id, type }: { id: string; type: string }) => {
   if (isLoggedIn()) {
     try {
       const {
@@ -48,8 +51,8 @@ const addBookmark = async ({ name, slug, type }: CreateLikedContentInput) => {
 
 export const useDeleteBookmark = () => {
   return useMutation(removeBookmark, {
-    onSuccess: ({ slug }) =>
-      queryCache.setQueryData(["bookmark", { slug: slug }], {
+    onSuccess: ({ slug }, { type }) =>
+      queryCache.setQueryData([type, { slug: slug }], {
         bookmarked: false,
         id: "",
       }),
@@ -58,24 +61,33 @@ export const useDeleteBookmark = () => {
 
 export const useAddBookmark = () => {
   return useMutation(addBookmark, {
-    onSuccess: ({ slug, id }) =>
-      queryCache.setQueryData(["bookmark", { slug: slug }], {
+    onSuccess: ({ slug, id }, { type }) =>
+      queryCache.setQueryData([type, { slug: slug }], {
         bookmarked: true,
         id: id,
       }),
   })
 }
 
-export const useGetBookmark = (slug: string) => {
-  return useQuery(
-    ["bookmark", { slug: slug as string }],
-    fetchLessonBookmarks,
-    {
+export const useGetBookmark = (slug: string, type: string) => {
+  if (isLoggedIn()) {
+    return useQuery([type, { slug: slug as string }], fetchLessonBookmarks, {
       initialData: () => ({
         bookmarked: false,
         id: "",
       }),
       initialStale: true,
+    })
+  } else {
+    return {
+      bookmarked: false,
+      id: "",
     }
-  )
+  }
+}
+
+export const useGetAllBookmarks = () => {
+  return useQuery("allBookmarks", fetchAllBookmarks, {
+    initialStale: true,
+  })
 }
