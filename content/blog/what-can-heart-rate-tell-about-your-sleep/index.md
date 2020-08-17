@@ -5,7 +5,7 @@ title: What Can Heart Rate Tell About Your Sleep
 authorSlug: "pietari-nurmi"
 author: Pietari Nurmi
 tags: ["Sleep"]
-thumbnailBlog: "./applewatch.jpeg"
+thumbnailBlog: "./applewatch.jpg"
 ---
 
 Night-time heart rate is a widely used metric in sleep tracking, and many trackers report your heart rate curve during the night. But what does it actually tell you?
