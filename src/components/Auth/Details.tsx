@@ -23,9 +23,9 @@ import { useGetUserBookmarks } from "../../hooks/data-fetching"
 
 const Details: FC = () => {
   const {
-    allContentfulWeek: { nodes: weeks },
-    allContentfulHabit: { nodes: habits },
-    allContentfulLesson: { nodes: lessons },
+    allContentfulWeek: { nodes: weekContent },
+    allContentfulHabit: { nodes: habitContent },
+    allContentfulLesson: { nodes: lessonContent },
   } = useStaticQuery(graphql`
     query {
       allContentfulHabit(filter: { node_locale: { eq: "en-US" } }) {
@@ -47,7 +47,9 @@ const Details: FC = () => {
       }
     }
   `)
-
+  const {
+    data: { lessons, weeks, habits },
+  } = useGetUserBookmarks([...weekContent, ...habitContent, ...lessonContent])
   const user = getCurrentUser()
 
   const signOut = () => {
@@ -60,8 +62,6 @@ const Details: FC = () => {
       })
   }
 
-  const data = useGetUserBookmarks([...weeks, ...habits, ...lessons])
-  console.log(data)
   return (
     <>
       <PageHeader title="Profile Details" text={user.email as string} />
@@ -84,59 +84,71 @@ const Details: FC = () => {
         </ul>
 
         <H3>Bookmarked Content</H3>
-        <H4>Weeks</H4>
-        <BookmarkContainer>
-          {weeks.map((week: ContentfulWeek) => {
-            return (
-              <WeekCard
-                bookmarked={false}
-                key={`${week?.slug}`}
-                path={`/week/${week?.slug}`}
-                intro={week?.intro}
-                name={week?.weekName}
-                duration={week?.duration}
-                lessons={week?.lessons}
-                coverPhoto={week?.coverPhoto?.fluid as FluidObject}
-                slug={week.slug}
-              />
-            )
-          })}
-        </BookmarkContainer>
-        <H4>Lessons</H4>
-        <BookmarkContainer>
-          {lessons.map((lesson: ContentfulLesson) => (
-            <LessonCard
-              slug={`${lesson?.slug}`}
-              name={lesson?.lessonName}
-              key={lesson?.slug as string}
-              bookmarked={false}
-              onClick={() => {}}
-              loading={false}
-              path={`/lesson/${lesson?.slug}`}
-              lesson={lesson}
-              readingTime={lesson?.lessonContent?.fields?.readingTime?.minutes}
-              cover={lesson?.cover?.fluid as FluidObject}
-              excerpt={lesson?.lessonContent?.fields?.excerpt}
-            />
-          ))}
-        </BookmarkContainer>
-
-        <H4>Habits</H4>
-        <BookmarkContainer>
-          {habits.map((node: ContentfulHabit) => (
-            <HabitCard
-              link
-              key={node.slug as string}
-              period={node.period}
-              title={node.title}
-              slug={`/habit/${node.slug}`}
-              excerpt={node.description?.fields?.excerpt}
-            />
-          ))}
-        </BookmarkContainer>
+        {weeks?.length > 0 && (
+          <>
+            <H4>Weeks</H4>
+            <BookmarkContainer>
+              {weeks.map((week: ContentfulWeek) => {
+                return (
+                  <WeekCard
+                    bookmarked={false}
+                    key={`${week?.id}-${week?.slug}`}
+                    path={`/week/${week?.slug}`}
+                    intro={week?.intro}
+                    name={week?.weekName}
+                    duration={week?.duration}
+                    lessons={week?.lessons}
+                    coverPhoto={week?.coverPhoto?.fluid as FluidObject}
+                    slug={week.slug}
+                  />
+                )
+              })}
+            </BookmarkContainer>
+          </>
+        )}
+        {lessons?.length > 0 && (
+          <>
+            <H4>Lessons</H4>
+            <BookmarkContainer>
+              {lessons.map((lesson: ContentfulLesson) => (
+                <LessonCard
+                  slug={`${lesson?.slug}`}
+                  name={lesson?.lessonName}
+                  key={`${lesson?.id}-${lesson?.slug}`}
+                  bookmarked={false}
+                  onClick={() => {}}
+                  loading={false}
+                  path={`/lesson/${lesson?.slug}`}
+                  lesson={lesson}
+                  readingTime={
+                    lesson?.lessonContent?.fields?.readingTime?.minutes
+                  }
+                  cover={lesson?.cover?.fluid as FluidObject}
+                  excerpt={lesson?.lessonContent?.fields?.excerpt}
+                />
+              ))}
+            </BookmarkContainer>
+          </>
+        )}
+        {habits?.length > 0 && (
+          <>
+            <H4>Habits</H4>
+            <BookmarkContainer>
+              {habits.map((node: ContentfulHabit) => (
+                <HabitCard
+                  link
+                  key={`${node.id}${node.slug}`}
+                  period={node.period}
+                  title={node.title}
+                  slug={`/habit/${node.slug}`}
+                  excerpt={node.description?.fields?.excerpt}
+                />
+              ))}
+            </BookmarkContainer>
+          </>
+        )}
 
         <H2>Sleep Coaching</H2>
-
         <UserHabits />
       </Container>
     </>
@@ -156,8 +168,4 @@ const BookmarkContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0 -1rem;
-`
-const P = styled.p`
-  display: inline-block;
-  margin-right: 15px;
 `
