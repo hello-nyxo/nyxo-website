@@ -12,7 +12,13 @@ import { navigate } from "gatsby"
 import {
   fetchLessonBookmarks,
   fetchAllBookmarks,
+  fetchUserBookmarks,
 } from "../components/BookmarkButton/fetchBookmarks"
+import {
+  ContentfulWeek,
+  ContentfulLesson,
+  ContentfulHabit,
+} from "../../graphql-types"
 
 const removeBookmark = async ({ id, type }: { id: string; type: string }) => {
   if (isLoggedIn()) {
@@ -86,8 +92,20 @@ export const useGetBookmark = (slug: string, type: string) => {
   }
 }
 
-export const useGetAllBookmarks = () => {
-  return useQuery("allBookmarks", fetchAllBookmarks, {
-    initialStale: true,
-  })
+export const useGetAllBookmarks = (initialData: any) => {
+  if (isLoggedIn()) {
+    return useQuery("allBookmarks", fetchAllBookmarks, {
+      initialStale: true,
+    })
+  } else {
+    return initialData
+  }
+}
+
+export type ContentData = Array<
+  ContentfulWeek | ContentfulLesson | ContentfulHabit
+>
+
+export const useGetUserBookmarks = (content: ContentData) => {
+  return useQuery(["allBookmarks", { content: content }], fetchUserBookmarks)
 }

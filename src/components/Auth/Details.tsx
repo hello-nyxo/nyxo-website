@@ -1,29 +1,34 @@
-import React from "react"
 import { navigate } from "@reach/router"
-import { getCurrentUser } from "../../auth/AppUser"
-import { Link, graphql, useStaticQuery } from "gatsby"
 import { Auth } from "aws-amplify"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import { FluidObject } from "gatsby-image"
+import React, { FC } from "react"
 import styled from "styled-components"
+import {
+  ContentfulHabit,
+  ContentfulLesson,
+  ContentfulWeek,
+} from "../../../graphql-types"
+import { getCurrentUser } from "../../auth/AppUser"
 import colors from "../../colors"
 import { Container } from "../../components/Primitives"
-import LessonCard from "../../components/lesson/LessonCard"
-import WeekCard from "../week/WeekCard"
 import HabitCard from "../Habit/HabitCard"
-import { H2, H3 } from "../Html/HtmlContent"
+import { H2, H3, H4 } from "../Html/HtmlContent"
 import { Icon } from "../Icons"
 import PageHeader from "../PageHeader"
 import UserHabits from "../user/UserHabits"
-import { useQuery } from "react-query"
-import { fetchAllBookmarks } from "../BookmarkButton/fetchBookmarks"
-import {
-  ContentLoader,
-  Button,
-} from "../../components/StyledComponents/styledComponents"
+import LessonCard from "../lesson/LessonCard"
+import WeekCard from "../week/WeekCard"
+import { useGetUserBookmarks } from "../../hooks/data-fetching"
 
-const Details = () => {
-  const graphqlData = useStaticQuery(graphql`
+const Details: FC = () => {
+  const {
+    allContentfulWeek: { nodes: weeks },
+    allContentfulHabit: { nodes: habits },
+    allContentfulLesson: { nodes: lessons },
+  } = useStaticQuery(graphql`
     query {
-      allContentfulHabit {
+      allContentfulHabit(filter: { node_locale: { eq: "en-US" } }) {
         nodes {
           ...HabitFragment
         }
@@ -43,10 +48,6 @@ const Details = () => {
     }
   `)
 
-  const weeksEN = graphqlData.allContentfulWeek.nodes
-  const habits = graphqlData.allContentfulHabit.nodes
-  const lessonsEN = graphqlData.allContentfulLesson.nodes
-
   const user = getCurrentUser()
 
   const signOut = () => {
@@ -59,28 +60,13 @@ const Details = () => {
       })
   }
 
-  const { data: bookmarkData, status } = useQuery(
-    "detailsKey",
-    fetchAllBookmarks
-  )
-
-  let i = 0
-  const limit = 3
-  if (status === "error") {
-    for (i; i < limit; i++) {
-      const { data, status } = useQuery("detailsKey", fetchAllBookmarks)
-    }
-  }
-
-  const fetchData = () => {
-    useQuery("detailsKey", fetchAllBookmarks)
-  }
-
+  const data = useGetUserBookmarks([...weeks, ...habits, ...lessons])
+  console.log(data)
   return (
     <>
-      <PageHeader title="Profile Details" text={user.email} />
+      <PageHeader title="Profile Details" text={user.email as string} />
       <Container>
-        <H3>About You</H3>
+        <H3>You</H3>
 
         <p>Email: {user.email}</p>
         <ul>
@@ -96,81 +82,57 @@ const Details = () => {
             />
           </LI>
         </ul>
+
         <H3>Bookmarked Content</H3>
+        <H4>Weeks</H4>
         <BookmarkContainer>
-          {status === "loading" ||
-            (status === "error" && (
-              <>
-                <P>Loading additional data....</P>
-                <ContentLoader
-                  type="Oval"
-                  color="#4a5aef"
-                  height={24}
-                  width={24}
-                  timeout={3000}
-                />
-                {i >= limit && (
-                  <>
-                    <p>There was a problem loading your data.</p>
-                    <Button onClick={fetchData}>Retry loading data</Button>
-                  </>
-                )}
-              </>
-            ))}
+          {weeks.map((week: ContentfulWeek) => {
+            return (
+              <WeekCard
+                bookmarked={false}
+                key={`${week?.slug}`}
+                path={`/week/${week?.slug}`}
+                intro={week?.intro}
+                name={week?.weekName}
+                duration={week?.duration}
+                lessons={week?.lessons}
+                coverPhoto={week?.coverPhoto?.fluid as FluidObject}
+                slug={week.slug}
+              />
+            )
+          })}
+        </BookmarkContainer>
+        <H4>Lessons</H4>
+        <BookmarkContainer>
+          {lessons.map((lesson: ContentfulLesson) => (
+            <LessonCard
+              slug={`${lesson?.slug}`}
+              name={lesson?.lessonName}
+              key={lesson?.slug as string}
+              bookmarked={false}
+              onClick={() => {}}
+              loading={false}
+              path={`/lesson/${lesson?.slug}`}
+              lesson={lesson}
+              readingTime={lesson?.lessonContent?.fields?.readingTime?.minutes}
+              cover={lesson?.cover?.fluid as FluidObject}
+              excerpt={lesson?.lessonContent?.fields?.excerpt}
+            />
+          ))}
+        </BookmarkContainer>
 
-          {status === "success" &&
-            lessonsEN.map(({ slug, lessonName, lessonContent, cover }: any) => {
-              const bookmarked = bookmarkData?.data.listLikedContents.items.find(
-                (item) => item.slug == slug
-              )
-
-              return (
-                bookmarked && (
-                  <LessonCard
-                    key={bookmarked.id}
-                    slug={slug}
-                    name={lessonName}
-                    path={`/lesson/${slug}`}
-                    readingTime={lessonContent?.fields?.readingTime?.minutes}
-                    cover={cover?.fluid}
-                    excerpt={lessonContent?.fields?.excerpt}
-                    bookmarked={bookmarked}
-                  />
-                )
-              )
-            })}
-
-          {status === "success" &&
-            weeksEN.map(
-              ({
-                slug,
-                intro,
-                weekName,
-                duration,
-                lessons,
-                coverPhoto,
-              }: any) => {
-                const bookmarked = bookmarkData?.data.listLikedContents.items.find(
-                  (item) => item.slug == slug
-                )
-
-                return (
-                  bookmarked && (
-                    <WeekCard
-                      key={bookmarked.id}
-                      path={`/week/${slug}`}
-                      intro={intro}
-                      name={weekName}
-                      duration={duration}
-                      lessons={lessons}
-                      coverPhoto={coverPhoto.fluid}
-                      slug={slug}
-                      bookmarked={bookmarked}
-                    />
-                  )
-                )
-              }
-            )}
+        <H4>Habits</H4>
+        <BookmarkContainer>
+          {habits.map((node: ContentfulHabit) => (
+            <HabitCard
+              link
+              key={node.slug as string}
+              period={node.period}
+              title={node.title}
+              slug={`/habit/${node.slug}`}
+              excerpt={node.description?.fields?.excerpt}
+            />
+          ))}
         </BookmarkContainer>
 
         <H2>Sleep Coaching</H2>
@@ -193,7 +155,7 @@ const BookmarkContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 -0.5rem;
+  margin: 0 -1rem;
 `
 const P = styled.p`
   display: inline-block;

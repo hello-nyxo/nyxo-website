@@ -2,7 +2,7 @@ import { graphql, PageProps } from "gatsby"
 import Image, { FluidObject } from "gatsby-image"
 import React, { FC } from "react"
 import styled from "styled-components"
-import { CoachingPageQueryQuery, ContentfulWeek } from "../../graphql-types"
+import { ContentfulWeek } from "../../graphql-types"
 import AuthorList from "../components/Author/AuthorList"
 import GetAppBanner from "../components/GetAppBanner"
 import HabitHighlights from "../components/Habit/HabitHighlights"
@@ -11,9 +11,9 @@ import Layout from "../components/layout"
 import LessonHighlights from "../components/LessonHighlights/LessonHighlights"
 import { Container, P } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
-import WeekHighlights from "../components/week/WeekHighlights"
 import WeekCard from "../components/week/WeekCard"
 import { useTranslation } from "gatsby-plugin-react-i18next"
+import { useGetAllBookmarks } from "../hooks/data-fetching"
 
 type Props = {
   weeksFI: {
@@ -22,8 +22,18 @@ type Props = {
   weeksEN: {
     nodes: ContentfulWeek[]
   }
-  coachingMeta: any
-  coachingCover: FluidObject
+  coachingMeta: {
+    childImageSharp: {
+      fixed: {
+        src: string
+      }
+    }
+  }
+  coachingCover: {
+    childImageSharp: {
+      fluid: FluidObject
+    }
+  }
 }
 
 const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
@@ -40,6 +50,9 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
 
   const { t } = useTranslation()
   const weeks = language === "fi" ? fiWeeks : enWeeks
+
+  const { data } = useGetAllBookmarks(weeks)
+  console.log(data)
   return (
     <Layout>
       <SEO
@@ -59,7 +72,6 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
         </CoverPhotoContainer>
 
         <P>{t("COACHING.INTRODUCTION")}</P>
-
         <H3>{t("COACHING.HOW_IT_WORKS")}</H3>
         <P>{t("COACHING.HOW_IT_WORKS_TEXT")}</P>
 
@@ -72,6 +84,7 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
           {weeks.map((week: ContentfulWeek) => {
             return (
               <WeekCard
+                bookmarked={false}
                 key={`${week?.slug}`}
                 path={`/week/${week?.slug}`}
                 intro={week?.intro}

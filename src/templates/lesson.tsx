@@ -1,20 +1,11 @@
-import { API, graphqlOperation } from "aws-amplify"
-import { graphql, navigate, PageProps } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import Image, { FluidObject } from "gatsby-image"
 import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
-import { queryCache, useMutation, useQuery } from "react-query"
 import styled from "styled-components"
 import { ContentfulLesson, LessonByIdQuery } from "../../graphql-types"
-import {
-  CreateLikedContentInput,
-  CreateLikedContentMutation,
-  DeleteLikedContentMutation,
-} from "../API"
-import { isLoggedIn } from "../auth/AppUser"
 import AuthorCard from "../components/Author/AuthorCard"
 import BookmarkButton from "../components/BookmarkButton/BookmarkButton"
-import { fetchLessonBookmarks } from "../components/BookmarkButton/fetchBookmarks"
 import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H4 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
@@ -23,11 +14,10 @@ import { Container, TextContainer } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import { BookmarkContainer } from "../components/StyledComponents/styledComponents"
 import TagSection from "../components/tags/Tags"
-import { createLikedContent, deleteLikedContent } from "../graphql/mutations"
 import getFirstAuthor from "../Helpers/AuthorHelper"
 import {
-  useDeleteBookmark,
   useAddBookmark,
+  useDeleteBookmark,
   useGetBookmark,
 } from "../hooks/data-fetching"
 

@@ -164,6 +164,9 @@
   "CHECKOUT_BLOG": "Blogistamme",
   "MORE_FROM_BLOG": "Lisää blogikirjoituksia",
 
+  "ADD_BOOKMARK": "Tallenna",
+  "REMOVE_BOOKMARK": "Poista kirjanmerkki",
+
   "ABOUT": {
     "TITLE": "Jokaisella ihmisellä on oikeus hyviin yöuniin",
     "NYXO": "Tietoa meistä",

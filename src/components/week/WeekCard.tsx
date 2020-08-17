@@ -13,7 +13,7 @@ type Props = {
   path?: string | null
   duration?: number | null
   intro?: string | null
-  lessons?: Maybe<Array<ContentfulLesson>> | null
+  lessons?: Maybe<Array<Maybe<ContentfulLesson>>>
   coverPhoto?: FluidObject | null
   slug?: string | null
   excerpt?: string | null

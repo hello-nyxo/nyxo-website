@@ -1,3 +1,4 @@
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { EventHandler, FC, MouseEvent } from "react"
 import styled, { css } from "styled-components"
 import { Icon } from "../Icons"
@@ -9,6 +10,8 @@ type Props = {
 }
 
 const BookmarkButton: FC<Props> = ({ bookmarked, onClick, loading }) => {
+  const { t } = useTranslation()
+
   return (
     <BookmarkContainer
       disabled={loading}
@@ -20,7 +23,7 @@ const BookmarkButton: FC<Props> = ({ bookmarked, onClick, loading }) => {
         bookmarked={bookmarked}
         viewBox="0 0 30 30"
       />
-      <Text>{bookmarked ? "Remove Bookmark" : "Add to Bookmarks"}</Text>
+      <Text>{bookmarked ? t("REMOVE_BOOKMARK") : t("ADD_BOOKMARK")}</Text>
     </BookmarkContainer>
   )
 }
