@@ -4,7 +4,7 @@ date: "2020-08-17"
 title: What Can Heart Rate Tell About Your Sleep
 authorSlug: "pietari-nurmi"
 author: Pietari Nurmi
-tags: ["Sleep"]
+tags: ["Sleep", "heart rate", "sleep trackers", "restful sleep", "body rhythms"]
 thumbnailBlog: "./applewatch.jpg"
 ---
 
@@ -16,23 +16,23 @@ During sleep and rest, your heart rate goes down. Lower heart rate indicates you
 
 If your night-time heart rate scores higher than usual, it is more than likely you had issues in your sleep that night. Several factors can elevate your heart rate during the night.
 
-### Mental Overload
+#### Mental Overload
 
 Stress, alertness, and emotional or cognitive overload are among the most typical causes of sleeping troubles. In these cases, something in your life or surroundings (be that work, relationship worries, or video games) activates fight or flight reaction in your body. Your heart rate gets high, stress hormone levels elevated, and your whole body alerted. As useful as this may be in some situations, in the evening-time, it makes falling asleep very difficult and severely disrupts your sleep. Unusually high heart rate at the beginning of the night might indicate mental overload.
 
-### Physical Overload
+#### Physical Overload
 
 Physical overload can have similar effects as mental overload. Overtraining is a state that occurs if a person exercises so hard that they exceed their body's ability to recover. Elevated night-time heart rate is one of the signs telling the body isn't able to recover from the exercise even over the night. Working out too late in the evening may have similar effects if the body hasn't completely recovered from the physical activity before going to bed. This may be an issue, especially for older persons, since their bodies often need more time to recover from exercise than younger people.
 
-## Chemical Substances
+#### Chemical Substances
 
 Alcohol, nicotine, and caffeine can all elevate your heart rate during the night and disrupt your sleep.
 
-### Sickness
+#### Sickness
 
 If you have a fever, your resting heart rate gets higher than usual.
 
-### REM Sleep
+#### REM Sleep
 
 REM sleep and dreaming may temporarily raise your heart rate, causing brief peaks in the nightly curve. However, these peaks are perfectly normal and do not necessarily indicate you were sleeping restlessly.
 
