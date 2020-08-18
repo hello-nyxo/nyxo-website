@@ -54,10 +54,10 @@ Weight management also requires refusal, even sacrifices. If you crave sweets, y
 
 ## Read More
 
-- (Lack of Sleep Makes Us Fatter)[https://nyxo.app/lesson/lack-of-sleep-makes-us-fatter]
-- (Exercise and Sleep)[https://nyxo.app/lesson/exercise-and-sleep]
-- (Do You Eat at the Right Time?)[https://nyxo.app/lesson/do-you-eat-at-the-right-time]
+- [Lack of Sleep Makes Us Fatter](https://nyxo.app/lesson/lack-of-sleep-makes-us-fatter)
+- [Exercise and Sleep](https://nyxo.app/lesson/exercise-and-sleep)
+- [Do You Eat at the Right Time](https://nyxo.app/lesson/do-you-eat-at-the-right-time)
 
 ### Sources:
 
-(https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5760223/)[Chaput, J. P., Lambert, M., Gray-Donald, K., McGrath, J. J., Tremblay, M. S., O'Loughlin, J., & Tremblay, A. (2011). Short sleep duration is independently associated with overweight and obesity in Quebec children. Canadian journal of public health, 102(5), 369-374.]
+- Chaput, J. P., Lambert, M., Gray-Donald, K., McGrath, J. J., Tremblay, M. S., O'Loughlin, J., & Tremblay, A. (2011). [Short sleep duration is independently associated with overweight and obesity in Quebec children](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5760223/). Canadian journal of public health, 102(5), 369-374.
