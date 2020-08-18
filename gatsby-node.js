@@ -13,7 +13,6 @@ exports.onCreateNode = async (options) => {
 exports.createPages = require("./src/lib/createPages").createPages
 
 exports.onCreatePage = async ({ page, actions }) => {
-  console.log(page)
   const { createPage } = actions
 
   if (page.path.match(/^\/me/)) {

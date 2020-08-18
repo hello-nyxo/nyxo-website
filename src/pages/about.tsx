@@ -10,6 +10,7 @@ import { H1, H2 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
 import { Container, P } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 type Props = {
   dataJson: Meta
@@ -41,6 +42,7 @@ const AboutPage: FC<PageProps<Props>> = ({
     contactMeta,
   },
 }) => {
+  const { t } = useTranslation()
   const team = [
     {
       name: "Perttu Lähteenlahti",
@@ -98,41 +100,23 @@ const AboutPage: FC<PageProps<Props>> = ({
   return (
     <Layout>
       <SEO
-        title={title}
-        description={description}
+        title={t("ABOUT.NYXO")}
+        description={t("ABOUT.INTRODUCTION_1")}
         pathName={pathname}
         image={contactMeta.childImageSharp.fixed.src}
       />
 
       <Container>
-        <H1>About</H1>
+        <H1>{t("ABOUT.TITLE")}</H1>
+
         <Row>
           <Column>
-            <H2>About Nyxo</H2>
-            <P>
-              Nyxo was founded in early 2019 with a mission to help people to
-              improve their sleep and day rhythm. Our first product is Nyxo, a
-              personalized sleep coaching program that operates from your phone,
-              evaluates your sleeping habits and helps you tackle the issues you
-              might have in your sleep and daily routines.
-            </P>
+            <H2>{t("ABOUT.NYXO")}</H2>
+            <P>{t("ABOUT.INTRODUCTION_1")}</P>
 
-            <P>
-              The roots of Nyxo are deeply rooted in scientific research, in a
-              research commercialization project conducted at University of
-              Helsinki. You can read{" "}
-              <a href="https://www.helsinki.fi/en/news/health-news/sleepcircle-a-research-based-solution-for-controlling-the-sleep-rhythm">
-                more about the research project here.
-              </a>
-            </P>
+            <P>{t("ABOUT.INTRODUCTION_2")}</P>
 
-            <P>
-              Before founding Nyxo, the founders did pioneering work on
-              startup-corporate collaboration. With these methods, the company
-              has had the opportunity to kick-start their business and work with
-              the leading companies in Finland in insurance and health care
-              business.
-            </P>
+            <P>{t("ABOUT.INTRODUCTION_3")}</P>
           </Column>
         </Row>
         <Row>
@@ -151,12 +135,8 @@ const AboutPage: FC<PageProps<Props>> = ({
 
         <Row>
           <Column>
-            <H2>Scientific Advisory</H2>
-            <P>
-              Nyxo is deeply rooted in science and we constantly collaborate
-              with the leading sleep researchers, in order to build the best
-              possible products for improving sleep and well-being.
-            </P>
+            <H2>{t("ABOUT.SCIENTISTS")}</H2>
+            <P>{t("ABOUT.SCIENTISTS_TEXT")}</P>
           </Column>
         </Row>
         <Row>
@@ -174,21 +154,8 @@ const AboutPage: FC<PageProps<Props>> = ({
         </Row>
 
         <JoinUs>
-          <H2>Join Us!</H2>
-
-          <P>
-            We’re a small team but growing quickly. As an early team member,
-            you’ll have an outsized impact on what we build and how we build it.
-            If you’re interested, we’d love to hear from you.
-          </P>
-          <Perks>
-            {perks.map((perk) => (
-              <Perk key={perk.title}>
-                <h3>{perk.title}</h3>
-                <P>{perk.text}</P>
-              </Perk>
-            ))}
-          </Perks>
+          <H2>{t("ABOUT.WORK_FOR_US")}</H2>
+          <P>{t("ABOUT.WORK_FOR_US_TEXT")}</P>
         </JoinUs>
 
         <InstagramFeaturette />

@@ -12,6 +12,7 @@ import TagSection from "../components/tags/Tags"
 import { RelatedContentFactory } from "../Helpers/related-content"
 import { BlogPostNode } from "../typings/blog-types"
 import BlogPost from "../components/BlogPost"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 type Props = {
   markdownRemark: BlogPostNode
@@ -51,6 +52,8 @@ const BlogPostTemplate: FC<PageProps<Props>> = ({
     .setTags(tags)
     .getArticles()
 
+  const { t } = useTranslation()
+
   return (
     <Layout>
       <>
@@ -58,7 +61,7 @@ const BlogPostTemplate: FC<PageProps<Props>> = ({
           title={title as string}
           pathName={pathname}
           image={thumbnailBlog?.childImageSharp?.fixed?.src}
-          description={description || excerpt}
+          description={(description || excerpt) as string}
           staticImage={true}
           canonical={canonical}
         />
@@ -79,14 +82,14 @@ const BlogPostTemplate: FC<PageProps<Props>> = ({
           {!!author && <AuthorCard author={author} />}
 
           <Tags>
-            <H3>Tags</H3>
+            <H3>{t("TAGS")}</H3>
             <TagSection largeTags tags={tags} />
           </Tags>
 
           <ShareArea></ShareArea>
         </TextContainer>
         <Container>
-          <H3>Related Blog Posts</H3>
+          <H3>{t("RELATED")}</H3>
           <RelatedContentSection>
             {relatedBlogPosts.map(
               ({ article: blogPost }: { article: BlogPostNode }) => (
@@ -227,11 +230,11 @@ export const Content = styled.div`
         font-size: 2rem;
         line-height: 2rem;
         margin-right: 10px;
-        position: absolute;
+        position: relative;
         content: "•";
         color: hsl(255deg, 85%, 30%);
         font-weight: bold;
-        font-family: "Montserrat-semibold", sans-serif;
+        font-family: Montserrat-semibold, sans-serif;
       }
 
       p {

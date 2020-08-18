@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { device } from "../components/Primitives"
@@ -6,6 +5,7 @@ import { Icon } from "./Icons"
 import Image, { FluidObject } from "gatsby-image"
 import colors from "../colors"
 import { ContentfulLesson } from "../../graphql-types"
+import { useTranslation, Link } from "gatsby-plugin-react-i18next"
 
 type Props = {
   name: string
@@ -24,6 +24,8 @@ const WeekCard: FC<Props> = ({ lessons, name, coverPhoto, path, intro }) => {
     0
   )
 
+  const { t } = useTranslation()
+
   return (
     <Card to={path}>
       <Cover>
@@ -36,7 +38,7 @@ const WeekCard: FC<Props> = ({ lessons, name, coverPhoto, path, intro }) => {
               name="presentation"
               stroke="currentColor"
             />
-            {lessons.length} Lessons
+            {lessons.length} {t("LESSONS")}
           </Lessons>
           {!!countHabits && (
             <Habits>
@@ -46,7 +48,7 @@ const WeekCard: FC<Props> = ({ lessons, name, coverPhoto, path, intro }) => {
                 name="task"
                 stroke="currentColor"
               />
-              {countHabits > 1 && `${countHabits} Habits`}
+              {countHabits > 1 && `${countHabits} ${t("HABITS")}`}
             </Habits>
           )}
         </InformationRow>

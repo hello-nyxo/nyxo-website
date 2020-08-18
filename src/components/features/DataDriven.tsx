@@ -1,6 +1,12 @@
-import React, { FC, useEffect, useState } from "react"
+import React, {
+  FC,
+  useEffect,
+  useState,
+  ChangeEventHandler,
+  ChangeEvent,
+} from "react"
 import styled, { keyframes, css } from "styled-components"
-import { P, H2 } from "../Html/HtmlContent"
+import { P, H2, H3 } from "../Html/HtmlContent"
 import Image from "gatsby-image"
 import { Icon } from "../Icons"
 import colors from "../../colors"
@@ -16,6 +22,7 @@ import {
 import { useInView } from "react-intersection-observer"
 import devices from "../../devices"
 import { shuffle } from "lodash"
+import { ContentfulLesson } from "../../../graphql-types"
 
 const exampleWeights = {
   duration: 75,
@@ -60,42 +67,39 @@ export const DataDrivenDemo: FC = () => {
       }
     }
   `)
+  const [weights, setWeights] = useState(exampleWeights)
 
-  const sorted = nodes.sort((lessonA, lessonB) => {
-    return (
-      calculateMatchScore(lessonA.weights, exampleWeights) -
-      calculateMatchScore(lessonB.weights, exampleWeights)
-    )
-  })
-
-  const [efficiency, setEfficiency] = useState(0)
-
-  const [rows, set] = useState(sorted)
-  const [weights, setWeights] = useState({
-    duration: 75,
-    jetlag: 59,
-    consistency: 60,
-    efficiency: 75,
-  })
-  let height = 0
-
-  const handleChange = (event) => {
-    const weights = {
-      ...exampleWeights,
-      efficiency: Math.floor(Math.random() * (100 - 0 + 1) + 0),
-      duration: Math.floor(Math.random() * (100 - 0 + 1) + 0),
-      consistency: parseInt(event.target.value),
-    }
-
-    const array = nodes.sort((lessonA, lessonB) => {
+  const sorted = nodes.sort(
+    (lessonA: ContentfulLesson, lessonB: ContentfulLesson) => {
       return (
         calculateMatchScore(lessonA.weights, weights) -
         calculateMatchScore(lessonB.weights, weights)
       )
+    }
+  )
+  const [rows, set] = useState(sorted)
+
+  let height = 0
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const {
+      target: { value, name },
+    } = event
+    setWeights({
+      ...weights,
+      [name]: parseInt(value),
     })
-    console.log(array)
-    set(array)
+
     console.log(weights)
+
+    set(
+      nodes.sort((lessonA: ContentfulLesson, lessonB: ContentfulLesson) => {
+        return (
+          calculateMatchScore(lessonA.weights, weights) -
+          calculateMatchScore(lessonB.weights, weights)
+        )
+      })
+    )
   }
 
   const transitions = useTransition(
@@ -112,15 +116,15 @@ export const DataDrivenDemo: FC = () => {
     }
   )
 
-  useEffect(() => void setInterval(() => set(shuffle), 2000), [])
+  // useEffect(() => void setInterval(() => set(shuffle), 2000), [])
 
-  const [springs] = useSprings(4, (index) => ({
+  const [springs] = useSprings(4, () => ({
     loop: true,
     from: { value: Math.floor(Math.random() * (100 - 0 + 1) + 0) },
     to: { value: Math.floor(Math.random() * (100 - 0 + 1) + 0) },
   }))
 
-  console.log(springs)
+  // console.log(springs)
 
   return (
     <Container>
@@ -135,26 +139,47 @@ export const DataDrivenDemo: FC = () => {
           <ListItem>
             <CheckIcon name="efficiency" height="18" width="18" />
             <Type>Efficiency</Type>
-            <Range type="range" value={springs[1].value} />
+            <Range
+              type="range"
+              name="efficiency"
+              onChange={handleChange}
+              value={weights["efficiency"]}
+            />
           </ListItem>
           <ListItem>
             <CheckIcon name="socialJetLag" height="18" width="18" />
             <Type>Social Jet Lag</Type>
-            <Range type="range" value={springs[1].value} />
+            <Range
+              name="jetlag"
+              onChange={handleChange}
+              type="range"
+              value={weights["jetlag"]}
+            />
           </ListItem>
           <ListItem>
             <CheckIcon name="clockBold" height="18" width="18" />
             <Type>Duration</Type>
-            <Range type="range" value={springs[2].value} />
+            <Range
+              type="range"
+              name="duration"
+              onChange={handleChange}
+              value={weights["duration"]}
+            />
           </ListItem>
           <ListItem>
             <CheckIcon name="consistency" height="18" width="18" />
             <Type>Consistency</Type>
-            <Range type="range" value={springs[3].value} />
+            <Range
+              type="range"
+              name="consistency"
+              onChange={handleChange}
+              value={weights["consistency"]}
+            />
           </ListItem>
         </List>
       </Column>
       <Column>
+        <H3>Best match</H3>
         <Sources>
           <SourceList>
             {transitions.map(
@@ -277,9 +302,12 @@ const Range = styled(animated.input)`
     appearance: none;
     height: 1rem;
     width: 1rem;
-    background: var(--radiantBlue);
-    border-radius: 1rem;
+    background: white;
+    border-radius: 2rem;
+    box-sizing: content-box;
+    border: 0.2rem solid var(--radiantBlue);
     cursor: pointer;
+    box-shadow: var(--shadow);
   }
 
   &::-moz-range-thumb {
@@ -318,9 +346,10 @@ const Author = styled.div`
 `
 
 const Cover = styled(Image)`
-  height: 2rem;
-  width: 2rem;
+  height: 3rem;
+  width: 3rem;
   margin-right: 1rem;
+  border-radius: 0.5rem;
 `
 
 const Type = styled.div`

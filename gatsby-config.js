@@ -28,7 +28,60 @@ module.exports = {
       },
     },
     "gatsby-plugin-slug",
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        exclude: ["/**/404", "/**/404.html"],
+        query: `
+						{
+							site {
+								siteMetadata {
+									siteUrl
+								}
+							}
+							allSitePage(filter: {context: {i18n: {routed: {eq: false}}}}) {
+								edges {
+									node {
+										context {
+											i18n {
+												defaultLanguage
+												languages
+												originalPath
+											}
+										}
+										path
+									}
+								}
+							}
+						}
+					`,
+        serialize: ({ site, allSitePage }) => {
+          return allSitePage.edges.map((edge) => {
+            const {
+              languages,
+              originalPath,
+              defaultLanguage,
+            } = edge.node.context.i18n
+            const { siteUrl } = site.siteMetadata
+            const url = siteUrl + originalPath
+            const links = [
+              { lang: defaultLanguage, url },
+              { lang: "x-default", url },
+            ]
+            languages.forEach((lang) => {
+              if (lang === defaultLanguage) return
+              links.push({ lang, url: `${siteUrl}/${lang}${originalPath}` })
+            })
+            return {
+              url,
+              changefreq: "daily",
+              priority: originalPath === "/" ? 1.0 : 0.7,
+              links,
+            }
+          })
+        },
+      },
+    },
     "gatsby-plugin-preload-link-crossorigin",
     {
       resolve: `gatsby-source-instagram`,
@@ -147,12 +200,59 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        path: `${__dirname}/locales`,
+        languages: [`en`, `fi`],
+        defaultLanguage: `en`,
+        redirect: false,
+        siteUrl: "https://nyxo.app",
+        i18nextOptions: {
+          lowerCaseLng: true,
+          saveMissing: false,
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+          keySeparator: ".",
+          nsSeparator: false,
+        },
+        pages: [
+          {
+            matchPath: "/:lang?/week/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["fi"],
+          },
+          {
+            matchPath: "/:lang?/lesson/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["fi"],
+          },
+          {
+            matchPath: "/:lang?/author/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["fi"],
+          },
+          {
+            matchPath: "/:lang?/habit/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["fi"],
+          },
+          {
+            matchPath: "/:lang?/questionnaire/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["fi"],
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sass`,
     {
@@ -196,14 +296,6 @@ module.exports = {
         id: process.env.GTAG_ID,
         includeInDevelopment: true,
         defaultDataLayer: { platform: "gatsby" },
-      },
-    },
-    {
-      resolve: "gatsby-plugin-i18n",
-      options: {
-        langKeyDefault: "en",
-        useLangKeyLayout: false,
-        prefixDefault: false,
       },
     },
     {

@@ -1,13 +1,15 @@
 import React, { useState, FC } from "react"
 import addToMailchimp from "gatsby-plugin-mailchimp"
 import styled from "styled-components"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import { H2, P } from "./Primitives"
 import { Icon } from "./Icons"
 import devices from "../devices"
+import { Link, useTranslation } from "gatsby-plugin-react-i18next"
 
 const NewsLetterForm: FC = () => {
+  const { t } = useTranslation()
   const data = useStaticQuery(graphql`
     query NewsLetterQuery {
       newsletter: file(name: { regex: "/newsletter/" }) {
@@ -57,21 +59,18 @@ const NewsLetterForm: FC = () => {
       <Overlay>
         <Container>
           <NoOverFlow>
-            <H2>Stay tuned</H2>
-            <P>
-              Subscribe to our newsletter and never miss out on free sleep
-              coaching materials, product updates and more.
-            </P>
+            <H2>{t("NEWSLETTER.TITLE")}</H2>
+            <P>{t("NEWSLETTER.DESCRIPTION")}</P>
           </NoOverFlow>
           {allow ? (
             <EmailForm action-xhr="" method="POST" onSubmit={handleSubmit}>
               <FloatingContainer>
-                <Label htmlFor="email">email</Label>
+                <Label htmlFor="email">{t("NEWSLETTER.EMAIL")}</Label>
                 <FieldContainer>
                   <EmailField
                     type="email"
                     onChange={_handleChange}
-                    placeholder="your@email.com"
+                    placeholder={t("NEWSLETTER.PLACEHOLDER")}
                     name="email"
                     className="newsletterInput"
                   />
@@ -90,11 +89,13 @@ const NewsLetterForm: FC = () => {
                 </FieldContainer>
               </FloatingContainer>
               <Disclaimer to="/privacy" title={"Privacy Policy"}>
-                Read on how we handle your data
+                {t("NEWSLETTER.PRIVACY")}
               </Disclaimer>
             </EmailForm>
           ) : (
-            <ThanksForSubscribing>Thanks for subscribing!</ThanksForSubscribing>
+            <ThanksForSubscribing>
+              {t("NEWSLETTER.THANK_YOU")}
+            </ThanksForSubscribing>
           )}
         </Container>
       </Overlay>
