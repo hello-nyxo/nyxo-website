@@ -3,7 +3,7 @@ import React, { FC } from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "../../@types/childImageSharp"
 import { Meta } from "../../@types/content/meta"
-import AuthorFeaturette from "../components/Author/AuthorFeaturette"
+import AuthorFeaturette from "../components/features/AuthorFeaturette"
 import BlogPreview from "../components/BlogPreview"
 import Featured from "../components/Featured/Featured"
 import Image from "../components/image"
@@ -65,46 +65,13 @@ const IndexPage: FC<PageProps<Props>> = ({
       </div>
 
       <Featured />
-
       <CoachingHighlight />
 
       <IndexContainer>
         <div className={"features"}>
           <SyncFeatures />
           <DataDrivenDemo />
-          <div className={"feature__item"}>
-            <div className={"row"}>
-              <div className="col-6 first">
-                <div className={"thumbnail"}>
-                  <Image
-                    alt="Nyxo data sources"
-                    path={datasources.childImageSharp.fluid}
-                  />
-                </div>
-              </div>
-
-              <div className={"col-6"}>
-                <div className={"feature__content"}>
-                  <FeaturesHeroText>{t("INDEX.IMPORTING")}</FeaturesHeroText>
-                  <P>{t("INDEX.IMPORTING_TEXT")}</P>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className={"feature__item"}>
-            <div className={"row"}>
-              <div className={"col-6"}>
-                <div className={"feature__content"}>
-                  <FeaturesHeroText>{t("INDEX.AUTHORS")}</FeaturesHeroText>
-                  <P>{t("INDEX.AUTHORS_TEXT")}</P>
-                </div>
-              </div>
-              <div className="col-6 first">
-                <AuthorFeaturette />
-              </div>
-            </div>
-          </div>
+          <AuthorFeaturette />
 
           <div className={"feature__item"}>
             <div className={"row"}>

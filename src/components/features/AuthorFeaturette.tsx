@@ -1,10 +1,11 @@
 import React, { FC } from "react"
-import AuthorCard from "./AuthorCard"
+import AuthorCard from "../Author/AuthorCard"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import devices from "../../devices"
-import { H3 } from "../Html/HtmlContent"
+import { H3, H2, P } from "../Html/HtmlContent"
 import { ContentfulAuthor } from "../../../graphql-types"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 const AuthorFeaturette: FC = () => {
   const {
@@ -14,15 +15,7 @@ const AuthorFeaturette: FC = () => {
       allContentfulAuthor(
         filter: {
           node_locale: { eq: "en-US" }
-          slug: {
-            nin: [
-              "kayla-gordon"
-              "chinh-duong"
-              "eeva-siika-aho"
-              "perttu-lahteenlahti"
-              "miska-nurmi"
-            ]
-          }
+          slug: { in: ["liisa-kuula", "anu-katriina-pesonen", "pietari-nurmi"] }
         }
       ) {
         nodes {
@@ -45,30 +38,36 @@ const AuthorFeaturette: FC = () => {
       }
     }
   `)
+  const { t } = useTranslation()
 
   return (
     <Container>
-      {authors.map((author: ContentfulAuthor) => (
-        <AuthorCard key={author.id} author={author} />
-      ))}
+      <Column>
+        <Title>{t("INDEX.AUTHORS")}</Title>
+        <P>{t("INDEX.AUTHORS_TEXT")}</P>
+      </Column>
+      <Column>
+        {authors.map((author: ContentfulAuthor) => (
+          <AuthorCard key={author.id} author={author} />
+        ))}
+      </Column>
     </Container>
   )
 }
 
 export default AuthorFeaturette
 
-const Title = styled(H3)`
-  margin: 0rem 1rem 1rem;
+const Container = styled.div`
+  margin: 5rem 0rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `
 
-const Container = styled.div`
-  background-color: var(--secondaryBg);
-  box-shadow: var(--shadow);
-  padding: 1rem;
-  z-index: 2;
-  position: relative;
-  box-sizing: border-box;
-  @media ${devices.tablet} {
-    padding: 1rem 0rem;
-  }
+const Title = styled(H2)`
+  margin: 0 0 2rem 0;
+`
+
+const Column = styled.div`
+  flex: 1;
 `
