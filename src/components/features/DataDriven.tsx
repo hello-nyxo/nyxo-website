@@ -1,28 +1,16 @@
-import React, {
-  FC,
-  useEffect,
-  useState,
-  ChangeEventHandler,
-  ChangeEvent,
-} from "react"
-import styled, { keyframes, css } from "styled-components"
-import { P, H2, H3 } from "../Html/HtmlContent"
-import Image from "gatsby-image"
-import { Icon } from "../Icons"
-import colors from "../../colors"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
+import Image, { FluidObject } from "gatsby-image"
+import React, { ChangeEvent, FC, useState } from "react"
+import { animated, interpolate, useSprings, useTransition } from "react-spring"
+import styled from "styled-components"
 import {
-  useTrail,
-  animated,
-  interpolate,
-  useTransition,
-  useSpring,
-  useSprings,
-} from "react-spring"
-import { useInView } from "react-intersection-observer"
+  ContentfulLesson,
+  ContentfulLessonWeightsJsonNode,
+} from "../../../graphql-types"
+import colors from "../../colors"
 import devices from "../../devices"
-import { shuffle } from "lodash"
-import { ContentfulLesson } from "../../../graphql-types"
+import { H2, H3, P } from "../Html/HtmlContent"
+import { Icon } from "../Icons"
 
 const exampleWeights = {
   duration: 75,
@@ -31,19 +19,32 @@ const exampleWeights = {
   efficiency: 75,
 }
 
+const sort = (lessons: Array<ContentfulLesson>, weights: Weights) => {
+  return lessons.sort(
+    (lessonA: ContentfulLesson, lessonB: ContentfulLesson) => {
+      return (
+        calculateMatchScore(weights, lessonA.weights) -
+        calculateMatchScore(weights, lessonB.weights)
+      )
+    }
+  )
+}
+
 export const calculateMatchScore = (
-  userWeights: Weights,
-  lessonWeights: Weights
+  userWeights: Weights | null = {
+    ...exampleWeights,
+  },
+  lessonWeights?: ContentfulLessonWeightsJsonNode | null
 ): number => {
   let sum = 0,
-    totalParams = 0
+    totalParameters = 0
 
-  Object.keys(userWeights).forEach((key) => {
+  Object.keys(userWeights as Weights).forEach((key) => {
     sum += ((1 - Object(userWeights)[key]) * Object(lessonWeights)[key]) / 100
-    totalParams += 1
+    totalParameters += 1
   })
 
-  return sum / totalParams
+  return sum / totalParameters
 }
 
 export const DataDrivenDemo: FC = () => {
@@ -68,17 +69,7 @@ export const DataDrivenDemo: FC = () => {
     }
   `)
   const [weights, setWeights] = useState(exampleWeights)
-
-  const sorted = nodes.sort(
-    (lessonA: ContentfulLesson, lessonB: ContentfulLesson) => {
-      return (
-        calculateMatchScore(lessonA.weights, weights) -
-        calculateMatchScore(lessonB.weights, weights)
-      )
-    }
-  )
-  const [rows, set] = useState(sorted)
-
+  const [rows, set] = useState(sort(nodes, weights))
   let height = 0
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -89,25 +80,15 @@ export const DataDrivenDemo: FC = () => {
       ...weights,
       [name]: parseInt(value),
     })
-
-    console.log(weights)
-
-    set(
-      nodes.sort((lessonA: ContentfulLesson, lessonB: ContentfulLesson) => {
-        return (
-          calculateMatchScore(lessonA.weights, weights) -
-          calculateMatchScore(lessonB.weights, weights)
-        )
-      })
-    )
+    set(sort(nodes, weights))
   }
 
   const transitions = useTransition(
-    rows.map((node) => ({
+    rows.map((node: ContentfulLesson) => ({
       ...node,
       y: (height += 100) - 100,
     })),
-    (d) => d.lessonName,
+    (d) => d.lessonName as string,
     {
       from: { opacity: 0 },
       leave: { opacity: 0 },
@@ -176,14 +157,23 @@ export const DataDrivenDemo: FC = () => {
               value={weights["consistency"]}
             />
           </ListItem>
+          <ListItem>
+            <Footnote>
+              Nyxo app uses additional metrics calculated from your sleep data
+              as well as tag and catergory based grouping. Learn more about the
+              content suggestion from the Coaching page.
+            </Footnote>
+          </ListItem>
         </List>
       </Column>
       <Column>
-        <H3>Best match</H3>
         <Sources>
           <SourceList>
             {transitions.map(
-              ({ item: lesson, props: { y, ...rest }, key }, index) => (
+              (
+                { item: { cover, lessonName }, props: { y, ...rest }, key },
+                index
+              ) => (
                 <Lesson
                   key={key}
                   style={{
@@ -194,11 +184,14 @@ export const DataDrivenDemo: FC = () => {
                     ),
                     ...rest,
                   }}>
-                  <Cover fluid={lesson.cover.fluid} />
-                  <Column>
-                    <div>{lesson.lessonName}</div>
-                    <Author>Pietari Nurmi</Author>
-                  </Column>
+                  <Cover fluid={cover?.fluid as FluidObject} />
+                  <CardInfo>
+                    <LessonName>{lessonName}</LessonName>
+                    <div>
+                      <Tag>Lesson</Tag>
+                      <Author>Pietari Nurmi</Author>
+                    </div>
+                  </CardInfo>
                 </Lesson>
               )
             )}
@@ -215,7 +208,7 @@ const Container = styled.div`
   margin: 5rem 0rem;
 
   @media ${devices.mobileL} {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
   @media ${devices.laptop} {
     flex-direction: row;
@@ -228,12 +221,10 @@ const Title = styled(H2)`
 
 const Column = styled.div`
   flex: 1;
-`
-
-const LeftColumn = styled(Column)`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  @media ${devices.mobileL} {
+    flex: 1 100%;
+    width: 100%;
+  }
 `
 
 const List = styled.ul``
@@ -339,7 +330,7 @@ const Lesson = styled(animated.div)`
   border-radius: 0.5rem;
 `
 
-const Author = styled.div`
+const Author = styled.span`
   margin-top: 0.5rem;
   font-size: 0.8rem;
   color: var(--textSecondary);
@@ -354,4 +345,45 @@ const Cover = styled(Image)`
 
 const Type = styled.div`
   width: 10rem;
+`
+
+const Weight = styled.span`
+  font-size: 0.7rem;
+  background-color: ${colors.afternoon};
+  color: ${colors.afternoonAccent};
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.4rem;
+  display: inline-block;
+  margin: 0.5rem 0.2rem 0rem;
+`
+
+const CardInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const Tag = styled.span`
+  font-size: 0.6rem;
+  font-weight: 600;
+  background-color: ${colors.afternoon};
+  color: ${colors.afternoonAccent};
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.4rem;
+  display: inline;
+  text-transform: uppercase;
+  margin: 0 1rem 0.5rem 0rem;
+`
+
+const LessonName = styled.h6`
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1rem;
+  margin-bottom: 0.8rem;
+`
+
+const Footnote = styled(P)`
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
 `
