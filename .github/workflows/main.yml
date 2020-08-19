@@ -13,8 +13,8 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           submodules: recursive
 
-      - uses: actions/checkout@v2
       - name: Decrypt team settings
+        uses: actions/checkout@v2
         run: ./.github/scripts/decrypt-team-provider.sh
         env:
           PASS_PHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
@@ -35,8 +35,8 @@ jobs:
           AWS_REGION: eu-central-1
 
       - name: Build
-      - run: yarn install --frozen-lockfile --non-interactive
-      - run: yarn build
+        run: yarn install --frozen-lockfile --non-interactive
+        run: yarn build
         env:
           GATSBY_TELEMETRY_DISABLED: 1
           INSTAGRAM_API_TOKEN: ${{ secrets.INSTAGRAM_API_TOKEN }}
@@ -62,7 +62,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          channel: "#deployments"
+          channel: "#development"
           status: ${{ job.status }}
           success_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) completed successfully. Go see nyxo.app to see it in action"
           failure_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) failed"
