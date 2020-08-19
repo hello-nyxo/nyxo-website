@@ -2,13 +2,12 @@ name: "Build, test, and release"
 on:
   release:
     types: ["published"]
-
 jobs:
-  build-and-test:
+  build-test-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout project
         uses: actions/checkout@v2.3.1
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
@@ -20,7 +19,7 @@ jobs:
         env:
           PASS_PHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
 
-      - name: Use Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
@@ -35,6 +34,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: eu-central-1
 
+      - name: Build
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn build
         env:
@@ -47,10 +47,26 @@ jobs:
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           MAILCHIMP_ENDPOINT: ${{ secrets.MAILCHIMP_ENDPOINT }}
 
-      - uses: netlify/actions/cli@master
+      - name: Deploy
+        uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
           args: deploy --dir=public --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+
+      - name: Deploy notification
+        if: always()
+        uses: adamkdean/simple-slack-notify@1.0.4
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          channel: "#deployments"
+          status: ${{ job.status }}
+          success_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) completed successfully. Go see nyxo.app to see it in action"
+          failure_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) failed"
+          cancelled_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) was cancelled"
+          fields: |
+            [{ "title": "Host", "value": "${{ secrets.DEPLOY_HOST }}"},
+            { "title": "Action URL", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
