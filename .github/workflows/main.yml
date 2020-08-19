@@ -54,7 +54,7 @@ jobs:
           args: deploy --dir=public --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
-      - name: Deploy notification
+      - name: Spam Slack
         if: always()
         uses: adamkdean/simple-slack-notify@1.0.4
         env:
@@ -62,8 +62,8 @@ jobs:
         with:
           channel: "#development"
           status: ${{ job.status }}
-          success_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) completed successfully. Go see nyxo.app to see it in action"
-          failure_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) failed"
+          success_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) of nyxo.app completed successfully. Go see nyxo.app to see it in action"
+          failure_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) of nyxo.app failed. Please go see what's wrong with this build"
           cancelled_text: "Deployment (#${env.GITHUB_RUN_NUMBER}) was cancelled"
           fields: |
             [{ "title": "Host", "value": "${{ secrets.DEPLOY_HOST }}"},
