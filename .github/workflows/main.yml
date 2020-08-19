@@ -13,19 +13,18 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           submodules: recursive
 
-      - name: Decrypt team settings
       - uses: actions/checkout@v2
         run: ./.github/scripts/decrypt-team-provider.sh
         env:
           PASS_PHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
 
       - name: Setup Node.js
-      - uses: actions/setup-node@v1
+        uses: actions/setup-node@v1
         with:
           node-version: "10.x"
 
       - name: Configure amplify
-      - uses: ambientlight/amplify-cli-action@0.2.1
+        uses: ambientlight/amplify-cli-action@0.2.1
         with:
           amplify_command: configure
           amplify_env: dev
@@ -35,8 +34,8 @@ jobs:
           AWS_REGION: eu-central-1
 
       - name: Build
-      - run: yarn install --frozen-lockfile --non-interactive
-      - run: yarn build
+        run: yarn install --frozen-lockfile --non-interactive
+        run: yarn build
         env:
           GATSBY_TELEMETRY_DISABLED: 1
           INSTAGRAM_API_TOKEN: ${{ secrets.INSTAGRAM_API_TOKEN }}
@@ -48,7 +47,7 @@ jobs:
           MAILCHIMP_ENDPOINT: ${{ secrets.MAILCHIMP_ENDPOINT }}
 
       - name: Deploy
-      - uses: netlify/actions/cli@master
+        uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -58,7 +57,7 @@ jobs:
 
       - name: Deploy notification
         if: always()
-      - uses: adamkdean/simple-slack-notify@1.0.4
+        uses: adamkdean/simple-slack-notify@1.0.4
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
