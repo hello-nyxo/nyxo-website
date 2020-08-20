@@ -1,17 +1,32 @@
-import { Link, useTranslation } from "gatsby-plugin-react-i18next"
+import { Link, useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { Icon } from "../Icons"
 import { device, minDevice } from "../Primitives"
+import { navigate } from "gatsby"
 
 const FloatingPrompt: FC = () => {
   const { t } = useTranslation()
+  const { language } = useI18next()
+  console.log(language)
+  const handleClick = () => {
+    if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+      window.location.href =
+        "https://play.google.com/store/apps/details?id=fi.nyxo.app&hl=en_US"
+    }
+    if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
+      window.location.href =
+        "https://apps.apple.com/us/app/nyxo-sleep-coaching/id1440417031"
+    } else {
+      navigate(`/${language === "fi" ? "fi/" : ""}for-you`)
+    }
+  }
   return (
     <Banner>
       <TextMobile>{t("PROMPT.MOBILE")}</TextMobile>
       <TextTablet>{t("PROMPT.TABLET")}</TextTablet>
       <TextDesktop>{t("PROMPT.DESKTOP")}</TextDesktop>
-      <Button to="get-nyxo">
+      <Button onClick={handleClick}>
         <ButtonText>{t("PROMPT.BUTTON")}</ButtonText>
         <Arrow />
       </Button>
@@ -68,21 +83,24 @@ const TextDesktop = styled(Text)`
   }
 `
 
-const Button = styled(Link)`
+const Button = styled.button`
   padding: 0.75rem;
+  border: none;
   background-color: white;
   border-radius: 0.25rem;
   color: var(--textPrimary);
   display: flex;
   flex-direction: row;
-  font-weight: 500;
-  font-style: normal;
+
   font-family: var(--medium);
   align-items: center;
 `
 
 const ButtonText = styled.p`
   display: none;
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: normal;
   @media ${minDevice.tablet} {
     display: block;
   }
