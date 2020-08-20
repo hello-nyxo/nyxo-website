@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 import styled, { CSSProperties } from "styled-components"
 
 const Icons: any = {
@@ -144,6 +144,12 @@ const Icons: any = {
       <path d="M23.707,5.705,18.293.291A1,1,0,0,0,17.585,0H6A2,2,0,0,0,4,2v5.75A.25.25,0,0,0,4.25,8h1.5A.25.25,0,0,0,6,7.748V2.5A.5.5,0,0,1,6.5,2H16.75a.25.25,0,0,1,.25.25V5a2,2,0,0,0,2,2h2.75a.25.25,0,0,1,.25.25V21.5a.5.5,0,0,1-.5.5H6.25a.25.25,0,0,1-.25-.25v-.5A.248.248,0,0,0,5.751,21H4.25a.25.25,0,0,0-.25.25V22a2,2,0,0,0,2,2H22a2,2,0,0,0,2-2V6.412A1,1,0,0,0,23.707,5.705Z"></path>
     </g>
   ),
+  keyboardArrowRight: (
+    <g>
+      <path d="M23.25 12.497L0.75 12.497" />
+      <path d="M19.5 16.247L23.25 12.497 19.5 8.747" />
+    </g>
+  ),
 }
 
 interface Props {
@@ -154,21 +160,26 @@ interface Props {
   height?: string | number
   viewBox?: string
   strokeWidth?: string
+  strokeLinecap?: "butt" | "round" | "square" | "inherit"
   style?: CSSProperties
+  className?: string
 }
 
-export const Icon = ({
+export const Icon: FC<Props> = ({
   name = "sun",
   height = "50px",
   width = "50px",
   fill = "none",
   stroke = "#333",
   strokeWidth = "1.5",
+  strokeLinecap = "round",
   viewBox = `0 0 ${30} ${30}`,
+  className,
   style,
-}: Props) => {
+}) => {
   return (
     <SVG
+      className={className}
       style={style}
       width={width}
       height={height}
@@ -177,6 +188,7 @@ export const Icon = ({
       strokeWidth={strokeWidth}
       fill={fill}
       stroke={stroke}
+      strokeLinecap={strokeLinecap}
       xmlns="http://www.w3.org/2000/svg">
       {Icons[name]}
     </SVG>
