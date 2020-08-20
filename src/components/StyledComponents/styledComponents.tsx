@@ -35,7 +35,6 @@ export const Weeks = styled.div`
 `
 export const ContentLoader = styled(Loader)`
   display: inline-block;
-
   width: max-content;
 `
 export const Button = styled.button`
@@ -43,4 +42,7 @@ export const Button = styled.button`
   color: #ffffff;
   border-radius: 5px;
   padding: 2px 5px;
+`
+export const Loading = styled.div`
+  height: 2rem;
 `

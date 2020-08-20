@@ -51,7 +51,9 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
   const { t } = useTranslation()
   const weeks = language === "fi" ? fiWeeks : enWeeks
 
-  const { data } = useGetAllBookmarks(weeks)
+  const { data: bookmarkedData } = useGetAllBookmarks(weeks)
+
+  let bookmarked
 
   return (
     <Layout>
@@ -66,62 +68,48 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
       <Container>
         <Title>{t("COACHING.TITLE")}</Title>
         <Subtitle>{t("COACHING.SUBTITLE")}</Subtitle>
+
         <CoverPhotoContainer>
           <Cover fluid={coachingCover.childImageSharp.fluid} />
         </CoverPhotoContainer>
+
         <P>{t("COACHING.INTRODUCTION")}</P>
         <H3>{t("COACHING.HOW_IT_WORKS")}</H3>
         <P>{t("COACHING.HOW_IT_WORKS_TEXT")}</P>
+
         <LessonHighlights language={language} />
+
         <H2>{t("COACHING.WEEKS")}</H2>
         <P>{t("COACHING.WEEKS_TEXT")}</P>
 
-        {/* <Weeks>
-          {weeks.map(({ node: week }: { node: ContentfulWeek }) => {
-            const bookmarked = data?.data.listLikedContents.items.find(
-              (item) => item.slug == week.slug
+        <Weeks>
+          {weeks.map((week: ContentfulWeek) => {
+            const bookmarkSearch = bookmarkedData?.find(
+              (item: any) => item.slug == week.slug
             )
+
+            bookmarkSearch === undefined
+              ? (bookmarked = false)
+              : (bookmarked = true)
+
             return (
               <WeekCard
-                key={week.slug}
-                path={`/week/${week.slug}`}
-                intro={week.intro}
-                name={week.weekName}
-                duration={week.duration}
-                lessons={week.lessons}
-                coverPhoto={week.coverPhoto.fluid}
-                slug={week.slug}
                 bookmarked={bookmarked}
+                key={`${week?.slug}`}
+                path={`/week/${week?.slug}`}
+                intro={week?.intro}
+                name={week?.weekName}
+                duration={week?.duration}
+                lessons={week?.lessons}
+                coverPhoto={week?.coverPhoto?.fluid as FluidObject}
+                slug={week.slug}
               />
             )
           })}
-        </Weeks> */}
-
-        {JSON.stringify(data)}
-
-        <Weeks>
-          {weeks.map((week: ContentfulWeek) => {
-            data.forEach((bookmark: any) => {
-              const bookmarked = bookmark.find(
-                (item: any) => item.slug === week.slug
-              )
-              return (
-                <WeekCard
-                  bookmarked={false}
-                  key={`${week?.slug}`}
-                  path={`/week/${week?.slug}`}
-                  intro={week?.intro}
-                  name={week?.weekName}
-                  duration={week?.duration}
-                  lessons={week?.lessons}
-                  coverPhoto={week?.coverPhoto?.fluid as FluidObject}
-                  slug={week.slug}
-                />
-              )
-            })
-          })}
         </Weeks>
+
         <HabitHighlights locale={language} />
+
         <H2>{t("COACHING.AUTHORS")}</H2>
         <P>{t("COACHING.AUTHORS_TEXT")}</P>
         <AuthorList locale={language} />

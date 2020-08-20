@@ -6,7 +6,7 @@ import { ContentfulLesson } from "../../../graphql-types"
 import { truncate } from "../../Helpers/string-truncater"
 import { Icon } from "../Icons"
 import { device } from "../Primitives"
-import BookmarkButton from "../BookmarkButton/BookmarkButtonSmall"
+import BookmarkButton from "../BookmarkButton/bookmarkButtonSmall"
 
 type Props = {
   name?: string | null
@@ -18,7 +18,7 @@ type Props = {
   slug: string
   key?: string
   loading: boolean
-  onClick: EventHandler<MouseEvent<HTMLButtonElement>>
+  onClick?: EventHandler<MouseEvent<HTMLButtonElement>>
   bookmarked?: boolean
 }
 

@@ -2,79 +2,83 @@
 
 exports[`HabitCard renders correctly 1`] = `
 <div
-  className="sc-fzoLsD wZIUF"
+  className="sc-fzpans dZeKIL"
 >
   <div
-    className="sc-fzozJi fElUoo"
-  />
-  <div
-    className="sc-fznyAO hdDwJr"
+    className="sc-fzozJi hwMBfC"
   >
-    <span
-      className="sc-fzpans hbJJZj"
-      style={
-        Object {
-          "color": "#F42D97",
+    <div
+      className="sc-fzoLsD kwFUAC"
+    />
+    <div
+      className="sc-fznKkj lbPMLS"
+    >
+      <span
+        className="sc-fzplWN fJNZAK"
+        style={
+          Object {
+            "color": "#F42D97",
+          }
         }
-      }
-    >
-      <svg
-        className="sc-AxjAm eINkHy"
-        fill="none"
-        height="25px"
-        stroke="#F42D97"
-        strokeWidth="1.5"
-        version="1.1"
-        viewBox="0 0 30 30"
-        width="25px"
-        xmlns="http://www.w3.org/2000/svg"
       >
-        <g>
-          <path
-            d="M 11.728,21.457v-9.75 "
-          />
-          <path
-            d="M 13.978,13.957l-2.25-2.25l-2.25,2.25 "
-          />
-          <path
-            d="M 14.728,16.957h8.25 "
-          />
-          <path
-            d="M 1.228,16.957h7.5 "
-          />
-          <path
-            d="M 11.728,3.457v-1.5 "
-          />
-          <path
-            d="M 18.092,6.093l1.06-1.061 "
-          />
-          <path
-            d="M 20.728,12.457h1.5 "
-          />
-          <path
-            d="M 5.364,6.093L4.303,5.032 "
-          />
-          <path
-            d="M 2.728,12.457h-1.5 "
-          />
-          <path
-            d="M 14.728,16.957 h0.93c2.504-2.171,2.774-5.96,0.603-8.464S10.301,5.72,7.797,7.89s-2.774,5.96-0.603,8.464c0.186,0.215,0.388,0.416,0.603,0.603 h0.931"
-          />
-        </g>
-      </svg>
-      MORNING
-    </span>
-    <h4
-      className="sc-fzplWN giDusN"
-      data-testid="habit-title"
-    >
-      Test Habit
-    </h4>
-    <p
-      className="sc-fznKkj fyCcVX"
-    >
-      
-    </p>
+        <svg
+          className="sc-AxjAm eINkHy"
+          fill="none"
+          height="25px"
+          stroke="#F42D97"
+          strokeWidth="1.5"
+          version="1.1"
+          viewBox="0 0 30 30"
+          width="25px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              d="M 11.728,21.457v-9.75 "
+            />
+            <path
+              d="M 13.978,13.957l-2.25-2.25l-2.25,2.25 "
+            />
+            <path
+              d="M 14.728,16.957h8.25 "
+            />
+            <path
+              d="M 1.228,16.957h7.5 "
+            />
+            <path
+              d="M 11.728,3.457v-1.5 "
+            />
+            <path
+              d="M 18.092,6.093l1.06-1.061 "
+            />
+            <path
+              d="M 20.728,12.457h1.5 "
+            />
+            <path
+              d="M 5.364,6.093L4.303,5.032 "
+            />
+            <path
+              d="M 2.728,12.457h-1.5 "
+            />
+            <path
+              d="M 14.728,16.957 h0.93c2.504-2.171,2.774-5.96,0.603-8.464S10.301,5.72,7.797,7.89s-2.774,5.96-0.603,8.464c0.186,0.215,0.388,0.416,0.603,0.603 h0.931"
+            />
+          </g>
+        </svg>
+        MORNING
+      </span>
+      <h4
+        className="sc-fznyAO ftUxAB"
+        data-testid="habit-title"
+      >
+        Test Habit
+      </h4>
+      <p
+        className="sc-fznZeY eAStv"
+      >
+        
+      </p>
+    </div>
   </div>
 </div>
 `;

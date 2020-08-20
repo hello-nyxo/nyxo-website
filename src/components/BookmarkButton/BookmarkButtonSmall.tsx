@@ -9,7 +9,6 @@ type Props = {
 }
 
 const BookmarkButton: FC<Props> = ({ bookmarked, loading, onClick }) => {
-  console.log("Bookmarked btn: ", bookmarked)
   return (
     <HeartContainer>
       <HeartIcon
@@ -45,7 +44,7 @@ export const HeartIcon = styled(Icon).attrs(
   ({ bookmarked }: HeartIconProps) => ({
     fill: "#F42D97",
     stroke: "none",
-    name: bookmarked && "heartBookmarkFilled",
+    name: bookmarked ? "heartBookmarkFilled" : "", // pink dot appears if `bookmarked && ...`
   })
 )<HeartIconProps>`
   margin: 0px;

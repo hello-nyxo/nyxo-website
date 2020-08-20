@@ -7,6 +7,7 @@ import { ContentfulLesson } from "../../../graphql-types"
 import { H2 } from "../Html/HtmlContent"
 import LessonCard from "../lesson/LessonCard"
 import { P } from "../Primitives"
+import { useGetAllBookmarks } from "../../hooks/data-fetching"
 
 type Props = {
   language: string
@@ -38,27 +39,40 @@ const LessonHighlights: FC<Props> = ({ language }) => {
   const { t } = useTranslation()
   const lessons = language === "fi" ? lessonsFI : lessonsEN
 
+  const { data: bookmarkedData } = useGetAllBookmarks(lessons)
+
+  let bookmarked
+
   return (
     <Container>
       <H2>{t("COACHING.LESSONS")}</H2>
       <P>{t("COACHING.LESSONS_TEXT")}</P>
 
       <Lessons>
-        {lessons.nodes.map((lesson: ContentfulLesson) => (
-          <LessonCard
-            slug={`${lesson?.slug}`}
-            name={lesson?.lessonName}
-            key={lesson?.slug as string}
-            bookmarked={false}
-            onClick={() => {}}
-            loading={false}
-            path={`/lesson/${lesson?.slug}`}
-            lesson={lesson}
-            readingTime={lesson?.lessonContent?.fields?.readingTime?.minutes}
-            cover={lesson?.cover?.fluid as FluidObject}
-            excerpt={lesson?.lessonContent?.fields?.excerpt}
-          />
-        ))}
+        {lessons.nodes.map((lesson: ContentfulLesson) => {
+          const bookmarkSearch = bookmarkedData?.find(
+            (item: any) => item.slug == lesson.slug
+          )
+
+          bookmarkSearch === undefined
+            ? (bookmarked = false)
+            : (bookmarked = true)
+
+          return (
+            <LessonCard
+              slug={`${lesson?.slug}`}
+              name={lesson?.lessonName}
+              key={lesson?.slug as string}
+              bookmarked={bookmarked}
+              loading={false}
+              path={`/lesson/${lesson?.slug}`}
+              lesson={lesson}
+              readingTime={lesson?.lessonContent?.fields?.readingTime?.minutes}
+              cover={lesson?.cover?.fluid as FluidObject}
+              excerpt={lesson?.lessonContent?.fields?.excerpt}
+            />
+          )
+        })}
       </Lessons>
     </Container>
   )

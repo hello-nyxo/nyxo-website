@@ -4,7 +4,7 @@ import React, { FC } from "react"
 import styled from "styled-components"
 import { ContentfulLesson, Maybe } from "../../../graphql-types"
 import colors from "../../colors"
-import BookmarkButton from "../BookmarkButton/BookmarkButtonSmall"
+import BookmarkButton from "../BookmarkButton/bookmarkButtonSmall"
 import { Icon } from "../Icons"
 import { device } from "../Primitives"
 
@@ -41,11 +41,7 @@ const WeekCard: FC<Props> = ({
     <Card to={`${path}`}>
       <Cover>
         <CoverPhoto fluid={coverPhoto as FluidObject} />
-        <BookmarkButton
-          onClick={() => {}}
-          loading={false}
-          bookmarked={bookmarked}
-        />
+        <BookmarkButton loading={false} bookmarked={bookmarked} />
         <InformationRow>
           <Lessons>
             <Icon

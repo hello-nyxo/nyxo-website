@@ -12,7 +12,7 @@ import {
   ContentfulLesson,
   ContentfulWeek,
 } from "../../graphql-types"
-import BookmarkButton from "../components/BookmarkButton/BookmarkButton"
+import BookmarkButton from "../components/BookmarkButton/bookmarkButton"
 import { fetchWeekNLessonBookmarks } from "../components/BookmarkButton/fetchBookmarks"
 import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H5, H6 } from "../components/Html/HtmlContent"
@@ -21,7 +21,10 @@ import Layout from "../components/layout"
 import LessonCard from "../components/lesson/LessonCard"
 import { Container, device, Row } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
-import { ContentLoader } from "../components/StyledComponents/styledComponents"
+import {
+  ContentLoader,
+  Loading,
+} from "../components/StyledComponents/styledComponents"
 import TagSection from "../components/tags/Tags"
 import LargeWeekCard from "../components/week/LargeWeekCard"
 import {
@@ -41,7 +44,7 @@ type Props = {
 }
 
 type Lesson = ContentfulLesson & {
-  bookmarked?: boolean
+  bookmarked?: any
 }
 type Section = {
   title: string
@@ -74,6 +77,7 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
     data: { bookmarked: weekBookmarked, id },
     isLoading: getLoading,
   } = useGetBookmark(slug as string, "week")
+
   const [remove, { isLoading: removeLoading }] = useDeleteBookmark()
   const [add, { isLoading: addLoading }] = useAddBookmark()
 
@@ -441,8 +445,4 @@ const Tags = styled.div`
 const P = styled.p`
   display: inline-block;
   margin-right: 15px;
-`
-
-const Loading = styled.div`
-  height: 2rem;
 `

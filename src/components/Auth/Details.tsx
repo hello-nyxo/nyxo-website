@@ -20,6 +20,8 @@ import UserHabits from "../user/UserHabits"
 import LessonCard from "../lesson/LessonCard"
 import WeekCard from "../week/WeekCard"
 import { useGetUserBookmarks } from "../../hooks/data-fetching"
+import { useTranslation } from "gatsby-plugin-react-i18next"
+import { ContentLoader, Loading } from "../StyledComponents/styledComponents"
 
 const Details: FC = () => {
   const {
@@ -49,6 +51,8 @@ const Details: FC = () => {
   `)
   const {
     data: { lessons, weeks, habits },
+    status,
+    isLoading,
   } = useGetUserBookmarks([...weekContent, ...habitContent, ...lessonContent])
   const user = getCurrentUser()
 
@@ -61,6 +65,8 @@ const Details: FC = () => {
         console.error(err)
       })
   }
+
+  const { t } = useTranslation()
 
   return (
     <>
@@ -86,7 +92,21 @@ const Details: FC = () => {
         <H3>Bookmarked Content</H3>
         {weeks?.length > 0 && (
           <>
-            <H4>Weeks</H4>
+            <H4>{t("COACHING.WEEKS")}</H4>
+            <Loading>
+              {status === "loading" && (
+                <>
+                  <P>{t("LOADING_DATA")}</P>
+                  <ContentLoader
+                    type="Oval"
+                    color="#4a5aef"
+                    height={24}
+                    width={24}
+                    timeout={3000}
+                  />
+                </>
+              )}
+            </Loading>
             <BookmarkContainer>
               {weeks.map((week: ContentfulWeek) => {
                 return (
@@ -108,7 +128,21 @@ const Details: FC = () => {
         )}
         {lessons?.length > 0 && (
           <>
-            <H4>Lessons</H4>
+            <H4>{t("COACHING.LESSONS")}</H4>
+            <Loading>
+              {status === "loading" && (
+                <>
+                  <P>{t("LOADING_DATA")}</P>
+                  <ContentLoader
+                    type="Oval"
+                    color="#4a5aef"
+                    height={24}
+                    width={24}
+                    timeout={3000}
+                  />
+                </>
+              )}
+            </Loading>
             <BookmarkContainer>
               {lessons.map((lesson: ContentfulLesson) => (
                 <LessonCard
@@ -116,7 +150,6 @@ const Details: FC = () => {
                   name={lesson?.lessonName}
                   key={`${lesson?.id}-${lesson?.slug}`}
                   bookmarked={false}
-                  onClick={() => {}}
                   loading={false}
                   path={`/lesson/${lesson?.slug}`}
                   lesson={lesson}
@@ -132,7 +165,21 @@ const Details: FC = () => {
         )}
         {habits?.length > 0 && (
           <>
-            <H4>Habits</H4>
+            <H4>{t("HABITS")}</H4>
+            <Loading>
+              {status === "loading" && (
+                <>
+                  <P>{t("LOADING_DATA")}</P>
+                  <ContentLoader
+                    type="Oval"
+                    color="#4a5aef"
+                    height={24}
+                    width={24}
+                    timeout={3000}
+                  />
+                </>
+              )}
+            </Loading>
             <BookmarkContainer>
               {habits.map((node: ContentfulHabit) => (
                 <HabitCard
@@ -148,7 +195,7 @@ const Details: FC = () => {
           </>
         )}
 
-        <H2>Sleep Coaching</H2>
+        <H2>{t("COACHING.SLEEP_COACHING")}</H2>
         <UserHabits />
       </Container>
     </>
@@ -168,4 +215,8 @@ const BookmarkContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0 -1rem;
+`
+const P = styled.p`
+  display: inline-block;
+  margin-right: 15px;
 `

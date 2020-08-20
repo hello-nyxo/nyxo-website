@@ -80,8 +80,6 @@ export const fetchWeekBookmarks = async () => {
     data: ListLikedContentsQuery
   }
 
-  console.log(data)
-
   return data
 }
 

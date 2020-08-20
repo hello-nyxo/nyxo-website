@@ -38,6 +38,7 @@ const Footer: FC = () => {
   ]
 
   const { t } = useTranslation()
+  const FOOTER_SUPPORT = "FOOTER.SUPPORT"
 
   return (
     <FooterContainer>
@@ -86,7 +87,7 @@ const Footer: FC = () => {
         <div className={"col-2 footer-links"}>
           <div className={"widget__item"}>
             <div className={"links"}>
-              <h4>{t("FOOTER.SUPPORT")}</h4>
+              <h4>{t(FOOTER_SUPPORT)}</h4>
               <ul>
                 <li>
                   <OutboundLink
@@ -94,8 +95,8 @@ const Footer: FC = () => {
                     href={"https://help.nyxo.app"}
                     target="_new"
                     rel="noopener noreferrer"
-                    title={t("FOOTER.SUPPORT")}>
-                    {t("FOOTER.SUPPORT")}
+                    title={t(FOOTER_SUPPORT)}>
+                    {t(FOOTER_SUPPORT)}
                   </OutboundLink>
                 </li>
                 <li>

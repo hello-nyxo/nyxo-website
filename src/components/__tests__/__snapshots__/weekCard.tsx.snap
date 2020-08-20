@@ -2,14 +2,16 @@
 
 exports[`Week card renders correctly 1`] = `
 <a
-  className="sc-fznZeY gCXwDP"
+  className="sc-fzpans dUTbsr"
   href="/week/week-name"
+  hrefLang="en"
+  onClick={[Function]}
 >
   <div
-    className="sc-fzokOt bJFgDa"
+    className="sc-fzplWN hIYAKU"
   >
     <div
-      className="sc-fzqBZW ieGBzv gatsby-image-wrapper"
+      className="sc-fznyAO dHzakw gatsby-image-wrapper"
       style={
         Object {
           "maxHeight": null,
@@ -57,36 +59,29 @@ exports[`Week card renders correctly 1`] = `
         }
       />
     </div>
-    <button
-      className="sc-fzozJi kVUjYJ"
-      onClick={[Function]}
+    <span
+      className="sc-AxirZ ijxhHL"
     >
       <svg
-        className="sc-AxmLO huqxQS"
-        fill="none"
+        className="sc-AxjAm eINkHy"
+        fill="#F42D97"
         height="25px"
-        stroke="#F42D97"
+        stroke="none"
         strokeWidth="1.5"
         version="1.1"
-        viewBox="0 0 28 30"
+        viewBox="0 0 30 30"
         width="25px"
         xmlns="http://www.w3.org/2000/svg"
-      >
-        <g>
-          <path
-            d="M23.3,5.076a6.582,6.582,0,0,0-10.446-1.71L12,4.147l-.827-.753A6.522,6.522,0,0,0,5.485,1.588,6.472,6.472,0,0,0,.7,5.075,6.4,6.4,0,0,0,1.91,12.544L11.283,22.2a1,1,0,0,0,1.434,0l9.36-9.638A6.414,6.414,0,0,0,23.3,5.076Z"
-          />
-        </g>
-      </svg>
-    </button>
+      />
+    </span>
     <div
-      className="sc-fzoXzr dRZYpr"
+      className="sc-fzqBZW hgVzkK"
     >
       <span
-        className="sc-fzpjYC gZSBqH"
+        className="sc-fzqNJr izEFCw"
       >
         <svg
-          className="sc-AxmLO huqxQS"
+          className="sc-AxjAm eINkHy"
           fill="none"
           height="20px"
           stroke="currentColor"
@@ -124,20 +119,21 @@ exports[`Week card renders correctly 1`] = `
           </g>
         </svg>
         7
-         Lessons
+         
+        LESSONS
       </span>
     </div>
   </div>
   <div
-    className="sc-fzqNJr havePp"
+    className="sc-fznKkj bzRXdu"
   >
     <h3
-      className="sc-fzoyAV eXHTwC"
+      className="sc-fznZeY iuYgmD"
     >
       Week name
     </h3>
     <span
-      className="sc-fzoLag dVakYK"
+      className="sc-fzokOt eeMbvI"
     >
       Lorem ipsum
     </span>

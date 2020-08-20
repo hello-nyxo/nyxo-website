@@ -108,7 +108,8 @@
     "HABITS": "Habits",
     "HABITS_TEXT": "Below is a small sample of habits and exercises from the Nyxo Sleep Coaching",
     "AUTHORS": "Authors",
-    "AUTHORS_TEXT": "These are the authors behind the Nyxo materials you love. Here you can learn more about the authors, including their areas of expertise, and find all materials they've written."
+    "AUTHORS_TEXT": "These are the authors behind the Nyxo materials you love. Here you can learn more about the authors, including their areas of expertise, and find all materials they've written.",
+    "SLEEP_COACHING": "Sleep Coaching"
   },
 
   "BLOG": {
@@ -166,6 +167,7 @@
 
   "ADD_BOOKMARK": "Add to bookmarks",
   "REMOVE_BOOKMARK": "Remove bookmark",
+  "LOADING_DATA": "Loading data...",
 
   "ABOUT": {
     "TITLE": "We’re on a mission to make the world sleep better",
