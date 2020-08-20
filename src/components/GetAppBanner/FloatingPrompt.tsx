@@ -8,7 +8,6 @@ import { navigate } from "gatsby"
 const FloatingPrompt: FC = () => {
   const { t } = useTranslation()
   const { language } = useI18next()
-  console.log(language)
   const handleClick = () => {
     if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
       window.location.href =
