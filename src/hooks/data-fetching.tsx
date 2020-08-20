@@ -107,7 +107,7 @@ export type ContentData = Array<
 >
 
 export const useGetUserBookmarks = (content: ContentData) => {
-  return useQuery(["allBookmarks", { content: content }], fetchUserBookmarks, {
+  return useQuery(["userBookmarks", { content: content }], fetchUserBookmarks, {
     initialData: () => ({
       lessons: [],
       weeks: [],

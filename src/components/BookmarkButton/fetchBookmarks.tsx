@@ -54,7 +54,7 @@ export const fetchUserBookmarks = async (
           case "lesson":
             lessons.push({ ...bookmark, ...extraData })
             break
-          case "weeks":
+          case "week":
             weeks.push({ ...bookmark, ...extraData })
             break
           default:

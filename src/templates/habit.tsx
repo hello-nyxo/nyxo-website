@@ -16,7 +16,7 @@ import {
   useGetBookmark,
   useDeleteBookmark,
 } from "../hooks/data-fetching"
-import BookmarkButton from "../components/BookmarkButton/BookmarkButton"
+import BookmarkButton from "../components/BookmarkButton/bookmarkButton"
 
 type Props = {
   contentfulHabit: ContentfulHabit
@@ -37,12 +37,12 @@ const Habit: FC<PageProps<Props>> = ({ data, location: { pathname } }) => {
 
   const handleBookmark = async () => {
     if (bookmarked) {
-      remove({ id: id, type: "lesson" })
+      remove({ id: id, type: "habit" })
     } else {
       await add({
         name: habit.title,
         slug: habit.slug as string,
-        type: "lesson",
+        type: "habit",
       })
     }
   }

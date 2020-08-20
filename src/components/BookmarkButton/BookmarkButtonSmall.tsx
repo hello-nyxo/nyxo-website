@@ -9,21 +9,22 @@ type Props = {
 }
 
 const BookmarkButton: FC<Props> = ({ bookmarked, loading, onClick }) => {
+  console.log("Bookmarked btn: ", bookmarked)
   return (
-    <Button onClick={onClick} disabled={loading}>
+    <HeartContainer>
       <HeartIcon
         height="25px"
         width="25px"
         bookmarked={bookmarked}
         viewBox="0 0 30 30"
       />
-    </Button>
+    </HeartContainer>
   )
 }
 
 export default BookmarkButton
 
-export const Button = styled.button`
+export const HeartContainer = styled.span`
   position: absolute;
   top: 10px;
   right: 0px;
@@ -44,7 +45,7 @@ export const HeartIcon = styled(Icon).attrs(
   ({ bookmarked }: HeartIconProps) => ({
     fill: "#F42D97",
     stroke: "none",
-    name: bookmarked ? "heartBookmarkFilled" : "heartBookmarkOutline",
+    name: bookmarked && "heartBookmarkFilled",
   })
 )<HeartIconProps>`
   margin: 0px;
