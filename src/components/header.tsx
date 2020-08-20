@@ -39,12 +39,11 @@ const Header: FC = () => {
       <Links>
         {links.map(({ title, path }) => (
           <Li key={title}>
-            {(title === "LOGIN" || title === "ME") && (
+            {title === "LOGIN" || title === "ME" ? (
               <NonLocalizedMenuLink to={`/${path}`}>
                 {t(`NAVIGATION.${title}`)}
               </NonLocalizedMenuLink>
-            )}
-            {title != "LOGIN" && (
+            ) : (
               <MenuLink to={`/${path}`}>{t(`NAVIGATION.${title}`)}</MenuLink>
             )}
           </Li>

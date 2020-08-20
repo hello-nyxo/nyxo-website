@@ -24,6 +24,7 @@
     "YOU": "You",
     "ORGANIZATIONS": "Organizations",
     "COACHING": "Sleep",
+    "ME": "Me",
     "BLOG": "Blog",
     "LOGIN": "Login",
     "LOGOUT": "Logout"
@@ -176,6 +177,13 @@
     "WORK_FOR_US_TEXT": "We’re a small team but growing quickly. As an early team member, you’ll have an outsized impact on what we build and how we build it. If you’re interested, we’d love to hear from you.",
 
     "INSTAGRAM": "Follow Us"
+  },
+
+  "PROMPT": {
+    "MOBILE": "Get Nyxo App",
+    "TABLET": "Sleep Tracking & Coaching",
+    "DESKTOP": "Track your sleep and get personalized sleep coaching",
+    "BUTTON": "Get Nyxo"
   },
 
   "en": "english",
