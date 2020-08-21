@@ -61,19 +61,7 @@ exports[`Week card renders correctly 1`] = `
     </div>
     <span
       className="sc-AxirZ ijxhHL"
-    >
-      <svg
-        className="sc-AxjAm eINkHy"
-        fill="#F42D97"
-        height="25px"
-        stroke="none"
-        strokeWidth="1.5"
-        version="1.1"
-        viewBox="0 0 30 30"
-        width="25px"
-        xmlns="http://www.w3.org/2000/svg"
-      />
-    </span>
+    />
     <div
       className="sc-fzqBZW hgVzkK"
     >

@@ -7,7 +7,7 @@ import { ContentfulLesson } from "../../../graphql-types"
 import { H2 } from "../Html/HtmlContent"
 import LessonCard from "../lesson/LessonCard"
 import { P } from "../Primitives"
-import { useGetAllBookmarks } from "../../hooks/data-fetching"
+import { useGetBookmark } from "../../hooks/data-fetching"
 
 type Props = {
   language: string
@@ -39,10 +39,6 @@ const LessonHighlights: FC<Props> = ({ language }) => {
   const { t } = useTranslation()
   const lessons = language === "fi" ? lessonsFI : lessonsEN
 
-  const { data: bookmarkedData } = useGetAllBookmarks(lessons)
-
-  let bookmarked
-
   return (
     <Container>
       <H2>{t("COACHING.LESSONS")}</H2>
@@ -50,20 +46,15 @@ const LessonHighlights: FC<Props> = ({ language }) => {
 
       <Lessons>
         {lessons.nodes.map((lesson: ContentfulLesson) => {
-          const bookmarkSearch = bookmarkedData?.find(
-            (item: any) => item.slug == lesson.slug
-          )
-
-          bookmarkSearch === undefined
-            ? (bookmarked = false)
-            : (bookmarked = true)
-
+          const {
+            data: { bookmarked: lessonBookmarked },
+          } = useGetBookmark(lesson.slug as string, "lesson")
           return (
             <LessonCard
               slug={`${lesson?.slug}`}
               name={lesson?.lessonName}
               key={lesson?.slug as string}
-              bookmarked={bookmarked}
+              bookmarked={lessonBookmarked}
               loading={false}
               path={`/lesson/${lesson?.slug}`}
               lesson={lesson}

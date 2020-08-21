@@ -52,7 +52,6 @@ const Details: FC = () => {
   const {
     data: { lessons, weeks, habits },
     status,
-    isLoading,
   } = useGetUserBookmarks([...weekContent, ...habitContent, ...lessonContent])
   const user = getCurrentUser()
 

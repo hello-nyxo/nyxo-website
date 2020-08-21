@@ -13,7 +13,7 @@ import { Container, P } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import WeekCard from "../components/week/WeekCard"
 import { useTranslation } from "gatsby-plugin-react-i18next"
-import { useGetAllBookmarks } from "../hooks/data-fetching"
+import { useGetBookmark } from "../hooks/data-fetching"
 
 type Props = {
   weeksFI: {
@@ -51,10 +51,6 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
   const { t } = useTranslation()
   const weeks = language === "fi" ? fiWeeks : enWeeks
 
-  const { data: bookmarkedData } = useGetAllBookmarks(weeks)
-
-  let bookmarked
-
   return (
     <Layout>
       <SEO
@@ -81,20 +77,14 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
 
         <H2>{t("COACHING.WEEKS")}</H2>
         <P>{t("COACHING.WEEKS_TEXT")}</P>
-
         <Weeks>
           {weeks.map((week: ContentfulWeek) => {
-            const bookmarkSearch = bookmarkedData?.find(
-              (item: any) => item.slug == week.slug
-            )
-
-            bookmarkSearch === undefined
-              ? (bookmarked = false)
-              : (bookmarked = true)
-
+            const {
+              data: { bookmarked: weekBookmarked },
+            } = useGetBookmark(week.slug as string, "week")
             return (
               <WeekCard
-                bookmarked={bookmarked}
+                bookmarked={weekBookmarked}
                 key={`${week?.slug}`}
                 path={`/week/${week?.slug}`}
                 intro={week?.intro}

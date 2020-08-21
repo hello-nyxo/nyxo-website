@@ -44,7 +44,7 @@ type Props = {
 }
 
 type Lesson = ContentfulLesson & {
-  bookmarked?: any
+  bookmarked?: boolean
 }
 type Section = {
   title: string

@@ -4,7 +4,7 @@ import React, { FC } from "react"
 import styled from "styled-components"
 import { ContentfulLesson, Maybe } from "../../../graphql-types"
 import colors from "../../colors"
-import BookmarkButton from "../BookmarkButton/bookmarkButtonSmall"
+import BookmarkButton from "../BookmarkButton/BookmarkButtonSmall"
 import { Icon } from "../Icons"
 import { device } from "../Primitives"
 

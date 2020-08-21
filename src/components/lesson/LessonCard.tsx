@@ -6,7 +6,7 @@ import { ContentfulLesson } from "../../../graphql-types"
 import { truncate } from "../../Helpers/string-truncater"
 import { Icon } from "../Icons"
 import { device } from "../Primitives"
-import BookmarkButton from "../BookmarkButton/bookmarkButtonSmall"
+import BookmarkButton from "../BookmarkButton/BookmarkButtonSmall"
 
 type Props = {
   name?: string | null

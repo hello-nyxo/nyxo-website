@@ -5,18 +5,20 @@ import { Icon } from "../Icons"
 type Props = {
   bookmarked: boolean
   loading: boolean
-  onClick: EventHandler<MouseEvent<HTMLButtonElement>>
+  onClick?: EventHandler<MouseEvent<HTMLButtonElement>>
 }
 
 const BookmarkButton: FC<Props> = ({ bookmarked, loading, onClick }) => {
   return (
     <HeartContainer>
-      <HeartIcon
-        height="25px"
-        width="25px"
-        bookmarked={bookmarked}
-        viewBox="0 0 30 30"
-      />
+      {bookmarked && (
+        <HeartIcon
+          height="25px"
+          width="25px"
+          bookmarked={bookmarked}
+          viewBox="0 0 30 30"
+        />
+      )}
     </HeartContainer>
   )
 }
@@ -40,13 +42,11 @@ type HeartIconProps = {
   bookmarked: boolean
 }
 
-export const HeartIcon = styled(Icon).attrs(
-  ({ bookmarked }: HeartIconProps) => ({
-    fill: "#F42D97",
-    stroke: "none",
-    name: bookmarked ? "heartBookmarkFilled" : "", // pink dot appears if `bookmarked && ...`
-  })
-)<HeartIconProps>`
+export const HeartIcon = styled(Icon).attrs(() => ({
+  fill: "#F42D97",
+  stroke: "none",
+  name: "heartBookmarkFilled",
+}))<HeartIconProps>`
   margin: 0px;
   flex: 1;
 `
