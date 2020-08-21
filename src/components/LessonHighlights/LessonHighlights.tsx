@@ -46,15 +46,12 @@ const LessonHighlights: FC<Props> = ({ language }) => {
 
       <Lessons>
         {lessons.nodes.map((lesson: ContentfulLesson) => {
-          const {
-            data: { bookmarked: lessonBookmarked },
-          } = useGetBookmark(lesson.slug as string, "lesson")
           return (
             <LessonCard
               slug={`${lesson?.slug}`}
               name={lesson?.lessonName}
               key={lesson?.slug as string}
-              bookmarked={lessonBookmarked}
+              bookmarked={false}
               loading={false}
               path={`/lesson/${lesson?.slug}`}
               lesson={lesson}

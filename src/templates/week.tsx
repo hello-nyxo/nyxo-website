@@ -22,6 +22,7 @@ import LessonCard from "../components/lesson/LessonCard"
 import { Container, device, Row } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import {
+  BookmarkContainer,
   ContentLoader,
   Loading,
 } from "../components/StyledComponents/styledComponents"
@@ -164,11 +165,13 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
         <Cover>
           <CoverImage fluid={coverPhoto?.fluid as FluidObject} />
         </Cover>
-        <BookmarkButton
-          loading={removeLoading || addLoading || getLoading}
-          onClick={handleBookmark}
-          bookmarked={weekBookmarked}
-        />
+        <BookmarkContainer>
+          <BookmarkButton
+            loading={removeLoading || addLoading || getLoading}
+            onClick={handleBookmark}
+            bookmarked={weekBookmarked}
+          />
+        </BookmarkContainer>
 
         <H3>{t("ABOUT_THIS_WEEK")}</H3>
 

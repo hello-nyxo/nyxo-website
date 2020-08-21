@@ -17,6 +17,7 @@ import {
   useDeleteBookmark,
 } from "../hooks/data-fetching"
 import BookmarkButton from "../components/BookmarkButton/bookmarkButton"
+import { BookmarkContainer } from "../components/StyledComponents/styledComponents"
 
 type Props = {
   contentfulHabit: ContentfulHabit
@@ -80,12 +81,15 @@ const Habit: FC<PageProps<Props>> = ({ data, location: { pathname } }) => {
             excerpt={habit.description?.fields?.excerpt}
           />
         ))}
-        <BookmarkButton
-          loading={removeLoading || addLoading || isLoading}
-          onClick={handleBookmark}
-          bookmarked={bookmarked}
-        />
+
         <hr />
+        <BookmarkContainer>
+          <BookmarkButton
+            loading={removeLoading || addLoading || isLoading}
+            onClick={handleBookmark}
+            bookmarked={bookmarked}
+          />
+        </BookmarkContainer>
       </TextContainer>
 
       <Container>

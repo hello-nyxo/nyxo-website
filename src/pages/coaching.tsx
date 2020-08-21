@@ -79,12 +79,9 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
         <P>{t("COACHING.WEEKS_TEXT")}</P>
         <Weeks>
           {weeks.map((week: ContentfulWeek) => {
-            const {
-              data: { bookmarked: weekBookmarked },
-            } = useGetBookmark(week.slug as string, "week")
             return (
               <WeekCard
-                bookmarked={weekBookmarked}
+                bookmarked={false}
                 key={`${week?.slug}`}
                 path={`/week/${week?.slug}`}
                 intro={week?.intro}
