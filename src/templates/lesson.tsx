@@ -5,21 +5,20 @@ import React, { FC } from "react"
 import styled from "styled-components"
 import { ContentfulLesson, LessonByIdQuery } from "../../graphql-types"
 import AuthorCard from "../components/Author/AuthorCard"
-import BookmarkButton from "../components/BookmarkButton/bookmarkButton"
+import BookmarkButton from "../components/BookmarkButton/Bookmark"
 import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H4 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
 import LargeLessonCard from "../components/lesson/LargeLessonCard"
 import { Container, TextContainer } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
-import { BookmarkContainer } from "../components/StyledComponents/styledComponents"
 import TagSection from "../components/tags/Tags"
 import getFirstAuthor from "../Helpers/AuthorHelper"
 import {
   useAddBookmark,
   useDeleteBookmark,
   useGetBookmark,
-} from "../hooks/data-fetching"
+} from "../hooks/bookmark-hooks"
 
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
@@ -88,14 +87,15 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
 
         <Cover>
           <CoverImage fluid={cover?.fluid as FluidObject} />
-          <BookmarkContainer>
-            <BookmarkButton
-              onClick={handleBookmarking}
-              bookmarked={bookmarked}
-              loading={removeLoading || addLoading || isLoading}
-            />
-          </BookmarkContainer>
         </Cover>
+
+        <ActionRow>
+          <BookmarkButton
+            onClick={handleBookmarking}
+            bookmarked={bookmarked}
+            loading={removeLoading || addLoading || isLoading}
+          />
+        </ActionRow>
 
         <HtmlContent document={content?.json} />
         {habits && <H3>{t("HABITS_TO_TRY")}</H3>}
@@ -187,8 +187,15 @@ export const pageQuery = graphql`
   }
 `
 
+const ActionRow = styled.div`
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+`
+
 const Cover = styled.div`
-  margin: 7rem 0rem;
+  margin: 5rem 0rem;
   height: 30rem;
   max-height: 50vh;
   width: 100%;

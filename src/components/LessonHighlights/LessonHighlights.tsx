@@ -7,7 +7,7 @@ import { ContentfulLesson } from "../../../graphql-types"
 import { H2 } from "../Html/HtmlContent"
 import LessonCard from "../lesson/LessonCard"
 import { P } from "../Primitives"
-import { useGetBookmark } from "../../hooks/data-fetching"
+import { useGetBookmark } from "../../hooks/bookmark-hooks"
 
 type Props = {
   language: string

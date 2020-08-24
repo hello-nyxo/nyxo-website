@@ -15,9 +15,8 @@ import {
   useAddBookmark,
   useGetBookmark,
   useDeleteBookmark,
-} from "../hooks/data-fetching"
-import BookmarkButton from "../components/BookmarkButton/bookmarkButton"
-import { BookmarkContainer } from "../components/StyledComponents/styledComponents"
+} from "../hooks/bookmark-hooks"
+import BookmarkButton from "../components/BookmarkButton/Bookmark"
 
 type Props = {
   contentfulHabit: ContentfulHabit
@@ -83,13 +82,11 @@ const Habit: FC<PageProps<Props>> = ({ data, location: { pathname } }) => {
         ))}
 
         <hr />
-        <BookmarkContainer>
-          <BookmarkButton
-            loading={removeLoading || addLoading || isLoading}
-            onClick={handleBookmark}
-            bookmarked={bookmarked}
-          />
-        </BookmarkContainer>
+        <BookmarkButton
+          loading={removeLoading || addLoading || isLoading}
+          onClick={handleBookmark}
+          bookmarked={bookmarked}
+        />
       </TextContainer>
 
       <Container>

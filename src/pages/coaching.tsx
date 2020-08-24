@@ -13,7 +13,7 @@ import { Container, P } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import WeekCard from "../components/week/WeekCard"
 import { useTranslation } from "gatsby-plugin-react-i18next"
-import { useGetBookmark } from "../hooks/data-fetching"
+import { useGetBookmark } from "../hooks/bookmark-hooks"
 
 type Props = {
   weeksFI: {

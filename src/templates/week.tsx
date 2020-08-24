@@ -12,8 +12,8 @@ import {
   ContentfulLesson,
   ContentfulWeek,
 } from "../../graphql-types"
-import BookmarkButton from "../components/BookmarkButton/bookmarkButton"
-import { fetchWeekNLessonBookmarks } from "../components/BookmarkButton/fetchBookmarks"
+import BookmarkButton from "../components/BookmarkButton/Bookmark"
+
 import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H5, H6 } from "../components/Html/HtmlContent"
 import { Icon } from "../components/Icons"
@@ -21,18 +21,14 @@ import Layout from "../components/layout"
 import LessonCard from "../components/lesson/LessonCard"
 import { Container, device, Row } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
-import {
-  BookmarkContainer,
-  ContentLoader,
-  Loading,
-} from "../components/StyledComponents/styledComponents"
 import TagSection from "../components/tags/Tags"
 import LargeWeekCard from "../components/week/LargeWeekCard"
 import {
   useGetBookmark,
   useDeleteBookmark,
   useAddBookmark,
-} from "../hooks/data-fetching"
+  fetchWeekNLessonBookmarks,
+} from "../hooks/bookmark-hooks"
 
 type Props = {
   contentfulWeek: ContentfulWeek
@@ -84,9 +80,9 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
 
   // Lesson bookmark data
   const initialLessons: Lesson[] = pageLessons?.map((lesson) => ({
-    ...(lesson as ContentfulLesson),
+    ...(lesson as Lesson),
     bookmarked: false,
-  }))
+  })) as Lesson[]
 
   const { data, status, isLoading } = useQuery(
     ["allLessonBookmarks", { initialLessons }],
@@ -165,13 +161,12 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
         <Cover>
           <CoverImage fluid={coverPhoto?.fluid as FluidObject} />
         </Cover>
-        <BookmarkContainer>
-          <BookmarkButton
-            loading={removeLoading || addLoading || getLoading}
-            onClick={handleBookmark}
-            bookmarked={weekBookmarked}
-          />
-        </BookmarkContainer>
+
+        <BookmarkButton
+          loading={removeLoading || addLoading || getLoading}
+          onClick={handleBookmark}
+          bookmarked={weekBookmarked}
+        />
 
         <H3>{t("ABOUT_THIS_WEEK")}</H3>
 
@@ -195,7 +190,7 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
         </Row>
 
         <H3>{t("LESSONS_FOR_THIS_WEEK")}</H3>
-        <Loading>
+        {/* <Loading>
           {status === "loading" && (
             <>
               <P>{t("LOADING_DATA")}</P>
@@ -208,7 +203,7 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
               />
             </>
           )}
-        </Loading>
+        </Loading> */}
 
         {sections.map(({ header, lessons }) => (
           <Section key={header?.id}>
