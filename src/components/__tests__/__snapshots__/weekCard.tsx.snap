@@ -73,6 +73,7 @@ exports[`Week card renders correctly 1`] = `
           fill="none"
           height="20px"
           stroke="currentColor"
+          strokeLinecap="round"
           strokeWidth="1.5"
           version="1.1"
           viewBox="0 0 30 30"

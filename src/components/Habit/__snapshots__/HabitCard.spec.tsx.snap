@@ -26,6 +26,7 @@ exports[`HabitCard renders correctly 1`] = `
           fill="none"
           height="25px"
           stroke="#F42D97"
+          strokeLinecap="round"
           strokeWidth="1.5"
           version="1.1"
           viewBox="0 0 30 30"

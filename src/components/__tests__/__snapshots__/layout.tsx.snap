@@ -81,6 +81,56 @@ Array [
     </ul>
   </header>,
   <main />,
+  <div
+    className="sc-fzqNJr dLZkRk"
+  >
+    <p
+      className="sc-fzoyAV sc-fzoLag cuiOAk"
+    >
+      PROMPT.MOBILE
+    </p>
+    <p
+      className="sc-fzoyAV sc-fzoXzr HHBLX"
+    >
+      PROMPT.TABLET
+    </p>
+    <p
+      className="sc-fzoyAV sc-fzpjYC kDNAqd"
+    >
+      PROMPT.DESKTOP
+    </p>
+    <button
+      className="sc-fznxsB CYcOM"
+      onClick={[Function]}
+    >
+      <p
+        className="sc-fznJRM bApIoU"
+      >
+        PROMPT.BUTTON
+      </p>
+      <svg
+        className="sc-fznKkj lLzoJ sc-fznWqX dHfaUd"
+        fill="none"
+        height={25}
+        stroke="var(--textPrimary)"
+        strokeLinecap="round"
+        strokeWidth="1.5"
+        version="1.1"
+        viewBox="0 0 25 25"
+        width={25}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <path
+            d="M23.25 12.497L0.75 12.497"
+          />
+          <path
+            d="M19.5 16.247L23.25 12.497 19.5 8.747"
+          />
+        </g>
+      </svg>
+    </button>
+  </div>,
   <footer>
     <div
       className="sc-fznZeY gchNIp"
@@ -216,7 +266,6 @@ Array [
                     onClick={[Function]}
                     rel="noopener noreferrer"
                     target="_new"
-                    title="FOOTER.SUPPORT"
                   >
                     FOOTER.SUPPORT
                   </a>
@@ -276,6 +325,7 @@ Array [
                   fill="none"
                   height="30px"
                   stroke="#333"
+                  strokeLinecap="round"
                   strokeWidth="1.5"
                   version="1.1"
                   viewBox="0 0 30 30"
@@ -301,6 +351,7 @@ Array [
                   fill="none"
                   height="30px"
                   stroke="#333"
+                  strokeLinecap="round"
                   strokeWidth="1.5"
                   version="1.1"
                   viewBox="0 0 30 30"
@@ -332,6 +383,7 @@ Array [
                   fill="none"
                   height="30px"
                   stroke="#333"
+                  strokeLinecap="round"
                   strokeWidth="1.5"
                   version="1.1"
                   viewBox="0 0 30 30"
@@ -357,6 +409,7 @@ Array [
                   fill="none"
                   height="30px"
                   stroke="#333"
+                  strokeLinecap="round"
                   strokeWidth="1.5"
                   version="1.1"
                   viewBox="0 0 30 30"
