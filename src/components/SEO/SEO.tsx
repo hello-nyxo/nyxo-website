@@ -65,7 +65,7 @@ const SEO: FC<HelmetProps> = ({
 
   const canonicalUrl = canonical
     ? canonical
-    : createUrlWithLang(`https://www.nyxo.app/${pathName.replace(/^\/+/g, "")}`)
+    : createUrlWithLang(`${pathName.replace(/^\/+/g, "")}`)
 
   return (
     <Helmet htmlAttributes={{ lang: language }} title={`${title} – Nyxo`}>
@@ -73,11 +73,11 @@ const SEO: FC<HelmetProps> = ({
       <link rel="canonical" href={canonicalUrl} />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="msvalidate.01" content="E7E7B3852DA058B99618D34CD13518A2" />
-      <meta name="description" content={description} />
+      <meta name="description" content={description as string} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="Nyxo" />
       <meta name="twitter:title" content={`${title} – Nyxo`} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={description as string} />
       <meta name="twitter:creator" content={twitter || "Nyxo"} />
       <meta
         name="twitter:image"
@@ -113,13 +113,13 @@ const SEO: FC<HelmetProps> = ({
         content={contentType ? contentType : "website"}
       />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:author" content={author} />
+      <meta property="og:author" content={author as string} />
       <meta property="og:image" content={image} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={description as string} />
       <meta property="og:site_name" content="Nyxo" />
 
       <meta itemProp="name" content={`${title} – Nyxo`} />
-      <meta itemProp="description" content={description} />
+      <meta itemProp="description" content={description as string} />
       <meta
         itemProp="image"
         content={staticImage ? seoURL(image) : addHttps(image)}
@@ -161,10 +161,3 @@ const SEO: FC<HelmetProps> = ({
 }
 
 export default SEO
-
-{
-  /* <link
-          rel="amphtml"
-          href={`https://nyxo.app/amp/${pathName.replace(/^\/+/g, "")}`}
-        /> */
-}

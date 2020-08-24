@@ -7,7 +7,6 @@ import { ContentfulLesson } from "../../../graphql-types"
 import { H2 } from "../Html/HtmlContent"
 import LessonCard from "../lesson/LessonCard"
 import { P } from "../Primitives"
-import { useGetBookmark } from "../../hooks/bookmark-hooks"
 
 type Props = {
   language: string
@@ -38,7 +37,6 @@ const LessonHighlights: FC<Props> = ({ language }) => {
 
   const { t } = useTranslation()
   const lessons = language === "fi" ? lessonsFI : lessonsEN
-
   return (
     <Container>
       <H2>{t("COACHING.LESSONS")}</H2>

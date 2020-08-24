@@ -1,12 +1,12 @@
-import { Link } from "gatsby-plugin-react-i18next"
 import Image, { FluidObject } from "gatsby-image"
-import React, { FC, EventHandler, MouseEvent } from "react"
+import { Link } from "gatsby-plugin-react-i18next"
+import React, { EventHandler, FC, MouseEvent } from "react"
 import styled from "styled-components"
 import { ContentfulLesson } from "../../../graphql-types"
 import { truncate } from "../../Helpers/string-truncater"
+import BookmarkButton from "../BookmarkButton/BookmarkButtonSmall"
 import { Icon } from "../Icons"
 import { device } from "../Primitives"
-import BookmarkButton from "../BookmarkButton/BookmarkButtonSmall"
 
 type Props = {
   name?: string | null

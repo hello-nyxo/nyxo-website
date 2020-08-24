@@ -1,5 +1,6 @@
 import { graphql, PageProps } from "gatsby"
 import Image, { FluidObject } from "gatsby-image"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { ContentfulWeek } from "../../graphql-types"
@@ -12,8 +13,6 @@ import LessonHighlights from "../components/LessonHighlights/LessonHighlights"
 import { Container, P } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import WeekCard from "../components/week/WeekCard"
-import { useTranslation } from "gatsby-plugin-react-i18next"
-import { useGetBookmark } from "../hooks/bookmark-hooks"
 
 type Props = {
   weeksFI: {
@@ -44,7 +43,7 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
       coachingMeta,
       coachingCover,
     },
-    pageContext: { language },
+    pathContext: { language },
     location: { pathname },
   } = props
 

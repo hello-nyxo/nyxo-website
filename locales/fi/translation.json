@@ -184,6 +184,13 @@
     "INSTAGRAM": "Seuraa meitä"
   },
 
+  "PROMPT": {
+    "MOBILE": "Lataa Nyxo",
+    "TABLET": "Unen seuranta & valmennus",
+    "DESKTOP": "Seuraa untasi ja saa henkilökohtaista univalmennusta",
+    "BUTTON": "Lataa Nyxo"
+  },
+
   "en": "In English",
   "fi": "Suomeksi"
 }

@@ -13,7 +13,6 @@ import {
   ContentfulWeek,
 } from "../../graphql-types"
 import BookmarkButton from "../components/BookmarkButton/Bookmark"
-
 import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H5, H6 } from "../components/Html/HtmlContent"
 import { Icon } from "../components/Icons"
@@ -24,10 +23,10 @@ import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import LargeWeekCard from "../components/week/LargeWeekCard"
 import {
-  useGetBookmark,
-  useDeleteBookmark,
-  useAddBookmark,
   fetchWeekNLessonBookmarks,
+  useAddBookmark,
+  useDeleteBookmark,
+  useGetBookmark,
 } from "../hooks/bookmark-hooks"
 
 type Props = {
@@ -69,7 +68,6 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
   location: { pathname },
 }) => {
   const { t } = useTranslation()
-  // Week bookmark data
   const {
     data: { bookmarked: weekBookmarked, id },
     isLoading: getLoading,
@@ -78,7 +76,6 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
   const [remove, { isLoading: removeLoading }] = useDeleteBookmark()
   const [add, { isLoading: addLoading }] = useAddBookmark()
 
-  // Lesson bookmark data
   const initialLessons: Lesson[] = pageLessons?.map((lesson) => ({
     ...(lesson as Lesson),
     bookmarked: false,
@@ -190,21 +187,6 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
         </Row>
 
         <H3>{t("LESSONS_FOR_THIS_WEEK")}</H3>
-        {/* <Loading>
-          {status === "loading" && (
-            <>
-              <P>{t("LOADING_DATA")}</P>
-              <ContentLoader
-                type="Oval"
-                color="#4a5aef"
-                height={24}
-                width={24}
-                timeout={3000}
-              />
-            </>
-          )}
-        </Loading> */}
-
         {sections.map(({ header, lessons }) => (
           <Section key={header?.id}>
             <H6>{header?.title}</H6>
@@ -439,8 +421,4 @@ const Tags = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-`
-const P = styled.p`
-  display: inline-block;
-  margin-right: 15px;
 `
