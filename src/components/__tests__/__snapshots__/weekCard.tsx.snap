@@ -2,14 +2,16 @@
 
 exports[`Week card renders correctly 1`] = `
 <a
-  className="sc-fzozJi iKrRol"
+  className="sc-fzpans dUTbsr"
   href="/week/week-name"
+  hrefLang="en"
+  onClick={[Function]}
 >
   <div
-    className="sc-fzoLsD bEheYh"
+    className="sc-fzplWN hIYAKU"
   >
     <div
-      className="sc-fzpans bAXHOB gatsby-image-wrapper"
+      className="sc-fznyAO dHzakw gatsby-image-wrapper"
       style={
         Object {
           "maxHeight": null,
@@ -57,17 +59,21 @@ exports[`Week card renders correctly 1`] = `
         }
       />
     </div>
+    <span
+      className="sc-AxirZ ijxhHL"
+    />
     <div
-      className="sc-fznZeY erAA-Dg"
+      className="sc-fzqBZW hgVzkK"
     >
       <span
-        className="sc-fzokOt cMqWJs"
+        className="sc-fzqNJr izEFCw"
       >
         <svg
-          className="sc-AxmLO huqxQS"
+          className="sc-AxjAm eINkHy"
           fill="none"
           height="20px"
           stroke="currentColor"
+          strokeLinecap="round"
           strokeWidth="1.5"
           version="1.1"
           viewBox="0 0 30 30"
@@ -102,20 +108,21 @@ exports[`Week card renders correctly 1`] = `
           </g>
         </svg>
         7
-         Lessons
+         
+        LESSONS
       </span>
     </div>
   </div>
   <div
-    className="sc-fzplWN bDpdWX"
+    className="sc-fznKkj bzRXdu"
   >
     <h3
-      className="sc-fznyAO hjMKNW"
+      className="sc-fznZeY iuYgmD"
     >
       Week name
     </h3>
     <span
-      className="sc-fznKkj kroYf"
+      className="sc-fzokOt eeMbvI"
     >
       Lorem ipsum
     </span>

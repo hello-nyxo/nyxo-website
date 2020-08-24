@@ -1,10 +1,8 @@
-interface AuthorCard {
-  name: string
-  avatar: any
-  credentials: string
-}
+import { ContentfulAuthor, Maybe } from "../../graphql-types"
 
-const getFirstAuthor = (authorCards?: AuthorCard[] | null) => {
+const getFirstAuthor = (
+  authorCards?: Maybe<Array<Maybe<ContentfulAuthor>>> | null
+): null | undefined | string => {
   return authorCards ? authorCards[0]?.name : null
 }
 

@@ -1,11 +1,13 @@
 import Image, { FluidObject } from "gatsby-image"
-import React, { FC } from "react"
-import styled from "styled-components"
-import { ContentfulLesson } from "../../graphql-types"
-import { truncate } from "../Helpers/string-truncater"
-import { Icon } from "./Icons"
-import { device } from "./Primitives"
 import { Link } from "gatsby-plugin-react-i18next"
+import React, { EventHandler, FC, MouseEvent } from "react"
+import styled from "styled-components"
+import { ContentfulLesson } from "../../../graphql-types"
+import { truncate } from "../../Helpers/string-truncater"
+import BookmarkButton from "../BookmarkButton/BookmarkButtonSmall"
+import { Icon } from "../Icons"
+import { device } from "../Primitives"
+
 type Props = {
   name?: string | null
   path?: string | null
@@ -13,6 +15,11 @@ type Props = {
   excerpt?: string | null
   cover?: FluidObject | null
   lesson?: ContentfulLesson | null
+  slug: string
+  key?: string
+  loading: boolean
+  onClick?: EventHandler<MouseEvent<HTMLButtonElement>>
+  bookmarked?: boolean
 }
 
 const LessonCard: FC<Props> = ({
@@ -22,19 +29,24 @@ const LessonCard: FC<Props> = ({
   excerpt,
   cover,
   lesson,
+  slug,
+  onClick,
+  loading = true,
+  bookmarked = false,
 }) => {
   const countHabits = lesson?.habit?.length
-
   return (
-    <Card to={path}>
+    <Card to={path as string}>
       <ImageContainer>
-        <Cover fluid={cover} />
-        <FavoriteButton>
-          <Heart height="25px" width="25px" name="heart" />
-        </FavoriteButton>
+        <Cover fluid={cover as FluidObject} />
+        <BookmarkButton
+          onClick={onClick}
+          loading={loading}
+          bookmarked={bookmarked}
+        />
         <Wrap>
           <Icon height="15px" width="15px" name="clock" />
-          <ReadingTime>{Math.ceil(readingTime)}m</ReadingTime>
+          <ReadingTime>{Math.ceil(readingTime as number)}m</ReadingTime>
           {!!countHabits && (
             <Habits>
               <Icon height="20px" width="20px" name="task" />

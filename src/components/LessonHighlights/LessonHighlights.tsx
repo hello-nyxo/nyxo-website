@@ -1,12 +1,12 @@
 import { graphql, useStaticQuery } from "gatsby"
+import { FluidObject } from "gatsby-image"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { ContentfulLesson } from "../../../graphql-types"
-import LessonCard from "../LessonCard"
 import { H2 } from "../Html/HtmlContent"
+import LessonCard from "../lesson/LessonCard"
 import { P } from "../Primitives"
-import { useTranslation } from "gatsby-plugin-react-i18next"
-import { FluidObject } from "gatsby-image"
 
 type Props = {
   language: string
@@ -43,17 +43,22 @@ const LessonHighlights: FC<Props> = ({ language }) => {
       <P>{t("COACHING.LESSONS_TEXT")}</P>
 
       <Lessons>
-        {lessons.nodes.map((node: ContentfulLesson) => (
-          <LessonCard
-            name={node.lessonName}
-            key={node.slug as string}
-            path={`/lesson/${node.slug}`}
-            lesson={node}
-            readingTime={node.lessonContent?.fields?.readingTime?.minutes}
-            cover={node.cover?.fluid as FluidObject}
-            excerpt={node.lessonContent?.fields?.excerpt}
-          />
-        ))}
+        {lessons.nodes.map((lesson: ContentfulLesson) => {
+          return (
+            <LessonCard
+              slug={`${lesson?.slug}`}
+              name={lesson?.lessonName}
+              key={lesson?.slug as string}
+              bookmarked={false}
+              loading={false}
+              path={`/lesson/${lesson?.slug}`}
+              lesson={lesson}
+              readingTime={lesson?.lessonContent?.fields?.readingTime?.minutes}
+              cover={lesson?.cover?.fluid as FluidObject}
+              excerpt={lesson?.lessonContent?.fields?.excerpt}
+            />
+          )
+        })}
       </Lessons>
     </Container>
   )

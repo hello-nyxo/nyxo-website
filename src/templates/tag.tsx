@@ -9,7 +9,7 @@ import {
 import BlogPost from "../components/BlogPost"
 import { H1 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
-import LessonCard from "../components/LessonCard"
+import LessonCard from "../components/lesson/LessonCard"
 import { Container } from "../components/Primitives"
 import TagSection from "../components/tags/Tags"
 import getFirstAuthor from "../Helpers/AuthorHelper"

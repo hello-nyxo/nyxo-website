@@ -61,7 +61,7 @@ const HabitHighlights: FC<Props> = ({ locale }) => {
             key={node.slug as string}
             period={node.period}
             title={node.title}
-            slug={getLocalizedPath(`/habit/${node.slug}`, locale)}
+            slug={`/habit/${node.slug}`}
             excerpt={node.description?.fields?.excerpt}
           />
         ))}

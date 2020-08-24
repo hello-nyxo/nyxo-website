@@ -11,6 +11,7 @@ interface PageQuery extends PageProps {
 const NotFoundPage = (props: PageQuery) => {
   const {
     location: { pathname },
+    data,
   } = props
   return (
     <Layout>
@@ -18,7 +19,7 @@ const NotFoundPage = (props: PageQuery) => {
         title="404: Not found"
         description="You just hit a route that doesn&#39;t exist... the sadness :( "
         pathName={pathname}
-        image={props.data.notFoundMeta.childImageSharp.fixed.src}
+        image={data.notFoundMeta.childImageSharp.fixed.src}
       />
       <div className={"container"}>
         <h1>NOT FOUND</h1>

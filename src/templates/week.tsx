@@ -1,73 +1,144 @@
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
+import { Document } from "@contentful/rich-text-types"
 import { graphql, PageProps } from "gatsby"
-import Image from "gatsby-image"
+import Image, { FluidObject } from "gatsby-image"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import { groupBy } from "lodash"
 import React, { FC } from "react"
+import { useQuery } from "react-query"
 import styled from "styled-components"
 import {
   ContentfulHabit,
   ContentfulLesson,
   ContentfulWeek,
 } from "../../graphql-types"
+import BookmarkButton from "../components/BookmarkButton/Bookmark"
 import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H5, H6 } from "../components/Html/HtmlContent"
 import { Icon } from "../components/Icons"
 import Layout from "../components/layout"
-import LessonCard from "../components/LessonCard"
+import LessonCard from "../components/lesson/LessonCard"
 import { Container, device, Row } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import LargeWeekCard from "../components/week/LargeWeekCard"
-import { getLocalizedPath } from "../Helpers/i18n-helpers"
-import { useTranslation } from "gatsby-plugin-react-i18next"
+import {
+  fetchWeekNLessonBookmarks,
+  useAddBookmark,
+  useDeleteBookmark,
+  useGetBookmark,
+} from "../hooks/bookmark-hooks"
 
 type Props = {
   contentfulWeek: ContentfulWeek
   nextWeek: ContentfulWeek
   previousWeek: ContentfulWeek
-  habits: {
-    edges: { node: ContentfulHabit }[]
-  }
-  tags?: {
+  habits: { nodes: ContentfulHabit[] }
+  tags: {
     group: { fieldValue: string }[]
   }
 }
 
-const Week: FC<PageProps<Props>> = ({
+type Lesson = ContentfulLesson & {
+  bookmarked?: boolean
+}
+type Section = {
+  title: string
+  id: string
+  description: { json: Document }
+  order: number
+}
+
+const Week: FC<PageProps<Props, { locale: string }>> = ({
   data: {
-    tags,
-    habits,
+    tags: { group: tags },
+    habits: { nodes: habits },
     previousWeek,
     nextWeek,
     contentfulWeek: {
-      lessons,
+      lessons: pageLessons,
       weekDescription,
       createdAt,
+      slug,
       updatedAt,
       weekName: title,
       coverPhoto,
     },
   },
-  pageContext: { locale },
   location: { pathname },
 }) => {
   const { t } = useTranslation()
-  const description = documentToPlainTextString(weekDescription.json)
+  const {
+    data: { bookmarked: weekBookmarked, id },
+    isLoading: getLoading,
+  } = useGetBookmark(slug as string, "week")
 
-  const groupedLessons = groupBy(lessons, (lesson) => lesson?.section?.title)
-  const sectionData = lessons.map((item) => ({
-    title: item.section?.title,
-    id: item.section?.id,
-    description: item.section?.description,
-    order: item.section?.order,
+  const [remove, { isLoading: removeLoading }] = useDeleteBookmark()
+  const [add, { isLoading: addLoading }] = useAddBookmark()
+
+  const initialLessons: Lesson[] = pageLessons?.map((lesson) => ({
+    ...(lesson as Lesson),
+    bookmarked: false,
+  })) as Lesson[]
+
+  const { data, status, isLoading } = useQuery(
+    ["allLessonBookmarks", { initialLessons }],
+    fetchWeekNLessonBookmarks,
+    {
+      initialData: initialLessons,
+      initialStale: true,
+    }
+  )
+
+  const description = documentToPlainTextString(weekDescription?.json)
+  const groupedLessons = groupBy(data, (lesson) => lesson?.section?.title)
+
+  const sectionData: Section[] = data?.map((item: Lesson) => ({
+    title: item?.section?.title,
+    id: item?.section?.id,
+    description: item?.section?.description,
+    order: item?.section?.order,
   }))
 
   const sections = Object.entries(groupedLessons).map((group) => {
+    const header = sectionData.find((section) => section.title === group[0])
     return {
-      header: { ...sectionData.find((item) => item.title === group[0]) },
-      data: group[1],
+      header: header,
+      lessons: group[1],
     }
   })
+
+  const handleBookmark = async () => {
+    if (weekBookmarked) {
+      remove({ id: id, type: "week" })
+    } else {
+      await add({
+        name: title,
+        slug: slug as string,
+        type: "week",
+      })
+    }
+  }
+
+  const handleLessonBookmark = async ({
+    bookmarkTitle,
+    bookmarkSlug,
+    bookmarkType,
+  }: {
+    bookmarkTitle: string
+    bookmarkSlug: string
+    bookmarkType: string
+  }) => {
+    if (weekBookmarked) {
+      remove({ id: id, type: "lesson" })
+    } else {
+      await add({
+        name: bookmarkTitle,
+        slug: bookmarkSlug,
+        type: bookmarkType,
+      })
+    }
+  }
 
   return (
     <Layout>
@@ -75,7 +146,7 @@ const Week: FC<PageProps<Props>> = ({
         pathName={pathname}
         title={title}
         description={description}
-        image={coverPhoto.fixed.src}
+        image={coverPhoto?.fixed?.src}
         category="Health"
         tags="Sleep"
         published={createdAt}
@@ -85,16 +156,22 @@ const Week: FC<PageProps<Props>> = ({
         <H1>{title}</H1>
 
         <Cover>
-          <CoverImage fluid={coverPhoto?.fluid} />
+          <CoverImage fluid={coverPhoto?.fluid as FluidObject} />
         </Cover>
+
+        <BookmarkButton
+          loading={removeLoading || addLoading || getLoading}
+          onClick={handleBookmark}
+          bookmarked={weekBookmarked}
+        />
 
         <H3>{t("ABOUT_THIS_WEEK")}</H3>
 
         <Row>
           <Column>
-            <HtmlContent document={weekDescription.json} />
+            <HtmlContent document={weekDescription?.json} />
           </Column>
-          {tags?.group?.length > 0 && (
+          {tags?.length > 0 && (
             <Column>
               <TagTitle>
                 <TagIcon />
@@ -102,9 +179,7 @@ const Week: FC<PageProps<Props>> = ({
               </TagTitle>
               <Tags>
                 <TagSection
-                  tags={tags.group.map(
-                    ({ fieldValue = "adenosine" }) => fieldValue
-                  )}
+                  tags={tags.map(({ fieldValue = "adenosine" }) => fieldValue)}
                 />
               </Tags>
             </Column>
@@ -112,41 +187,53 @@ const Week: FC<PageProps<Props>> = ({
         </Row>
 
         <H3>{t("LESSONS_FOR_THIS_WEEK")}</H3>
+        {sections.map(({ header, lessons }) => (
+          <Section key={header?.id}>
+            <H6>{header?.title}</H6>
+            <HtmlContent document={header?.description?.json as Document} />
 
-        <>
-          {sections.map((section) => (
-            <Section key={section.header.id}>
-              <H6>{section.header.title}</H6>
-              <HtmlContent document={section.header.description?.json} />
+            <Lessons>
+              {lessons.map((lesson) => {
+                const bookmark = () => {
+                  handleLessonBookmark({
+                    bookmarkTitle: lesson.lessonName,
+                    bookmarkSlug: lesson.slug,
+                    bookmarkType: "lesson",
+                  })
+                }
 
-              <Lessons>
-                {section.data.map((lesson: ContentfulLesson) => (
+                return (
                   <LessonCard
-                    cover={lesson.cover?.fluid}
-                    key={lesson.slug}
-                    path={`/lesson/${lesson.slug}`}
-                    excerpt={lesson.lessonContent.fields?.excerpt}
-                    name={lesson.lessonName}
-                    readingTime={
-                      lesson.lessonContent.fields.readingTime?.minutes
-                    }
+                    bookmarked={lesson?.bookmarked}
+                    key={`${lesson?.slug}`}
+                    slug={`${lesson?.slug}`}
+                    name={lesson?.lessonName}
+                    path={`/lesson/${lesson?.slug}`}
+                    onClick={bookmark}
                     lesson={lesson}
+                    loading={isLoading}
+                    readingTime={
+                      lesson?.lessonContent?.fields?.readingTime?.minutes
+                    }
+                    cover={lesson?.cover?.fluid as FluidObject}
+                    excerpt={lesson?.lessonContent?.fields?.excerpt}
                   />
-                ))}
-              </Lessons>
-            </Section>
-          ))}
-        </>
-        {habits?.edges.length > 0 && (
+                )
+              })}
+            </Lessons>
+          </Section>
+        ))}
+
+        {habits?.length > 0 && (
           <>
             <H3>{t("COACHING.HABITS")}</H3>
             <Habits>
-              {habits.edges.map(({ node }: { node: ContentfulHabit }) => (
+              {habits.map((node: ContentfulHabit) => (
                 <HabitCard
                   link
                   key={node.slug as string}
                   title={node.title}
-                  slug={getLocalizedPath(`/habit/${node.slug}`, locale)}
+                  slug={`/habit/${node.slug}`}
                   excerpt={node.description?.fields?.excerpt}
                   period={node.period}
                 />
@@ -214,15 +301,13 @@ export const pageQuery = graphql`
         lesson: { elemMatch: { week: { elemMatch: { slug: { eq: $slug } } } } }
       }
     ) {
-      edges {
-        node {
-          title
-          period
-          slug
-          description {
-            fields {
-              excerpt
-            }
+      nodes {
+        title
+        period
+        slug
+        description {
+          fields {
+            excerpt
           }
         }
       }

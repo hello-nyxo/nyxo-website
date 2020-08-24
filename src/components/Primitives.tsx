@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Icon } from "./Icons"
 
 const size = {
   mobileS: "320px",

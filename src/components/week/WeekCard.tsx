@@ -1,35 +1,47 @@
+import Image, { FluidObject } from "gatsby-image"
+import { Link, useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
-import { device } from "../components/Primitives"
-import { Icon } from "./Icons"
-import Image, { FluidObject } from "gatsby-image"
-import colors from "../colors"
-import { ContentfulLesson } from "../../graphql-types"
-import { useTranslation, Link } from "gatsby-plugin-react-i18next"
+import { ContentfulLesson, Maybe } from "../../../graphql-types"
+import colors from "../../colors"
+import BookmarkButton from "../BookmarkButton/BookmarkButtonSmall"
+import { Icon } from "../Icons"
+import { device } from "../Primitives"
 
 type Props = {
-  name: string
-  path: string
-  duration: number
-  intro: string
-  lessons: ContentfulLesson[]
-  coverPhoto: FluidObject
+  name?: string | null
+  path?: string | null
+  duration?: number | null
+  intro?: string | null
+  lessons?: Maybe<Array<Maybe<ContentfulLesson>>>
+  coverPhoto?: FluidObject | null
+  slug?: string | null
+  excerpt?: string | null
+  bookmarked: boolean
 }
 
-const WeekCard: FC<Props> = ({ lessons, name, coverPhoto, path, intro }) => {
-  const countHabits: number = lessons.reduce(
-    (accumulator: number, currentValue: number) =>
-      accumulator +
-      parseInt(currentValue.habit ? currentValue.habit?.length : 0),
+const WeekCard: FC<Props> = ({
+  lessons,
+  name,
+  coverPhoto,
+  path,
+  intro,
+  slug,
+  bookmarked,
+}) => {
+  const countHabits: number = lessons?.reduce(
+    (accumulator: number, currentValue: ContentfulLesson) =>
+      accumulator + currentValue?.habit ? currentValue?.habit?.length : 0,
     0
   )
 
   const { t } = useTranslation()
 
   return (
-    <Card to={path}>
+    <Card to={`${path}`}>
       <Cover>
-        <CoverPhoto fluid={coverPhoto} />
+        <CoverPhoto fluid={coverPhoto as FluidObject} />
+        <BookmarkButton loading={false} bookmarked={bookmarked} />
         <InformationRow>
           <Lessons>
             <Icon
@@ -38,7 +50,7 @@ const WeekCard: FC<Props> = ({ lessons, name, coverPhoto, path, intro }) => {
               name="presentation"
               stroke="currentColor"
             />
-            {lessons.length} {t("LESSONS")}
+            {lessons?.length} {t("LESSONS")}
           </Lessons>
           {!!countHabits && (
             <Habits>

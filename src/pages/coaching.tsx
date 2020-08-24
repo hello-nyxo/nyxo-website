@@ -1,8 +1,9 @@
 import { graphql, PageProps } from "gatsby"
-import Image from "gatsby-image"
+import Image, { FluidObject } from "gatsby-image"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
-import { CoachingPageQueryQuery, ContentfulWeek } from "../../graphql-types"
+import { ContentfulWeek } from "../../graphql-types"
 import AuthorList from "../components/Author/AuthorList"
 import GetAppBanner from "../components/GetAppBanner"
 import HabitHighlights from "../components/Habit/HabitHighlights"
@@ -11,10 +12,30 @@ import Layout from "../components/layout"
 import LessonHighlights from "../components/LessonHighlights/LessonHighlights"
 import { Container, P } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
-import WeekCard from "../components/WeekCard"
-import { useTranslation } from "gatsby-plugin-react-i18next"
+import WeekCard from "../components/week/WeekCard"
 
-const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
+type Props = {
+  weeksFI: {
+    nodes: ContentfulWeek[]
+  }
+  weeksEN: {
+    nodes: ContentfulWeek[]
+  }
+  coachingMeta: {
+    childImageSharp: {
+      fixed: {
+        src: string
+      }
+    }
+  }
+  coachingCover: {
+    childImageSharp: {
+      fluid: FluidObject
+    }
+  }
+}
+
+const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
   const {
     data: {
       weeksFI: { nodes: fiWeeks },
@@ -27,6 +48,7 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
   } = props
 
   const { t } = useTranslation()
+  const weeks = language === "fi" ? fiWeeks : enWeeks
 
   return (
     <Layout>
@@ -34,7 +56,7 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
         title={t("COACHING.TITLE")}
         description={t("COACHING.DESCRIPTION")}
         pathName={pathname}
-        image={coachingMeta.childImageSharp.fixed.src}
+        image={coachingMeta?.childImageSharp?.fixed?.src}
         staticImage={true}
       />
 
@@ -47,7 +69,6 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
         </CoverPhotoContainer>
 
         <P>{t("COACHING.INTRODUCTION")}</P>
-
         <H3>{t("COACHING.HOW_IT_WORKS")}</H3>
         <P>{t("COACHING.HOW_IT_WORKS_TEXT")}</P>
 
@@ -55,31 +76,22 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
 
         <H2>{t("COACHING.WEEKS")}</H2>
         <P>{t("COACHING.WEEKS_TEXT")}</P>
-
         <Weeks>
-          {language === "fi"
-            ? fiWeeks.map((week: ContentfulWeek) => (
-                <WeekCard
-                  key={week.slug}
-                  path={`/week/${week.slug}`}
-                  intro={week.intro}
-                  name={week.weekName}
-                  duration={week.duration}
-                  lessons={week.lessons}
-                  coverPhoto={week.coverPhoto.fluid}
-                />
-              ))
-            : enWeeks.map((week: ContentfulWeek) => (
-                <WeekCard
-                  key={week.slug}
-                  path={`/week/${week.slug}`}
-                  intro={week.intro}
-                  name={week.weekName}
-                  duration={week.duration}
-                  lessons={week.lessons}
-                  coverPhoto={week.coverPhoto.fluid}
-                />
-              ))}
+          {weeks.map((week: ContentfulWeek) => {
+            return (
+              <WeekCard
+                bookmarked={false}
+                key={`${week?.slug}`}
+                path={`/week/${week?.slug}`}
+                intro={week?.intro}
+                name={week?.weekName}
+                duration={week?.duration}
+                lessons={week?.lessons}
+                coverPhoto={week?.coverPhoto?.fluid as FluidObject}
+                slug={week.slug}
+              />
+            )
+          })}
         </Weeks>
 
         <HabitHighlights locale={language} />
@@ -94,14 +106,6 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
 }
 
 export default CoachingPage
-
-const Weeks = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  padding: 3rem 0rem;
-  margin: 2rem -1rem;
-`
 
 const Title = styled(H1)`
   text-align: center;
@@ -125,6 +129,13 @@ const CoverPhotoContainer = styled.div`
 const Cover = styled(Image)`
   width: 100%;
   height: 100%;
+`
+
+export const Weeks = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 2rem -1rem;
 `
 
 export const pageQueryCoaching = graphql`

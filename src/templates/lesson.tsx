@@ -1,13 +1,11 @@
 import { graphql, PageProps } from "gatsby"
-import Image from "gatsby-image"
+import Image, { FluidObject } from "gatsby-image"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
-import {
-  ContentfulAuthor,
-  ContentfulLesson,
-  LessonByIdQuery,
-} from "../../graphql-types"
+import { ContentfulLesson, LessonByIdQuery } from "../../graphql-types"
 import AuthorCard from "../components/Author/AuthorCard"
+import BookmarkButton from "../components/BookmarkButton/Bookmark"
 import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H4 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
@@ -16,11 +14,14 @@ import { Container, TextContainer } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import getFirstAuthor from "../Helpers/AuthorHelper"
-import { getLocalizedPath } from "../Helpers/i18n-helpers"
-import { useTranslation } from "gatsby-plugin-react-i18next"
+import {
+  useAddBookmark,
+  useDeleteBookmark,
+  useGetBookmark,
+} from "../hooks/bookmark-hooks"
+
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
-  pageContext: { locale },
   location: { pathname },
 }) => {
   const {
@@ -29,6 +30,7 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
     contentfulLesson: {
       lessonName: title = "",
       lessonContent: content,
+      slug,
       createdAt,
       updatedAt,
       cover,
@@ -42,8 +44,28 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
     nextLesson: ContentfulLesson
     previousLesson: ContentfulLesson
   }
+
+  const description = content?.fields?.excerpt
   const { t } = useTranslation()
-  const description = content.fields.excerpt
+  const {
+    data: { bookmarked, id },
+    isLoading,
+  } = useGetBookmark(slug as string, "lesson")
+  const [remove, { isLoading: removeLoading }] = useDeleteBookmark()
+  const [add, { isLoading: addLoading }] = useAddBookmark()
+
+  const handleBookmarking = async () => {
+    if (bookmarked) {
+      remove({ id: id, type: "lesson" })
+    } else {
+      await add({
+        name: title,
+        slug: slug as string,
+        type: "lesson",
+      })
+    }
+  }
+
   return (
     <Layout>
       <SEO
@@ -52,7 +74,7 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
         description={description}
         published={createdAt}
         updated={updatedAt}
-        image={cover.fixed.src}
+        image={cover?.fixed?.src}
         category="Health"
         tags="Sleep"
         author={getFirstAuthor(authorCard)}
@@ -64,20 +86,29 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
         </TitleContainer>
 
         <Cover>
-          <CoverImage fluid={cover?.fluid} />
+          <CoverImage fluid={cover?.fluid as FluidObject} />
         </Cover>
 
-        <HtmlContent document={content.json} />
+        <ActionRow>
+          <BookmarkButton
+            onClick={handleBookmarking}
+            bookmarked={bookmarked}
+            loading={removeLoading || addLoading || isLoading}
+          />
+        </ActionRow>
+
+        <HtmlContent document={content?.json} />
         {habits && <H3>{t("HABITS_TO_TRY")}</H3>}
+
         <Habits>
-          {habits?.map((habit: any, index: number) => (
+          {habits?.map((habit) => (
             <HabitCard
               link
-              key={index}
-              title={habit.title}
-              period={habit.period}
-              slug={`/habit/${habit.slug}`}
-              excerpt={habit.description.fields.excerpt}
+              key={`${habit?.slug}`}
+              title={habit?.title}
+              period={habit?.period}
+              slug={`/habit/${habit?.slug}`}
+              excerpt={habit?.description?.fields?.excerpt}
             />
           ))}
         </Habits>
@@ -90,8 +121,8 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
 
         <H4>{t("LESSON_BY")}</H4>
         <Authors>
-          {authorCard?.map((author: ContentfulAuthor) => (
-            <AuthorCard key={author.slug} author={author} />
+          {authorCard?.map((author) => (
+            <AuthorCard key={`${author?.slug}`} author={author} />
           ))}
         </Authors>
 
@@ -154,6 +185,13 @@ export const pageQuery = graphql`
       ...LessonFragment
     }
   }
+`
+
+const ActionRow = styled.div`
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 `
 
 const Cover = styled.div`

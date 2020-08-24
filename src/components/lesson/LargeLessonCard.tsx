@@ -19,9 +19,6 @@ const LargeLessonCard: FC<Props> = ({ path = `/`, lesson }) => {
     <Card to={path as string}>
       <ImageContainer>
         <Cover fluid={lesson?.cover?.fluid} />
-        <FavoriteButton>
-          <Heart height="25px" width="25px" name="heart" />
-        </FavoriteButton>
         <Wrap>
           <Icon height="15px" width="15px" name="clock" />
           <ReadingTime>
@@ -166,25 +163,6 @@ const Habits = styled.span`
   margin-left: 1rem;
   font-size: 0.9rem;
   display: inline-block;
-`
-
-const FavoriteButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  border: none;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  padding: 0px;
-  justify-content: center;
-`
-
-const Heart = styled(Icon).attrs(() => ({
-  fill: "black",
-  stroke: "none",
-}))`
-  margin: 0px;
 `
 
 const InnerContent = styled.div`

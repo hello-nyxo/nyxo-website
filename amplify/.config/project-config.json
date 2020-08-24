@@ -1,15 +1,17 @@
 {
-  "projectName": "nyxo.app",
-  "version": "1.0",
-  "frontend": "javascript",
-  "javascript": {
-    "framework": "react",
-    "config": {
-      "SourceDir": "src",
-      "DistributionDir": "public",
-      "BuildCommand": "gatsby build",
-      "StartCommand": "gatsby serve"
-    }
-  },
-  "providers": ["awscloudformation"]
+    "projectName": "nyxo.app",
+    "version": "3.0",
+    "frontend": "javascript",
+    "javascript": {
+        "framework": "react",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "public",
+            "BuildCommand": "gatsby build",
+            "StartCommand": "gatsby serve"
+        }
+    },
+    "providers": [
+        "awscloudformation"
+    ]
 }
