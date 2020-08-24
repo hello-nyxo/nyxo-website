@@ -1,7 +1,7 @@
 
 
 <p align="center">
-   <h1 align=center>Nyxo Website – Better Sleep 💤💤💤<h1/>
+   <h1 align=center>Nyxo Website – Better Sleep 💤💤💤</h1>
 </p>
 
 <p align="center">
