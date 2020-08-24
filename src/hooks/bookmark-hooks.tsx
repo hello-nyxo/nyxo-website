@@ -261,3 +261,21 @@ export const useGetUserBookmarks = (content: ContentData) => {
     initialStale: true,
   })
 }
+
+export const useGetLessons = (initialLessons: ContentfulLesson[]) => {
+  if (isLoggedIn()) {
+    return useQuery(
+      ["allLessonBookmarks", { initialLessons }],
+      fetchWeekNLessonBookmarks,
+      {
+        initialData: initialLessons,
+        initialStale: true,
+      }
+    )
+  } else {
+    return {
+      isLoading: false,
+      data: initialLessons,
+    }
+  }
+}

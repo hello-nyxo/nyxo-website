@@ -27,6 +27,7 @@ import {
   useAddBookmark,
   useDeleteBookmark,
   useGetBookmark,
+  useGetLessons,
 } from "../hooks/bookmark-hooks"
 
 type Props = {
@@ -81,14 +82,7 @@ const Week: FC<PageProps<Props, { locale: string }>> = ({
     bookmarked: false,
   })) as Lesson[]
 
-  const { data, status, isLoading } = useQuery(
-    ["allLessonBookmarks", { initialLessons }],
-    fetchWeekNLessonBookmarks,
-    {
-      initialData: initialLessons,
-      initialStale: true,
-    }
-  )
+  const { data, isLoading } = useGetLessons(initialLessons)
 
   const description = documentToPlainTextString(weekDescription?.json)
   const groupedLessons = groupBy(data, (lesson) => lesson?.section?.title)
