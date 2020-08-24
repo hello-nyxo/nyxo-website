@@ -1,5 +1,13 @@
-# Nyxo Website
 
+
+<p align="center">
+   <h1 align=center>Nyxo Website – Better Sleep 💤💤💤<h1/>
+</p>
+
+<p align="center">
+  <a href="https://apps.apple.com/us/app/nyxo-sleep-coaching/id1440417031">Download iOS</a> • <a href="https://play.google.com/store/apps/details?id=fi.nyxo.app">Download Android</a> • <a href="mailto:hello+github@nyxo.fi">Contact</a> • <a href="http://eepurl.com/g-0zKD">Nyxo Newsletter</a>
+</p>
+--- 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
@@ -8,6 +16,9 @@
 
 ![Build, test, and release](https://github.com/hello-nyxo/nyxo-website/workflows/Build,%20test,%20and%20release/badge.svg)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+![commit activity](https://img.shields.io/github/commit-activity/w/hello-nyxo/nyxo-website)
+![release](https://img.shields.io/github/v/release/hello-nyxo/nyxo-website)
+![license](https://img.shields.io/github/license/hello-nyxo/nyxo-website)
 
 This is the website that powers [nyxo.app](https://nyxo.app). It's built with the following tools:
 
