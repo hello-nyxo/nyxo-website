@@ -36,8 +36,31 @@ This is the website that powers [nyxo.app](https://nyxo.app). It's built with th
    npm install -g gatsby-cli
    ```
 
-2. **Setup AWS Amplify + envirnoment variables**
-   ...coming soon
+2. **Setup AWS Amplify + environment variables**
+
+In order to develop the site, you need to create file called `.env.development` in the root of the project. The contents of the file should we following:
+```
+INSTAGRAM_API_TOKEN=YOUR_KEY
+INSTAGRAM_BUSINES_ID=YOUR_KEY
+GTAG_ID=YOUR_KEY
+GOOGLE_ANALYTICS=YOUR_KEY
+CONTENTFUL_SPACE_ID=YOUR_KEY
+CONTENTFUL_ACCESS_TOKEN=YOUR_KEY
+CONTENTFUL_ENVIRONMENT=YOUR_ENVIRONMENT
+MAILCHIMP_ENDPOINT=YOUR_KEY
+````
+We use Contentful so serve our coaching data. When development you can use our public testing environment by placing the following values in it:
+
+```
+CONTENTFUL_SPACE_ID=2bj8pq0ood89
+CONTENTFUL_ACCESS_TOKEN=7yCg2oVBg-kQAhPrNTI0935HDiUJ7FYlUyIwM3Tspgg
+CONTENTFUL_ENVIRONMENT=public
+```
+
+Our Instagram component will most likely complain that it can fetch data, because you're missing the required tokens. We are working on how to disable this. For now you should be able to skip it.
+
+__AWS Amplify__
+In order to run the site, you also need to setup aws-amplify. We have written pretty [good instructions about this on our site.](https://nyxo.app/gatsby-netlify-amplify-part-2)
 
 3) **Start the site in `develop` mode.**
 
