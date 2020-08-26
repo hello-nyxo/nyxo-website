@@ -3,12 +3,9 @@ import "../../static/styles/all.scss"
 import Header from "./header"
 import generateAscii from "../Helpers/AsciiHelper"
 import Footer from "./Footer/Footer"
-import styled from "styled-components"
-import { Link } from "gatsby-plugin-react-i18next"
-import { Icon } from "./Icons"
-import devices from "../devices"
-import { minDevice } from "./Primitives"
 import FloatingPrompt from "./GetAppBanner/FloatingPrompt"
+import { useSpring, animated } from "react-spring"
+import styled from "styled-components"
 
 type Props = {
   children: JSX.Element | JSX.Element[]
@@ -19,11 +16,17 @@ const Layout: FC<Props> = ({ children }) => {
     generateAscii()
   }, [])
 
+  const style = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+  })
+
   return (
     <>
       <Header />
-      <main>{children}</main>
-
+      <Content style={style}>
+        <main>{children}</main>
+      </Content>
       <FloatingPrompt />
       <footer>
         <Footer />
@@ -33,3 +36,5 @@ const Layout: FC<Props> = ({ children }) => {
 }
 
 export default Layout
+
+const Content = styled(animated.div)``
