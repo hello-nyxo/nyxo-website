@@ -30,13 +30,13 @@ This is the website that powers [nyxo.app](https://nyxo.app). It's built with th
 
 ## 🚀 Quick start
 
-1. **Install the Gatsby CLI.**
+### 1. **Install the Gatsby CLI.**
 
    ```shell
    npm install -g gatsby-cli
    ```
 
-2. **Setup AWS Amplify + environment variables**
+### 2. **Setup AWS Amplify + environment variables**
 
 In order to develop the site, you need to create file called `.env.development` in the root of the project. The contents of the file should we following:
 ```
@@ -62,7 +62,10 @@ Our Instagram component will most likely complain that it can fetch data, becaus
 __AWS Amplify__
 In order to run the site, you also need to setup aws-amplify. We have written pretty [good instructions about this on our site.](https://nyxo.app/gatsby-netlify-amplify-part-2)
 
-3) **Start the site in `develop` mode.**
+
+
+
+### 3) **Start the site in `develop` mode.**
 
 Next, move into your new site’s directory and start it up:
 
