@@ -200,6 +200,12 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        workboxConfig: {},
+      },
+    },
+    {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         path: `${__dirname}/locales`,
