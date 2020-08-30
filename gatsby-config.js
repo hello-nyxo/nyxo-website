@@ -209,7 +209,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         path: `${__dirname}/locales`,
-        languages: [`en`, `fi`],
+        languages: [`en`, `fi`, `es`, `de`, `sv`, `fr`],
         defaultLanguage: `en`,
         redirect: false,
         siteUrl: "https://nyxo.app",

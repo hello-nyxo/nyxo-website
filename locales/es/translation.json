@@ -1,0 +1,62 @@
+{
+  "NAVIGATION": {
+    "LOGOUT": "Cerrar sesión"
+  },
+  "NEWSLETTER": {
+    "DESCRIPTION": "Suscríbete a nuestro boletín de noticias y no te pierdas nunca materiales gratuitos de coaching sobre sueño, actualizaciones de productos y mucho más."
+  },
+  "INDEX": {
+    "DATA_TEXT": "Nyxo utiliza tus datos de sueño para personalizar el coaching para que se adapte a tus necesidades."
+  },
+  "FOR_YOU": {
+    "TEXT_4": "Los humanos somos como piezas increíblemente complejas de maquinaria que requieren un mantenimiento diario para funcionar correctamente. El sueño es una de las pocas necesidades básicas de la vida. Afecta a nuestro bienestar mental y físico, rendimiento, productividad, creatividad e innumerables otras cosas cada día. Sin embargo, a menudo se pasa por alto. Te ayudamos a aprovechar al máximo el tiempo que pasas en la cama."
+  },
+  "GET_THE_APP": {
+    "TEXT": "Descarga la aplicación gratis y duerme mejor a partir de esta noche."
+  },
+  "FOR_ORGANIZATIONS": {
+    "TEXT_4": "Un empleado bien descansado y saludable es un empleado feliz y motivado. Y las caras felices establecen el ambiente para todo el ambiente de trabajo. Ahora, ¿quién no querría trabajar en un ambiente alegre y solidario?"
+  },
+  "COACHING": {
+    "HABITS_TEXT": "A continuación se muestra una pequeña muestra de hábitos y ejercicios del Nyxo Sleep Coaching"
+  },
+  "FOOTER": {
+    "TERMS": "Términos de uso"
+  },
+  "CONTACT": {
+    "TEXT": "Nos tomamos en serio el compromiso con nuestros usuarios. Si tiene alguna pregunta sobre cómo utilizar Nyxo, está experimentando dificultades técnicas o desea saber más sobre nuestros productos, no dude en ponerse en contacto con nosotros. ¡También te animamos a enviar cualquier comentario o sugerencia que puedas tener!"
+  },
+  "BLOG": {
+    "DESCRIPTION": "Siga el blog Nyxo para obtener los últimos consejos sobre salud y bienestar del sueño, así como ingeniería de software. Sé el primero en enterarte de las nuevas características de los productos, anuncios y actualizaciones de la empresa."
+  },
+  "fi": "Suomeksi",
+  "en": "inglés",
+  "PROMPT": {
+    "DESKTOP": "Realice un seguimiento de su sueño y obtenga un entrenamiento personalizado para dormir"
+  },
+  "ABOUT": {
+    "WORK_FOR_US_TEXT": "Somos un equipo pequeño pero creciendo rápidamente. Como miembro inicial del equipo, tendrá un impacto enorme en lo que construimos y cómo lo construimos. Si estás interesado, nos encantaría saber de ti."
+  },
+  "ADD_BOOKMARK": "Añadir a marcadores",
+  "LOADING_DATA": "Cargando datos...",
+  "REMOVE_BOOKMARK": "Quitar marcador",
+  "MORE_FROM_BLOG": "Más de nuestro blog",
+  "CHECKOUT_BLOG": "Echa un vistazo a nuestro blog",
+  "LESSONS_BY": "Lecciones de",
+  "ADDITIONAL_READING": "Lectura adicional",
+  "HABITS_TO_TRY": "Hábitos de esta lección",
+  "LESSONS_FOR_THIS_WEEK": "Lecciones de esta semana",
+  "HABIT": "Hábito",
+  "LESSON_BY": "Autores",
+  "DESCRIPTION": "Descripción",
+  "MORE_HABITS": "Más Hábitos",
+  "EVENING": "Tarde",
+  "ABOUT_THIS_WEEK": "Acerca de esta semana",
+  "MORE_COACHING_WEEKS": "Más Semanas de Coaching",
+  "MORNING": "Mañana",
+  "AFTERNOON": "Tarde",
+  "HABITS": "Hábitos",
+  "LESSONS": "Lecciones",
+  "RELATED": "Publicaciones relacionadas en el blog",
+  "TAGS": "Etiquetas"
+}
