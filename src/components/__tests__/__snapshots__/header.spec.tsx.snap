@@ -77,6 +77,18 @@ exports[`Header renders correctly 1`] = `
         NAVIGATION.LOGIN
       </a>
     </li>
+    <li
+      className="sc-fzpans kcuntJ"
+    >
+      <a
+        className="sc-fzplWN epmMss"
+        href="/fi/"
+        hrefLang="fi"
+        onClick={[Function]}
+      >
+        fi
+      </a>
+    </li>
   </ul>
 </header>
 `;

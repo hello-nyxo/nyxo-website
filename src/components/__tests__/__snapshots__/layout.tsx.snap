@@ -78,9 +78,30 @@ Array [
           NAVIGATION.LOGIN
         </a>
       </li>
+      <li
+        className="sc-fzpans kcuntJ"
+      >
+        <a
+          className="sc-fzplWN epmMss"
+          href="/fi/"
+          hrefLang="fi"
+          onClick={[Function]}
+        >
+          fi
+        </a>
+      </li>
     </ul>
   </header>,
-  <main />,
+  <div
+    className="sc-fzoiQi jkvegY"
+    style={
+      Object {
+        "opacity": 0,
+      }
+    }
+  >
+    <main />
+  </div>,
   <div
     className="sc-fzqNJr dLZkRk"
   >
