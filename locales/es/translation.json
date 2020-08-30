@@ -1,62 +1,167 @@
 {
   "NAVIGATION": {
-    "LOGOUT": "Cerrar sesión"
-  },
-  "NEWSLETTER": {
-    "DESCRIPTION": "Suscríbete a nuestro boletín de noticias y no te pierdas nunca materiales gratuitos de coaching sobre sueño, actualizaciones de productos y mucho más."
-  },
-  "INDEX": {
-    "DATA_TEXT": "Nyxo utiliza tus datos de sueño para personalizar el coaching para que se adapte a tus necesidades."
-  },
-  "FOR_YOU": {
-    "TEXT_4": "Los humanos somos como piezas increíblemente complejas de maquinaria que requieren un mantenimiento diario para funcionar correctamente. El sueño es una de las pocas necesidades básicas de la vida. Afecta a nuestro bienestar mental y físico, rendimiento, productividad, creatividad e innumerables otras cosas cada día. Sin embargo, a menudo se pasa por alto. Te ayudamos a aprovechar al máximo el tiempo que pasas en la cama."
-  },
-  "GET_THE_APP": {
-    "TEXT": "Descarga la aplicación gratis y duerme mejor a partir de esta noche."
-  },
-  "FOR_ORGANIZATIONS": {
-    "TEXT_4": "Un empleado bien descansado y saludable es un empleado feliz y motivado. Y las caras felices establecen el ambiente para todo el ambiente de trabajo. Ahora, ¿quién no querría trabajar en un ambiente alegre y solidario?"
+    "BLOG": "Blog",
+    "ME": "Me",
+    "LOGOUT": "Cerrar sesión",
+    "LOGIN": "Iniciar sesión",
+    "YOU": "Usted",
+    "COACHING": "Dormir",
+    "ORGANIZATIONS": "Organizaciones"
   },
   "COACHING": {
-    "HABITS_TEXT": "A continuación se muestra una pequeña muestra de hábitos y ejercicios del Nyxo Sleep Coaching"
+    "HOW_IT_WORKS": "Cómo funciona Nyxo Sleep Coaching",
+    "SUBTITLE": "El secreto para dormir bien está al alcance de tu mano",
+    "WEEKS_TEXT": "Navega por las diferentes semanas de coaching",
+    "HABITS": "Hábitos",
+    "TITLE": "¿Quieres dormir mejor? Obtenga Nyxo Sleep Coaching ahora",
+    "WEEKS": "Semanas de entrenamiento",
+    "HABITS_TEXT": "A continuación se muestra una pequeña muestra de hábitos y ejercicios del Nyxo Sleep Coaching",
+    "LESSONS_TEXT": "La mayor selección del mundo de clases de sueño",
+    "INTRODUCTION": "Una buena noche de sueño es la clave del éxito. Te hace sentir mejor, pensar mejor y hacer tu más productivo. La pregunta es ¿cómo se puede mejorar su sueño? Una vez que te vas a la cama, no hay mucho que puedas hacer para mejorar tu calidad de sueño. Sin embargo, hay una clara conexión entre lo que haces durante el día y tu calidad de sueño nocturno, y esta es la tesis central de nuestro entrenamiento de sueño.",
+    "SLEEP_COACHING": "Coaching del sueño",
+    "AUTHORS": "Autores",
+    "AUTHORS_TEXT": "Estos son los autores detrás de los materiales Nyxo que amas. Aquí puede obtener más información sobre los autores, incluyendo sus áreas de especialización, y encontrar todos los materiales que han escrito.",
+    "HOW_IT_WORKS_TEXT": "Nyxo Sleep Coaching está estructurado en cuatro semanas, cada una enfocada en una parte diferente del buen sueño. Al conectar tu rastreador de sueño a Nyxo, a través de la aplicación Nyxo, usamos tus datos de sueño para personalizar el programa de coaching según tus necesidades únicas. Al examinar diferentes partes de la actividad diaria, como el ejercicio, el sueño, la frecuencia cardíaca y los niveles de actividad diaria, podemos ofrecerle asesoramiento personalizado en forma de lecciones, prácticas y cambio de hábito facilitado.",
+    "LESSONS": "Lecciones"
+  },
+  "FOR_ORGANIZATIONS": {
+    "TITLE_1": "Nyxo para equipos",
+    "TITLE_3": "Análisis de grupo",
+    "SUBTITLE": "Lo que Nyxo proporciona a su organización",
+    "TITLE_2": "Desbloquea todo el potencial de tu equipo",
+    "TITLE_4": "Comunidad de trabajo feliz y enérgica",
+    "TEXT_3": "(Próximamente.) Destacamos las principales áreas de mejora proporcionando análisis a nivel de grupo e informes sobre cómo su organización está durmiendo. Los datos son anónimos y no pueden conectarse a empleados individuales.",
+    "ACCESS": "Acceso completo al programa de coaching y materiales",
+    "DESCRIPTION": "Nyxo permite a los trabajadores del conocimiento mejorar su ritmo de sueño y día, permitiéndoles rendir mejor en el trabajo y mantener un equilibrio entre el trabajo y la vida personal.",
+    "TEXT_2": "¿Sabías que la pérdida de productividad causada por el sueño insuficiente cuesta cientos de miles de millones para los empleadores y la sociedad cada año? Ayudamos a su organización a lograr un desempeño más fluido y alcanzar sus objetivos de productividad sin comprometer el bienestar de los empleados.",
+    "SUPPORT": "Soporte técnico rápido y con capacidad de respuesta",
+    "CONSULTING": "Consultoría privada y planes de intervención",
+    "TRACKING": "Seguimiento individual del sueño y métricas",
+    "TEXT_1": "El sueño es un factor clave tanto para el bienestar personal como para una vida laboral equilibrada. Con Nyxo for Teams toda tu organización puede disfrutar de los beneficios del entrenamiento de sueño Nyxo.",
+    "ANALYTICS": "Análisis de sueño a nivel de grupo (próximamente)",
+    "EXCLUSIVE": "Exclusivo",
+    "CLOUD": "Servicio Nyxo Cloud",
+    "REGULAR": "Regular",
+    "DEMO_BUTTON": "Reserve una demostración gratuita",
+    "TITLE": "Para Organizaciones",
+    "CONTACT": "Póngase en contacto con nosotros para obtener más información sobre Nyxo for Teams!",
+    "TEXT_4": "Un empleado bien descansado y saludable es un empleado feliz y motivado. Y las caras felices establecen el ambiente para todo el ambiente de trabajo. Ahora, ¿quién no querría trabajar en un ambiente alegre y solidario?"
+  },
+  "FOR_YOU": {
+    "TITLE": "Para usted",
+    "TITLE_3": "Backups en la nube",
+    "TITLE_2": "Coaching personalizado del sueño",
+    "NYXO_OFFERING": "Lo que Nyxo proporciona para usted",
+    "TEXT_3": "Crear una cuenta Nyxo Cloud (opcional) le permite sincronizar y almacenar todos sus datos en Nyxo Cloud. También tiene la opción de dar a otros usuarios, como proveedores de atención médica o seguros, acceso a sus datos a través de Nyxo Cloud. El sitio web de Nyxo Cloud será lanzado a finales de este año.",
+    "SERVICE": "Soporte técnico rápido y con capacidad de respuesta",
+    "COACHING": "Programa de entrenamiento del sueño basado en datos de 4 semanas",
+    "ACCESS": "Acceso completo a los materiales de coaching",
+    "TITLE_1": "Top Notch Sleep Tracking gratis",
+    "CLOUD": "Servicio Nyxo Cloud",
+    "DESCRIPTION": "Nyxo proporciona entrenamiento de sueño personalizado e interactivo, un amplio soporte para diferentes marcas de rastreadores de sueño, funcionalidad de diario de sueño, copias de seguridad en la nube y mucho más.",
+    "TRACKING": "Seguimiento y métricas del sueño",
+    "TITLE_4": "Beneficios de salud, bienestar y productividad",
+    "TEXT_2": "Combinamos la última investigación del sueño y las principales técnicas de comportamiento con sus datos de sueño y le proporcionamos un programa de entrenamiento personalizado de 4 semanas de duración que está diseñado para ayudarle a dormir mejor. Se centra en todos los aspectos de su sueño y se centra en áreas de mejora en sus rutinas diarias y hábitos de sueño. Función Premium disponible por 4,99€/mes.",
+    "DIARY": "Diario del sueño y hábitos diarios",
+    "FREE": "Libre",
+    "PREMIUM": "Premium",
+    "TEXT_1": "Nuestro seguimiento del sueño fácil y altamente compatible y la funcionalidad del diario junto con sus métricas de sueño son completamente libres de usar. Puedes importar fácilmente tus datos de sueño desde una variedad de diferentes rastreadores de sueño, siempre y cuando sean compatibles con Apple Health o Google Fit. Alternativamente, puede usar la App como diario de sueño y realizar un seguimiento manual de sus noches.",
+    "MONTH": "/mes",
+    "TEXT_4": "Los humanos somos como piezas increíblemente complejas de maquinaria que requieren un mantenimiento diario para funcionar correctamente. El sueño es una de las pocas necesidades básicas de la vida. Afecta a nuestro bienestar mental y físico, rendimiento, productividad, creatividad e innumerables otras cosas cada día. Sin embargo, a menudo se pasa por alto. Te ayudamos a aprovechar al máximo el tiempo que pasas en la cama."
+  },
+  "NEWSLETTER": {
+    "EMAIL": "Su correo electrónico",
+    "PRIVACY": "Lea cómo manejamos sus datos",
+    "DESCRIPTION": "Suscríbete a nuestro boletín de noticias y no te pierdas nunca materiales gratuitos de coaching sobre sueño, actualizaciones de productos y mucho más.",
+    "PLACEHOLDER": "your@email.com",
+    "TITLE": "Manténgase atento",
+    "THANK_YOU": "Gracias por suscribirse!"
+  },
+  "INDEX": {
+    "TITLE": "Su búsqueda de un sueño mejor termina aquí",
+    "DATA": "Coaching basado en datos",
+    "INTRODUCTION": "Nyxo es la mejor ayuda para mejorar la calidad de tu sueño. Combinamos la ciencia del sueño de vanguardia con los datos de tu rastreador de sueño para proporcionarte un entrenamiento personalizado y procesable que te hará dormir mejor.",
+    "IMPORTING_TEXT": "Importe los datos de su rastreador de sueño existente. Si no tienes un rastreador de sueño, también puedes usar la función de diario de sueño integrada de Nyxo para rastrear tu sueño.",
+    "AUTHORS_TEXT": "El programa de entrenamiento del sueño Nyxo se basa en las últimas pruebas científicas. Se centra en mejorar todos los aspectos de su sueño y el ritmo diario de la vida.",
+    "AUTHORS": "Desarrollado junto con los principales investigadores del sueño",
+    "IMPORTING": "No es necesario comprar un nuevo rastreador de sueño",
+    "EASE_OF_USE_TEXT": "Vea lo que cuatro semanas de entrenamiento personalizado del sueño pueden hacer para su bienestar y productividad.",
+    "GET_THE_APP": "Obtener la aplicación",
+    "ORGANIZATIONS": "Supercarga tu organización",
+    "DATA_TEXT": "Nyxo utiliza tus datos de sueño para personalizar el coaching para que se adapte a tus necesidades.",
+    "EASE_OF_USE": "Mejorar tu sueño nunca ha sido tan fácil",
+    "ORGANIZATIONS_TEXT": "Con Nyxo para equipos (próximamente), puede inscribir a su equipo o incluso a toda su organización en el programa de coaching. Ayudaremos a sus empleados a dormir mejor y mejorar tanto su bienestar como su rendimiento laboral."
+  },
+  "GET_THE_APP": {
+    "TITLE": "Obtener la aplicación",
+    "TEXT": "Descarga la aplicación gratis y duerme mejor a partir de esta noche."
   },
   "FOOTER": {
-    "TERMS": "Términos de uso"
+    "BLOG": "Blog",
+    "CONTACT": "Contacto",
+    "YOU": "Para usted",
+    "ABOUT_US": "Sobre nosotros",
+    "PRIVACY": "Privacidad",
+    "SUPPORT": "Apoyo",
+    "PRESS_KIT": "Kit de prensa",
+    "TITLE": "¡Coaching personalizado del sueño que funciona!",
+    "ORGANIZATIONS": "Para Organizaciones",
+    "TERMS": "Términos de uso",
+    "COACHING": "Coaching"
   },
   "CONTACT": {
+    "TITLE": "Contacto",
+    "NAME": "Nombre",
+    "EMAIL": "Correo",
+    "MESSAGE": "Mensaje",
+    "SUBJECT": "Sujeto",
+    "SEND": "Enviar",
     "TEXT": "Nos tomamos en serio el compromiso con nuestros usuarios. Si tiene alguna pregunta sobre cómo utilizar Nyxo, está experimentando dificultades técnicas o desea saber más sobre nuestros productos, no dude en ponerse en contacto con nosotros. ¡También te animamos a enviar cualquier comentario o sugerencia que puedas tener!"
   },
   "BLOG": {
+    "TITLE": "Nyxo Blog",
     "DESCRIPTION": "Siga el blog Nyxo para obtener los últimos consejos sobre salud y bienestar del sueño, así como ingeniería de software. Sé el primero en enterarte de las nuevas características de los productos, anuncios y actualizaciones de la empresa."
   },
-  "fi": "Suomeksi",
   "en": "inglés",
-  "PROMPT": {
-    "DESKTOP": "Realice un seguimiento de su sueño y obtenga un entrenamiento personalizado para dormir"
-  },
+  "fi": "Suomeksi",
   "ABOUT": {
+    "WORK_FOR_US": "¡Únete a nosotros!",
+    "SCIENTISTS": "Asesoramiento Científico",
+    "INSTAGRAM": "Síguenos",
+    "INTRODUCTION_1": "Nyxo fue fundada a principios de 2019 con la misión de ayudar a las personas a mejorar su sueño y ritmo diario. Nuestro primer producto es Nyxo, un programa personalizado de coaching del sueño que opera desde su teléfono, evalúa sus hábitos de sueño y le ayuda a abordar los problemas que pueda tener en su sueño y las rutinas diarias.",
+    "NYXO": "Nuestra historia",
+    "INTRODUCTION_3": "Antes de fundar Nyxo, los fundadores hicieron un trabajo pionero en la colaboración corporativa. Con estos métodos, la empresa ha tenido la oportunidad de poner en marcha su negocio y trabajar con las empresas líderes en Finlandia en el sector de los seguros y el cuidado de la salud.",
+    "SCIENTISTS_TEXT": "Las raíces de Nyxo están profundamente arraigadas en la ciencia y colaboramos constantemente con los principales investigadores del sueño, con el fin de construir los mejores productos posibles para mejorar el sueño y el bienestar.",
+    "INTRODUCTION_2": "Las raíces de Nyxo están profundamente arraigadas en la investigación científica, en un proyecto de comercialización de investigación llevado a cabo en la Universidad de Helsinki.",
+    "TITLE": "Estamos en una misión para hacer que el mundo duerma mejor",
     "WORK_FOR_US_TEXT": "Somos un equipo pequeño pero creciendo rápidamente. Como miembro inicial del equipo, tendrá un impacto enorme en lo que construimos y cómo lo construimos. Si estás interesado, nos encantaría saber de ti."
   },
-  "ADD_BOOKMARK": "Añadir a marcadores",
+  "PROMPT": {
+    "BUTTON": "Obtener Nyxo",
+    "MOBILE": "Obtener Nyxo App",
+    "TABLET": "Seguimiento y entrenamiento del sueño",
+    "DESKTOP": "Realice un seguimiento de su sueño y obtenga un entrenamiento personalizado para dormir"
+  },
   "LOADING_DATA": "Cargando datos...",
   "REMOVE_BOOKMARK": "Quitar marcador",
+  "ADD_BOOKMARK": "Añadir a marcadores",
   "MORE_FROM_BLOG": "Más de nuestro blog",
-  "CHECKOUT_BLOG": "Echa un vistazo a nuestro blog",
-  "LESSONS_BY": "Lecciones de",
   "ADDITIONAL_READING": "Lectura adicional",
+  "CHECKOUT_BLOG": "Echa un vistazo a nuestro blog",
+  "LESSON_BY": "Autores",
   "HABITS_TO_TRY": "Hábitos de esta lección",
   "LESSONS_FOR_THIS_WEEK": "Lecciones de esta semana",
+  "LESSONS_BY": "Lecciones de",
+  "ABOUT_THIS_WEEK": "Acerca de esta semana",
   "HABIT": "Hábito",
-  "LESSON_BY": "Autores",
   "DESCRIPTION": "Descripción",
   "MORE_HABITS": "Más Hábitos",
+  "AFTERNOON": "Tarde",
   "EVENING": "Tarde",
-  "ABOUT_THIS_WEEK": "Acerca de esta semana",
   "MORE_COACHING_WEEKS": "Más Semanas de Coaching",
   "MORNING": "Mañana",
-  "AFTERNOON": "Tarde",
-  "HABITS": "Hábitos",
   "LESSONS": "Lecciones",
-  "RELATED": "Publicaciones relacionadas en el blog",
-  "TAGS": "Etiquetas"
+  "HABITS": "Hábitos",
+  "TAGS": "Etiquetas",
+  "RELATED": "Publicaciones relacionadas en el blog"
 }
