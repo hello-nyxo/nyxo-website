@@ -95,6 +95,12 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
           ))}
         </Authors>
 
+        <FeedbackInsights>3 people found this lesson helpful</FeedbackInsights>
+        <FeedbackContainer>
+          <p>Was this lesson helpful to you?</p>
+          <FeedbackButton>Yes</FeedbackButton>
+        </FeedbackContainer>
+
         <H4>Tags</H4>
         <Tags>
           <TagSection tags={keywords} />
@@ -190,4 +196,21 @@ const MoreLessonsContainer = styled.div`
 
 const Tags = styled.div`
   margin: 0rem -0.3rem 2rem;
+`
+const FeedbackContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+`
+const FeedbackButton = styled.button`
+  border-radius: 5px;
+  border: 1px solid var(--radiantBlue);
+  background-color: white;
+  color: var(--radiantBlue);
+  padding: 5px 10px;
+`
+const FeedbackInsights = styled.small`
+  color: var(--radiantBlue);
+  font-size: 12px;
 `
