@@ -1,10 +1,11 @@
-import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import React, { FC } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { Icon } from "../Icons"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
+import { useTranslation, Link } from "gatsby-plugin-react-i18next"
 
-const Footer = () => {
+const Footer: FC = () => {
   const data = useStaticQuery(graphql`
     {
       logo: file(name: { eq: "logo" }) {
@@ -16,25 +17,27 @@ const Footer = () => {
   const links = [
     {
       href: "/for-you",
-      title: "For You",
+      title: "YOU",
     },
     {
       href: "/for-organizations",
-      title: "For Organizations",
+      title: "ORGANIZATIONS",
     },
     {
       href: "/coaching",
-      title: "Coaching",
+      title: "COACHING",
     },
     {
       href: "/about",
-      title: "About Us",
+      title: "ABOUT_US",
     },
     {
       href: "/blog",
-      title: "Blog",
+      title: "BLOG",
     },
   ]
+
+  const { t } = useTranslation()
 
   return (
     <FooterContainer>
@@ -48,7 +51,7 @@ const Footer = () => {
             </div>
 
             <About>
-              <p>Personalized sleep coaching that works!</p>
+              <p>{t("FOOTER.TITLE")}</p>
             </About>
           </div>
         </div>
@@ -60,8 +63,8 @@ const Footer = () => {
               <ul>
                 {links.map((link, index) => (
                   <li key={index}>
-                    <Link to={link.href} title={link.title}>
-                      {link.title}
+                    <Link to={link.href} title={t(`FOOTER.${link.title})`)}>
+                      {t(`FOOTER.${link.title}`)}
                     </Link>
                   </li>
                 ))}
@@ -71,8 +74,8 @@ const Footer = () => {
                     href="http://tiny.cc/NyxoPR"
                     target="_new"
                     rel="noopener noreferrer"
-                    title="Nyxo press kit.">
-                    Press Kit
+                    title={t("FOOTER.PRESS_KIT")}>
+                    {t("FOOTER.PRESS_KIT")}
                   </OutboundLink>
                 </li>
               </ul>
@@ -83,32 +86,31 @@ const Footer = () => {
         <div className={"col-2 footer-links"}>
           <div className={"widget__item"}>
             <div className={"links"}>
-              <h4>Support</h4>
+              <h4>{t("FOOTER.SUPPORT")}</h4>
               <ul>
                 <li>
                   <OutboundLink
                     className={"links__special"}
                     href={"https://help.nyxo.app"}
                     target="_new"
-                    rel="noopener noreferrer"
-                    title={"If you need any help, you can find it here"}>
-                    Support
+                    rel="noopener noreferrer">
+                    {t("FOOTER.SUPPORT")}
                   </OutboundLink>
                 </li>
                 <li>
-                  <Link to="/contact" title={"Contact Us"}>
-                    Contact
+                  <Link to="/contact" title={t("FOOTER.CONTACT")}>
+                    {t("FOOTER.CONTACT")}
                   </Link>
                 </li>
 
                 <li>
-                  <Link to="/privacy" title={"Privacy Policy"}>
-                    Privacy
+                  <Link to="/privacy" title={t("FOOTER.PRIVACY")}>
+                    {t("FOOTER.PRIVACY")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="/terms" title={"Terms Of Use"}>
-                    Terms Of Use
+                  <Link to="/terms" title={t("FOOTER.TERMS")}>
+                    {t("FOOTER.TERMS")}
                   </Link>
                 </li>
               </ul>

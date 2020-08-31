@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { H3 } from "../Html/HtmlContent"
 import { useStaticQuery, graphql } from "gatsby"
 import { device } from "../Primitives"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 const InstagramFeaturette: FC = () => {
   const {
@@ -33,10 +34,10 @@ const InstagramFeaturette: FC = () => {
       ]
     }
   }
-
+  const { t } = useTranslation()
   return (
     <Container>
-      <H3>FIND US ON INSTAGRAM</H3>
+      <H3>{t("ABOUT.INSTAGRAM")}</H3>
       <Posts>
         {posts.map((post) => (
           <Post href={`https://instagram.com/${post.username}`} key={post.id}>

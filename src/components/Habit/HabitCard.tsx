@@ -1,10 +1,10 @@
-import { Link } from "gatsby"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { getIcon } from "../../Helpers/IconHelper"
 import { truncate } from "../../Helpers/string-truncater"
 import { Icon } from "../Icons"
 import { device } from "../Primitives"
+import { useTranslation, Link } from "gatsby-plugin-react-i18next"
 
 type Props = {
   period?: string | null
@@ -22,9 +22,9 @@ const HabitCard: FC<Props> = ({
   link,
 }) => {
   const icon = getIcon(period)
-
+  const { t } = useTranslation()
   const content = (
-    <>
+    <Container>
       <Stripe $color={icon.secondaryColor} $accentColor={icon.color} />
       <Column>
         <Period style={{ color: `${icon.color}` }}>
@@ -34,12 +34,12 @@ const HabitCard: FC<Props> = ({
             width="25px"
             stroke={icon.color}
           />
-          {period}
+          {t(period)}
         </Period>
         <Title data-testid="habit-title">{title}</Title>
         <Excerpt>{truncate(excerpt, 100, true)}</Excerpt>
       </Column>
-    </>
+    </Container>
   )
   return (
     <Card $accentColor={icon.color}>
@@ -54,6 +54,11 @@ type IconProps = {
   $color?: string
   $accentColor: string
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 
 const Stripe = styled.div<IconProps>`
   margin-right: 1rem;

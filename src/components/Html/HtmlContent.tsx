@@ -28,7 +28,9 @@ export interface NodeRenderer {
 
 export type CommonNode = Text | Block | Inline
 
-export const getContentType = (node: Inline) => {
+export const getContentType = (
+  node: Inline
+): { type: string; path: string; title: string } => {
   switch (node.data.target.sys.contentType.sys.id) {
     case "habit": {
       const path = node?.data?.target?.fields?.slug["en-US"]
@@ -41,7 +43,7 @@ export const getContentType = (node: Inline) => {
       return { type: "lesson", path: `/lesson/${path}`, title: name }
     }
     default:
-      return { type: "unknown", path: "" }
+      return { type: "unknown", path: "", title: "" }
   }
 }
 
@@ -120,7 +122,7 @@ const HtmlContent = ({ document }: Props): JSX.Element => {
 
 export default HtmlContent
 
-const P = styled.p`
+export const P = styled.p`
   font-size: 1.15rem;
   line-height: 2rem;
   margin-bottom: 2rem;

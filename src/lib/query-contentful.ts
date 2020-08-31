@@ -30,9 +30,7 @@ export const contentfulData = `
       }
     }
 
-    contentfulTagsQuery: allContentfulLesson(
-      filter: { node_locale: { eq: "en-US" } }
-    ) {
+    contentfulTagsQuery: allContentfulLesson {
       group(field: keywords) {
         fieldValue
         totalCount

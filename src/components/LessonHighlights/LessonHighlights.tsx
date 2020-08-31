@@ -1,46 +1,64 @@
 import { graphql, useStaticQuery } from "gatsby"
+import { FluidObject } from "gatsby-image"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { ContentfulLesson } from "../../../graphql-types"
-import LessonCard from "../LessonCard"
-import { H3 } from "../Html/HtmlContent"
+import { H2 } from "../Html/HtmlContent"
+import LessonCard from "../lesson/LessonCard"
 import { P } from "../Primitives"
 
-const LessonHighlights: FC = () => {
-  const { allContentfulLessonEN } = useStaticQuery(graphql`
+type Props = {
+  language: string
+}
+
+const LessonHighlights: FC<Props> = ({ language }) => {
+  const { lessonsEN, lessonsFI } = useStaticQuery(graphql`
     {
-      allContentfulLessonEN: allContentfulLesson(
+      lessonsEN: allContentfulLesson(
         filter: { node_locale: { eq: "en-US" } }
         limit: 8
       ) {
-        edges {
-          node {
-            ...LessonFragment
-          }
+        nodes {
+          ...LessonFragment
+        }
+      }
+
+      lessonsFI: allContentfulLesson(
+        filter: { node_locale: { eq: "fi-FI" } }
+        limit: 8
+      ) {
+        nodes {
+          ...LessonFragment
         }
       }
     }
   `)
 
+  const { t } = useTranslation()
+  const lessons = language === "fi" ? lessonsFI : lessonsEN
   return (
     <Container>
-      <H3>Lessons</H3>
-      <P>The world´s largest selection of sleep lessons</P>
+      <H2>{t("COACHING.LESSONS")}</H2>
+      <P>{t("COACHING.LESSONS_TEXT")}</P>
 
       <Lessons>
-        {allContentfulLessonEN.edges.map(
-          ({ node }: { node: ContentfulLesson }) => (
+        {lessons.nodes.map((lesson: ContentfulLesson) => {
+          return (
             <LessonCard
-              name={node.lessonName}
-              key={node.slug}
-              path={`/lesson/${node.slug}`}
-              lesson={node}
-              readingTime={node.lessonContent?.fields?.readingTime?.minutes}
-              cover={node.cover?.fluid}
-              excerpt={node.lessonContent?.fields?.excerpt}
+              slug={`${lesson?.slug}`}
+              name={lesson?.lessonName}
+              key={lesson?.slug as string}
+              bookmarked={false}
+              loading={false}
+              path={`/lesson/${lesson?.slug}`}
+              lesson={lesson}
+              readingTime={lesson?.lessonContent?.fields?.readingTime?.minutes}
+              cover={lesson?.cover?.fluid as FluidObject}
+              excerpt={lesson?.lessonContent?.fields?.excerpt}
             />
           )
-        )}
+        })}
       </Lessons>
     </Container>
   )

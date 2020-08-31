@@ -27,12 +27,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "pietnurm",
+      "name": "pietnurm",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/24267472?v=4",
+      "profile": "https://github.com/pietnurm",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "projectName": "nyxo-website",
-  "projectOwner": "hello-nyxo",
-  "repoType": "github",
-  "repoHost": "https://github.com",
   "skipCi": true
 }

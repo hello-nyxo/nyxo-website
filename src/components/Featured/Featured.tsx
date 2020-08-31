@@ -1,9 +1,11 @@
-import React from "react"
-import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
+import { useTranslation } from "gatsby-plugin-react-i18next"
+import React, { FC } from "react"
+import styled from "styled-components"
 
-const Featured = () => {
+const Featured: FC = () => {
+  const { t } = useTranslation()
   const data = useStaticQuery(graphql`
     {
       mediuutiset: file(name: { eq: "mediuutiset" }) {
@@ -60,7 +62,7 @@ const Featured = () => {
   return (
     <>
       <FlexContainer>
-        <CTAHeader>Get the App</CTAHeader>
+        <CTAHeader>{t("INDEX.GET_THE_APP")}</CTAHeader>
         {appLinks.map((item) => (
           <DownloadButton
             key={item.href}

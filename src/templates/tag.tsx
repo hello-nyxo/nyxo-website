@@ -1,5 +1,5 @@
 import { graphql, PageProps } from "gatsby"
-import Image from "gatsby-image"
+import Image, { FluidObject } from "gatsby-image"
 import React, { FC } from "react"
 import styled from "styled-components"
 import {
@@ -9,30 +9,30 @@ import {
 import BlogPost from "../components/BlogPost"
 import { H1 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
-import LessonCard from "../components/LessonCard"
+import LessonCard from "../components/lesson/LessonCard"
 import { Container } from "../components/Primitives"
 import TagSection from "../components/tags/Tags"
 import getFirstAuthor from "../Helpers/AuthorHelper"
 import { BlogPostNode } from "../typings/blog-types"
 import SEO from "../components/SEO/SEO"
 
-const first = (list: BlogPostNode[] | { node: ContentfulLesson }[]) => {
-  for (const i in list) return list[i] ? list[i].node : list[i]
+const first = (list: BlogPostNode[] | ContentfulLesson[]) => {
+  for (const i in list) return list[i]
 }
 
 const combineTags = (
-  lessons: { node: ContentfulLesson }[],
-  blogPosts: { node: { frontmatter: MarkdownRemarkFrontmatter } }[]
+  lessons: ContentfulLesson[],
+  blogPosts: { frontmatter: MarkdownRemarkFrontmatter }[]
 ) => {
   const tags: string[] = []
   if (lessons) {
-    lessons?.forEach(({ node }) =>
+    lessons?.forEach((node) =>
       node.keywords?.forEach((keyword) => tags.push(keyword))
     )
   }
 
   if (blogPosts) {
-    blogPosts.forEach(({ node: { frontmatter } }) =>
+    blogPosts.forEach(({ frontmatter }) =>
       frontmatter?.tags?.forEach((keyword) => tags.push(keyword))
     )
   }
@@ -42,14 +42,10 @@ const combineTags = (
 
 type Props = {
   allMarkdownRemark: {
-    edges: {
-      node
-    }[]
+    nodes: []
   }
   allContentfulLesson: {
-    edges: {
-      node: ContentfulLesson
-    }[]
+    nodes: ContentfulLesson[]
   }
 }
 
@@ -63,8 +59,8 @@ const Tag: FC<PageProps<Props, Context>> = ({
   location: { pathname },
 }) => {
   const { tag } = pageContext
-  const { edges: blogPosts } = data.allMarkdownRemark
-  const { edges: lessons } = data.allContentfulLesson
+  const { nodes: blogPosts } = data?.allMarkdownRemark
+  const { nodes: lessons } = data?.allContentfulLesson
 
   const firstPost = first(blogPosts) as
     | undefined
@@ -103,14 +99,14 @@ const Tag: FC<PageProps<Props, Context>> = ({
         </TagsContainer>
 
         <CoverPhotoContainer>
-          <Cover fluid={spotlight.cover} />
+          <Cover fluid={spotlight?.cover as FluidObject} />
           <Spotlight>
             <SpotlightTitle>{spotlight.title}</SpotlightTitle>
             <Author>{spotlight.author}</Author>
           </Spotlight>
         </CoverPhotoContainer>
         <Posts>
-          {blogPosts.map(({ node }: { node: BlogPostNode }) => {
+          {blogPosts.map((node: BlogPostNode) => {
             const {
               excerpt,
               frontmatter: {
@@ -135,17 +131,17 @@ const Tag: FC<PageProps<Props, Context>> = ({
               />
             )
           })}
-          {lessons.map(({ node }: { node: ContentfulLesson }) => (
+          {lessons.map((node: ContentfulLesson) => (
             <LessonCard
               key={node.slug as string}
               name={node.lessonName}
               path={`/lesson/${node.slug}`}
               readingTime={
-                node.lessonContent.fields.readingTime.minutes as number
+                node?.lessonContent?.fields?.readingTime?.minutes as number
               }
-              cover={node.cover.fluid}
+              cover={node?.cover?.fluid as FluidObject}
               lesson={node}
-              excerpt={node.lessonContent.fields.excerpt as string}
+              excerpt={node?.lessonContent?.fields?.excerpt as string}
             />
           ))}
         </Posts>
@@ -164,23 +160,21 @@ export const pageQuery = graphql`
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
-      edges {
-        node {
-          fields {
-            slug
-          }
-          excerpt
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            author
-            title
-            slug
-            tags
-            thumbnailBlog {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
-                }
+      nodes {
+        fields {
+          slug
+        }
+        excerpt
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          author
+          title
+          slug
+          tags
+          thumbnailBlog {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
           }
@@ -188,14 +182,10 @@ export const pageQuery = graphql`
       }
     }
 
-    allContentfulLesson(
-      filter: { node_locale: { eq: "en-US" }, keywords: { in: [$tag] } }
-    ) {
+    allContentfulLesson(filter: { keywords: { in: [$tag] } }) {
       totalCount
-      edges {
-        node {
-          ...LessonFragment
-        }
+      nodes {
+        ...LessonFragment
       }
     }
   }

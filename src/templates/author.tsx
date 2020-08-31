@@ -5,10 +5,11 @@ import styled from "styled-components"
 import { ContentfulAuthor } from "../../graphql-types"
 import HtmlContent, { H1, H3 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
-import LessonCard from "../components/LessonCard"
+import LessonCard from "../components/lesson/LessonCard"
 import { Container, device } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 type Props = {
   contentfulAuthor: ContentfulAuthor
@@ -20,13 +21,14 @@ type Props = {
   }
 }
 
-const Author: FC<PageProps<Props>> = (props) => {
-  const {
-    data: {
-      contentfulAuthor: { name, avatar, credentials, lesson, description },
-    },
-    location: { pathname },
-  } = props
+const Author: FC<PageProps<Props>> = ({
+  data: {
+    contentfulAuthor: { name, avatar, credentials, lesson, description },
+  },
+  location: { pathname },
+}) => {
+  const { t } = useTranslation()
+
   return (
     <Layout>
       <SEO
@@ -63,7 +65,7 @@ const Author: FC<PageProps<Props>> = (props) => {
 
         {lesson?.length > 0 && (
           <>
-            <H3>Lessons By {name}</H3>
+            <H3>{`${t("LESSONS_BY")} ${name}`}</H3>
             <Lessons>
               {lesson.map((ln: any) => (
                 <LessonCard

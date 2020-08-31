@@ -1,25 +1,25 @@
-import React from "react"
+import React, { FC } from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
-import { ContentfulAuthor } from "../../../graphql-types"
+import { ContentfulAuthor, Maybe } from "../../../graphql-types"
 import Image, { FluidObject } from "gatsby-image"
 import { device } from "../Primitives"
+import { Link } from "gatsby-plugin-react-i18next"
 
 type Author = {
-  author: ContentfulAuthor
+  author: Maybe<ContentfulAuthor>
 }
 
-const AuthorCard = ({ author }: Author) => {
+const AuthorCard: FC<Author> = ({ author }) => {
   return (
-    <Card to={`/author/${author.slug}`}>
+    <Card to={`/author/${author?.slug}`}>
       <Container>
         <Avatar
-          alt={author.name ?? "Author"}
+          alt={author?.name ?? "Author"}
           fluid={author?.avatar?.fluid as FluidObject}
         />
         <RightSide>
-          <Name>{author.name}</Name>
-          <Credentials>{author.credentials}</Credentials>
+          <Name>{author?.name}</Name>
+          <Credentials>{author?.credentials}</Credentials>
         </RightSide>
       </Container>
     </Card>

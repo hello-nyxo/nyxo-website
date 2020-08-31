@@ -1,0 +1,196 @@
+{
+  "INDEX": {
+    "TITLE": "Nyxo – Yksilöllinen univalmennusohjelma",
+    "INTRODUCTION": "Nyxo on paras apuväline unenlaadun parantamiseksi. Yhdistämällä tieteellisen unitutkimuksen kovinta kärkeä älylaitteesi unenseurantadataan Nyxo tarjoaa henkilökohtaista ja interaktiivista univalmennusta, joka auttaa juuri sinua nukkumaan paremmin kuin koskaan.",
+    "GET_THE_APP": "Lataa sovellus",
+
+    "IMPORTING": "Et tarvitse uutta unen seurantalaitetta",
+    "IMPORTING_TEXT": "Nyxo on yhteensopiva lähes kaikkien markkinoilla olevien aktiivisuusrannekkeiden, älykellojen, -sormusten ja muiden unen seurantaa tukevien laitteiden kanssa.  Jos et omista unen seurantaan soveltuvaa laitetta, voit pitää kirjaa öistäsi myös Nyxon sisäänrakennetun unipäiväkirjan avulla.",
+
+    "AUTHORS": "Kehitetty yhdessä Suomen johtavien unitutkijoiden kanssa",
+    "AUTHORS_TEXT": "Nyxo-univalmennusohjelma on rakennettu viimeisimmän tieteellisen tutkimustiedon pohjalta. Se on suunniteltu tukemaan kokonaisvaltaisesti unen kaikkia osa-alueita ja elämänrytmin hallintaa yksilöllisiin kehityskohtiin pureutuen.",
+
+    "EASE_OF_USE": "Unenlaadun parantaminen ei ole koskaan ollut näin helppoa",
+    "EASE_OF_USE_TEXT": "Paranna jaksamistasi ja kokonaishyvinvointiasi neljän viikon valmennusjakson avulla.",
+
+    "DATA": "Dataan perustuva valmennus",
+    "DATA_TEXT": "Nyxo käyttää unidataasi tunnistaakseen unesi ongelmakohdat ja tarjotakseen yksilöllistettyä valmennusta henkilökohtaisten tarpeittesi mukaan.",
+
+    "ORGANIZATIONS": "Valjasta tiimisi täyteen potentiaaliinsa",
+    "ORGANIZATIONS_TEXT": "Tiedätkö miten teillä nukutaan? Nyxo for Teamsin (tulossa pian) avulla voit lisätä koko tiimisi mukaan univalmennukseen. Autamme työntekijöitäsi nukkumaan paremmin, lisäämään hyvinvointiaan ja kasvattamaan suorituskykyään."
+  },
+
+  "NAVIGATION": {
+    "YOU": "Sinulle",
+    "ORGANIZATIONS": "Yrityksille",
+    "COACHING": "Uni",
+    "ME": "Minä",
+    "BLOG": "Blogi",
+    "LOGIN": "Kirjaudu",
+    "LOGOUT": "Kirjaudu ulos"
+  },
+
+  "NEWSLETTER": {
+    "TITLE": "Pysy kuulolla",
+    "DESCRIPTION": "Tilaamalla uutiskirjeemme saat sähköpostiisi mm. viimeisimmät tuotepäivitykset ja kuulumiset, ilmaisia univalmennussisältöjä ja muuta kivaa!",
+    "EMAIL": "Sähköpostiosoitteesi",
+    "PLACEHOLDER": "sinä@sähköposti.fi",
+    "PRIVACY": "Lue kuinka käsittelemme tietojasi",
+    "THANK_YOU": "Kiitos liittymisestä!"
+  },
+
+  "GET_THE_APP": {
+    "TITLE": "Lataa sovellus",
+    "TEXT": "Lataa sovellus ilmaiseksi ja nuku paremmin jo tänään."
+  },
+
+  "FOR_YOU": {
+    "TITLE": "Sinulle",
+    "DESCRIPTION": "Nyxo tarjoaa yksilöllistä ja interaktiivista univalmennusta, laajan tuen eri valmistajien unenseurantalaitteille, helpon unipäiväkirjan, mahdollisuuden synkronoida ja jakaa tietojasi sekä paljon muuta!",
+    "NYXO_OFFERING": "Nyxo tarjoaa sinulle",
+    "TITLE_1": "Huippuluokan unenseurantaominaisuudet – ilmaiseksi",
+    "TEXT_1": "Nyxon helppokäyttöinen unenseurantatoiminto, unipäiväkirja ja unidatasi perusteella lasketut metriikat ovat käytössäsi täysin ilmaiseksi. Nyxo tukee kaikkia suurimpien valmistajien unenseurantalaitteita, kunhan ne ovat Apple Terveys tai Google Fit -yhteensopivia. Jos et omista unenseurantaan soveltuvaa laitetta, voit seurata untasi myös manuaalisesti Nyxon unipäiväkirjan avulla.",
+    "TITLE_2": "Yksilöllistä univalmennusta",
+    "TEXT_2": "Räätälöimme unidatasi perusteella viimeisimpään tieteelliseen tutkimustietoon ja johtaviin ohjaustekniikoihin perustuvan 4 viikon yksilöllisen univalmennusohjelman, joka on suunniteltu auttamaan sinua nukkumaan paremmin. Se keskittyy kaikkiin unen osa-alueisiin ja pyrkii tunnistamaan parannuskohdat päivittäisissä rutiineissasi ja unitottumuksissasi. Premium-ominaisuus (4,99 € / kk).",
+    "TITLE_3": "Vaivaton tietojen synkronointi ja jakaminen",
+    "TEXT_3": "Luomalla Nyxo Cloud -tunnuksen (valinnainen) voit synkronoida ja tallentaa uni- ja valmennustietosi Nyxo Cloud -pilvipalveluun. Voit myös halutessasi jakaa tietosi muiden käyttäjien, kuten terveydenhuollon palveluntarjoajasi, lääkärisi tai vakuutusyhtiösi kanssa. Nyxo Cloud -sivusto julkaistaan myöhemmin tänä vuonna.",
+    "TITLE_4": "Elät terveemmin, voit paremmin, saavutat enemmän",
+    "TEXT_4": "Ihmiskeho ja mieli ovat kuin äärimmäisen monimutkainen koneisto, joka tarvitsee päivittäistä huoltoa ja kunnossapitoa toimiakseen kunnolla. Uni on yksi harvoista elämän perustarpeista. Se vaikuttaa psyykkiseen ja fyysiseen hyvinvointiimme, suorituskykyyn, tehokkuuteen, luovuuteen ja lukemattomiin muihin asioihin elämässämme joka päivä. Silti sen laiminlyöminen on valitettavan yleistä. Me autamme sinua ottamaan kaiken irti ajasta, jonka vietät sängyssä.",
+
+    "FREE": "Ilmainen",
+    "PREMIUM": "Premium",
+    "TRACKING": "Unenseuranta ja unimetriikka",
+    "DIARY": "Unipäiväkirja ja päivittäiset tavoitteet",
+    "CLOUD": "Nyxo Cloud -palvelu",
+    "SERVICE": "Nopea ja palveleva tekninen tuki",
+    "COACHING": "4 viikon dataan perustuva univalmennusohjelma",
+    "ACCESS": "Käyttöoikeus kaikkiin valmennusmateriaaleihin",
+    "MONTH": "kuukaudessa"
+  },
+
+  "FOR_ORGANIZATIONS": {
+    "TITLE": "Yhteisöille",
+    "DESCRIPTION": "Nyxo auttaa koko työyhteisöäsi nukkumaan ja voimaan paremmin.",
+    "SUBTITLE": "Nyxo yrityksille ja yhteisöille",
+    "TITLE_1": "Nyxo for Teams",
+    "TEXT_1": "Riittävä ja laadukas uni on henkilökohtaisen hyvinvoinnin ja tasapainoisen työelämän avaintekijä. Nyxo for Teamsin avulla koko organisaatiosi voi nauttia Nyxo-univalmennuksen tarjoamista hyödyistä.",
+    "TITLE_2": "Vapauta tiimisi käyttämättömät voimavarat",
+    "TEXT_2": "Tiesitkö että yksin kehittyneemmissä maissa puutteellinen uni ja sen aiheuttama tehokkuusvaje maksaa satoja miljoonia työnantajille ja yhteiskunnalle joka vuosi? Me autamme organisaatiotasi toimimaan sulavammin ja saavuttamaan tehokkuustavoitteensa pitäen samalla työntekijöiden hyvinvoinnin etusijalla.",
+    "TITLE_3": "Ryhmätason unianalytiikkaa",
+    "TEXT_3": "(Tulossa pian.) Autamme löytämään ja vahvistamaan työryhmäsi potentiaalisia kehityskohteita ja olemassa olevia vahvuusalueita tarjoamalla ryhmätason analytiikkaa siitä, miten organisaatiossasi nukutaan. Kaikki tieto on keskiarvoistettu ja anonymisoitu eikä sitä voi yhdistää yksittäisiin työntekijöihin.",
+    "TITLE_4": "Hyvinvoiva työyhteisö ja energinen ilmapiiri",
+    "TEXT_4": "Hyvin levännyt ja terve työntekijä on tyytyväinen ja motivoitunut työyhteisön jäsen ja arvokas voimavara. Hymyilevät kasvot ja virkeä mieli parantavat työssä viihtymistä ja luovat kannustavaa ja energistä ilmapiiriä, jonka hedelmistä nauttii koko yhteisö.",
+    "CONTACT": "Ota yhteyttä niin kerromme, mitä Nyxo for Teams voi tarjota juuri teille!",
+    "DEMO_BUTTON": "Sovi ilmainen esittely",
+
+    "REGULAR": "Tavallinen",
+    "EXCLUSIVE": "Laaja",
+    "TRACKING": "Henkilökohtainen unenseuranta ja unimetriikka",
+    "ACCESS": "Käyttöoikeus univalmennusohjelmaan ja materiaaleihin",
+    "CLOUD": "Nyxo Cloud -palvelu",
+    "ANALYTICS": "Ryhmätason unianalytiikka",
+    "SUPPORT": "Nopea ja palveleva tekninen tuki",
+    "CONSULTING": "Yksityinen konsultointi ja jatkotoimien suunnittelu"
+  },
+
+  "COACHING": {
+    "TITLE": "Nyxo Univalmennus",
+    "SUBTITLE": "Tutustu hyvien yöunien salaisuuksiin",
+
+    "INTRODUCTION": "Hyvät unet ovat avain menestykseen. Tunnet olosi paremmaksi, ajatukset ovat kirkkaat, ja saat enemmän aikaan. Kysymys kuuluukin, miten unta pystyy parantamaan? Sänkyyn mentyäsi ei unen laatuun varsinaisesti voi vaikuttaa. Tästä huolimatta, sillä mitä teet päivän aikana ja sillä miten nukut on suora yhteys toisiinsa. Tähän valmennuksemme perustuu.",
+
+    "HOW_IT_WORKS": "Kuinka Nyxo Univalmennus toimii",
+    "HOW_IT_WORKS_TEXT": "Nyxo-univalmennus on jaettu neljään viikkoon ja jokaisen viikon aikana keskitytään yhteen hyvän unen osa-alueeseen. Jos yhdistät untasi mittaavan laitteen Nyxoon, pystymme hyödyntämään antamaasi dataa antamalla sinulle personoituja valmennussisältöjä, jotka sopivat juuri sinun tapaukseesi. Tarkastelemme unen määrää, sydämen sykettä, sekä aktiivisuustasoasi, jonka perusteella annamme oppitunteja, harjoitteita ja ohjausta kohti pysyviä tapojen muutosta.",
+    "LESSONS": "Oppitunnit",
+    "LESSONS_TEXT": "Maailman laajin valikoima oppitunteja unesta",
+    "WEEKS": "Valmennusviikot",
+    "WEEKS_TEXT": "Selaa univalmennuksen valmennusviikkoja",
+    "HABITS": "Tavoitteet",
+    "HABITS_TEXT": "Alla pieni läpileikkaus Nyxo Univalmennuksessa valittavista harjoitteista ja tavoitteista.",
+    "AUTHORS": "Kirjoittajat",
+    "AUTHORS_TEXT": "Alla olevat henkilöt ovat luoneet Nyxo Univalmennuksen.",
+    "SLEEP_COACHING": "Univalmennus"
+  },
+
+  "BLOG": {
+    "TITLE": "Nyxon Blogi",
+    "DESCRIPTION": "Seuraamalla blogiamme pääset tutustumaan tuoreimpiin uni- ja hyvinvointivinkkeihin sekä ohjelmistotuotannon saloihin. Lue ensimmäisten joukossa mm. uusista tuotepäivityksistä ja muista kuulumisistamme."
+  },
+
+  "FOOTER": {
+    "TITLE": "Yksilöllistä univalmennusta joka toimii",
+    "YOU": "Sinulle",
+    "ORGANIZATIONS": "Yrityksille",
+    "COACHING": "Valmennus",
+    "BLOG": "Blogi",
+    "ABOUT_US": "Meistä",
+    "PRESS_KIT": "Lehdistö",
+    "SUPPORT": "Tuki",
+    "CONTACT": "Ota yhteyttä",
+    "PRIVACY": "Tietosuojaseloste",
+    "TERMS": "Käyttöehdot"
+  },
+
+  "CONTACT": {
+    "TITLE": "Ota Yhteyttä",
+    "TEXT": "Otamme sitoutumisen käyttäjiämme kohtaan tosissaan. Jos sinulla on kysymyksiä Nyxon käytöstä, teknisiä ongelmia tai haluat tietää lisää tuotteistamme, älä epäröi ottaa yhteyttä. Kannustamme myös lähettämään mitä tahansa palautetta, ehdotuksia, toiveita tai huomioita tuotteisiimme tai palveluun liittyen.",
+    "NAME": "Nimi",
+    "EMAIL": "Sähköposti",
+    "SUBJECT": "Aihe",
+    "MESSAGE": "Viesti",
+    "SEND": "Lähetä"
+  },
+
+  "TAGS": "Aiheet",
+  "RELATED": "Lisää artikkeleita samasta aiheesta",
+  "LESSONS": "Oppituntia",
+  "HABITS": "Tavoitetta",
+  "MORNING": "Aamu",
+  "AFTERNOON": "Iltapäivä",
+  "EVENING": "Ilta",
+  "MORE_COACHING_WEEKS": "Lisää valmennusviikkoja",
+  "MORE_HABITS": "Lisää Tavoitteita",
+  "DESCRIPTION": "Kuvaus",
+  "HABIT": "Tavoite",
+
+  "ABOUT_THIS_WEEK": "Tietoa viikosta",
+  "LESSONS_FOR_THIS_WEEK": "Tämän viikon oppitunteja",
+
+  "LESSON_BY": "Oppitunnin laatinut",
+  "HABITS_TO_TRY": "Oppituntiin liittyviä tavoitteita",
+  "ADDITIONAL_READING": "Lisää luettavaa",
+
+  "LESSONS_BY": "Oppitunteja henkilöltä",
+
+  "CHECKOUT_BLOG": "Blogistamme",
+  "MORE_FROM_BLOG": "Lisää blogikirjoituksia",
+
+  "ADD_BOOKMARK": "Tallenna",
+  "REMOVE_BOOKMARK": "Poista kirjanmerkki",
+  "LOADING_DATA": "Odota hetki...",
+
+  "ABOUT": {
+    "TITLE": "Jokaisella ihmisellä on oikeus hyviin yöuniin",
+    "NYXO": "Tietoa meistä",
+    "INTRODUCTION_1": "Nyxo perustettiin alkuvuodesta 2019 tarkoituksenaan auttaa ihmisiä nukkumaan paremmin ja parantamaan jaksamistaan. Ensimmäinen tuotteemme on Nyxo, sovelluspohjainen univalmennusohjelma, joka auttaa parantamaan erityisesti niitä vuorokausirytmin osa-alueita, joissa kullakin ihmisellä henkilökohtaisesti on eniten parantamisen varaa.",
+    "INTRODUCTION_2": "Nyxon juuret ovat syvällä tieteellisessä tutkimuksessa. Yrityksen perusta valettiin Helsingin yliopistossa toteutetussa tieteen kaupallistamisprojektissa.",
+    "INTRODUCTION_3": "Ennen Nyxoa yrityksen perustajat ovat toimineet startupien ja yritysten välisen yhteistyön pioneereina Suomessa. Vahvan kokemuspohjan ansiosta Nyxolla on ollut mahdollisuus polkaista liiketoiminta käyntiin Suomen johtavien terveys- ja vakuutuspalveluiden tarjoajien kanssa.",
+    "SCIENTISTS": "Tieteellinen asiantuntijatiimi",
+    "SCIENTISTS_TEXT": "Nyxon juuret ovat syvällä tieteessä ja teemme jatkuvasti yhteistyötä johtavien unitutkijoiden kanssa tarjotaksemme parhaat mahdolliset työkalut unen ja vuorokausirytmin parantamiseen.",
+
+    "WORK_FOR_US": "Tule meille töihin!",
+    "WORK_FOR_US_TEXT": "Olemme pieni, mutta jatkuvasti kasvava tiimi. Liittymällä mukaan varhaisessa vaiheessa pääset vaikuttamaan vahvasti siihen, miten rakennamme ja kehitämme tuotteitamme tulevaisuudessa. Jos olet kiinnostunut, ota ihmeessä yhteyttä!",
+
+    "INSTAGRAM": "Seuraa meitä"
+  },
+
+  "PROMPT": {
+    "MOBILE": "Lataa Nyxo",
+    "TABLET": "Unen seuranta & valmennus",
+    "DESKTOP": "Seuraa untasi ja saa henkilökohtaista univalmennusta",
+    "BUTTON": "Lataa Nyxo"
+  },
+
+  "en": "In English",
+  "fi": "Suomeksi"
+}

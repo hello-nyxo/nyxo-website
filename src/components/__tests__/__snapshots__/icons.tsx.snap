@@ -6,6 +6,7 @@ exports[`Icons renders correctly 1`] = `
   fill="none"
   height="50px"
   stroke="#333"
+  strokeLinecap="round"
   strokeWidth="1.5"
   version="1.1"
   viewBox="0 0 30 30"
