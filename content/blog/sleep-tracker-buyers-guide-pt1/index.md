@@ -4,7 +4,7 @@ date: "2020-08-31"
 title: "Sleep Tracker Buyer's Guide Pt. 1: What You Should Know About Sleep Tracking"
 authorSlug: "pietari-nurmi"
 author: Pietari Nurmi
-tags: ["sleep trackers", "Sleep", "sleep stages", "sleep quality"]
+tags: ["sleep trackers", "Sleep", "sleep data", "sleep stages", "sleep quality"]
 thumbnailBlog: "./activity-tracker1.jpg"
 ---
 
