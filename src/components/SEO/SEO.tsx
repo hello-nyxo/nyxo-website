@@ -65,7 +65,7 @@ const SEO: FC<HelmetProps> = ({
 
   const canonicalUrl = canonical
     ? canonical
-    : createUrlWithLang(`${pathName.replace(/^\/+/g, "")}`)
+    : `${siteUrl}${originalPath.replace(`/${language}`, "")}`
 
   return (
     <Helmet htmlAttributes={{ lang: language }} title={`${title} – Nyxo`}>

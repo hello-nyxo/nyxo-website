@@ -1,14 +1,13 @@
-import { Link, useTranslation, useI18next } from "gatsby-plugin-react-i18next"
+import { navigate } from "gatsby"
+import { useI18next, useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { Icon } from "../Icons"
-import { device, minDevice } from "../Primitives"
-import { navigate } from "gatsby"
+import { minDevice } from "../Primitives"
 
 const FloatingPrompt: FC = () => {
   const { t } = useTranslation()
   const { language } = useI18next()
-  console.log(language)
   const handleClick = () => {
     if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
       window.location.href =
