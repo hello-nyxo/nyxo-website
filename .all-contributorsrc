@@ -36,6 +36,17 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "eevasii",
+      "name": "eevasii",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/37406275?v=4",
+      "profile": "http://eeva.lol",
+      "contributions": [
+        "blog",
+        "business",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
