@@ -62,4 +62,6 @@ Founding the score mainly on night-time heart rate patterns, sleep interruptions
 
 Sleep trackers can reveal a lot from your sleep. They provide a unique window to your sleeping habits and can genuinely help you sleep better – as long as you can interpret the data. Just remember that tracking your sleep alone doesn't make any difference. The real change only comes from within.
 
-#### Sleep Tracker Buyer's Guide Pt. 2 coming soon!
+##### How to choose the best Tracker for you? Read Sleep Tracker Buyer's Guide Pt. 2!
+
+[https://nyxo.app/sleep-tracker-buyers-guide-pt2](#how-to-choose-the-best-tracker-for-you-read-sleep-tracker-buyers-guide-pt2)
