@@ -4,7 +4,7 @@ date: "2020-08-31"
 title: "Sleep Tracker Buyer's Guide Pt. 1: What You Should Know About Sleep Tracking"
 authorSlug: "pietari-nurmi"
 author: Pietari Nurmi
-tags: ["sleep trackers", "Sleep", "sleep stages", "sleep quality"]
+tags: ["sleep trackers", "Sleep", "sleep data", "sleep stages", "sleep quality"]
 thumbnailBlog: "./activity-tracker1.jpg"
 ---
 
@@ -62,4 +62,6 @@ Founding the score mainly on night-time heart rate patterns, sleep interruptions
 
 Sleep trackers can reveal a lot from your sleep. They provide a unique window to your sleeping habits and can genuinely help you sleep better – as long as you can interpret the data. Just remember that tracking your sleep alone doesn't make any difference. The real change only comes from within.
 
-#### Sleep Tracker Buyer's Guide Pt. 2 coming soon!
+## How to Choose the Best Tracker for You?
+
+[**Read Sleep Tracker Buyer's Guide Pt. 2!**](https://nyxo.app/sleep-tracker-buyers-guide-pt2)
