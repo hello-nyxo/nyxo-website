@@ -24,6 +24,10 @@ const Footer: FC = () => {
       title: "ORGANIZATIONS",
     },
     {
+      href: "/for-coaches",
+      title: "COACHES",
+    },
+    {
       href: "/coaching",
       title: "COACHING",
     },
@@ -68,16 +72,6 @@ const Footer: FC = () => {
                     </Link>
                   </li>
                 ))}
-
-                <li>
-                  <OutboundLink
-                    href="http://tiny.cc/NyxoPR"
-                    target="_new"
-                    rel="noopener noreferrer"
-                    title={t("FOOTER.PRESS_KIT")}>
-                    {t("FOOTER.PRESS_KIT")}
-                  </OutboundLink>
-                </li>
               </ul>
             </div>
           </div>
@@ -112,6 +106,15 @@ const Footer: FC = () => {
                   <Link to="/terms" title={t("FOOTER.TERMS")}>
                     {t("FOOTER.TERMS")}
                   </Link>
+                </li>
+                <li>
+                  <OutboundLink
+                    href="http://tiny.cc/NyxoPR"
+                    target="_new"
+                    rel="noopener noreferrer"
+                    title={t("FOOTER.PRESS_KIT")}>
+                    {t("FOOTER.PRESS_KIT")}
+                  </OutboundLink>
                 </li>
               </ul>
             </div>
