@@ -497,3 +497,111 @@ export const deleteLikedContent = /* GraphQL */ `
     }
   }
 `;
+export const createNightRating = /* GraphQL */ `
+  mutation CreateNightRating($input: CreateNightRatingInput!) {
+    createNightRating(input: $input) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateNightRating = /* GraphQL */ `
+  mutation UpdateNightRating($input: UpdateNightRatingInput!) {
+    updateNightRating(input: $input) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteNightRating = /* GraphQL */ `
+  mutation DeleteNightRating($input: DeleteNightRatingInput!) {
+    deleteNightRating(input: $input) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const createFeedbackContent = /* GraphQL */ `
+  mutation CreateFeedbackContent($input: CreateFeedbackContentInput!) {
+    createFeedbackContent(input: $input) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateFeedbackContent = /* GraphQL */ `
+  mutation UpdateFeedbackContent($input: UpdateFeedbackContentInput!) {
+    updateFeedbackContent(input: $input) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteFeedbackContent = /* GraphQL */ `
+  mutation DeleteFeedbackContent($input: DeleteFeedbackContentInput!) {
+    deleteFeedbackContent(input: $input) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;

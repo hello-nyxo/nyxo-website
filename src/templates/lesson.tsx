@@ -19,6 +19,10 @@ import {
   useDeleteBookmark,
   useGetBookmark,
 } from "../hooks/bookmark-hooks"
+import StarRating from "../components/Feedback/StarRating"
+import ProgressBar from "../components/Feedback/ProgressBar"
+
+import { useGetFeedback, useAddFeedback } from "../hooks/feedbackHooks"
 
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
@@ -54,6 +58,13 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   const [remove, { isLoading: removeLoading }] = useDeleteBookmark()
   const [add, { isLoading: addLoading }] = useAddBookmark()
 
+  const {
+    data: { feedback, id: feedbackId },
+    isLoading: feedbackLoading,
+  } = useGetFeedback(slug as string, "lesson")
+
+  const [addFeedback, { isLoading: addFeedbackLoading }] = useAddFeedback()
+
   const handleBookmarking = async () => {
     if (bookmarked) {
       remove({ id: id, type: "lesson" })
@@ -65,6 +76,13 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
       })
     }
   }
+
+  // const handleFeedback = async () => {
+  //   await addFeedback({
+  //     slug: slug as string,
+  //     type: "lesson",
+  //   })
+  // }
 
   return (
     <Layout>
@@ -118,6 +136,25 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
             <HtmlContent document={readMore.json} />
           </>
         )}
+
+        <FeedbackContainer>
+          <FeedbackContent>
+            <h2>Enjoying this lesson so far?</h2>
+            <p>
+              Rating this lesson helps the author to know which type of content
+              you like. Giving 5 stars also makes them really happy.{" "}
+            </p>
+
+            <StarRating totalStars={5} slug={slug as string} />
+
+            {/* <button onClick={handleFeedback}>
+              {feedback ? "Remove Feedback" : "Add Feedback"}
+            </button> */}
+          </FeedbackContent>
+          <FeedbackRating>
+            <ProgressBar totalStars={5} slug={slug as string} />
+          </FeedbackRating>
+        </FeedbackContainer>
 
         <H4>{t("LESSON_BY")}</H4>
         <Authors>
@@ -231,10 +268,23 @@ const Tags = styled.div`
 `
 const FeedbackContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   width: 100%;
-  align-items: center;
+  background: #f5f5f5;
+  padding: 20px 10px;
+  justify-content: space-between;
 `
+
+const FeedbackContent = styled.div`
+  flex-basis: 60%;
+  margin-left: 20px;
+`
+
+const FeedbackRating = styled.div`
+  flex-basis: 40%;
+  padding: 0px 30px;
+`
+
 const FeedbackButton = styled.button`
   border-radius: 5px;
   border: 1px solid var(--radiantBlue);
@@ -245,4 +295,9 @@ const FeedbackButton = styled.button`
 const FeedbackInsights = styled.small`
   color: var(--radiantBlue);
   font-size: 12px;
+`
+const Rating = styled.div`
+  width: 100%;
+  height: 300px;
+  border: 1px solid red;
 `

@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "nyxocloud-dev-20190813125556-authRole",
+            "UnauthRoleArn": "arn:aws:iam::110360201054:role/nyxocloud-dev-20190813125556-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::110360201054:role/nyxocloud-dev-20190813125556-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "nyxocloud-dev-20190813125556-deployment",
+            "UnauthRoleName": "nyxocloud-dev-20190813125556-unauthRole",
+            "StackName": "nyxocloud-dev-20190813125556",
+            "StackId": "arn:aws:cloudformation:eu-central-1:110360201054:stack/nyxocloud-dev-20190813125556/8ba6f7e0-bdb0-11e9-bd65-0a0ca1a48442",
+            "AmplifyAppId": "d1r0vh3u8r2si0"
+        },
+        "categories": {
+            "auth": {
+                "nyxodev": {}
+            }
+        }
+    }
+}
