@@ -146,10 +146,6 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
             </p>
 
             <StarRating totalStars={5} slug={slug as string} />
-
-            {/* <button onClick={handleFeedback}>
-              {feedback ? "Remove Feedback" : "Add Feedback"}
-            </button> */}
           </FeedbackContent>
           <FeedbackRating>
             <ProgressBar totalStars={5} slug={slug as string} />
