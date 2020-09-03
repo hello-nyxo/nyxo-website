@@ -36,7 +36,13 @@ const ProgressBar = (props: Props) => {
         </StarLabel>
         <ProgressBarContainer>
           <FeedbackProgressBar
-            style={{ width: (ratings[i + 1] / ratingsLength) * 100 + `%` }}
+            // style={{ width: (ratings[i + 1] / ratingsLength) * 100 + `%` }}
+            style={{
+              width:
+                ratings[i + 1] > 0
+                  ? (ratings[i + 1] / ratingsLength) * 100 + `%`
+                  : 0 + `%`,
+            }}
           />
         </ProgressBarContainer>
       </Wrap>
