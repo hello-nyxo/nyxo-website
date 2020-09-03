@@ -10,7 +10,7 @@ interface Props {
 const ProgressBar = (props: Props) => {
   const { slug, totalStars } = props
 
-  const { data: allFeedbackData, status } = useGetAllFeedback(slug)
+  const { data: allFeedbackData, isLoading } = useGetAllFeedback(slug)
 
   allFeedbackData?.map((item: any) => item.rating)
 

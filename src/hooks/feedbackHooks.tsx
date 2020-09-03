@@ -129,14 +129,25 @@ export const fetchAllFeedback = (slug: string) => async () => {
 }
 
 export const useGetFeedback = (slug: string, type: string) => {
-  return useQuery([type, { slug: slug as string }], fetchLessonFeedback, {
-    initialData: () => ({
-      feedback: false,
-      id: "",
-      rating: 0,
-    }),
-    initialStale: true,
-  })
+  if (isLoggedIn()) {
+    return useQuery([type, { slug: slug as string }], fetchLessonFeedback, {
+      initialData: () => ({
+        feedback: false,
+        id: "",
+        rating: 0,
+      }),
+      initialStale: true,
+    })
+  } else {
+    return {
+      isLoading: false,
+      data: {
+        feedback: false,
+        id: "",
+        rating: 0,
+      },
+    }
+  }
 }
 
 export const useAddFeedback = () => {
@@ -154,7 +165,13 @@ export const useUpdateFeedback = () => {
 }
 
 export const useGetAllFeedback = (slug: string) => {
-  return useQuery("allFeedback", fetchAllFeedback(slug), {
-    initialStale: true,
-  })
+  if (isLoggedIn()) {
+    return useQuery("allFeedback", fetchAllFeedback(slug), {
+      initialStale: true,
+    })
+  } else {
+    return {
+      isLoading: false,
+    }
+  }
 }
