@@ -21,6 +21,8 @@ import LessonCard from "../lesson/LessonCard"
 import WeekCard from "../week/WeekCard"
 import { useGetUserBookmarks } from "../../hooks/bookmark-hooks"
 import { useTranslation } from "gatsby-plugin-react-i18next"
+import UserInfo from "../user/UserInfo"
+import Coaching from "../user/Coaching"
 
 const Details: FC = () => {
   const {
@@ -54,38 +56,13 @@ const Details: FC = () => {
   } = useGetUserBookmarks([...weekContent, ...habitContent, ...lessonContent])
   const user = getCurrentUser()
 
-  const signOut = () => {
-    Auth.signOut()
-      .then(function () {
-        navigate("/me/login")
-      })
-      ["catch"](function (err) {
-        console.error(err)
-      })
-  }
-
   const { t } = useTranslation()
 
   return (
     <>
-      <PageHeader title="Profile Details" text={user.email as string} />
       <Container>
-        <H3>You</H3>
-
-        <p>Email: {user.email}</p>
-        <ul>
-          <LI>
-            <Link to="/me/reset">Reset Password</Link>
-          </LI>
-          <LI onClick={signOut}>
-            <Icon
-              name="logout"
-              height="30px"
-              width="30px"
-              stroke={colors.radiantBlue}
-            />
-          </LI>
-        </ul>
+        <UserInfo />
+        <Coaching />
 
         <H3>Bookmarked Content</H3>
         {weeks?.length > 0 && (
@@ -159,12 +136,6 @@ const Details: FC = () => {
 }
 export default Details
 
-const LI = styled.li`
-  display: inline-block;
-  margin-right: 50px;
-  vertical-align: middle;
-  cursor: pointer;
-`
 const BookmarkContainer = styled.div`
   width: 100%;
   display: flex;

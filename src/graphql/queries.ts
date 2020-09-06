@@ -96,6 +96,18 @@ export const getUser = /* GraphQL */ `
       nickname
       darkMode
       intercomId
+      activeCoaching {
+        id
+        userId
+        stage
+        activeWeek
+        started
+        ended
+        lessons
+        createdAt
+        updatedAt
+        owner
+      }
       createdAt
       updatedAt
     }
@@ -126,16 +138,19 @@ export const getCoachingData = /* GraphQL */ `
   query GetCoachingData($id: ID!) {
     getCoachingData(id: $id) {
       id
-      weeks {
-        started
-        ended
-        locked
-        slug
-      }
-      lessons
       userId
-      stage
       user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      stage
+      active {
         connectionId
         id
         email
@@ -148,6 +163,13 @@ export const getCoachingData = /* GraphQL */ `
       activeWeek
       started
       ended
+      weeks {
+        started
+        ended
+        locked
+        slug
+      }
+      lessons
       createdAt
       updatedAt
       owner
@@ -163,12 +185,12 @@ export const listCoachingDatas = /* GraphQL */ `
     listCoachingDatas(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        lessons
         userId
         stage
         activeWeek
         started
         ended
+        lessons
         createdAt
         updatedAt
         owner
@@ -253,7 +275,6 @@ export const getNight = /* GraphQL */ `
       }
       sourceId
       sourceName
-      source
       value
       startDate
       endDate
@@ -276,7 +297,6 @@ export const listNights = /* GraphQL */ `
         userId
         sourceId
         sourceName
-        source
         value
         startDate
         endDate
@@ -296,7 +316,6 @@ export const getLikedContent = /* GraphQL */ `
       name
       type
       slug
-      excerpt
       createdAt
       updatedAt
       owner
@@ -315,7 +334,6 @@ export const listLikedContents = /* GraphQL */ `
         name
         type
         slug
-        excerpt
         createdAt
         updatedAt
         owner
@@ -370,12 +388,12 @@ export const coachingByUser = /* GraphQL */ `
     ) {
       items {
         id
-        lessons
         userId
         stage
         activeWeek
         started
         ended
+        lessons
         createdAt
         updatedAt
         owner
@@ -387,7 +405,7 @@ export const coachingByUser = /* GraphQL */ `
 export const likedContentBySlug = /* GraphQL */ `
   query LikedContentBySlug(
     $slug: String
-    $id: ModelStringKeyConditionInput
+    $id: ModelIDKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelLikedContentFilterInput
     $limit: Int
@@ -406,7 +424,6 @@ export const likedContentBySlug = /* GraphQL */ `
         name
         type
         slug
-        excerpt
         createdAt
         updatedAt
         owner

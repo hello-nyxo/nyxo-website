@@ -11,6 +11,7 @@
     "aws-amplify-react": "^4.1.20",
     "babel-plugin-styled-components": "^1.10.7",
     "contentful-typescript-codegen": "^3.0.1",
+    "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
     "formik": "^2.1.5",
     "gatsby": "^2.24.12",

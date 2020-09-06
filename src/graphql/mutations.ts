@@ -143,6 +143,18 @@ export const createUser = /* GraphQL */ `
       nickname
       darkMode
       intercomId
+      activeCoaching {
+        id
+        userId
+        stage
+        activeWeek
+        started
+        ended
+        lessons
+        createdAt
+        updatedAt
+        owner
+      }
       createdAt
       updatedAt
     }
@@ -157,6 +169,18 @@ export const updateUser = /* GraphQL */ `
       nickname
       darkMode
       intercomId
+      activeCoaching {
+        id
+        userId
+        stage
+        activeWeek
+        started
+        ended
+        lessons
+        createdAt
+        updatedAt
+        owner
+      }
       createdAt
       updatedAt
     }
@@ -171,6 +195,18 @@ export const deleteUser = /* GraphQL */ `
       nickname
       darkMode
       intercomId
+      activeCoaching {
+        id
+        userId
+        stage
+        activeWeek
+        started
+        ended
+        lessons
+        createdAt
+        updatedAt
+        owner
+      }
       createdAt
       updatedAt
     }
@@ -180,16 +216,19 @@ export const createCoachingData = /* GraphQL */ `
   mutation CreateCoachingData($input: CreateCoachingDataInput!) {
     createCoachingData(input: $input) {
       id
-      weeks {
-        started
-        ended
-        locked
-        slug
-      }
-      lessons
       userId
-      stage
       user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      stage
+      active {
         connectionId
         id
         email
@@ -202,6 +241,13 @@ export const createCoachingData = /* GraphQL */ `
       activeWeek
       started
       ended
+      weeks {
+        started
+        ended
+        locked
+        slug
+      }
+      lessons
       createdAt
       updatedAt
       owner
@@ -212,16 +258,19 @@ export const updateCoachingData = /* GraphQL */ `
   mutation UpdateCoachingData($input: UpdateCoachingDataInput!) {
     updateCoachingData(input: $input) {
       id
-      weeks {
-        started
-        ended
-        locked
-        slug
-      }
-      lessons
       userId
-      stage
       user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      stage
+      active {
         connectionId
         id
         email
@@ -234,6 +283,13 @@ export const updateCoachingData = /* GraphQL */ `
       activeWeek
       started
       ended
+      weeks {
+        started
+        ended
+        locked
+        slug
+      }
+      lessons
       createdAt
       updatedAt
       owner
@@ -244,16 +300,19 @@ export const deleteCoachingData = /* GraphQL */ `
   mutation DeleteCoachingData($input: DeleteCoachingDataInput!) {
     deleteCoachingData(input: $input) {
       id
-      weeks {
-        started
-        ended
-        locked
-        slug
-      }
-      lessons
       userId
-      stage
       user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      stage
+      active {
         connectionId
         id
         email
@@ -266,6 +325,13 @@ export const deleteCoachingData = /* GraphQL */ `
       activeWeek
       started
       ended
+      weeks {
+        started
+        ended
+        locked
+        slug
+      }
+      lessons
       createdAt
       updatedAt
       owner
@@ -388,7 +454,6 @@ export const createNight = /* GraphQL */ `
       }
       sourceId
       sourceName
-      source
       value
       startDate
       endDate
@@ -416,7 +481,6 @@ export const updateNight = /* GraphQL */ `
       }
       sourceId
       sourceName
-      source
       value
       startDate
       endDate
@@ -444,7 +508,6 @@ export const deleteNight = /* GraphQL */ `
       }
       sourceId
       sourceName
-      source
       value
       startDate
       endDate
@@ -462,7 +525,6 @@ export const createLikedContent = /* GraphQL */ `
       name
       type
       slug
-      excerpt
       createdAt
       updatedAt
       owner
@@ -476,7 +538,6 @@ export const updateLikedContent = /* GraphQL */ `
       name
       type
       slug
-      excerpt
       createdAt
       updatedAt
       owner
@@ -490,7 +551,6 @@ export const deleteLikedContent = /* GraphQL */ `
       name
       type
       slug
-      excerpt
       createdAt
       updatedAt
       owner
