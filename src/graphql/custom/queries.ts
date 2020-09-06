@@ -1,5 +1,5 @@
 export const getActiveCoaching = /* GraphQL */ `
-  query GetUser($id: ID!) {
+  query GetActiveCoaching($id: ID!) {
     getUser(id: $id) {
       activeCoaching {
         id

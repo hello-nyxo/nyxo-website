@@ -11,9 +11,9 @@ import {
 import { createCoachingData, updateCoachingData } from "../graphql/mutations"
 import { getCoachingData, listCoachingDatas } from "../graphql/queries"
 
-type CoachingData = Omit<
+export type CoachingData = Omit<
   Exclude<GetCoachingDataQuery["getCoachingData"], null>,
-  "__typename"
+  "__typename" | "user"
 > | null
 
 export const listCoaching = async (): Promise<CoachingData[]> => {
@@ -123,8 +123,4 @@ export const useUpdateCoaching = () => {
       queryCache.invalidateQueries("listCoaching")
     },
   })
-}
-
-export const useGetActiveCoaching = () => {
-  return useQuery("activeCoaching")
 }

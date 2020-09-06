@@ -8,6 +8,8 @@ import { useGetUser } from "../../hooks/useUser"
 import { useTranslation } from "gatsby-plugin-react-i18next"
 import { format } from "date-fns"
 
+const dateFormat = "dd.MM.yyyy"
+
 const UserInfo: FC = () => {
   const { data } = useGetUser()
   const { t } = useTranslation()
@@ -33,20 +35,43 @@ const UserInfo: FC = () => {
       </Row>
 
       <H5>Information</H5>
-      <Detail>{`${t("USER.EMAIL")}: 	${data?.email}`}</Detail>
-      <Detail>{data?.id}</Detail>
-      <Detail>{data?.intercomId}</Detail>
-      <Detail>{data?.connectionId}</Detail>
-
-      <Detail>
-        {`${t("USER.CREATED")}: ${
+      <DetailRow>
+        <Title>{`${t("USER.EMAIL")}:`}</Title>
+        <Detail>{`${data?.email}`}</Detail>
+      </DetailRow>
+      <DetailRow>
+        <Title>{`${t("USER.ID")}:`}</Title>
+        <Detail>{`${data?.id}`}</Detail>
+      </DetailRow>
+      <DetailRow>
+        <Title>{`${t("USER.INTERCOM")}:`}</Title>
+        <Detail>{`${data?.intercomId}`}</Detail>
+      </DetailRow>
+      <DetailRow>
+        <Title>{`${t("USER.LINK")}:`}</Title>
+        <Detail>{`${data?.connectionId}`}</Detail>
+      </DetailRow>
+      <DetailRow>
+        <Title>{`${t("USER.ACTIVE_COACHING")}:`}</Title>
+        <Detail>{`${
+          data?.activeCoaching?.started &&
+          format(new Date(data?.activeCoaching.started as string), dateFormat)
+        }`}</Detail>
+      </DetailRow>
+      <DetailRow>
+        <Title>{`${t("USER.CREATED")}:`}</Title>
+        <Detail>{`${
           data?.createdAt &&
-          format(new Date(data?.createdAt as string), "dd.MM.yyyy")
-        }`}
-      </Detail>
-      <Detail>{`${t("USER.UPDATED")}: ${
-        data?.updatedAt && format(new Date(data?.updatedAt), "dd.MM.yyyy")
-      }`}</Detail>
+          format(new Date(data?.createdAt as string), dateFormat)
+        }`}</Detail>
+      </DetailRow>
+      <DetailRow>
+        <Title>{`${t("USER.UPDATED")}:`}</Title>
+        <Detail>{`${
+          data?.updatedAt &&
+          format(new Date(data?.updatedAt as string), dateFormat)
+        }`}</Detail>
+      </DetailRow>
     </Container>
   )
 }
@@ -55,13 +80,27 @@ export default UserInfo
 
 const Container = styled.div``
 
-const Detail = styled.div`
-  font-size: 1rem;
-  height: 1.5rem;
-  font-family: var(--medium);
+const DetailRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--textSecondary);
+  min-height: 1.5rem;
+`
+
+const Title = styled.div`
+  color: var(--textSecondary);
+  font-size: 1rem;
+`
+
+const Detail = styled.div`
+  font-size: 1rem;
+  color: var(--textPrimary);
+  font-family: var(--medium);
+  text-align: right;
 `
 
 const Row = styled.div`

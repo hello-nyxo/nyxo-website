@@ -1,20 +1,22 @@
 import React, { FC } from "react"
-import { H3, H5 } from "../Html/HtmlContent"
+import { H3, H5, H4 } from "../Html/HtmlContent"
 import { useTranslation } from "gatsby-plugin-react-i18next"
 import styled from "styled-components"
-import { useListCoaching, useUpdateCoaching } from "../../hooks/useCoaching"
+import { useListCoaching } from "../../hooks/useCoaching"
 import { format } from "date-fns"
-import { useUpdateUser } from "../../hooks/useUser"
+import { useUpdateUser, useGetActiveCoaching } from "../../hooks/useUser"
+import CoachingCard from "../coaching/CoachingCard"
 
 const Coaching: FC = () => {
   const { t } = useTranslation()
   const { data: coaching } = useListCoaching()
-
+  const { data: active } = useGetActiveCoaching()
   const [mutate, { data, error }] = useUpdateUser()
 
   // console.log(status, data, error)
   console.log("listCoaching", coaching)
-  const setActive = (id: string, active: boolean) => {
+
+  const setActive = (id: string) => {
     mutate({
       user: {
         userActiveCoachingId: id,
@@ -26,20 +28,22 @@ const Coaching: FC = () => {
     <Container>
       <H3>{t("USER.COACHING")}</H3>
 
+      {active?.activeCoaching && (
+        <>
+          <H4>{t("USER.CURRENTLY_ACTIVE")}</H4>
+          <CoachingCard coaching={active.activeCoaching} />
+        </>
+      )}
+
+      <pre>{JSON.stringify(active?.activeCoaching, null, 2)}</pre>
+
+      <H4>{t("USER.ALL_COACHING_DATA")}</H4>
       {coaching?.items?.map((item) => (
-        <div
+        <CoachingCard
           key={`${item?.id}`}
-          onClick={() => setActive(item?.id, item?.active)}>
-          <H5>{`${
-            item?.started && format(new Date(item?.started), "dd.MM.yyyy")
-          }`}</H5>
-          <div>{item?.active ? "ACTIVE" : ""}</div>
-          <div>{item?.createdAt}</div>
-          <div>{item?.updatedAt}</div>
-          <div>{item?.stage}</div>
-          <div>{item?.activeWeek}</div>
-          <div>{item?.lessons}</div>
-        </div>
+          coaching={item}
+          onClick={() => setActive(item?.id)}
+        />
       ))}
     </Container>
   )
@@ -47,4 +51,23 @@ const Coaching: FC = () => {
 
 export default Coaching
 
-const Container = styled.div``
+const Container = styled.div`
+  padding: 1rem;
+`
+
+const ID = styled.div`
+  color: var(--textSecondary);
+  font-size: 0.8rem;
+  font-family: var(--medium);
+`
+
+const Card = styled.div`
+  padding: 1rem;
+  background-color: var(--secondaryBg);
+  box-shadow: var(--shadow);
+  margin: 1rem 0rem;
+
+  ${H5} {
+    margin: 0 0 0.5rem 0;
+  }
+`

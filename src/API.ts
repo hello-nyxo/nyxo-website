@@ -2,6 +2,13 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
+export enum Stage {
+  ONGOING = "ONGOING",
+  PAUSED = "PAUSED",
+  COMPLETED = "COMPLETED",
+}
+
+
 export type CreateSleepDataInput = {
   id?: string | null,
   userId: string,
@@ -61,13 +68,6 @@ export type CreateUserInput = {
   intercomId?: string | null,
   userActiveCoachingId?: string | null,
 };
-
-export enum Stage {
-  ONGOING = "ONGOING",
-  PAUSED = "PAUSED",
-  COMPLETED = "COMPLETED",
-}
-
 
 export type UpdateUserInput = {
   connectionId?: string | null,
@@ -370,6 +370,29 @@ export type ModelIDKeyConditionInput = {
   gt?: string | null,
   between?: Array< string | null > | null,
   beginsWith?: string | null,
+};
+
+export type GetActiveCoachingQueryVariables = {
+  id: string,
+};
+
+export type GetActiveCoachingQuery = {
+  getUser:  {
+    __typename: "User",
+    activeCoaching:  {
+      __typename: "CoachingData",
+      id: string,
+      userId: string,
+      stage: Stage | null,
+      activeWeek: string | null,
+      started: string | null,
+      ended: string | null,
+      lessons: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+      owner: string | null,
+    } | null,
+  } | null,
 };
 
 export type CreateSleepDataMutationVariables = {

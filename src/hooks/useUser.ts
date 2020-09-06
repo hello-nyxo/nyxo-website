@@ -1,8 +1,14 @@
 import { useQuery, QueryResult, useMutation, MutationResult } from "react-query"
 import { Auth, API, graphqlOperation } from "aws-amplify"
-import { GetUserQuery, UpdateUserMutation, UpdateUserInput } from "../API"
+import {
+  GetUserQuery,
+  UpdateUserMutation,
+  UpdateUserInput,
+  GetActiveCoachingQuery,
+} from "../API"
 import { updateUser } from "../graphql/mutations"
 import { getUser } from "../graphql/queries"
+import { getActiveCoaching } from "../graphql/custom/queries"
 
 export const updateUserData = async ({
   user,
@@ -45,7 +51,27 @@ export const getUserData = async (): Promise<GetUserQuery["getUser"]> => {
   }
 }
 
-export const useGetUser = (): QueryResult<GetUserQuery["getUser"], any> => {
+export const getUserActiveCoaching = async (): Promise<
+  GetActiveCoachingQuery["getUser"]
+> => {
+  try {
+    const { username } = await Auth.currentUserInfo()
+    const {
+      data: { getUser: data },
+    } = (await API.graphql(
+      graphqlOperation(getActiveCoaching, { id: username })
+    )) as {
+      data: GetActiveCoachingQuery
+    }
+    return data
+  } catch (error) {
+    return error
+  }
+}
+
+// HOOKS
+
+export const useGetUser = (): QueryResult<GetUserQuery["getUser"]> => {
   return useQuery(["user"], getUserData)
 }
 
@@ -54,4 +80,10 @@ export const useUpdateUser = (): MutationResult<
   any
 > => {
   return useMutation(updateUserData)
+}
+
+export const useGetActiveCoaching = (): QueryResult<
+  GetActiveCoachingQuery["getUser"]
+> => {
+  return useQuery("userActiveCoaching", getUserActiveCoaching)
 }
