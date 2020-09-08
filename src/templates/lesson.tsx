@@ -10,7 +10,7 @@ import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H4 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
 import LargeLessonCard from "../components/lesson/LargeLessonCard"
-import { Container, TextContainer } from "../components/Primitives"
+import { Container, TextContainer, device } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import getFirstAuthor from "../Helpers/AuthorHelper"
@@ -76,13 +76,6 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
       })
     }
   }
-
-  // const handleFeedback = async () => {
-  //   await addFeedback({
-  //     slug: slug as string,
-  //     type: "lesson",
-  //   })
-  // }
 
   return (
     <Layout>
@@ -269,6 +262,12 @@ const FeedbackContainer = styled.div`
   background: #f5f5f5;
   padding: 20px 10px;
   justify-content: space-between;
+
+  @media ${device.mobileL} {
+    flex: 0 0 100%;
+    max-width: 100%;
+    flex-direction: column;
+  }
 `
 
 const FeedbackContent = styled.div`
@@ -279,6 +278,12 @@ const FeedbackContent = styled.div`
 const FeedbackRating = styled.div`
   flex-basis: 40%;
   padding: 0px 30px;
+
+  @media ${device.mobileL} {
+    width: 80%;
+    padding: 0px;
+    margin-top: 15px;
+  }
 `
 
 const FeedbackButton = styled.button`

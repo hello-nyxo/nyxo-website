@@ -10,9 +10,11 @@ interface Props {
 const ProgressBar = (props: Props) => {
   const { slug, totalStars } = props
 
-  const { data: allFeedbackData, isLoading } = useGetAllFeedback(slug)
+  const { data: allFeedbackData, isLoading }: any = useGetAllFeedback(slug)
 
-  allFeedbackData?.map((item: any) => item.rating)
+  // console.log("allFeedbackData: ", allFeedbackData)
+
+  // allFeedbackData?.map((item: any) => item.rating)
 
   const ratings: any = {
     5: 0,
@@ -36,7 +38,6 @@ const ProgressBar = (props: Props) => {
         </StarLabel>
         <ProgressBarContainer>
           <FeedbackProgressBar
-            // style={{ width: (ratings[i + 1] / ratingsLength) * 100 + `%` }}
             style={{
               width:
                 ratings[i + 1] > 0
@@ -61,7 +62,6 @@ const ProgressBarContainer = styled.div`
 
 const FeedbackProgressBar = styled.div`
   background-color: hsl(255deg, 85%, 30%);
-  /* width: 40%; */
   height: 20px;
 `
 const StarLabel = styled.p`
