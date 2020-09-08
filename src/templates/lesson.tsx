@@ -22,8 +22,6 @@ import {
 import StarRating from "../components/Feedback/StarRating"
 import ProgressBar from "../components/Feedback/ProgressBar"
 
-import { useGetFeedback, useAddFeedback } from "../hooks/feedbackHooks"
-
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
   location: { pathname },
@@ -57,13 +55,6 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   } = useGetBookmark(slug as string, "lesson")
   const [remove, { isLoading: removeLoading }] = useDeleteBookmark()
   const [add, { isLoading: addLoading }] = useAddBookmark()
-
-  const {
-    data: { feedback, id: feedbackId },
-    isLoading: feedbackLoading,
-  } = useGetFeedback(slug as string, "lesson")
-
-  const [addFeedback, { isLoading: addFeedbackLoading }] = useAddFeedback()
 
   const handleBookmarking = async () => {
     if (bookmarked) {

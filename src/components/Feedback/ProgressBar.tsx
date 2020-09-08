@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { useGetAllFeedback } from "../../hooks/feedbackHooks"
+import Loader from "react-loader-spinner"
+import colors from "../../colors"
 
 interface Props {
   slug: string
@@ -10,11 +12,10 @@ interface Props {
 const ProgressBar = (props: Props) => {
   const { slug, totalStars } = props
 
-  const { data: allFeedbackData, isLoading }: any = useGetAllFeedback(slug)
-
-  // console.log("allFeedbackData: ", allFeedbackData)
-
-  // allFeedbackData?.map((item: any) => item.rating)
+  const {
+    data: allFeedbackData,
+    status: allFeedbackStatus,
+  }: any = useGetAllFeedback(slug)
 
   const ratings: any = {
     5: 0,
@@ -30,25 +31,38 @@ const ProgressBar = (props: Props) => {
     ratings[item.rating] = ratings[item.rating] + 1
   })
 
-  return [...Array(totalStars)]
-    .map((n, i) => (
-      <Wrap key={i + 1}>
-        <StarLabel>
-          {i + 1} star {ratings[i + 1] > 0 && `(${ratings[i + 1]})`}
-        </StarLabel>
-        <ProgressBarContainer>
-          <FeedbackProgressBar
-            style={{
-              width:
-                ratings[i + 1] > 0
-                  ? (ratings[i + 1] / ratingsLength) * 100 + `%`
-                  : 0 + `%`,
-            }}
-          />
-        </ProgressBarContainer>
-      </Wrap>
-    ))
-    .reverse()
+  return allFeedbackStatus === "loading" ? (
+    <>
+      <Loader
+        type="Oval"
+        color={colors.radiantBlue}
+        height={30}
+        width={30}
+        timeout={30000} //3 secs
+      />
+      Loading data...
+    </>
+  ) : (
+    [...Array(totalStars)]
+      .map((n, i) => (
+        <Wrap key={i + 1}>
+          <StarLabel>
+            {i + 1} star {ratings[i + 1] > 0 && `(${ratings[i + 1]})`}
+          </StarLabel>
+          <ProgressBarContainer>
+            <FeedbackProgressBar
+              style={{
+                width:
+                  ratings[i + 1] > 0
+                    ? (ratings[i + 1] / ratingsLength) * 100 + `%`
+                    : 0 + `%`,
+              }}
+            />
+          </ProgressBarContainer>
+        </Wrap>
+      ))
+      .reverse()
+  )
 }
 
 export default ProgressBar
