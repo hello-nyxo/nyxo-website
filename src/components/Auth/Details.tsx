@@ -59,79 +59,77 @@ const Details: FC = () => {
   const { t } = useTranslation()
 
   return (
-    <>
-      <Container>
-        <UserInfo />
-        <Coaching />
+    <Container>
+      <UserInfo />
+      <Coaching />
 
-        <H3>Bookmarked Content</H3>
-        {weeks?.length > 0 && (
-          <>
-            <H4>{t("COACHING.WEEKS")}</H4>
-            <BookmarkContainer>
-              {weeks.map((week: ContentfulWeek) => {
-                return (
-                  <WeekCard
-                    bookmarked={false}
-                    key={`${week?.id}-${week?.slug}`}
-                    path={`/week/${week?.slug}`}
-                    intro={week?.intro}
-                    name={week?.weekName}
-                    duration={week?.duration}
-                    lessons={week?.lessons}
-                    coverPhoto={week?.coverPhoto?.fluid as FluidObject}
-                    slug={week.slug}
-                  />
-                )
-              })}
-            </BookmarkContainer>
-          </>
-        )}
-        {lessons?.length > 0 && (
-          <>
-            <H4>{t("COACHING.LESSONS")}</H4>
-            <BookmarkContainer>
-              {lessons.map((lesson: ContentfulLesson) => (
-                <LessonCard
-                  slug={`${lesson?.slug}`}
-                  name={lesson?.lessonName}
-                  key={`${lesson?.id}-${lesson?.slug}`}
+      <H3>Bookmarked Content</H3>
+      {weeks?.length > 0 && (
+        <>
+          <H4>{t("COACHING.WEEKS")}</H4>
+          <BookmarkContainer>
+            {weeks.map((week: ContentfulWeek) => {
+              return (
+                <WeekCard
                   bookmarked={false}
-                  loading={false}
-                  path={`/lesson/${lesson?.slug}`}
-                  lesson={lesson}
-                  readingTime={
-                    lesson?.lessonContent?.fields?.readingTime?.minutes
-                  }
-                  cover={lesson?.cover?.fluid as FluidObject}
-                  excerpt={lesson?.lessonContent?.fields?.excerpt}
+                  key={`${week?.id}-${week?.slug}`}
+                  path={`/week/${week?.slug}`}
+                  intro={week?.intro}
+                  name={week?.weekName}
+                  duration={week?.duration}
+                  lessons={week?.lessons}
+                  coverPhoto={week?.coverPhoto?.fluid as FluidObject}
+                  slug={week.slug}
                 />
-              ))}
-            </BookmarkContainer>
-          </>
-        )}
-        {habits?.length > 0 && (
-          <>
-            <H4>{t("HABITS")}</H4>
-            <BookmarkContainer>
-              {habits.map((node: ContentfulHabit) => (
-                <HabitCard
-                  link
-                  key={`${node.id}${node.slug}`}
-                  period={node.period}
-                  title={node.title}
-                  slug={`/habit/${node.slug}`}
-                  excerpt={node.description?.fields?.excerpt}
-                />
-              ))}
-            </BookmarkContainer>
-          </>
-        )}
+              )
+            })}
+          </BookmarkContainer>
+        </>
+      )}
+      {lessons?.length > 0 && (
+        <>
+          <H4>{t("COACHING.LESSONS")}</H4>
+          <BookmarkContainer>
+            {lessons.map((lesson: ContentfulLesson) => (
+              <LessonCard
+                slug={`${lesson?.slug}`}
+                name={lesson?.lessonName}
+                key={`${lesson?.id}-${lesson?.slug}`}
+                bookmarked={false}
+                loading={false}
+                path={`/lesson/${lesson?.slug}`}
+                lesson={lesson}
+                readingTime={
+                  lesson?.lessonContent?.fields?.readingTime?.minutes
+                }
+                cover={lesson?.cover?.fluid as FluidObject}
+                excerpt={lesson?.lessonContent?.fields?.excerpt}
+              />
+            ))}
+          </BookmarkContainer>
+        </>
+      )}
+      {habits?.length > 0 && (
+        <>
+          <H4>{t("HABITS")}</H4>
+          <BookmarkContainer>
+            {habits.map((node: ContentfulHabit) => (
+              <HabitCard
+                link
+                key={`${node.id}${node.slug}`}
+                period={node.period}
+                title={node.title}
+                slug={`/habit/${node.slug}`}
+                excerpt={node.description?.fields?.excerpt}
+              />
+            ))}
+          </BookmarkContainer>
+        </>
+      )}
 
-        <H2>{t("COACHING.SLEEP_COACHING")}</H2>
-        <UserHabits />
-      </Container>
-    </>
+      <H2>{t("COACHING.SLEEP_COACHING")}</H2>
+      <UserHabits />
+    </Container>
   )
 }
 export default Details
