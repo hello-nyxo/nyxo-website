@@ -19,6 +19,7 @@ import {
   useDeleteBookmark,
   useGetBookmark,
 } from "../hooks/bookmark-hooks"
+import Comments from "../components/Comments/Comments"
 
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
@@ -148,6 +149,8 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
             />
           )}
         </MoreLessonsContainer>
+
+        <Comments />
       </Container>
     </Layout>
   )
