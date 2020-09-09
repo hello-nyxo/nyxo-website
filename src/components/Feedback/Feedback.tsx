@@ -21,10 +21,10 @@ const Feedback = (props: Props) => {
           like. Giving 5 stars also makes them really happy.{" "}
         </p>
 
-        <StarRating totalStars={5} slug={slug as string} />
+        <StarRating totalStars={5} slug={slug} />
       </FeedbackContent>
       <FeedbackRating>
-        <ProgressBar totalStars={5} slug={slug as string} />
+        <ProgressBar totalStars={5} slug={slug} />
       </FeedbackRating>
     </FeedbackContainer>
   )

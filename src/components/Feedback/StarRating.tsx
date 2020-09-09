@@ -24,8 +24,8 @@ const StarRating = (props: Props) => {
 
   const {
     data: { feedback, id: feedbackId, rating: articleRating },
-    status: feedbackStatus,
-  } = useGetFeedback(slug as string, "lesson")
+    isLoading,
+  } = useGetFeedback(slug, "lesson")
 
   const [starsSelected, selectStar] = useState(0)
 
