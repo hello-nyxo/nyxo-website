@@ -19,8 +19,7 @@ import {
   useDeleteBookmark,
   useGetBookmark,
 } from "../hooks/bookmark-hooks"
-import StarRating from "../components/Feedback/StarRating"
-import ProgressBar from "../components/Feedback/ProgressBar"
+import Feedback from "../components/Feedback/Feedback"
 
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
@@ -121,20 +120,7 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
           </>
         )}
 
-        <FeedbackContainer>
-          <FeedbackContent>
-            <h2>Enjoying this lesson so far?</h2>
-            <p>
-              Rating this lesson helps the author to know which type of content
-              you like. Giving 5 stars also makes them really happy.{" "}
-            </p>
-
-            <StarRating totalStars={5} slug={slug as string} />
-          </FeedbackContent>
-          <FeedbackRating>
-            <ProgressBar totalStars={5} slug={slug as string} />
-          </FeedbackRating>
-        </FeedbackContainer>
+        <Feedback slug={slug} type="lesson" />
 
         <H4>{t("LESSON_BY")}</H4>
         <Authors>
