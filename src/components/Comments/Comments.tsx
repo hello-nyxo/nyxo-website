@@ -1,7 +1,39 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
+import { useAddComment, useGetAllComments } from "../../hooks/commentsHooks"
+import Moment from "moment"
 
-const Comments = () => {
+interface Props {
+  slug: string
+  type: string
+}
+
+const Comments = (props: Props) => {
+  const { slug, type } = props
+
+  const [add, isLoading] = useAddComment()
+
+  console.log("isLoading: ", isLoading.status)
+
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [comment, setComment] = useState("")
+
+  const {
+    data: allCommentData,
+    status: allCommentStatus,
+  }: any = useGetAllComments(slug)
+
+  const handleComments = async () => {
+    await add({
+      slug: slug,
+      type: type,
+      firstName: firstName,
+      lastName: lastName,
+      comment: comment,
+    })
+  }
+
   return (
     <>
       <H2>Share Your Thoughts</H2>
@@ -10,27 +42,47 @@ const Comments = () => {
         or simply engage in conversation.
       </P>
       <Container>
-        <Input placeholder="First name" />
-        <Input placeholder="Last name" />
-
-        <Comment placeholder="Write your comment..." />
-        <Button>Add Comment</Button>
+        <Input
+          name="firstName"
+          placeholder="First name"
+          onChange={(e: any) => {
+            setFirstName(e.target.value)
+          }}
+        />
+        <Input
+          name="lastName"
+          placeholder="Last name"
+          onChange={(e: any) => {
+            setLastName(e.target.value)
+          }}
+        />
+        {/* add email? */}
+        <Comment
+          name="comments"
+          placeholder="Write your comment..."
+          onChange={(e: any) => {
+            setComment(e.target.value)
+          }}
+        />
+        {isLoading.status === "loading" ? (
+          <Button disabled onClick={handleComments}>
+            Add Comment
+          </Button>
+        ) : (
+          <Button onClick={handleComments}>Add Comment</Button>
+        )}
 
         <CommentContainer>
           <h3>Comments</h3>
           <ul>
-            <Li>
-              <Date>2 May, 2021</Date>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </Text>
-            </Li>
+            {allCommentData?.map((item: any) => {
+              return (
+                <Li key={item.id}>
+                  <Date>{Moment(item.createdAt).format("d/MM/YYYY")}</Date>
+                  <Text>{item.comment}</Text>
+                </Li>
+              )
+            })}
           </ul>
         </CommentContainer>
       </Container>
@@ -99,6 +151,7 @@ const CommentContainer = styled.div`
   padding: 20px;
   box-shadow: rgb(213, 210, 208) 5px 5px 15px, rgb(255, 255, 255) -5px -5px 15px;
   border-radius: 5px;
+  width: 100%;
 `
 const Li = styled.li`
   border-bottom: 1px solid var(--textSecondary);
@@ -109,4 +162,7 @@ const Text = styled.p`
 `
 const Date = styled.small`
   color: var(--textSecondary);
+`
+const Form = styled.form`
+  display: flex;
 `

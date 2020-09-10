@@ -1,67 +1,106 @@
 import { API, graphqlOperation } from "aws-amplify"
 import { navigate } from "gatsby"
 import { queryCache, useMutation, useQuery } from "react-query"
+
 import {
-  ContentfulHabit,
-  ContentfulLesson,
-  ContentfulWeek,
-} from "../../graphql-types"
-import {
-  CreateLikedContentInput,
-  CreateLikedContentMutation,
-  DeleteLikedContentMutation,
-  LikedContentBySlugQuery,
-  LikedContentBySlugQueryVariables,
-  ListLikedContentsQuery,
+  CreateCommentsInput,
+  CreateCommentsMutation,
+  ListCommentssQuery,
 } from "../API"
 import { isLoggedIn } from "../auth/AppUser"
-import { createLikedContent, deleteLikedContent } from "../graphql/mutations"
-import { likedContentBySlug, listLikedContents } from "../graphql/queries"
+import { createComments } from "../graphql/mutations"
+import { listCommentss } from "../graphql/queries"
 
 // FIXME, remove when types for react-query become stable
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
-const addComment = async ({ name, slug, type }: CreateLikedContentInput) => {
-  if (isLoggedIn()) {
-    try {
-      const {
-        data: { createLikedContent: response },
-      } = (await API.graphql(
-        graphqlOperation(createLikedContent, { input: { name, slug, type } })
-      )) as { data: CreateLikedContentMutation }
-      return response
-    } catch (error) {
-      return error
+type Comment = {
+  slug: string
+  type: string
+  firstName?: string
+  lastName?: string
+  comments: string
+}
+
+const addComment = async ({
+  firstName,
+  lastName,
+  comment,
+  slug,
+  type,
+}: CreateCommentsInput) => {
+  try {
+    const {
+      data: { createComments: response },
+    } = (await API.graphql(
+      graphqlOperation(createComments, {
+        input: { firstName, lastName, comment, slug, type },
+      })
+    )) as { data: CreateCommentsMutation }
+    return response
+  } catch (error) {
+    return error
+  }
+}
+
+export const fetchAllComments = (slug: string) => async () => {
+  try {
+    const {
+      data: { listCommentss: result = { items: [] } },
+    } = (await API.graphql(
+      graphqlOperation(listCommentss, {
+        filter: { slug: { eq: slug } },
+      })
+    )) as {
+      data: ListCommentssQuery
     }
-  } else {
-    navigate("/me/login")
+
+    if (!result || !result.items) return []
+
+    return result.items
+  } catch (error) {
+    return error
   }
 }
 
 export const useAddComment = () => {
   return useMutation(addComment, {
-    onSuccess: ({ slug, id }, { type }) =>
-      queryCache.setQueryData([type, { slug: slug }], {
-        bookmarked: true,
-        id: id,
-      }),
+    onSuccess: ({ slug, id, type, firstName, lastName, comment }) =>
+      queryCache.setQueryData(
+        [type, { slug: slug }, firstName, lastName, comment],
+        {
+          comment: true,
+          id: id,
+        }
+      ),
   })
 }
 
-// export const fetchAllBookmarks = async () => {
-//   try {
-//     const {
-//       data: { listLikedContents: result = { items: [] } },
-//     } = (await API.graphql(graphqlOperation(listLikedContents))) as {
-//       data: ListLikedContentsQuery
-//     }
+export const useGetAllComments = (slug: string) => {
+  return useQuery("allComments", fetchAllComments(slug), {
+    initialStale: true,
+  })
+}
 
-//     if (!result || !result.items) return []
+// export const useAddComment = () => {
+//   console.log("useAddComments actived")
+//   return useMutation(addComment, {
+//     onSuccess: ({ slug, id }, { type }) =>
+//       queryCache.setQueryData([type, { slug: slug }], {
+//         comment: true,
+//         id: id,
+//       }),
+//   })
+// }
 
-//     return result.items
-//   } catch (error) {
-//     return error
-//   }
+// export const useAddBookmark = () => {
+//   return useMutation(addBookmark, {
+//     onSuccess: ({ slug, id }, { type }) =>
+//       queryCache.setQueryData([type, { slug: slug }], {
+//         bookmarked: true,
+//         id: id,
+//       }),
+//   })
 // }
 
 // export const fetchUserBookmarks = async (
@@ -205,23 +244,6 @@ export const useAddComment = () => {
 //   }
 // }
 
-// const addBookmark = async ({ name, slug, type }: CreateLikedContentInput) => {
-//   if (isLoggedIn()) {
-//     try {
-//       const {
-//         data: { createLikedContent: response },
-//       } = (await API.graphql(
-//         graphqlOperation(createLikedContent, { input: { name, slug, type } })
-//       )) as { data: CreateLikedContentMutation }
-//       return response
-//     } catch (error) {
-//       return error
-//     }
-//   } else {
-//     navigate("/me/login")
-//   }
-// }
-
 // export const useDeleteBookmark = () => {
 //   return useMutation(removeBookmark, {
 //     onSuccess: ({ slug }, { type }) =>
@@ -242,67 +264,57 @@ export const useAddComment = () => {
 //   })
 // }
 
-export const useGetBookmark = (slug: string, type: string) => {
-  if (isLoggedIn()) {
-    return useQuery([type, { slug: slug as string }], fetchLessonBookmarks, {
-      initialData: () => ({
-        bookmarked: false,
-        id: "",
-      }),
-      initialStale: true,
-    })
-  } else {
-    return {
-      isLoading: false,
-      data: {
-        bookmarked: false,
-        id: "",
-      },
-    }
-  }
-}
+// export const useGetBookmark = (slug: string, type: string) => {
+//   if (isLoggedIn()) {
+//     return useQuery([type, { slug: slug as string }], fetchLessonBookmarks, {
+//       initialData: () => ({
+//         bookmarked: false,
+//         id: "",
+//       }),
+//       initialStale: true,
+//     })
+//   } else {
+//     return {
+//       isLoading: false,
+//       data: {
+//         bookmarked: false,
+//         id: "",
+//       },
+//     }
+//   }
+// }
 
-type InitialData = ContentfulLesson[] | ContentfulHabit[] | ContentfulWeek[]
+// type InitialData = ContentfulLesson[] | ContentfulHabit[] | ContentfulWeek[]
 
-export const useGetAllBookmarks = (initialData: InitialData) => {
-  if (isLoggedIn()) {
-    return useQuery("allBookmarks", fetchAllBookmarks, {
-      initialStale: true,
-    })
-  } else {
-    return initialData
-  }
-}
+// export type ContentData = Array<
+//   ContentfulWeek | ContentfulLesson | ContentfulHabit
+// >
 
-export type ContentData = Array<
-  ContentfulWeek | ContentfulLesson | ContentfulHabit
->
+// export const useGetUserBookmarks = (content: ContentData) => {
+//   return useQuery(["userBookmarks", { content: content }], fetchUserBookmarks, {
+//     initialData: () => ({
+//       lessons: [],
+//       weeks: [],
+//       habits: [],
+//     }),
+//     initialStale: true,
+//   })
+// }
 
-export const useGetUserBookmarks = (content: ContentData) => {
-  return useQuery(["userBookmarks", { content: content }], fetchUserBookmarks, {
-    initialData: () => ({
-      lessons: [],
-      weeks: [],
-      habits: [],
-    }),
-    initialStale: true,
-  })
-}
-
-export const useGetLessons = (initialLessons: ContentfulLesson[]) => {
-  if (isLoggedIn()) {
-    return useQuery(
-      ["allLessonBookmarks", { initialLessons }],
-      fetchWeekNLessonBookmarks,
-      {
-        initialData: initialLessons,
-        initialStale: true,
-      }
-    )
-  } else {
-    return {
-      isLoading: false,
-      data: initialLessons,
-    }
-  }
-}
+// export const useGetLessons = (initialLessons: ContentfulLesson[]) => {
+//   if (isLoggedIn()) {
+//     return useQuery(
+//       ["allLessonBookmarks", { initialLessons }],
+//       fetchWeekNLessonBookmarks,
+//       {
+//         initialData: initialLessons,
+//         initialStale: true,
+//       }
+//     )
+//   } else {
+//     return {
+//       isLoading: false,
+//       data: initialLessons,
+//     }
+//   }
+// }
