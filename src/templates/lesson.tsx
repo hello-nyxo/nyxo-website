@@ -150,7 +150,7 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
           )}
         </MoreLessonsContainer>
 
-        <Comments slug={slug as string} type="lesson" />
+        <Comments slug={slug as string} type="Lesson" />
       </Container>
     </Layout>
   )

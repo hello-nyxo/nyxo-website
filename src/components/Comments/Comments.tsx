@@ -73,12 +73,18 @@ const Comments = (props: Props) => {
         )}
 
         <CommentContainer>
-          <h3>Comments</h3>
+          <h3>Comments For This {type}</h3>
           <ul>
             {allCommentData?.map((item: any) => {
               return (
                 <Li key={item.id}>
-                  <Date>{Moment(item.createdAt).format("d/MM/YYYY")}</Date>
+                  <Name>
+                    {item.firstName} {item.lastName}
+                  </Name>
+                  <Date>
+                    &nbsp; - &nbsp;{Moment(item.createdAt).format("d/MM/YYYY")}
+                  </Date>
+
                   <Text>{item.comment}</Text>
                 </Li>
               )
@@ -116,6 +122,7 @@ const Input = styled.input`
   padding: 10px;
   border: 1px solid;
   border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
 
   &:focus {
     outline-color: var(--radiantBlue);
@@ -129,6 +136,7 @@ const Comment = styled.textarea`
   border: 1px solid;
   border-radius: 5px;
   height: 200px;
+  font-family: "Montserrat", sans-serif;
 
   &:focus {
     outline-color: var(--radiantBlue);
@@ -148,21 +156,24 @@ const Button = styled.button`
 `
 const CommentContainer = styled.div`
   margin-top: 100px;
-  padding: 20px;
+  padding: 20px 50px;
   box-shadow: rgb(213, 210, 208) 5px 5px 15px, rgb(255, 255, 255) -5px -5px 15px;
   border-radius: 5px;
   width: 100%;
 `
 const Li = styled.li`
-  border-bottom: 1px solid var(--textSecondary);
+  border-bottom: 1px solid #e9e9e9;
   padding: 20px 0px;
 `
 const Text = styled.p`
   margin: 10px 0px;
+  line-height: 24px;
 `
-const Date = styled.small`
+const Date = styled.p`
   color: var(--textSecondary);
+  display: inline-block;
 `
-const Form = styled.form`
-  display: flex;
+const Name = styled.p`
+  font-weight: 500;
+  display: inline-block;
 `
