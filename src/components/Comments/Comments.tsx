@@ -13,16 +13,24 @@ const Comments = (props: Props) => {
 
   const [add, isLoading] = useAddComment()
 
-  console.log("isLoading: ", isLoading.status)
-
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
+  const [guest, setGuest] = useState(false)
   const [comment, setComment] = useState("")
+  const [checked, setChecked] = useState(false)
 
   const {
     data: allCommentData,
     status: allCommentStatus,
   }: any = useGetAllComments(slug)
+
+  const handleGuest = () => {
+    checked ? setGuest(false) : setGuest(true)
+    setFirstName("")
+    setLastName("")
+
+    // then disable the first/last name inputs
+  }
 
   const handleComments = async () => {
     await add({
@@ -31,6 +39,7 @@ const Comments = (props: Props) => {
       firstName: firstName,
       lastName: lastName,
       comment: comment,
+      guest: guest,
     })
   }
 
@@ -56,6 +65,17 @@ const Comments = (props: Props) => {
             setLastName(e.target.value)
           }}
         />
+        <input
+          name="guest"
+          type="checkbox"
+          onChange={(e) => {
+            setChecked(e.target.checked)
+            handleGuest()
+          }}
+          checked={checked}
+        />
+        <label htmlFor="guest">I wish to be anonymous.</label>
+
         {/* add email? */}
         <Comment
           name="comments"

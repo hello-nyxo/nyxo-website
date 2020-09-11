@@ -430,6 +430,7 @@ export const getComments = /* GraphQL */ `
       slug
       firstName
       lastName
+      guest
       comment
       createdAt
       updatedAt
@@ -450,6 +451,7 @@ export const listCommentss = /* GraphQL */ `
         slug
         firstName
         lastName
+        guest
         comment
         createdAt
         updatedAt
@@ -602,6 +604,7 @@ export const commentsBySlug = /* GraphQL */ `
         slug
         firstName
         lastName
+        guest
         comment
         createdAt
         updatedAt

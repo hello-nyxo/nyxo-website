@@ -673,6 +673,7 @@ export const createComments = /* GraphQL */ `
       slug
       firstName
       lastName
+      guest
       comment
       createdAt
       updatedAt
@@ -688,6 +689,7 @@ export const updateComments = /* GraphQL */ `
       slug
       firstName
       lastName
+      guest
       comment
       createdAt
       updatedAt
@@ -703,6 +705,7 @@ export const deleteComments = /* GraphQL */ `
       slug
       firstName
       lastName
+      guest
       comment
       createdAt
       updatedAt

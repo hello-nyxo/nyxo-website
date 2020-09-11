@@ -20,6 +20,7 @@ type Comment = {
   firstName?: string
   lastName?: string
   comments: string
+  guest: boolean
 }
 
 const addComment = async ({
@@ -28,13 +29,14 @@ const addComment = async ({
   comment,
   slug,
   type,
+  guest,
 }: CreateCommentsInput) => {
   try {
     const {
       data: { createComments: response },
     } = (await API.graphql(
       graphqlOperation(createComments, {
-        input: { firstName, lastName, comment, slug, type },
+        input: { firstName, lastName, comment, slug, type, guest },
       })
     )) as { data: CreateCommentsMutation }
     return response
@@ -65,9 +67,9 @@ export const fetchAllComments = (slug: string) => async () => {
 
 export const useAddComment = () => {
   return useMutation(addComment, {
-    onSuccess: ({ slug, id, type, firstName, lastName, comment }) =>
+    onSuccess: ({ slug, id, type, firstName, lastName, comment, guest }) =>
       queryCache.setQueryData(
-        [type, { slug: slug }, firstName, lastName, comment],
+        [type, { slug: slug }, firstName, lastName, comment, guest],
         {
           comment: true,
           id: id,

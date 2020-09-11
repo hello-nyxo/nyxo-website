@@ -312,5 +312,6 @@ type Comments
   slug: String!
   firstName: String
   lastName: String
+  guest: Boolean
   comment: String!
 }
