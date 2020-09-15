@@ -108,6 +108,12 @@ export const getUser = /* GraphQL */ `
         updatedAt
         owner
       }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -258,57 +264,6 @@ export const listHabits = /* GraphQL */ `
     }
   }
 `;
-export const getNight = /* GraphQL */ `
-  query GetNight($id: ID!) {
-    getNight(id: $id) {
-      id
-      userId
-      user {
-        connectionId
-        id
-        email
-        nickname
-        darkMode
-        intercomId
-        createdAt
-        updatedAt
-      }
-      sourceId
-      sourceName
-      value
-      startDate
-      endDate
-      totalDuration
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const listNights = /* GraphQL */ `
-  query ListNights(
-    $filter: ModelNightFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listNights(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        userId
-        sourceId
-        sourceName
-        value
-        startDate
-        endDate
-        totalDuration
-        createdAt
-        updatedAt
-        owner
-      }
-      nextToken
-    }
-  }
-`;
 export const getLikedContent = /* GraphQL */ `
   query GetLikedContent($id: ID!) {
     getLikedContent(id: $id) {
@@ -334,6 +289,125 @@ export const listLikedContents = /* GraphQL */ `
         name
         type
         slug
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getNightRating = /* GraphQL */ `
+  query GetNightRating($id: ID!) {
+    getNightRating(id: $id) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listNightRatings = /* GraphQL */ `
+  query ListNightRatings(
+    $filter: ModelNightRatingFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNightRatings(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        userId
+        rating
+        date
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getFeedbackContent = /* GraphQL */ `
+  query GetFeedbackContent($id: ID!) {
+    getFeedbackContent(id: $id) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listFeedbackContents = /* GraphQL */ `
+  query ListFeedbackContents(
+    $filter: ModelFeedbackContentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFeedbackContents(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        type
+        slug
+        rating
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getComments = /* GraphQL */ `
+  query GetComments($id: ID!) {
+    getComments(id: $id) {
+      id
+      type
+      slug
+      firstName
+      lastName
+      guest
+      comment
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listCommentss = /* GraphQL */ `
+  query ListCommentss(
+    $filter: ModelCommentsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCommentss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        type
+        slug
+        firstName
+        lastName
+        guest
+        comment
         createdAt
         updatedAt
         owner
@@ -424,6 +498,120 @@ export const likedContentBySlug = /* GraphQL */ `
         name
         type
         slug
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const feedbackContentBySlug = /* GraphQL */ `
+  query FeedbackContentBySlug(
+    $slug: String
+    $id: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelFeedbackContentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    feedbackContentBySlug(
+      slug: $slug
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        type
+        slug
+        rating
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const commentsBySlug = /* GraphQL */ `
+  query CommentsBySlug(
+    $slug: String
+    $id: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelCommentsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    commentsBySlug(
+      slug: $slug
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        type
+        slug
+        firstName
+        lastName
+        guest
+        comment
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getNight = /* GraphQL */ `
+  query GetNight($id: ID!) {
+    getNight(id: $id) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      sourceId
+      sourceName
+      value
+      startDate
+      endDate
+      totalDuration
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listNights = /* GraphQL */ `
+  query ListNights(
+    $filter: ModelNightFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNights(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        userId
+        sourceId
+        sourceName
+        value
+        startDate
+        endDate
+        totalDuration
         createdAt
         updatedAt
         owner

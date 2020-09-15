@@ -155,6 +155,12 @@ export const createUser = /* GraphQL */ `
         updatedAt
         owner
       }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -181,6 +187,12 @@ export const updateUser = /* GraphQL */ `
         updatedAt
         owner
       }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -206,6 +218,12 @@ export const deleteUser = /* GraphQL */ `
         createdAt
         updatedAt
         owner
+      }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
       }
       createdAt
       updatedAt
@@ -551,6 +569,162 @@ export const deleteLikedContent = /* GraphQL */ `
       name
       type
       slug
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const createNightRating = /* GraphQL */ `
+  mutation CreateNightRating($input: CreateNightRatingInput!) {
+    createNightRating(input: $input) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateNightRating = /* GraphQL */ `
+  mutation UpdateNightRating($input: UpdateNightRatingInput!) {
+    updateNightRating(input: $input) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteNightRating = /* GraphQL */ `
+  mutation DeleteNightRating($input: DeleteNightRatingInput!) {
+    deleteNightRating(input: $input) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const createFeedbackContent = /* GraphQL */ `
+  mutation CreateFeedbackContent($input: CreateFeedbackContentInput!) {
+    createFeedbackContent(input: $input) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateFeedbackContent = /* GraphQL */ `
+  mutation UpdateFeedbackContent($input: UpdateFeedbackContentInput!) {
+    updateFeedbackContent(input: $input) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteFeedbackContent = /* GraphQL */ `
+  mutation DeleteFeedbackContent($input: DeleteFeedbackContentInput!) {
+    deleteFeedbackContent(input: $input) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const createComments = /* GraphQL */ `
+  mutation CreateComments($input: CreateCommentsInput!) {
+    createComments(input: $input) {
+      id
+      type
+      slug
+      firstName
+      lastName
+      guest
+      comment
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateComments = /* GraphQL */ `
+  mutation UpdateComments($input: UpdateCommentsInput!) {
+    updateComments(input: $input) {
+      id
+      type
+      slug
+      firstName
+      lastName
+      guest
+      comment
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteComments = /* GraphQL */ `
+  mutation DeleteComments($input: DeleteCommentsInput!) {
+    deleteComments(input: $input) {
+      id
+      type
+      slug
+      firstName
+      lastName
+      guest
+      comment
       createdAt
       updatedAt
       owner
