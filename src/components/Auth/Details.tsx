@@ -1,28 +1,22 @@
-import { navigate } from "@reach/router"
-import { Auth } from "aws-amplify"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { FluidObject } from "gatsby-image"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import {
-  ContentfulHabit,
-  ContentfulLesson,
-  ContentfulWeek,
+	ContentfulHabit,
+	ContentfulLesson,
+	ContentfulWeek
 } from "../../../graphql-types"
-import { getCurrentUser } from "../../auth/AppUser"
-import colors from "../../colors"
 import { Container } from "../../components/Primitives"
+import { useGetUserBookmarks } from "../../hooks/bookmark-hooks"
 import HabitCard from "../Habit/HabitCard"
 import { H2, H3, H4 } from "../Html/HtmlContent"
-import { Icon } from "../Icons"
-import PageHeader from "../PageHeader"
-import UserHabits from "../user/UserHabits"
 import LessonCard from "../lesson/LessonCard"
-import WeekCard from "../week/WeekCard"
-import { useGetUserBookmarks } from "../../hooks/bookmark-hooks"
-import { useTranslation } from "gatsby-plugin-react-i18next"
-import UserInfo from "../user/UserInfo"
 import Coaching from "../user/Coaching"
+import UserHabits from "../user/UserHabits"
+import UserInfo from "../user/UserInfo"
+import WeekCard from "../week/WeekCard"
 
 const Details: FC = () => {
   const {
@@ -52,10 +46,7 @@ const Details: FC = () => {
   `)
   const {
     data: { lessons, weeks, habits },
-    status,
   } = useGetUserBookmarks([...weekContent, ...habitContent, ...lessonContent])
-  const user = getCurrentUser()
-
   const { t } = useTranslation()
 
   return (

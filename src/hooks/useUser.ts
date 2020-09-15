@@ -21,8 +21,6 @@ export const updateUserData = async ({
     id: username,
   }
 
-  console.log(username)
-
   try {
     const {
       data: { updateUser: data },

@@ -1,17 +1,16 @@
-import React, { FC } from "react"
-import { H3, H5, H4 } from "../Html/HtmlContent"
 import { useTranslation } from "gatsby-plugin-react-i18next"
+import React, { FC } from "react"
 import styled from "styled-components"
 import { useListCoaching } from "../../hooks/useCoaching"
-import { format } from "date-fns"
-import { useUpdateUser, useGetActiveCoaching } from "../../hooks/useUser"
+import { useGetActiveCoaching, useUpdateUser } from "../../hooks/useUser"
 import CoachingCard from "../coaching/CoachingCard"
+import { H3, H4, H5 } from "../Html/HtmlContent"
 
 const Coaching: FC = () => {
   const { t } = useTranslation()
   const { data: coaching } = useListCoaching()
   const { data: active } = useGetActiveCoaching()
-  const [mutate, { data, error }] = useUpdateUser()
+  const [mutate] = useUpdateUser()
 
   // console.log(status, data, error)
   console.log("listCoaching", coaching)

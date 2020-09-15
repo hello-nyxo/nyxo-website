@@ -191,7 +191,20 @@
     "TABLET": "Sleep Tracking & Coaching",
     "DESKTOP": "Track your sleep and get personalized sleep coaching",
     "BUTTON": "Get Nyxo"
-  },
+	},
+	
+	"USER":{
+		"EMAIL": "Email",
+		"ID":"ID",
+		"INTERCOM":"Intercom ID",
+		"LINK":"Link code",
+		"ACTIVE_COACHING":"Coaching",
+		"CREATED":"Account created",
+		"UPDATED":"Account updated",
+		"COACHING":"Coaching",
+		"CURRENTLY_ACTIVE":"Currently Active Coaching",
+		"ALL_COACHING_DATA":"All Coaching Periods"
+	},
 
   "en": "english",
   "fi": "Suomeksi"
