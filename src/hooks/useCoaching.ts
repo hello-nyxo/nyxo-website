@@ -16,7 +16,9 @@ export type CoachingData = Omit<
   "__typename" | "user"
 > | null
 
-export const listCoaching = async (): Promise<CoachingData[]> => {
+export const listCoaching = async (): Promise<
+  Exclude<ListCoachingDatasQuery["listCoachingDatas"]["items"], null>
+> => {
   try {
     const {
       data: { listCoachingDatas: data },

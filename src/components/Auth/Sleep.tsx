@@ -3,6 +3,12 @@ import React, { FC, useMemo } from "react"
 import { H3 } from "../Html/HtmlContent"
 import { useGetSleep } from "../../hooks/useSleep"
 import { useTable } from "react-table"
+import { format, isDate } from "date-fns"
+import styled from "styled-components"
+import SleepChart, { Night, Value } from "../charts/SleepChart"
+
+const dateFormat = "dd.MM.yyyy"
+
 const Sleep: FC = () => {
   const { data } = useGetSleep()
 
@@ -14,15 +20,26 @@ const Sleep: FC = () => {
         columns: [
           {
             Header: "Start",
-            accessor: "startDate",
+            accessor: ({ startDate: date }: { startDate: string }) =>
+              format(
+                isDate(new Date(date)) ? new Date(date) : new Date(),
+                dateFormat
+              ),
+            id: "startDate",
           },
           {
             Header: "End",
-            accessor: "endDate",
+            accessor: ({ endDate: date }: { endDate: string }) =>
+              format(
+                isDate(new Date(date)) ? new Date(date) : new Date(),
+                dateFormat
+              ),
+            id: "endDate",
           },
           {
             Header: "Type",
             accessor: "value",
+            id: "value",
           },
         ],
       },
@@ -31,7 +48,12 @@ const Sleep: FC = () => {
         columns: [
           {
             Header: "createdAt",
-            accessor: "createdAt",
+            accessor: ({ createdAt: date }: { createdAt: string }) =>
+              format(
+                isDate(new Date(date)) ? new Date(date) : new Date(),
+                dateFormat
+              ),
+            id: "createdAt",
           },
           {
             Header: "sourceId",
@@ -66,63 +88,70 @@ const Sleep: FC = () => {
   return (
     <Container>
       <H3>SLEEP</H3>
+
+      <SleepChart data={items} />
+
+      <Cards>
+        <Card>
+          <div>Unessa (keskiarvo)</div>
+          <div>{averageInBed(items)}</div>
+        </Card>
+      </Cards>
+
       <div>
-        <table {...getTableProps()}>
-          <thead>
-            {
-              // Loop over the header rows
-              headerGroups.map((headerGroup) => (
-                // Apply the header row props
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                  {
-                    // Loop over the headers in each row
-                    headerGroup.headers.map((column) => (
-                      // Apply the header cell props
-                      <th {...column.getHeaderProps()}>
-                        {
-                          // Render the header
-                          column.render("Header")
-                        }
-                      </th>
-                    ))
-                  }
-                </tr>
-              ))
-            }
-          </thead>
-          {/* Apply the table body props */}
+        <Table {...getTableProps()}>
+          <Thead>
+            {headerGroups.map((headerGroup) => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                  <th {...column.getHeaderProps()}>
+                    {column.render("Header")}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </Thead>
           <tbody {...getTableBodyProps()}>
-            {
-              // Loop over the table rows
-              rows.map((row) => {
-                // Prepare the row for display
-                prepareRow(row)
-                return (
-                  // Apply the row props
-                  <tr {...row.getRowProps()}>
-                    {
-                      // Loop over the rows cells
-                      row.cells.map((cell) => {
-                        // Apply the cell props
-                        return (
-                          <td {...cell.getCellProps()}>
-                            {
-                              // Render the cell contents
-                              cell.render("Cell")
-                            }
-                          </td>
-                        )
-                      })
-                    }
-                  </tr>
-                )
-              })
-            }
+            {rows.map((row) => {
+              prepareRow(row)
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map((cell) => {
+                    return (
+                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    )
+                  })}
+                </tr>
+              )
+            })}
           </tbody>
-        </table>
+        </Table>
       </div>
     </Container>
   )
 }
 
 export default Sleep
+
+const Table = styled.table`
+  width: 100%;
+`
+
+const Thead = styled.thead`
+  padding: 1rem 0rem;
+`
+
+const Cards = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+const Card = styled.div``
+
+const averageInBed = (night: Night[]) =>
+  night
+    .filter((night) => night.value === "InBed")
+    .reduce(
+      (average, value, _, { length }) => average + value.totalDuration / length,
+      0
+    )
