@@ -9,9 +9,7 @@
 </p>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Build, test, and release](https://github.com/hello-nyxo/nyxo-website/workflows/Build,%20test,%20and%20release/badge.svg)
@@ -101,12 +99,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://www.kayla-gordon.com/"><img src="https://avatars3.githubusercontent.com/u/13418428?v=4" width="100px;" alt=""/><br /><sub><b>Kayla Gordon</b></sub></a><br /><a href="https://github.com/hello-nyxo/nyxo-website/commits?author=turq84" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/plahteenlahti"><img src="https://avatars0.githubusercontent.com/u/7436554?v=4" width="100px;" alt=""/><br /><sub><b>Perttu</b></sub></a><br /><a href="https://github.com/hello-nyxo/nyxo-website/commits?author=plahteenlahti" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/pietnurm"><img src="https://avatars0.githubusercontent.com/u/24267472?v=4" width="100px;" alt=""/><br /><sub><b>pietnurm</b></sub></a><br /><a href="#blog-pietnurm" title="Blogposts">📝</a></td>
+    <td align="center"><a href="http://eeva.lol"><img src="https://avatars3.githubusercontent.com/u/37406275?v=4" width="100px;" alt=""/><br /><sub><b>eevasii</b></sub></a><br /><a href="#blog-eevasii" title="Blogposts">📝</a> <a href="#business-eevasii" title="Business development">💼</a> <a href="https://github.com/hello-nyxo/nyxo-website/issues?q=author%3Aeevasii" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

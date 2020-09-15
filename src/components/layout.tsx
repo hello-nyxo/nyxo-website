@@ -1,11 +1,9 @@
-import React, { useEffect, FC } from "react"
+import React, { FC, useEffect } from "react"
 import "../../static/styles/all.scss"
-import Header from "./header"
 import generateAscii from "../Helpers/AsciiHelper"
 import Footer from "./Footer/Footer"
 import FloatingPrompt from "./GetAppBanner/FloatingPrompt"
-import { useSpring, animated } from "react-spring"
-import styled from "styled-components"
+import Header from "./header"
 
 type Props = {
   children: JSX.Element | JSX.Element[]
@@ -16,17 +14,10 @@ const Layout: FC<Props> = ({ children }) => {
     generateAscii()
   }, [])
 
-  const style = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-  })
-
   return (
     <>
       <Header />
-      <Content style={style}>
-        <main>{children}</main>
-      </Content>
+      <main>{children}</main>
       <FloatingPrompt />
       <footer>
         <Footer />
@@ -36,5 +27,3 @@ const Layout: FC<Props> = ({ children }) => {
 }
 
 export default Layout
-
-const Content = styled(animated.div)``

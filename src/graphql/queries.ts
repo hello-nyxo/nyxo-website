@@ -96,6 +96,24 @@ export const getUser = /* GraphQL */ `
       nickname
       darkMode
       intercomId
+      activeCoaching {
+        id
+        userId
+        stage
+        activeWeek
+        started
+        ended
+        lessons
+        createdAt
+        updatedAt
+        owner
+      }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -126,16 +144,19 @@ export const getCoachingData = /* GraphQL */ `
   query GetCoachingData($id: ID!) {
     getCoachingData(id: $id) {
       id
-      weeks {
-        started
-        ended
-        locked
-        slug
-      }
-      lessons
       userId
-      stage
       user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      stage
+      active {
         connectionId
         id
         email
@@ -148,6 +169,13 @@ export const getCoachingData = /* GraphQL */ `
       activeWeek
       started
       ended
+      weeks {
+        started
+        ended
+        locked
+        slug
+      }
+      lessons
       createdAt
       updatedAt
       owner
@@ -163,12 +191,12 @@ export const listCoachingDatas = /* GraphQL */ `
     listCoachingDatas(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        lessons
         userId
         stage
         activeWeek
         started
         ended
+        lessons
         createdAt
         updatedAt
         owner
@@ -236,59 +264,6 @@ export const listHabits = /* GraphQL */ `
     }
   }
 `;
-export const getNight = /* GraphQL */ `
-  query GetNight($id: ID!) {
-    getNight(id: $id) {
-      id
-      userId
-      user {
-        connectionId
-        id
-        email
-        nickname
-        darkMode
-        intercomId
-        createdAt
-        updatedAt
-      }
-      sourceId
-      sourceName
-      source
-      value
-      startDate
-      endDate
-      totalDuration
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const listNights = /* GraphQL */ `
-  query ListNights(
-    $filter: ModelNightFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listNights(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        userId
-        sourceId
-        sourceName
-        source
-        value
-        startDate
-        endDate
-        totalDuration
-        createdAt
-        updatedAt
-        owner
-      }
-      nextToken
-    }
-  }
-`;
 export const getLikedContent = /* GraphQL */ `
   query GetLikedContent($id: ID!) {
     getLikedContent(id: $id) {
@@ -296,7 +271,6 @@ export const getLikedContent = /* GraphQL */ `
       name
       type
       slug
-      excerpt
       createdAt
       updatedAt
       owner
@@ -315,7 +289,125 @@ export const listLikedContents = /* GraphQL */ `
         name
         type
         slug
-        excerpt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getNightRating = /* GraphQL */ `
+  query GetNightRating($id: ID!) {
+    getNightRating(id: $id) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listNightRatings = /* GraphQL */ `
+  query ListNightRatings(
+    $filter: ModelNightRatingFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNightRatings(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        userId
+        rating
+        date
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getFeedbackContent = /* GraphQL */ `
+  query GetFeedbackContent($id: ID!) {
+    getFeedbackContent(id: $id) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listFeedbackContents = /* GraphQL */ `
+  query ListFeedbackContents(
+    $filter: ModelFeedbackContentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFeedbackContents(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        type
+        slug
+        rating
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getComments = /* GraphQL */ `
+  query GetComments($id: ID!) {
+    getComments(id: $id) {
+      id
+      type
+      slug
+      firstName
+      lastName
+      guest
+      comment
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listCommentss = /* GraphQL */ `
+  query ListCommentss(
+    $filter: ModelCommentsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCommentss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        type
+        slug
+        firstName
+        lastName
+        guest
+        comment
         createdAt
         updatedAt
         owner
@@ -450,12 +542,12 @@ export const coachingByUser = /* GraphQL */ `
     ) {
       items {
         id
-        lessons
         userId
         stage
         activeWeek
         started
         ended
+        lessons
         createdAt
         updatedAt
         owner
@@ -467,7 +559,7 @@ export const coachingByUser = /* GraphQL */ `
 export const likedContentBySlug = /* GraphQL */ `
   query LikedContentBySlug(
     $slug: String
-    $id: ModelStringKeyConditionInput
+    $id: ModelIDKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelLikedContentFilterInput
     $limit: Int
@@ -486,7 +578,120 @@ export const likedContentBySlug = /* GraphQL */ `
         name
         type
         slug
-        excerpt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const feedbackContentBySlug = /* GraphQL */ `
+  query FeedbackContentBySlug(
+    $slug: String
+    $id: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelFeedbackContentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    feedbackContentBySlug(
+      slug: $slug
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        type
+        slug
+        rating
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const commentsBySlug = /* GraphQL */ `
+  query CommentsBySlug(
+    $slug: String
+    $id: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelCommentsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    commentsBySlug(
+      slug: $slug
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        type
+        slug
+        firstName
+        lastName
+        guest
+        comment
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getNight = /* GraphQL */ `
+  query GetNight($id: ID!) {
+    getNight(id: $id) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      sourceId
+      sourceName
+      value
+      startDate
+      endDate
+      totalDuration
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listNights = /* GraphQL */ `
+  query ListNights(
+    $filter: ModelNightFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNights(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        userId
+        sourceId
+        sourceName
+        value
+        startDate
+        endDate
+        totalDuration
         createdAt
         updatedAt
         owner

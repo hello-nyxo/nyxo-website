@@ -143,6 +143,24 @@ export const createUser = /* GraphQL */ `
       nickname
       darkMode
       intercomId
+      activeCoaching {
+        id
+        userId
+        stage
+        activeWeek
+        started
+        ended
+        lessons
+        createdAt
+        updatedAt
+        owner
+      }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -157,6 +175,24 @@ export const updateUser = /* GraphQL */ `
       nickname
       darkMode
       intercomId
+      activeCoaching {
+        id
+        userId
+        stage
+        activeWeek
+        started
+        ended
+        lessons
+        createdAt
+        updatedAt
+        owner
+      }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -171,6 +207,24 @@ export const deleteUser = /* GraphQL */ `
       nickname
       darkMode
       intercomId
+      activeCoaching {
+        id
+        userId
+        stage
+        activeWeek
+        started
+        ended
+        lessons
+        createdAt
+        updatedAt
+        owner
+      }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -180,16 +234,19 @@ export const createCoachingData = /* GraphQL */ `
   mutation CreateCoachingData($input: CreateCoachingDataInput!) {
     createCoachingData(input: $input) {
       id
-      weeks {
-        started
-        ended
-        locked
-        slug
-      }
-      lessons
       userId
-      stage
       user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      stage
+      active {
         connectionId
         id
         email
@@ -202,6 +259,13 @@ export const createCoachingData = /* GraphQL */ `
       activeWeek
       started
       ended
+      weeks {
+        started
+        ended
+        locked
+        slug
+      }
+      lessons
       createdAt
       updatedAt
       owner
@@ -212,16 +276,19 @@ export const updateCoachingData = /* GraphQL */ `
   mutation UpdateCoachingData($input: UpdateCoachingDataInput!) {
     updateCoachingData(input: $input) {
       id
-      weeks {
-        started
-        ended
-        locked
-        slug
-      }
-      lessons
       userId
-      stage
       user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      stage
+      active {
         connectionId
         id
         email
@@ -234,6 +301,13 @@ export const updateCoachingData = /* GraphQL */ `
       activeWeek
       started
       ended
+      weeks {
+        started
+        ended
+        locked
+        slug
+      }
+      lessons
       createdAt
       updatedAt
       owner
@@ -244,16 +318,19 @@ export const deleteCoachingData = /* GraphQL */ `
   mutation DeleteCoachingData($input: DeleteCoachingDataInput!) {
     deleteCoachingData(input: $input) {
       id
-      weeks {
-        started
-        ended
-        locked
-        slug
-      }
-      lessons
       userId
-      stage
       user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      stage
+      active {
         connectionId
         id
         email
@@ -266,6 +343,13 @@ export const deleteCoachingData = /* GraphQL */ `
       activeWeek
       started
       ended
+      weeks {
+        started
+        ended
+        locked
+        slug
+      }
+      lessons
       createdAt
       updatedAt
       owner
@@ -388,7 +472,6 @@ export const createNight = /* GraphQL */ `
       }
       sourceId
       sourceName
-      source
       value
       startDate
       endDate
@@ -416,7 +499,6 @@ export const updateNight = /* GraphQL */ `
       }
       sourceId
       sourceName
-      source
       value
       startDate
       endDate
@@ -444,7 +526,6 @@ export const deleteNight = /* GraphQL */ `
       }
       sourceId
       sourceName
-      source
       value
       startDate
       endDate
@@ -462,7 +543,6 @@ export const createLikedContent = /* GraphQL */ `
       name
       type
       slug
-      excerpt
       createdAt
       updatedAt
       owner
@@ -476,7 +556,6 @@ export const updateLikedContent = /* GraphQL */ `
       name
       type
       slug
-      excerpt
       createdAt
       updatedAt
       owner
@@ -490,7 +569,162 @@ export const deleteLikedContent = /* GraphQL */ `
       name
       type
       slug
-      excerpt
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const createNightRating = /* GraphQL */ `
+  mutation CreateNightRating($input: CreateNightRatingInput!) {
+    createNightRating(input: $input) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateNightRating = /* GraphQL */ `
+  mutation UpdateNightRating($input: UpdateNightRatingInput!) {
+    updateNightRating(input: $input) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteNightRating = /* GraphQL */ `
+  mutation DeleteNightRating($input: DeleteNightRatingInput!) {
+    deleteNightRating(input: $input) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const createFeedbackContent = /* GraphQL */ `
+  mutation CreateFeedbackContent($input: CreateFeedbackContentInput!) {
+    createFeedbackContent(input: $input) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateFeedbackContent = /* GraphQL */ `
+  mutation UpdateFeedbackContent($input: UpdateFeedbackContentInput!) {
+    updateFeedbackContent(input: $input) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteFeedbackContent = /* GraphQL */ `
+  mutation DeleteFeedbackContent($input: DeleteFeedbackContentInput!) {
+    deleteFeedbackContent(input: $input) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const createComments = /* GraphQL */ `
+  mutation CreateComments($input: CreateCommentsInput!) {
+    createComments(input: $input) {
+      id
+      type
+      slug
+      firstName
+      lastName
+      guest
+      comment
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateComments = /* GraphQL */ `
+  mutation UpdateComments($input: UpdateCommentsInput!) {
+    updateComments(input: $input) {
+      id
+      type
+      slug
+      firstName
+      lastName
+      guest
+      comment
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteComments = /* GraphQL */ `
+  mutation DeleteComments($input: DeleteCommentsInput!) {
+    deleteComments(input: $input) {
+      id
+      type
+      slug
+      firstName
+      lastName
+      guest
+      comment
       createdAt
       updatedAt
       owner

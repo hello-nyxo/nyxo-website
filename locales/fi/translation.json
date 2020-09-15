@@ -96,7 +96,7 @@
   "COACHING": {
     "TITLE": "Nyxo Univalmennus",
     "SUBTITLE": "Tutustu hyvien yöunien salaisuuksiin",
-
+    "DESCRIPTION": "Hyvät unet ovat avain menestykseen. Tunnet olosi paremmaksi, ajatukset ovat kirkkaat, ja saat enemmän aikaan. Kysymys kuuluukin, miten unta pystyy parantamaan? Sänkyyn mentyäsi ei unen laatuun varsinaisesti voi vaikuttaa. Tästä huolimatta, sillä mitä teet päivän aikana ja sillä miten nukut on suora yhteys toisiinsa. Tähän valmennuksemme perustuu.",
     "INTRODUCTION": "Hyvät unet ovat avain menestykseen. Tunnet olosi paremmaksi, ajatukset ovat kirkkaat, ja saat enemmän aikaan. Kysymys kuuluukin, miten unta pystyy parantamaan? Sänkyyn mentyäsi ei unen laatuun varsinaisesti voi vaikuttaa. Tästä huolimatta, sillä mitä teet päivän aikana ja sillä miten nukut on suora yhteys toisiinsa. Tähän valmennuksemme perustuu.",
 
     "HOW_IT_WORKS": "Kuinka Nyxo Univalmennus toimii",
@@ -189,6 +189,19 @@
     "TABLET": "Unen seuranta & valmennus",
     "DESKTOP": "Seuraa untasi ja saa henkilökohtaista univalmennusta",
     "BUTTON": "Lataa Nyxo"
+  },
+
+  "USER": {
+    "EMAIL": "Sähköposti",
+    "ID": "ID",
+    "INTERCOM": "Intercom ID",
+    "LINK": "Linkkikoodi",
+    "ACTIVE_COACHING": "Valmennus",
+    "CREATED": "Tili luotu",
+    "UPDATED": "Tili päivitetty",
+    "COACHING": "Valmennus",
+    "CURRENTLY_ACTIVE": "Tällä hetkellä aktiivinen valmennus",
+    "ALL_COACHING_DATA": "Kaikki valmennusjaksot"
   },
 
   "en": "In English",

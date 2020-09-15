@@ -143,6 +143,24 @@ export const onCreateUser = /* GraphQL */ `
       nickname
       darkMode
       intercomId
+      activeCoaching {
+        id
+        userId
+        stage
+        activeWeek
+        started
+        ended
+        lessons
+        createdAt
+        updatedAt
+        owner
+      }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -157,6 +175,24 @@ export const onUpdateUser = /* GraphQL */ `
       nickname
       darkMode
       intercomId
+      activeCoaching {
+        id
+        userId
+        stage
+        activeWeek
+        started
+        ended
+        lessons
+        createdAt
+        updatedAt
+        owner
+      }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -171,6 +207,24 @@ export const onDeleteUser = /* GraphQL */ `
       nickname
       darkMode
       intercomId
+      activeCoaching {
+        id
+        userId
+        stage
+        activeWeek
+        started
+        ended
+        lessons
+        createdAt
+        updatedAt
+        owner
+      }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -180,16 +234,19 @@ export const onCreateCoachingData = /* GraphQL */ `
   subscription OnCreateCoachingData($owner: String!) {
     onCreateCoachingData(owner: $owner) {
       id
-      weeks {
-        started
-        ended
-        locked
-        slug
-      }
-      lessons
       userId
-      stage
       user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      stage
+      active {
         connectionId
         id
         email
@@ -202,6 +259,13 @@ export const onCreateCoachingData = /* GraphQL */ `
       activeWeek
       started
       ended
+      weeks {
+        started
+        ended
+        locked
+        slug
+      }
+      lessons
       createdAt
       updatedAt
       owner
@@ -212,16 +276,19 @@ export const onUpdateCoachingData = /* GraphQL */ `
   subscription OnUpdateCoachingData($owner: String!) {
     onUpdateCoachingData(owner: $owner) {
       id
-      weeks {
-        started
-        ended
-        locked
-        slug
-      }
-      lessons
       userId
-      stage
       user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      stage
+      active {
         connectionId
         id
         email
@@ -234,6 +301,13 @@ export const onUpdateCoachingData = /* GraphQL */ `
       activeWeek
       started
       ended
+      weeks {
+        started
+        ended
+        locked
+        slug
+      }
+      lessons
       createdAt
       updatedAt
       owner
@@ -244,16 +318,19 @@ export const onDeleteCoachingData = /* GraphQL */ `
   subscription OnDeleteCoachingData($owner: String!) {
     onDeleteCoachingData(owner: $owner) {
       id
-      weeks {
-        started
-        ended
-        locked
-        slug
-      }
-      lessons
       userId
-      stage
       user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      stage
+      active {
         connectionId
         id
         email
@@ -266,6 +343,13 @@ export const onDeleteCoachingData = /* GraphQL */ `
       activeWeek
       started
       ended
+      weeks {
+        started
+        ended
+        locked
+        slug
+      }
+      lessons
       createdAt
       updatedAt
       owner
@@ -371,8 +455,203 @@ export const onDeleteHabit = /* GraphQL */ `
     }
   }
 `;
+export const onCreateLikedContent = /* GraphQL */ `
+  subscription OnCreateLikedContent($owner: String!) {
+    onCreateLikedContent(owner: $owner) {
+      id
+      name
+      type
+      slug
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateLikedContent = /* GraphQL */ `
+  subscription OnUpdateLikedContent($owner: String!) {
+    onUpdateLikedContent(owner: $owner) {
+      id
+      name
+      type
+      slug
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteLikedContent = /* GraphQL */ `
+  subscription OnDeleteLikedContent($owner: String!) {
+    onDeleteLikedContent(owner: $owner) {
+      id
+      name
+      type
+      slug
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onCreateNightRating = /* GraphQL */ `
+  subscription OnCreateNightRating($owner: String!) {
+    onCreateNightRating(owner: $owner) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateNightRating = /* GraphQL */ `
+  subscription OnUpdateNightRating($owner: String!) {
+    onUpdateNightRating(owner: $owner) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteNightRating = /* GraphQL */ `
+  subscription OnDeleteNightRating($owner: String!) {
+    onDeleteNightRating(owner: $owner) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      rating
+      date
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onCreateFeedbackContent = /* GraphQL */ `
+  subscription OnCreateFeedbackContent($owner: String!) {
+    onCreateFeedbackContent(owner: $owner) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateFeedbackContent = /* GraphQL */ `
+  subscription OnUpdateFeedbackContent($owner: String!) {
+    onUpdateFeedbackContent(owner: $owner) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteFeedbackContent = /* GraphQL */ `
+  subscription OnDeleteFeedbackContent($owner: String!) {
+    onDeleteFeedbackContent(owner: $owner) {
+      id
+      type
+      slug
+      rating
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onCreateComments = /* GraphQL */ `
+  subscription OnCreateComments($owner: String!) {
+    onCreateComments(owner: $owner) {
+      id
+      type
+      slug
+      firstName
+      lastName
+      guest
+      comment
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateComments = /* GraphQL */ `
+  subscription OnUpdateComments($owner: String!) {
+    onUpdateComments(owner: $owner) {
+      id
+      type
+      slug
+      firstName
+      lastName
+      guest
+      comment
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteComments = /* GraphQL */ `
+  subscription OnDeleteComments($owner: String!) {
+    onDeleteComments(owner: $owner) {
+      id
+      type
+      slug
+      firstName
+      lastName
+      guest
+      comment
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
 export const onCreateNight = /* GraphQL */ `
-  subscription OnCreateNight($owner: String!) {
+  subscription OnCreateNight($owner: String) {
     onCreateNight(owner: $owner) {
       id
       userId
@@ -388,7 +667,6 @@ export const onCreateNight = /* GraphQL */ `
       }
       sourceId
       sourceName
-      source
       value
       startDate
       endDate
@@ -400,7 +678,7 @@ export const onCreateNight = /* GraphQL */ `
   }
 `;
 export const onUpdateNight = /* GraphQL */ `
-  subscription OnUpdateNight($owner: String!) {
+  subscription OnUpdateNight($owner: String) {
     onUpdateNight(owner: $owner) {
       id
       userId
@@ -416,7 +694,6 @@ export const onUpdateNight = /* GraphQL */ `
       }
       sourceId
       sourceName
-      source
       value
       startDate
       endDate
@@ -428,7 +705,7 @@ export const onUpdateNight = /* GraphQL */ `
   }
 `;
 export const onDeleteNight = /* GraphQL */ `
-  subscription OnDeleteNight($owner: String!) {
+  subscription OnDeleteNight($owner: String) {
     onDeleteNight(owner: $owner) {
       id
       userId
@@ -444,53 +721,10 @@ export const onDeleteNight = /* GraphQL */ `
       }
       sourceId
       sourceName
-      source
       value
       startDate
       endDate
       totalDuration
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onCreateLikedContent = /* GraphQL */ `
-  subscription OnCreateLikedContent($owner: String!) {
-    onCreateLikedContent(owner: $owner) {
-      id
-      name
-      type
-      slug
-      excerpt
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onUpdateLikedContent = /* GraphQL */ `
-  subscription OnUpdateLikedContent($owner: String!) {
-    onUpdateLikedContent(owner: $owner) {
-      id
-      name
-      type
-      slug
-      excerpt
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onDeleteLikedContent = /* GraphQL */ `
-  subscription OnDeleteLikedContent($owner: String!) {
-    onDeleteLikedContent(owner: $owner) {
-      id
-      name
-      type
-      slug
-      excerpt
       createdAt
       updatedAt
       owner

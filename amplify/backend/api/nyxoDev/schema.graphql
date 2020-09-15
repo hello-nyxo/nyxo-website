@@ -100,6 +100,15 @@ type User
   nickname: String
   darkMode: Boolean
   intercomId: String
+  activeCoaching: CoachingData @connection(name: "ActiveCoachingMonth")
+  sleepPoints: SleepPoints
+}
+
+type SleepPoints {
+  efficiency: Int
+  duration: Int
+  socialJetLag: Int
+  timing: Int
 }
 
 type CoachingData
@@ -123,14 +132,15 @@ type CoachingData
     ]
   ) {
   id: ID!
-  weeks: [Week]
-  lessons: [String]
   userId: ID!
-  stage: Stage
   user: User! @connection(fields: ["userId"])
+  stage: Stage
+  active: User @connection(name: "ActiveCoachingMonth")
   activeWeek: String
   started: String
   ended: String
+  weeks: [Week]
+  lessons: [String]
 }
 
 enum Stage {
@@ -192,9 +202,11 @@ type DayCompletionRecord {
 
 type Night
   @model
+  @aws_iam
   @auth(
     rules: [
       { allow: owner }
+      { allow: private, provider: iam, operations: [read] }
       {
         allow: groups
         groups: ["admin"]
@@ -214,7 +226,6 @@ type Night
   user: User! @connection(fields: ["userId"])
   sourceId: String!
   sourceName: String!
-  source: String
   value: NightValue!
   startDate: String!
   endDate: String!
@@ -241,11 +252,10 @@ type LikedContent
       }
     ]
   ) {
-  id: String
+  id: ID!
   name: String
   type: String
-  slug: String!
-  excerpt: String
+  slug: String
 }
 
 type NightRating
@@ -296,4 +306,27 @@ type FeedbackContent
   type: String
   slug: String!
   rating: Int!
+}
+
+type Comments
+  @model
+  @key(name: "bySlug", fields: ["slug", "id"], queryField: "commentsBySlug")
+  @auth(
+    rules: [
+      { allow: owner }
+      {
+        allow: groups
+        groups: ["admin"]
+        mutations: [delete, update, create]
+        queries: [get, list]
+      }
+    ]
+  ) {
+  id: String
+  type: String
+  slug: String!
+  firstName: String
+  lastName: String
+  guest: Boolean
+  comment: String!
 }
