@@ -196,26 +196,26 @@ type DayCompletionRecord {
 }
 
 type Night
-  @model
-  @aws_iam
-  @auth(
-    rules: [
-      { allow: owner }
-      { allow: private, provider: iam, operations: [read] }
-      {
-        allow: groups
-        groups: ["admin"]
-        mutations: [delete]
-        queries: [get, list]
-      }
-      {
-        allow: owner
-        ownerField: "viewers"
-        mutations: null
-        queries: [get, list]
-      }
-    ]
-  ) {
+@model
+@aws_iam
+@auth(
+  rules: [
+    { allow: owner }
+    { allow: private, provider: iam, operations: [read] }
+    {
+      allow: groups
+      groups: ["admin"]
+      mutations: [delete]
+      queries: [get, list]
+    }
+    {
+      allow: owner
+      ownerField: "viewers"
+      mutations: null
+      queries: [get, list]
+    }
+  ]
+) {
   id: ID!
   userId: ID!
   user: User! @connection(fields: ["userId"])
@@ -234,19 +234,19 @@ enum NightValue {
 }
 
 type LikedContent
-  @model
-  @key(name: "bySlug", fields: ["slug", "id"], queryField: "likedContentBySlug")
-  @auth(
-    rules: [
-      { allow: owner }
-      {
-        allow: groups
-        groups: ["admin"]
-        mutations: [delete, update, create]
-        queries: [get, list]
-      }
-    ]
-  ) {
+@model
+@key(name: "bySlug", fields: ["slug", "id"], queryField: "likedContentBySlug")
+@auth(
+  rules: [
+    { allow: owner }
+    {
+      allow: groups
+      groups: ["admin"]
+      mutations: [delete, update, create]
+      queries: [get, list]
+    }
+  ]
+) {
   id: ID!
   name: String
   type: String
@@ -280,23 +280,23 @@ type NightRating
 }
 
 type FeedbackContent
-  @model
-  @key(
-    name: "bySlug"
-    fields: ["slug", "id"]
-    queryField: "feedbackContentBySlug"
-  )
-  @auth(
-    rules: [
-      { allow: owner }
-      {
-        allow: groups
-        groups: ["admin"]
-        mutations: [delete, update, create]
-        queries: [get, list]
-      }
-    ]
-  ) {
+@model
+@key(
+  name: "bySlug"
+  fields: ["slug", "id"]
+  queryField: "feedbackContentBySlug"
+)
+@auth(
+  rules: [
+    { allow: owner }
+    {
+      allow: groups
+      groups: ["admin"]
+      mutations: [delete, update, create]
+      queries: [get, list]
+    }
+  ]
+) {
   id: String
   type: String
   slug: String!
@@ -304,19 +304,19 @@ type FeedbackContent
 }
 
 type Comments
-  @model
-  @key(name: "bySlug", fields: ["slug", "id"], queryField: "commentsBySlug")
-  @auth(
-    rules: [
-      { allow: owner }
-      {
-        allow: groups
-        groups: ["admin"]
-        mutations: [delete, update, create]
-        queries: [get, list]
-      }
-    ]
-  ) {
+@model
+@key(name: "bySlug", fields: ["slug", "id"], queryField: "commentsBySlug")
+@auth(
+  rules: [
+    { allow: owner }
+    {
+      allow: groups
+      groups: ["admin"]
+      mutations: [delete, update, create]
+      queries: [get, list]
+    }
+  ]
+) {
   id: String
   type: String
   slug: String!

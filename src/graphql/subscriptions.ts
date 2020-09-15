@@ -651,7 +651,7 @@ export const onDeleteComments = /* GraphQL */ `
   }
 `;
 export const onCreateNight = /* GraphQL */ `
-  subscription OnCreateNight($owner: String) {
+  subscription OnCreateNight($owner: String!) {
     onCreateNight(owner: $owner) {
       id
       userId
@@ -678,7 +678,7 @@ export const onCreateNight = /* GraphQL */ `
   }
 `;
 export const onUpdateNight = /* GraphQL */ `
-  subscription OnUpdateNight($owner: String) {
+  subscription OnUpdateNight($owner: String!) {
     onUpdateNight(owner: $owner) {
       id
       userId
@@ -705,7 +705,7 @@ export const onUpdateNight = /* GraphQL */ `
   }
 `;
 export const onDeleteNight = /* GraphQL */ `
-  subscription OnDeleteNight($owner: String) {
+  subscription OnDeleteNight($owner: String!) {
     onDeleteNight(owner: $owner) {
       id
       userId
@@ -725,114 +725,6 @@ export const onDeleteNight = /* GraphQL */ `
       startDate
       endDate
       totalDuration
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onCreateNightRating = /* GraphQL */ `
-  subscription OnCreateNightRating($owner: String!) {
-    onCreateNightRating(owner: $owner) {
-      id
-      userId
-      user {
-        connectionId
-        id
-        email
-        nickname
-        darkMode
-        intercomId
-        createdAt
-        updatedAt
-      }
-      rating
-      date
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onUpdateNightRating = /* GraphQL */ `
-  subscription OnUpdateNightRating($owner: String!) {
-    onUpdateNightRating(owner: $owner) {
-      id
-      userId
-      user {
-        connectionId
-        id
-        email
-        nickname
-        darkMode
-        intercomId
-        createdAt
-        updatedAt
-      }
-      rating
-      date
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onDeleteNightRating = /* GraphQL */ `
-  subscription OnDeleteNightRating($owner: String!) {
-    onDeleteNightRating(owner: $owner) {
-      id
-      userId
-      user {
-        connectionId
-        id
-        email
-        nickname
-        darkMode
-        intercomId
-        createdAt
-        updatedAt
-      }
-      rating
-      date
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onCreateFeedbackContent = /* GraphQL */ `
-  subscription OnCreateFeedbackContent($owner: String!) {
-    onCreateFeedbackContent(owner: $owner) {
-      id
-      type
-      slug
-      rating
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onUpdateFeedbackContent = /* GraphQL */ `
-  subscription OnUpdateFeedbackContent($owner: String!) {
-    onUpdateFeedbackContent(owner: $owner) {
-      id
-      type
-      slug
-      rating
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onDeleteFeedbackContent = /* GraphQL */ `
-  subscription OnDeleteFeedbackContent($owner: String!) {
-    onDeleteFeedbackContent(owner: $owner) {
-      id
-      type
-      slug
-      rating
       createdAt
       updatedAt
       owner
