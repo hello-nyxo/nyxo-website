@@ -85,8 +85,9 @@ build/
 dist/
 aws-exports.js
 amplify/team-provider-info.json
-amplify/backend/api
-amplify/backend/auth
+amplify/backend/api/nyxodev/build
+amplify/backend/api/nyxodev/resolvers
+amplify/backend/api/nyxodev/stacks
 amplify/backend/hosting
 amplify/backend/amplify-meta
 awsconfiguration.json
