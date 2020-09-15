@@ -34,8 +34,6 @@ const Coaching: FC = () => {
         </>
       )}
 
-      <pre>{JSON.stringify(active?.activeCoaching, null, 2)}</pre>
-
       <H4>{t("USER.ALL_COACHING_DATA")}</H4>
       {coaching?.items?.map((item) => (
         <CoachingCard
