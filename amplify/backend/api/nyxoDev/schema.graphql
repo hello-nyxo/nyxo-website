@@ -1,22 +1,22 @@
 type SleepData
-  @model
-  @auth(
-    rules: [
-      { allow: owner }
-      {
-        allow: groups
-        groups: ["admin"]
-        mutations: [delete]
-        queries: [get, list]
-      }
-      {
-        allow: owner
-        ownerField: "viewers"
-        mutations: null
-        queries: [get, list]
-      }
-    ]
-  ) {
+@model
+@auth(
+  rules: [
+    { allow: owner }
+    {
+      allow: groups
+      groups: ["admin"]
+      mutations: [delete]
+      queries: [get, list]
+    }
+    {
+      allow: owner
+      ownerField: "viewers"
+      mutations: null
+      queries: [get, list]
+    }
+  ]
+) {
   id: ID!
   userId: ID!
   user: User! @connection(fields: ["userId"])
@@ -34,29 +34,29 @@ type NightSegment {
 }
 
 type Request
-  @model
-  @auth(
-    rules: [
-      {
-        allow: owner
-        ownerField: "owner"
-        mutations: [create]
-        queries: [get, list]
-      }
-      {
-        allow: owner
-        ownerField: "userId"
-        mutations: [delete, update]
-        queries: [get, list]
-      }
-      {
-        allow: groups
-        groups: ["admin"]
-        mutations: [delete]
-        queries: [get, list]
-      }
-    ]
-  ) {
+@model
+@auth(
+  rules: [
+    {
+      allow: owner
+      ownerField: "owner"
+      mutations: [create]
+      queries: [get, list]
+    }
+    {
+      allow: owner
+      ownerField: "userId"
+      mutations: [delete, update]
+      queries: [get, list]
+    }
+    {
+      allow: groups
+      groups: ["admin"]
+      mutations: [delete]
+      queries: [get, list]
+    }
+  ]
+) {
   id: ID!
   requesterName: String!
   requesterId: String!
@@ -66,34 +66,29 @@ type Request
 }
 
 type User
-  @key(
-    name: "byConnectionId"
-    fields: ["connectionId"]
-    queryField: "userByConnectionId"
-  )
-  @model
-  @auth(
-    rules: [
-      {
-        allow: owner
-        ownerField: "owner"
-        mutations: [update, delete]
-        queries: [get, list]
-      }
-      {
-        allow: groups
-        groups: ["admin"]
-        mutations: [delete]
-        queries: [get, list]
-      }
-      {
-        allow: groups
-        groups: ["coach"]
-        mutations: null
-        queries: [get, list]
-      }
-    ]
-  ) {
+@key(
+  name: "byConnectionId"
+  fields: ["connectionId"]
+  queryField: "userByConnectionId"
+)
+@model
+@auth(
+  rules: [
+    {
+      allow: owner
+      ownerField: "owner"
+      mutations: [update, delete]
+      queries: [get, list]
+    }
+    {
+      allow: groups
+      groups: ["admin"]
+      mutations: [delete]
+      queries: [get, list]
+    }
+    { allow: groups, groups: ["coach"], mutations: null, queries: [get, list] }
+  ]
+) {
   connectionId: String
   id: ID!
   email: String!
@@ -112,25 +107,25 @@ type SleepPoints {
 }
 
 type CoachingData
-  @key(name: "byUser", fields: ["userId"], queryField: "coachingByUser")
-  @model
-  @auth(
-    rules: [
-      { allow: owner }
-      {
-        allow: groups
-        groups: ["admin"]
-        mutations: [delete]
-        queries: [get, list]
-      }
-      {
-        allow: owner
-        ownerField: "viewers"
-        mutations: null
-        queries: [get, list]
-      }
-    ]
-  ) {
+@key(name: "byUser", fields: ["userId"], queryField: "coachingByUser")
+@model
+@auth(
+  rules: [
+    { allow: owner }
+    {
+      allow: groups
+      groups: ["admin"]
+      mutations: [delete]
+      queries: [get, list]
+    }
+    {
+      allow: owner
+      ownerField: "viewers"
+      mutations: null
+      queries: [get, list]
+    }
+  ]
+) {
   id: ID!
   userId: ID!
   user: User! @connection(fields: ["userId"])
@@ -157,24 +152,24 @@ type Week {
 }
 
 type Habit
-  @model
-  @auth(
-    rules: [
-      { allow: owner }
-      {
-        allow: groups
-        groups: ["admin"]
-        mutations: [delete]
-        queries: [get, list]
-      }
-      {
-        allow: owner
-        ownerField: "viewers"
-        mutations: null
-        queries: [get, list]
-      }
-    ]
-  ) {
+@model
+@auth(
+  rules: [
+    { allow: owner }
+    {
+      allow: groups
+      groups: ["admin"]
+      mutations: [delete]
+      queries: [get, list]
+    }
+    {
+      allow: owner
+      ownerField: "viewers"
+      mutations: null
+      queries: [get, list]
+    }
+  ]
+) {
   id: ID!
   userId: ID!
   user: User! @connection(fields: ["userId"])
@@ -259,24 +254,24 @@ type LikedContent
 }
 
 type NightRating
-  @model
-  @auth(
-    rules: [
-      { allow: owner }
-      {
-        allow: groups
-        groups: ["admin"]
-        mutations: [delete]
-        queries: [get, list]
-      }
-      {
-        allow: owner
-        ownerField: "viewers"
-        mutations: null
-        queries: [get, list]
-      }
-    ]
-  ) {
+@model
+@auth(
+  rules: [
+    { allow: owner }
+    {
+      allow: groups
+      groups: ["admin"]
+      mutations: [delete]
+      queries: [get, list]
+    }
+    {
+      allow: owner
+      ownerField: "viewers"
+      mutations: null
+      queries: [get, list]
+    }
+  ]
+) {
   id: ID!
   userId: ID!
   user: User! @connection(fields: ["userId"])

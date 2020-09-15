@@ -13,6 +13,7 @@ import { RelatedContentFactory } from "../Helpers/related-content"
 import { BlogPostNode } from "../typings/blog-types"
 import BlogPost from "../components/BlogPost"
 import { useTranslation } from "gatsby-plugin-react-i18next"
+import Feedback from "../components/Feedback/Feedback"
 
 type Props = {
   markdownRemark: BlogPostNode
@@ -79,6 +80,9 @@ const BlogPostTemplate: FC<PageProps<Props>> = ({
 
         <TextContainer>
           <Content dangerouslySetInnerHTML={{ __html: html }} />
+
+          <Feedback slug={slug} type="blog" />
+
           {!!author && <AuthorCard author={author} />}
 
           <Tags>

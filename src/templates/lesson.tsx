@@ -10,7 +10,7 @@ import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H4 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
 import LargeLessonCard from "../components/lesson/LargeLessonCard"
-import { Container, TextContainer } from "../components/Primitives"
+import { Container, TextContainer, device } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import getFirstAuthor from "../Helpers/AuthorHelper"
@@ -19,10 +19,7 @@ import {
   useDeleteBookmark,
   useGetBookmark,
 } from "../hooks/bookmark-hooks"
-import StarRating from "../components/Feedback/StarRating"
-import ProgressBar from "../components/Feedback/ProgressBar"
-
-import { useGetFeedback, useAddFeedback } from "../hooks/feedbackHooks"
+import Feedback from "../components/Feedback/Feedback"
 
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
@@ -58,13 +55,6 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   const [remove, { isLoading: removeLoading }] = useDeleteBookmark()
   const [add, { isLoading: addLoading }] = useAddBookmark()
 
-  const {
-    data: { feedback, id: feedbackId },
-    isLoading: feedbackLoading,
-  } = useGetFeedback(slug as string, "lesson")
-
-  const [addFeedback, { isLoading: addFeedbackLoading }] = useAddFeedback()
-
   const handleBookmarking = async () => {
     if (bookmarked) {
       remove({ id: id, type: "lesson" })
@@ -76,13 +66,6 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
       })
     }
   }
-
-  // const handleFeedback = async () => {
-  //   await addFeedback({
-  //     slug: slug as string,
-  //     type: "lesson",
-  //   })
-  // }
 
   return (
     <Layout>
@@ -137,20 +120,7 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
           </>
         )}
 
-        <FeedbackContainer>
-          <FeedbackContent>
-            <h2>Enjoying this lesson so far?</h2>
-            <p>
-              Rating this lesson helps the author to know which type of content
-              you like. Giving 5 stars also makes them really happy.{" "}
-            </p>
-
-            <StarRating totalStars={5} slug={slug as string} />
-          </FeedbackContent>
-          <FeedbackRating>
-            <ProgressBar totalStars={5} slug={slug as string} />
-          </FeedbackRating>
-        </FeedbackContainer>
+        <Feedback slug={slug} type="lesson" />
 
         <H4>{t("LESSON_BY")}</H4>
         <Authors>
@@ -269,6 +239,12 @@ const FeedbackContainer = styled.div`
   background: #f5f5f5;
   padding: 20px 10px;
   justify-content: space-between;
+
+  @media ${device.mobileL} {
+    flex: 0 0 100%;
+    max-width: 100%;
+    flex-direction: column;
+  }
 `
 
 const FeedbackContent = styled.div`
@@ -279,6 +255,12 @@ const FeedbackContent = styled.div`
 const FeedbackRating = styled.div`
   flex-basis: 40%;
   padding: 0px 30px;
+
+  @media ${device.mobileL} {
+    width: 80%;
+    padding: 0px;
+    margin-top: 15px;
+  }
 `
 
 const FeedbackButton = styled.button`
