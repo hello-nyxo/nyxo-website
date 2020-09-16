@@ -2,7 +2,7 @@
 
 exports[`Footer renders correctly 1`] = `
 <div
-  className="sc-AxirZ fDjuWl"
+  className="sc-gtssRu cOAYCG"
 >
   <div
     className="row"
@@ -29,7 +29,7 @@ exports[`Footer renders correctly 1`] = `
           </a>
         </div>
         <div
-          className="sc-AxiKw jPEmWe"
+          className="sc-dlnjPT efWRLJ"
         >
           <p>
             FOOTER.TITLE
@@ -190,7 +190,7 @@ exports[`Footer renders correctly 1`] = `
             title="Twitter"
           >
             <svg
-              className="sc-AxjAm eINkHy"
+              className="sc-bdnylx LxIqb"
               fill="none"
               height="30px"
               stroke="#333"
@@ -216,7 +216,7 @@ exports[`Footer renders correctly 1`] = `
             title="LinkedIn"
           >
             <svg
-              className="sc-AxjAm eINkHy"
+              className="sc-bdnylx LxIqb"
               fill="none"
               height="30px"
               stroke="#333"
@@ -248,7 +248,7 @@ exports[`Footer renders correctly 1`] = `
             title="GitHub"
           >
             <svg
-              className="sc-AxjAm eINkHy"
+              className="sc-bdnylx LxIqb"
               fill="none"
               height="30px"
               stroke="#333"
@@ -274,7 +274,7 @@ exports[`Footer renders correctly 1`] = `
             title="Instagram"
           >
             <svg
-              className="sc-AxjAm eINkHy"
+              className="sc-bdnylx LxIqb"
               fill="none"
               height="30px"
               stroke="#333"
@@ -306,7 +306,7 @@ exports[`Footer renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-AxhCb otAmW"
+    className="sc-hKFyIo jSXEv"
   >
     <p>
       Copyright 

@@ -2,19 +2,19 @@
 
 exports[`HabitCard renders correctly 1`] = `
 <div
-  className="sc-fzpans dZeKIL"
+  className="sc-kEqYlL zWuch"
 >
   <div
-    className="sc-fzozJi hwMBfC"
+    className="sc-pNWxx bcuNyu"
   >
     <div
-      className="sc-fzoLsD kwFUAC"
+      className="sc-jrsJCI eYzHTC"
     />
     <div
-      className="sc-fznKkj lbPMLS"
+      className="sc-dIsAE"
     >
       <span
-        className="sc-fzplWN fJNZAK"
+        className="sc-iqAbSa fwNkJF"
         style={
           Object {
             "color": "#F42D97",
@@ -22,7 +22,7 @@ exports[`HabitCard renders correctly 1`] = `
         }
       >
         <svg
-          className="sc-AxjAm eINkHy"
+          className="sc-bdnylx LxIqb"
           fill="none"
           height="25px"
           stroke="#F42D97"
@@ -69,13 +69,13 @@ exports[`HabitCard renders correctly 1`] = `
         MORNING
       </span>
       <h4
-        className="sc-fznyAO ftUxAB"
+        className="sc-crzoUp cUhKzm"
         data-testid="habit-title"
       >
         Test Habit
       </h4>
       <p
-        className="sc-fznZeY eAStv"
+        className="sc-bqGHjH kzirla"
       >
         
       </p>

@@ -2,7 +2,7 @@
 
 exports[`Mobile Header renders correctly 1`] = `
 <header
-  className="sc-AxhCb gNBYMS"
+  className="sc-hKFyIo eMQnsH"
 >
   <div
     className="container"
@@ -18,7 +18,7 @@ exports[`Mobile Header renders correctly 1`] = `
           title="Nyxo"
         >
           <svg
-            className="sc-AxjAm eINkHy"
+            className="sc-bdnylx LxIqb"
             fill="none"
             stroke="none"
             strokeWidth="1.5"
@@ -62,17 +62,17 @@ exports[`Mobile Header renders correctly 1`] = `
         </a>
       </div>
       <button
-        className="sc-AxirZ lizZHx"
+        className="sc-gtssRu kufqAy"
         onClick={[Function]}
       >
         <div
-          className="sc-AxiKw jQtmvo"
+          className="sc-dlnjPT iZjyAz"
         />
         <div
-          className="sc-AxiKw jQtmvo"
+          className="sc-dlnjPT iZjyAz"
         />
         <div
-          className="sc-AxiKw jQtmvo"
+          className="sc-dlnjPT iZjyAz"
         />
       </button>
     </div>

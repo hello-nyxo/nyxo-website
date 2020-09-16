@@ -22,7 +22,6 @@ exports[`Image Component renders correctly 1`] = `
     }
   />
   <picture>
-    <source />
     <img
       alt="Anu"
       loading="lazy"

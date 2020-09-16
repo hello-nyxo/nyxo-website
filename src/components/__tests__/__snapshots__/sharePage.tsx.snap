@@ -2,19 +2,19 @@
 
 exports[`SharePage renders correctly 1`] = `
 <div
-  className="sc-AxirZ hUrVak"
+  className="sc-gtssRu kkwQhv"
 >
   <div
-    className="sc-AxiKw jkoips"
+    className="sc-dlnjPT hujsBX"
   />
   <p
-    className="sc-AxhCb hpGyLa"
+    className="sc-hKFyIo imRXgX"
   >
     Share this lesson:
   </p>
   <button
     aria-label="email"
-    className="react-share__ShareButton sc-AxhUy CZjPR"
+    className="react-share__ShareButton sc-eCApGN dNxEMd"
     onClick={[Function]}
     style={
       Object {
@@ -28,7 +28,7 @@ exports[`SharePage renders correctly 1`] = `
     }
   >
     <svg
-      className="sc-AxjAm eINkHy"
+      className="sc-bdnylx LxIqb"
       fill="none"
       height="30px"
       stroke="#333"
@@ -42,7 +42,7 @@ exports[`SharePage renders correctly 1`] = `
   </button>
   <button
     aria-label="linkedin"
-    className="react-share__ShareButton sc-AxgMl escKlr"
+    className="react-share__ShareButton sc-jSFkmK fdqWOx"
     onClick={[Function]}
     style={
       Object {
@@ -56,7 +56,7 @@ exports[`SharePage renders correctly 1`] = `
     }
   >
     <svg
-      className="sc-AxjAm eINkHy"
+      className="sc-bdnylx LxIqb"
       fill="none"
       height="30px"
       stroke="#333"
@@ -70,7 +70,7 @@ exports[`SharePage renders correctly 1`] = `
   </button>
   <button
     aria-label="facebook"
-    className="react-share__ShareButton sc-AxheI fqpCHB"
+    className="react-share__ShareButton sc-gKAblj hCOhTy"
     onClick={[Function]}
     style={
       Object {
@@ -84,7 +84,7 @@ exports[`SharePage renders correctly 1`] = `
     }
   >
     <svg
-      className="sc-AxjAm eINkHy"
+      className="sc-bdnylx LxIqb"
       fill="none"
       height="30px"
       stroke="#333"
@@ -98,7 +98,7 @@ exports[`SharePage renders correctly 1`] = `
   </button>
   <button
     aria-label="twitter"
-    className="react-share__ShareButton sc-Axmtr blGAHr"
+    className="react-share__ShareButton sc-iCoHVE kReqGE"
     onClick={[Function]}
     style={
       Object {
@@ -112,7 +112,7 @@ exports[`SharePage renders correctly 1`] = `
     }
   >
     <svg
-      className="sc-AxjAm eINkHy"
+      className="sc-bdnylx LxIqb"
       fill="none"
       height="30px"
       stroke="#333"

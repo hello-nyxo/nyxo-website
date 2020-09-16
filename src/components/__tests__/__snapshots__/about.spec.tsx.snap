@@ -2,11 +2,11 @@
 
 exports[`PersonCard renders correctly 1`] = `
 <a
-  className="sc-AxmLO dLyVYA"
+  className="sc-fujyUd hkedGZ"
   href="/author/undefined"
 >
   <div
-    className="sc-fzozJi geTWwZ"
+    className="sc-pNWxx cEWOEh"
   >
     <div
       className=" gatsby-image-wrapper"
@@ -29,7 +29,6 @@ exports[`PersonCard renders correctly 1`] = `
         }
       />
       <picture>
-        <source />
         <img
           alt="1234556789"
           loading="lazy"
@@ -59,18 +58,18 @@ exports[`PersonCard renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-fzoLsD jezVAk"
+    className="sc-jrsJCI lhQboU"
   >
     <h3
-      className="sc-fznyAO hlQiAB"
+      className="sc-crzoUp cPAXhu"
     >
       1234556789
     </h3>
     <div
-      className="sc-fzplWN ckjgcB"
+      className="sc-iqAbSa dmNBXG"
     >
       <div
-        className="sc-fzpans dtPbUO"
+        className="sc-kEqYlL kUcYkP"
       >
         Some title
       </div>

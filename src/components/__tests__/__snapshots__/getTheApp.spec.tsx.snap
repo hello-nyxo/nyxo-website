@@ -2,23 +2,23 @@
 
 exports[`Get the app renders correctly 1`] = `
 <div
-  className="sc-AxjAm jfxQlI"
+  className="sc-bdnylx bsosMB"
 >
   <h2
-    className="sc-AxhUy izZJGo"
+    className="sc-eCApGN hcBhpU"
   >
     GET_THE_APP.TITLE
   </h2>
   <p
-    className="sc-AxhCb cxKEKE"
+    className="sc-hKFyIo jpugcl"
   >
     GET_THE_APP.TEXT
   </p>
   <div
-    className="sc-AxirZ jzSnfk"
+    className="sc-gtssRu uhkdP"
   >
     <a
-      className="sc-AxiKw dlpYyz"
+      className="sc-dlnjPT lcvaYI"
       href="https://apps.apple.com/app/nyxo/id1440417031"
       onClick={[Function]}
       rel="noopener noreferrer"
@@ -29,7 +29,7 @@ exports[`Get the app renders correctly 1`] = `
       />
     </a>
     <a
-      className="sc-AxiKw dlpYyz"
+      className="sc-dlnjPT lcvaYI"
       href="https://play.google.com/store/apps/details?id=fi.nyxo.app"
       onClick={[Function]}
       rel="noopener noreferrer"

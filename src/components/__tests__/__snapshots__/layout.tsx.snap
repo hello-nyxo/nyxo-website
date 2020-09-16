@@ -3,10 +3,10 @@
 exports[`Layout renders correctly 1`] = `
 Array [
   <header
-    className="sc-fzozJi gqHnIz"
+    className="sc-iemXMA fwcvcb"
   >
     <div
-      className="sc-AxmLO gcuFyo"
+      className="sc-bkbjAj inzqkS"
     >
       <a
         href="/"
@@ -18,13 +18,13 @@ Array [
       </a>
     </div>
     <ul
-      className="sc-fzoLsD blWHQo"
+      className="sc-dIvqjp ehKrUb"
     >
       <li
-        className="sc-fzpans kcuntJ"
+        className="sc-hHEjAm egyfkZ"
       >
         <a
-          className="sc-fzplWN epmMss"
+          className="sc-dlMBXb iEFAcb"
           href="/for-you"
           hrefLang="en"
           onClick={[Function]}
@@ -33,10 +33,10 @@ Array [
         </a>
       </li>
       <li
-        className="sc-fzpans kcuntJ"
+        className="sc-hHEjAm egyfkZ"
       >
         <a
-          className="sc-fzplWN epmMss"
+          className="sc-dlMBXb iEFAcb"
           href="/for-organizations"
           hrefLang="en"
           onClick={[Function]}
@@ -45,10 +45,10 @@ Array [
         </a>
       </li>
       <li
-        className="sc-fzpans kcuntJ"
+        className="sc-hHEjAm egyfkZ"
       >
         <a
-          className="sc-fzplWN epmMss"
+          className="sc-dlMBXb iEFAcb"
           href="/coaching"
           hrefLang="en"
           onClick={[Function]}
@@ -57,10 +57,10 @@ Array [
         </a>
       </li>
       <li
-        className="sc-fzpans kcuntJ"
+        className="sc-hHEjAm egyfkZ"
       >
         <a
-          className="sc-fzplWN epmMss"
+          className="sc-dlMBXb iEFAcb"
           href="/blog"
           hrefLang="en"
           onClick={[Function]}
@@ -69,20 +69,20 @@ Array [
         </a>
       </li>
       <li
-        className="sc-fzpans kcuntJ"
+        className="sc-hHEjAm egyfkZ"
       >
         <a
-          className="sc-fznyAO buHYWS"
+          className="sc-kfYqjs jAUouY"
           href="/me/login"
         >
           NAVIGATION.LOGIN
         </a>
       </li>
       <li
-        className="sc-fzpans kcuntJ"
+        className="sc-hHEjAm egyfkZ"
       >
         <a
-          className="sc-fzplWN epmMss"
+          className="sc-dlMBXb iEFAcb"
           href="/fi/"
           hrefLang="fi"
           onClick={[Function]}
@@ -92,45 +92,36 @@ Array [
       </li>
     </ul>
   </header>,
+  <main />,
   <div
-    className="sc-fzoiQi jkvegY"
-    style={
-      Object {
-        "opacity": 0,
-      }
-    }
-  >
-    <main />
-  </div>,
-  <div
-    className="sc-fzqNJr dLZkRk"
+    className="sc-iqAbSa eMMYOd"
   >
     <p
-      className="sc-fzoyAV sc-fzoLag cuiOAk"
+      className="sc-crzoUp sc-dIsAE dUkVJb filgKw"
     >
       PROMPT.MOBILE
     </p>
     <p
-      className="sc-fzoyAV sc-fzoXzr HHBLX"
+      className="sc-crzoUp sc-bqGHjH dUkVJb gHKsLL"
     >
       PROMPT.TABLET
     </p>
     <p
-      className="sc-fzoyAV sc-fzpjYC kDNAqd"
+      className="sc-crzoUp sc-ksluoS dUkVJb jfJBaL"
     >
       PROMPT.DESKTOP
     </p>
     <button
-      className="sc-fznxsB CYcOM"
+      className="sc-hBMVcZ VFAPo"
       onClick={[Function]}
     >
       <p
-        className="sc-fznJRM bApIoU"
+        className="sc-fnVYJo bCtcHa"
       >
         PROMPT.BUTTON
       </p>
       <svg
-        className="sc-fznKkj lLzoJ sc-fznWqX dHfaUd"
+        className="sc-bdnylx LxIqb sc-fFSRdu cyEAVe"
         fill="none"
         height={25}
         stroke="var(--textPrimary)"
@@ -154,7 +145,7 @@ Array [
   </div>,
   <footer>
     <div
-      className="sc-fznZeY gchNIp"
+      className="sc-gtssRu cOAYCG"
     >
       <div
         className="row"
@@ -181,7 +172,7 @@ Array [
               </a>
             </div>
             <div
-              className="sc-fzokOt kFmdYZ"
+              className="sc-dlnjPT efWRLJ"
             >
               <p>
                 FOOTER.TITLE
@@ -342,7 +333,7 @@ Array [
                 title="Twitter"
               >
                 <svg
-                  className="sc-fznKkj lLzoJ"
+                  className="sc-bdnylx LxIqb"
                   fill="none"
                   height="30px"
                   stroke="#333"
@@ -368,7 +359,7 @@ Array [
                 title="LinkedIn"
               >
                 <svg
-                  className="sc-fznKkj lLzoJ"
+                  className="sc-bdnylx LxIqb"
                   fill="none"
                   height="30px"
                   stroke="#333"
@@ -400,7 +391,7 @@ Array [
                 title="GitHub"
               >
                 <svg
-                  className="sc-fznKkj lLzoJ"
+                  className="sc-bdnylx LxIqb"
                   fill="none"
                   height="30px"
                   stroke="#333"
@@ -426,7 +417,7 @@ Array [
                 title="Instagram"
               >
                 <svg
-                  className="sc-fznKkj lLzoJ"
+                  className="sc-bdnylx LxIqb"
                   fill="none"
                   height="30px"
                   stroke="#333"
@@ -458,7 +449,7 @@ Array [
         </div>
       </div>
       <div
-        className="sc-fzqBZW jrvPUk"
+        className="sc-hKFyIo jSXEv"
       >
         <p>
           Copyright 

@@ -2,13 +2,13 @@
 
 exports[`TagFilter renders correctly 1`] = `
 <ul
-  className="sc-fzpans exPlsk"
+  className="sc-kEqYlL ccqopx"
 >
   <li
-    className="sc-fzoLsD fqEnxe"
+    className="sc-jrsJCI"
   >
     <a
-      className="sc-fzozJi cQWAUT"
+      className="sc-pNWxx hAggpL"
       href="/tags"
     >
       All Tags

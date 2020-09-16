@@ -3,19 +3,19 @@
 exports[`Lesson Limited renders correctly 1`] = `
 Array [
   <div
-    className="sc-AxjAm kHLWPQ"
+    className="sc-bdnylx geYECJ"
   />,
   <div
-    className="sc-AxirZ QThWA"
+    className="sc-gtssRu jOMRNv"
   >
     <h2>
       To keep reading this Lesson, create a free account.
     </h2>
     <button
-      className="sc-AxiKw gdsvyc"
+      className="sc-dlnjPT jaIWrT"
     >
       <a
-        className="sc-AxhCb fsukPn"
+        className="sc-hKFyIo kVjuSm"
         href="/me/register"
       >
         Register with Nyxo

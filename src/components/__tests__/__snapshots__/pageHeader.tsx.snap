@@ -2,21 +2,21 @@
 
 exports[`Page header renders correctly 1`] = `
 <div
-  className="sc-AxjAm cmUyjd"
+  className="sc-bdnylx iuJNkc"
 >
   <div
-    className="sc-AxiKw jDROEE"
+    className="sc-dlnjPT dIrEID"
   />
   <div
-    className="sc-AxirZ eqFPOx"
+    className="sc-gtssRu cDmbcK"
   >
     <h1
-      className="sc-AxhUy glNvTi"
+      className="sc-eCApGN hGZayi"
     >
       A title
     </h1>
     <p
-      className="sc-AxgMl cbiGxd"
+      className="sc-jSFkmK iZfYOv"
     >
       Lorem ipsum
     </p>

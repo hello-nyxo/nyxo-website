@@ -2,10 +2,10 @@
 
 exports[`Header renders correctly 1`] = `
 <header
-  className="sc-fzozJi gqHnIz"
+  className="sc-pNWxx kvGOXX"
 >
   <div
-    className="sc-AxmLO gcuFyo"
+    className="sc-fujyUd dtqLNt"
   >
     <a
       href="/"
@@ -17,13 +17,13 @@ exports[`Header renders correctly 1`] = `
     </a>
   </div>
   <ul
-    className="sc-fzoLsD blWHQo"
+    className="sc-jrsJCI bPTiSc"
   >
     <li
-      className="sc-fzpans kcuntJ"
+      className="sc-kEqYlL kLSQsM"
     >
       <a
-        className="sc-fzplWN epmMss"
+        className="sc-iqAbSa eZMXov"
         href="/for-you"
         hrefLang="en"
         onClick={[Function]}
@@ -32,10 +32,10 @@ exports[`Header renders correctly 1`] = `
       </a>
     </li>
     <li
-      className="sc-fzpans kcuntJ"
+      className="sc-kEqYlL kLSQsM"
     >
       <a
-        className="sc-fzplWN epmMss"
+        className="sc-iqAbSa eZMXov"
         href="/for-organizations"
         hrefLang="en"
         onClick={[Function]}
@@ -44,10 +44,10 @@ exports[`Header renders correctly 1`] = `
       </a>
     </li>
     <li
-      className="sc-fzpans kcuntJ"
+      className="sc-kEqYlL kLSQsM"
     >
       <a
-        className="sc-fzplWN epmMss"
+        className="sc-iqAbSa eZMXov"
         href="/coaching"
         hrefLang="en"
         onClick={[Function]}
@@ -56,10 +56,10 @@ exports[`Header renders correctly 1`] = `
       </a>
     </li>
     <li
-      className="sc-fzpans kcuntJ"
+      className="sc-kEqYlL kLSQsM"
     >
       <a
-        className="sc-fzplWN epmMss"
+        className="sc-iqAbSa eZMXov"
         href="/blog"
         hrefLang="en"
         onClick={[Function]}
@@ -68,20 +68,20 @@ exports[`Header renders correctly 1`] = `
       </a>
     </li>
     <li
-      className="sc-fzpans kcuntJ"
+      className="sc-kEqYlL kLSQsM"
     >
       <a
-        className="sc-fznyAO buHYWS"
+        className="sc-crzoUp ixhFOp"
         href="/me/login"
       >
         NAVIGATION.LOGIN
       </a>
     </li>
     <li
-      className="sc-fzpans kcuntJ"
+      className="sc-kEqYlL kLSQsM"
     >
       <a
-        className="sc-fzplWN epmMss"
+        className="sc-iqAbSa eZMXov"
         href="/fi/"
         hrefLang="fi"
         onClick={[Function]}
