@@ -59,7 +59,15 @@ export type CreateUserInput = {
   nickname?: string | null,
   darkMode?: boolean | null,
   intercomId?: string | null,
+  sleepPoints?: SleepPointsInput | null,
   userActiveCoachingId?: string | null,
+};
+
+export type SleepPointsInput = {
+  efficiency?: number | null,
+  duration?: number | null,
+  socialJetLag?: number | null,
+  timing?: number | null,
 };
 
 export enum Stage {
@@ -76,6 +84,7 @@ export type UpdateUserInput = {
   nickname?: string | null,
   darkMode?: boolean | null,
   intercomId?: string | null,
+  sleepPoints?: SleepPointsInput | null,
   userActiveCoachingId?: string | null,
 };
 
@@ -387,25 +396,6 @@ export type ModelPeriodFilterInput = {
   ne?: Period | null,
 };
 
-export type ModelNightFilterInput = {
-  id?: ModelIDFilterInput | null,
-  userId?: ModelIDFilterInput | null,
-  sourceId?: ModelStringFilterInput | null,
-  sourceName?: ModelStringFilterInput | null,
-  value?: ModelNightValueFilterInput | null,
-  startDate?: ModelStringFilterInput | null,
-  endDate?: ModelStringFilterInput | null,
-  totalDuration?: ModelIntFilterInput | null,
-  and?: Array< ModelNightFilterInput | null > | null,
-  or?: Array< ModelNightFilterInput | null > | null,
-  not?: ModelNightFilterInput | null,
-};
-
-export type ModelNightValueFilterInput = {
-  eq?: NightValue | null,
-  ne?: NightValue | null,
-};
-
 export type ModelLikedContentFilterInput = {
   id?: ModelIDFilterInput | null,
   name?: ModelStringFilterInput | null,
@@ -473,6 +463,25 @@ export type ModelStringKeyConditionInput = {
   gt?: string | null,
   between?: Array< string | null > | null,
   beginsWith?: string | null,
+};
+
+export type ModelNightFilterInput = {
+  id?: ModelIDFilterInput | null,
+  userId?: ModelIDFilterInput | null,
+  sourceId?: ModelStringFilterInput | null,
+  sourceName?: ModelStringFilterInput | null,
+  value?: ModelNightValueFilterInput | null,
+  startDate?: ModelStringFilterInput | null,
+  endDate?: ModelStringFilterInput | null,
+  totalDuration?: ModelIntFilterInput | null,
+  and?: Array< ModelNightFilterInput | null > | null,
+  or?: Array< ModelNightFilterInput | null > | null,
+  not?: ModelNightFilterInput | null,
+};
+
+export type ModelNightValueFilterInput = {
+  eq?: NightValue | null,
+  ne?: NightValue | null,
 };
 
 export type CreateSleepDataMutationVariables = {
@@ -663,6 +672,13 @@ export type CreateUserMutation = {
       updatedAt: string,
       owner: string | null,
     } | null,
+    sleepPoints:  {
+      __typename: "SleepPoints",
+      efficiency: number | null,
+      duration: number | null,
+      socialJetLag: number | null,
+      timing: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -694,6 +710,13 @@ export type UpdateUserMutation = {
       updatedAt: string,
       owner: string | null,
     } | null,
+    sleepPoints:  {
+      __typename: "SleepPoints",
+      efficiency: number | null,
+      duration: number | null,
+      socialJetLag: number | null,
+      timing: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -724,6 +747,13 @@ export type DeleteUserMutation = {
       createdAt: string,
       updatedAt: string,
       owner: string | null,
+    } | null,
+    sleepPoints:  {
+      __typename: "SleepPoints",
+      efficiency: number | null,
+      duration: number | null,
+      socialJetLag: number | null,
+      timing: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
@@ -1463,6 +1493,13 @@ export type GetUserQuery = {
       updatedAt: string,
       owner: string | null,
     } | null,
+    sleepPoints:  {
+      __typename: "SleepPoints",
+      efficiency: number | null,
+      duration: number | null,
+      socialJetLag: number | null,
+      timing: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -1627,65 +1664,6 @@ export type ListHabitsQuery = {
       date: string,
       archived: boolean | null,
       period: Period,
-      createdAt: string,
-      updatedAt: string,
-      owner: string | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetNightQueryVariables = {
-  id: string,
-};
-
-export type GetNightQuery = {
-  getNight:  {
-    __typename: "Night",
-    id: string,
-    userId: string,
-    user:  {
-      __typename: "User",
-      connectionId: string | null,
-      id: string,
-      email: string,
-      nickname: string | null,
-      darkMode: boolean | null,
-      intercomId: string | null,
-      createdAt: string,
-      updatedAt: string,
-    },
-    sourceId: string,
-    sourceName: string,
-    value: NightValue,
-    startDate: string,
-    endDate: string,
-    totalDuration: number,
-    createdAt: string,
-    updatedAt: string,
-    owner: string | null,
-  } | null,
-};
-
-export type ListNightsQueryVariables = {
-  filter?: ModelNightFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListNightsQuery = {
-  listNights:  {
-    __typename: "ModelNightConnection",
-    items:  Array< {
-      __typename: "Night",
-      id: string,
-      userId: string,
-      sourceId: string,
-      sourceName: string,
-      value: NightValue,
-      startDate: string,
-      endDate: string,
-      totalDuration: number,
       createdAt: string,
       updatedAt: string,
       owner: string | null,
@@ -2006,6 +1984,65 @@ export type CommentsBySlugQuery = {
   } | null,
 };
 
+export type GetNightQueryVariables = {
+  id: string,
+};
+
+export type GetNightQuery = {
+  getNight:  {
+    __typename: "Night",
+    id: string,
+    userId: string,
+    user:  {
+      __typename: "User",
+      connectionId: string | null,
+      id: string,
+      email: string,
+      nickname: string | null,
+      darkMode: boolean | null,
+      intercomId: string | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    sourceId: string,
+    sourceName: string,
+    value: NightValue,
+    startDate: string,
+    endDate: string,
+    totalDuration: number,
+    createdAt: string,
+    updatedAt: string,
+    owner: string | null,
+  } | null,
+};
+
+export type ListNightsQueryVariables = {
+  filter?: ModelNightFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListNightsQuery = {
+  listNights:  {
+    __typename: "ModelNightConnection",
+    items:  Array< {
+      __typename: "Night",
+      id: string,
+      userId: string,
+      sourceId: string,
+      sourceName: string,
+      value: NightValue,
+      startDate: string,
+      endDate: string,
+      totalDuration: number,
+      createdAt: string,
+      updatedAt: string,
+      owner: string | null,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
 export type OnCreateSleepDataSubscriptionVariables = {
   owner: string,
 };
@@ -2178,6 +2215,13 @@ export type OnCreateUserSubscription = {
       updatedAt: string,
       owner: string | null,
     } | null,
+    sleepPoints:  {
+      __typename: "SleepPoints",
+      efficiency: number | null,
+      duration: number | null,
+      socialJetLag: number | null,
+      timing: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -2205,6 +2249,13 @@ export type OnUpdateUserSubscription = {
       updatedAt: string,
       owner: string | null,
     } | null,
+    sleepPoints:  {
+      __typename: "SleepPoints",
+      efficiency: number | null,
+      duration: number | null,
+      socialJetLag: number | null,
+      timing: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -2231,6 +2282,13 @@ export type OnDeleteUserSubscription = {
       createdAt: string,
       updatedAt: string,
       owner: string | null,
+    } | null,
+    sleepPoints:  {
+      __typename: "SleepPoints",
+      efficiency: number | null,
+      duration: number | null,
+      socialJetLag: number | null,
+      timing: number | null,
     } | null,
     createdAt: string,
     updatedAt: string,
@@ -2501,102 +2559,6 @@ export type OnDeleteHabitSubscription = {
   } | null,
 };
 
-export type OnCreateNightSubscriptionVariables = {
-  owner: string,
-};
-
-export type OnCreateNightSubscription = {
-  onCreateNight:  {
-    __typename: "Night",
-    id: string,
-    userId: string,
-    user:  {
-      __typename: "User",
-      connectionId: string | null,
-      id: string,
-      email: string,
-      nickname: string | null,
-      darkMode: boolean | null,
-      intercomId: string | null,
-      createdAt: string,
-      updatedAt: string,
-    },
-    sourceId: string,
-    sourceName: string,
-    value: NightValue,
-    startDate: string,
-    endDate: string,
-    totalDuration: number,
-    createdAt: string,
-    updatedAt: string,
-    owner: string | null,
-  } | null,
-};
-
-export type OnUpdateNightSubscriptionVariables = {
-  owner: string,
-};
-
-export type OnUpdateNightSubscription = {
-  onUpdateNight:  {
-    __typename: "Night",
-    id: string,
-    userId: string,
-    user:  {
-      __typename: "User",
-      connectionId: string | null,
-      id: string,
-      email: string,
-      nickname: string | null,
-      darkMode: boolean | null,
-      intercomId: string | null,
-      createdAt: string,
-      updatedAt: string,
-    },
-    sourceId: string,
-    sourceName: string,
-    value: NightValue,
-    startDate: string,
-    endDate: string,
-    totalDuration: number,
-    createdAt: string,
-    updatedAt: string,
-    owner: string | null,
-  } | null,
-};
-
-export type OnDeleteNightSubscriptionVariables = {
-  owner: string,
-};
-
-export type OnDeleteNightSubscription = {
-  onDeleteNight:  {
-    __typename: "Night",
-    id: string,
-    userId: string,
-    user:  {
-      __typename: "User",
-      connectionId: string | null,
-      id: string,
-      email: string,
-      nickname: string | null,
-      darkMode: boolean | null,
-      intercomId: string | null,
-      createdAt: string,
-      updatedAt: string,
-    },
-    sourceId: string,
-    sourceName: string,
-    value: NightValue,
-    startDate: string,
-    endDate: string,
-    totalDuration: number,
-    createdAt: string,
-    updatedAt: string,
-    owner: string | null,
-  } | null,
-};
-
 export type OnCreateLikedContentSubscriptionVariables = {
   owner: string,
 };
@@ -2837,6 +2799,102 @@ export type OnDeleteCommentsSubscription = {
     lastName: string | null,
     guest: boolean | null,
     comment: string,
+    createdAt: string,
+    updatedAt: string,
+    owner: string | null,
+  } | null,
+};
+
+export type OnCreateNightSubscriptionVariables = {
+  owner: string,
+};
+
+export type OnCreateNightSubscription = {
+  onCreateNight:  {
+    __typename: "Night",
+    id: string,
+    userId: string,
+    user:  {
+      __typename: "User",
+      connectionId: string | null,
+      id: string,
+      email: string,
+      nickname: string | null,
+      darkMode: boolean | null,
+      intercomId: string | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    sourceId: string,
+    sourceName: string,
+    value: NightValue,
+    startDate: string,
+    endDate: string,
+    totalDuration: number,
+    createdAt: string,
+    updatedAt: string,
+    owner: string | null,
+  } | null,
+};
+
+export type OnUpdateNightSubscriptionVariables = {
+  owner: string,
+};
+
+export type OnUpdateNightSubscription = {
+  onUpdateNight:  {
+    __typename: "Night",
+    id: string,
+    userId: string,
+    user:  {
+      __typename: "User",
+      connectionId: string | null,
+      id: string,
+      email: string,
+      nickname: string | null,
+      darkMode: boolean | null,
+      intercomId: string | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    sourceId: string,
+    sourceName: string,
+    value: NightValue,
+    startDate: string,
+    endDate: string,
+    totalDuration: number,
+    createdAt: string,
+    updatedAt: string,
+    owner: string | null,
+  } | null,
+};
+
+export type OnDeleteNightSubscriptionVariables = {
+  owner: string,
+};
+
+export type OnDeleteNightSubscription = {
+  onDeleteNight:  {
+    __typename: "Night",
+    id: string,
+    userId: string,
+    user:  {
+      __typename: "User",
+      connectionId: string | null,
+      id: string,
+      email: string,
+      nickname: string | null,
+      darkMode: boolean | null,
+      intercomId: string | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    sourceId: string,
+    sourceName: string,
+    value: NightValue,
+    startDate: string,
+    endDate: string,
+    totalDuration: number,
     createdAt: string,
     updatedAt: string,
     owner: string | null,

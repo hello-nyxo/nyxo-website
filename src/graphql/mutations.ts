@@ -155,6 +155,12 @@ export const createUser = /* GraphQL */ `
         updatedAt
         owner
       }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -181,6 +187,12 @@ export const updateUser = /* GraphQL */ `
         updatedAt
         owner
       }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -206,6 +218,12 @@ export const deleteUser = /* GraphQL */ `
         createdAt
         updatedAt
         owner
+      }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
       }
       createdAt
       updatedAt

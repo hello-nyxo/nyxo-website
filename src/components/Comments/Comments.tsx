@@ -2,6 +2,9 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { useAddComment, useGetAllComments } from "../../hooks/commentsHooks"
 import Moment from "moment"
+import { first } from "lodash"
+import RichTextEditor from "./RichTextEditor"
+import { Editor, EditorState, convertToRaw } from "draft-js"
 
 interface Props {
   slug: string
@@ -19,6 +22,26 @@ const Comments = (props: Props) => {
   const [comment, setComment] = useState("")
   const [checked, setChecked] = useState(false)
 
+  const [commentError, setCommentError] = useState("")
+  const [nameError, setNameError] = useState("")
+  const [success, setSuccess] = useState("")
+
+  const regex = /(<[^>]*>)/gi
+  const firstNameClean = firstName?.replace(regex, "")
+  const lastNameClean = lastName?.replace(regex, "")
+  const commentClean = comment?.replace(regex, "")
+
+  // const [editorState, setEditorState] = useState(() =>
+  //   EditorState.createEmpty()
+  // )
+
+  const [editorState, setEditorState] = useState("")
+
+  // const content = editorState.getCurrentContent()
+  // const dataToSaveBackend = convertToRaw(content)
+
+  console.log("Comments: ", editorState)
+
   const {
     data: allCommentData,
     status: allCommentStatus,
@@ -28,19 +51,64 @@ const Comments = (props: Props) => {
     checked ? setGuest(false) : setGuest(true)
     setFirstName("")
     setLastName("")
-
-    // then disable the first/last name inputs
   }
 
   const handleComments = async () => {
-    await add({
-      slug: slug,
-      type: type,
-      firstName: firstName,
-      lastName: lastName,
-      comment: comment,
-      guest: guest,
-    })
+    setSuccess("")
+
+    const isValid = validate(event)
+    if (isValid) {
+      // clear inputs so user can't submit the post multiple times
+      setChecked(false)
+      setNameError("")
+      setCommentError("")
+      setFirstName("")
+      setLastName("")
+      setComment("")
+      setSuccess("Thank you! Your comment has been received.")
+
+      await add({
+        slug: slug,
+        type: type,
+        firstName: firstNameClean,
+        lastName: lastNameClean,
+        comment: commentClean,
+        guest: guest,
+      })
+    }
+  }
+
+  const validate = (event: any) => {
+    event.preventDefault()
+
+    if (comment === "") {
+      setCommentError("Please provide a comment.")
+      return false
+    } else {
+      setCommentError("")
+    }
+
+    // for some reason this didn't work for the checked condition
+    // if ((firstName === "" && lastName === "") || checked === false) {
+    if (firstName === "" && lastName === "") {
+      if (checked === false) {
+        setNameError(
+          "Please provide your name or choose to be an anonymous user."
+        )
+        return false
+      } else {
+        return true
+      }
+    } else if (firstName !== "" && lastName !== "" && checked === true) {
+      setNameError(
+        "Please choose to add your name or to be an anonymous user, but not both."
+      )
+      return false
+    } else {
+      setNameError("")
+    }
+
+    return true
   }
 
   return (
@@ -51,46 +119,62 @@ const Comments = (props: Props) => {
         or simply engage in conversation.
       </P>
       <Container>
-        <Input
-          name="firstName"
-          placeholder="First name"
-          onChange={(e: any) => {
-            setFirstName(e.target.value)
-          }}
-        />
-        <Input
-          name="lastName"
-          placeholder="Last name"
-          onChange={(e: any) => {
-            setLastName(e.target.value)
-          }}
-        />
-        <input
-          name="guest"
-          type="checkbox"
-          onChange={(e) => {
-            setChecked(e.target.checked)
-            handleGuest()
-          }}
-          checked={checked}
-        />
-        <label htmlFor="guest">I wish to be anonymous.</label>
+        <Form onSubmit={handleComments}>
+          <Input
+            name="firstName"
+            value={firstName}
+            placeholder="First name"
+            onChange={(e: any) => {
+              setFirstName(e.target.value)
+            }}
+          />
 
-        {/* add email? */}
-        <Comment
-          name="comments"
-          placeholder="Write your comment..."
-          onChange={(e: any) => {
-            setComment(e.target.value)
-          }}
-        />
-        {isLoading.status === "loading" ? (
-          <Button disabled onClick={handleComments}>
+          <Input
+            name="lastName"
+            value={lastName}
+            placeholder="Last name"
+            onChange={(e: any) => {
+              setLastName(e.target.value)
+            }}
+          />
+
+          <CheckboxContainer>
+            <input
+              name="guest"
+              type="checkbox"
+              onChange={(e) => {
+                setChecked(e.target.checked)
+                handleGuest()
+              }}
+              checked={checked}
+            />
+
+            <label>I wish to be anonymous.</label>
+          </CheckboxContainer>
+
+          {/* add email? */}
+          <Comment
+            name="comments"
+            value={comment}
+            placeholder="Write your comment..."
+            onChange={(e: any) => {
+              setComment(e.target.value)
+            }}
+          />
+
+          {/* <RichTextEditor
+            editorState={editorState}
+            onChange={(e) => setEditorState(e)}
+          /> */}
+
+          {commentError ? <Span>{commentError}</Span> : null}
+          {nameError ? <Span>{nameError}</Span> : null}
+          {success ? <Span>{success}</Span> : null}
+
+          <Button type="submit" onClick={handleComments}>
             Add Comment
           </Button>
-        ) : (
-          <Button onClick={handleComments}>Add Comment</Button>
-        )}
+        </Form>
 
         <CommentContainer>
           <h3>Comments For This {type}</h3>
@@ -119,9 +203,6 @@ const Comments = (props: Props) => {
 export default Comments
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   width: 70%;
   margin: auto;
 `
@@ -196,4 +277,18 @@ const Date = styled.p`
 const Name = styled.p`
   font-weight: 500;
   display: inline-block;
+`
+const Span = styled.span`
+  color: var(--morningAccent);
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+`
+const Form = styled.form`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
+const CheckboxContainer = styled.div`
+  flex-basis: 35%;
 `

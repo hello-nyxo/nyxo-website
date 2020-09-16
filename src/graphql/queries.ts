@@ -108,6 +108,12 @@ export const getUser = /* GraphQL */ `
         updatedAt
         owner
       }
+      sleepPoints {
+        efficiency
+        duration
+        socialJetLag
+        timing
+      }
       createdAt
       updatedAt
     }
@@ -250,57 +256,6 @@ export const listHabits = /* GraphQL */ `
         date
         archived
         period
-        createdAt
-        updatedAt
-        owner
-      }
-      nextToken
-    }
-  }
-`;
-export const getNight = /* GraphQL */ `
-  query GetNight($id: ID!) {
-    getNight(id: $id) {
-      id
-      userId
-      user {
-        connectionId
-        id
-        email
-        nickname
-        darkMode
-        intercomId
-        createdAt
-        updatedAt
-      }
-      sourceId
-      sourceName
-      value
-      startDate
-      endDate
-      totalDuration
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const listNights = /* GraphQL */ `
-  query ListNights(
-    $filter: ModelNightFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listNights(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        userId
-        sourceId
-        sourceName
-        value
-        startDate
-        endDate
-        totalDuration
         createdAt
         updatedAt
         owner
@@ -606,6 +561,57 @@ export const commentsBySlug = /* GraphQL */ `
         lastName
         guest
         comment
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getNight = /* GraphQL */ `
+  query GetNight($id: ID!) {
+    getNight(id: $id) {
+      id
+      userId
+      user {
+        connectionId
+        id
+        email
+        nickname
+        darkMode
+        intercomId
+        createdAt
+        updatedAt
+      }
+      sourceId
+      sourceName
+      value
+      startDate
+      endDate
+      totalDuration
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listNights = /* GraphQL */ `
+  query ListNights(
+    $filter: ModelNightFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNights(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        userId
+        sourceId
+        sourceName
+        value
+        startDate
+        endDate
+        totalDuration
         createdAt
         updatedAt
         owner
