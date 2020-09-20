@@ -11,6 +11,8 @@ import { getLocalizedPath } from "../Helpers/i18n-helpers"
 import { GatsbyCreatePages } from "../types"
 import markdownQuery from "./query-blog-posts"
 import { contentfulData } from "./query-contentful"
+import { Devices } from "../types"
+import allDevices from "./query-devices"
 // import { BlogPostNode } from "../typings/blog-types"
 
 type ContentfulTag = {
@@ -35,6 +37,9 @@ export const createPages: GatsbyCreatePages = async ({
       contentfulTagsQuery: { group: contentfulTags },
     },
   } = await graphql(contentfulData)
+
+  const deviceQuery = await graphql(allDevices)
+  const devices = deviceQuery.data.devices.nodes
 
   if (allMarkdown.errors) {
     throw allMarkdown.errors
@@ -164,6 +169,17 @@ export const createPages: GatsbyCreatePages = async ({
         slug: author.slug,
         locale: author.node_locale,
         scholar: scholar,
+      },
+    })
+  })
+
+  devices.forEach(({ frontmatter }: any) => {
+    createPage({
+      path: `/devices/${frontmatter.slug}/`,
+      component: path.resolve(`./src/templates/device.tsx`),
+      context: {
+        locale: "en-US",
+        slug: frontmatter.slug,
       },
     })
   })

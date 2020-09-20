@@ -3,6 +3,7 @@
     "TITLE": "Your Search For Better Sleep Ends Here",
     "INTRODUCTION": "Nyxo is the best aid for improving your sleep quality. We combine cutting edge sleep science with your sleep tracker’s data to provide you with personalized and actionable coaching that will make you sleep better.",
     "GET_THE_APP": "Get The App",
+    "DOWNLOAD_NYXO": "Download Nyxo",
 
     "IMPORTING": "No Need to Buy a New Sleep Tracker",
     "IMPORTING_TEXT": "Import your data from your existing sleep tracker. If you do not own a sleep tracker, you can also use Nyxo’s built in sleep diary feature to track your sleep.",
@@ -171,6 +172,11 @@
   "REMOVE_BOOKMARK": "Remove bookmark",
   "LOADING_DATA": "Loading data...",
 
+  "DEVICES": {
+    "TITLE": "Devices",
+    "DESCRIPTION": "The following are devices that the Nyxo application supports."
+  },
+
   "ABOUT": {
     "TITLE": "We’re on a mission to make the world sleep better",
     "NYXO": "Our Story",
@@ -191,20 +197,20 @@
     "TABLET": "Sleep Tracking & Coaching",
     "DESKTOP": "Track your sleep and get personalized sleep coaching",
     "BUTTON": "Get Nyxo"
-	},
-	
-	"USER":{
-		"EMAIL": "Email",
-		"ID":"ID",
-		"INTERCOM":"Intercom ID",
-		"LINK":"Link code",
-		"ACTIVE_COACHING":"Coaching",
-		"CREATED":"Account created",
-		"UPDATED":"Account updated",
-		"COACHING":"Coaching",
-		"CURRENTLY_ACTIVE":"Currently Active Coaching",
-		"ALL_COACHING_DATA":"All Coaching Periods"
-	},
+  },
+
+  "USER": {
+    "EMAIL": "Email",
+    "ID": "ID",
+    "INTERCOM": "Intercom ID",
+    "LINK": "Link code",
+    "ACTIVE_COACHING": "Coaching",
+    "CREATED": "Account created",
+    "UPDATED": "Account updated",
+    "COACHING": "Coaching",
+    "CURRENTLY_ACTIVE": "Currently Active Coaching",
+    "ALL_COACHING_DATA": "All Coaching Periods"
+  },
 
   "en": "english",
   "fi": "Suomeksi"

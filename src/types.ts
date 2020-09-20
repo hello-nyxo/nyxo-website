@@ -21,3 +21,10 @@ export type GatsbyCreatePages = (fns: {
   graphql: any
   boundActionCreators: BoundActionCreators
 }) => void
+
+export type Devices = {
+  name: string
+  description: string
+  icon: string
+  slug: string
+}

@@ -3,6 +3,7 @@
     "TITLE": "Nyxo – Yksilöllinen univalmennusohjelma",
     "INTRODUCTION": "Nyxo on paras apuväline unenlaadun parantamiseksi. Yhdistämällä tieteellisen unitutkimuksen kovinta kärkeä älylaitteesi unenseurantadataan Nyxo tarjoaa henkilökohtaista ja interaktiivista univalmennusta, joka auttaa juuri sinua nukkumaan paremmin kuin koskaan.",
     "GET_THE_APP": "Lataa sovellus",
+    "DOWNLOAD_NYXO": "Lataa Nyxo",
 
     "IMPORTING": "Et tarvitse uutta unen seurantalaitetta",
     "IMPORTING_TEXT": "Nyxo on yhteensopiva lähes kaikkien markkinoilla olevien aktiivisuusrannekkeiden, älykellojen, -sormusten ja muiden unen seurantaa tukevien laitteiden kanssa.  Jos et omista unen seurantaan soveltuvaa laitetta, voit pitää kirjaa öistäsi myös Nyxon sisäänrakennetun unipäiväkirjan avulla.",
@@ -139,6 +140,11 @@
     "SUBJECT": "Aihe",
     "MESSAGE": "Viesti",
     "SEND": "Lähetä"
+  },
+
+  "DEVICES": {
+    "TITLE": "Devices",
+    "DESCRIPTION": "The following are devices that the Nyxo application supports."
   },
 
   "TAGS": "Aiheet",
