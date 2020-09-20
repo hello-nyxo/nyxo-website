@@ -26,6 +26,7 @@ const Header: FC = () => {
     { path: "for-organizations", title: "ORGANIZATIONS" },
     { path: "coaching", title: "COACHING" },
     { path: "blog", title: "BLOG" },
+    { path: "devices", title: "DEVICES" },
     { ...status },
   ]
 
