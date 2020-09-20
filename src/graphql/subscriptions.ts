@@ -651,7 +651,7 @@ export const onDeleteComments = /* GraphQL */ `
   }
 `;
 export const onCreateNight = /* GraphQL */ `
-  subscription OnCreateNight($owner: String) {
+  subscription OnCreateNight($owner: String!) {
     onCreateNight(owner: $owner) {
       id
       userId
@@ -678,7 +678,7 @@ export const onCreateNight = /* GraphQL */ `
   }
 `;
 export const onUpdateNight = /* GraphQL */ `
-  subscription OnUpdateNight($owner: String) {
+  subscription OnUpdateNight($owner: String!) {
     onUpdateNight(owner: $owner) {
       id
       userId
@@ -705,7 +705,7 @@ export const onUpdateNight = /* GraphQL */ `
   }
 `;
 export const onDeleteNight = /* GraphQL */ `
-  subscription OnDeleteNight($owner: String) {
+  subscription OnDeleteNight($owner: String!) {
     onDeleteNight(owner: $owner) {
       id
       userId

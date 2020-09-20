@@ -10,7 +10,7 @@ import HabitCard from "../components/Habit/HabitCard"
 import HtmlContent, { H1, H3, H4 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
 import LargeLessonCard from "../components/lesson/LargeLessonCard"
-import { Container, TextContainer } from "../components/Primitives"
+import { Container, TextContainer, device } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import TagSection from "../components/tags/Tags"
 import getFirstAuthor from "../Helpers/AuthorHelper"
@@ -19,6 +19,7 @@ import {
   useDeleteBookmark,
   useGetBookmark,
 } from "../hooks/bookmark-hooks"
+import Feedback from "../components/Feedback/Feedback"
 
 const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
   data,
@@ -118,6 +119,8 @@ const Lesson: FC<PageProps<LessonByIdQuery, { locale: string }>> = ({
             <HtmlContent document={readMore.json} />
           </>
         )}
+
+        <Feedback slug={slug} type="lesson" />
 
         <H4>{t("LESSON_BY")}</H4>
         <Authors>
@@ -228,4 +231,51 @@ const MoreLessonsContainer = styled.div`
 
 const Tags = styled.div`
   margin: 0rem -0.3rem 2rem;
+`
+const FeedbackContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #f5f5f5;
+  padding: 20px 10px;
+  justify-content: space-between;
+
+  @media ${device.mobileL} {
+    flex: 0 0 100%;
+    max-width: 100%;
+    flex-direction: column;
+  }
+`
+
+const FeedbackContent = styled.div`
+  flex-basis: 60%;
+  margin-left: 20px;
+`
+
+const FeedbackRating = styled.div`
+  flex-basis: 40%;
+  padding: 0px 30px;
+
+  @media ${device.mobileL} {
+    width: 80%;
+    padding: 0px;
+    margin-top: 15px;
+  }
+`
+
+const FeedbackButton = styled.button`
+  border-radius: 5px;
+  border: 1px solid var(--radiantBlue);
+  background-color: white;
+  color: var(--radiantBlue);
+  padding: 5px 10px;
+`
+const FeedbackInsights = styled.small`
+  color: var(--radiantBlue);
+  font-size: 12px;
+`
+const Rating = styled.div`
+  width: 100%;
+  height: 300px;
+  border: 1px solid red;
 `

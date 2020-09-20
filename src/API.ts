@@ -2829,7 +2829,7 @@ export type OnDeleteCommentsSubscription = {
 };
 
 export type OnCreateNightSubscriptionVariables = {
-  owner?: string | null,
+  owner: string,
 };
 
 export type OnCreateNightSubscription = {
@@ -2861,7 +2861,7 @@ export type OnCreateNightSubscription = {
 };
 
 export type OnUpdateNightSubscriptionVariables = {
-  owner?: string | null,
+  owner: string,
 };
 
 export type OnUpdateNightSubscription = {
@@ -2893,7 +2893,7 @@ export type OnUpdateNightSubscription = {
 };
 
 export type OnDeleteNightSubscriptionVariables = {
-  owner?: string | null,
+  owner: string,
 };
 
 export type OnDeleteNightSubscription = {
