@@ -12,7 +12,7 @@ export type CoachingData = Omit<
 > | null
 
 type Props = {
-  coaching: CoachingData
+  coaching?: CoachingData
 }
 
 const CoachingCard: FC<Props> = ({ coaching }) => {
@@ -27,6 +27,9 @@ const CoachingCard: FC<Props> = ({ coaching }) => {
       <ID>{coaching?.id}</ID>
 
       <Info></Info>
+      <div>
+        {t("COACHING.ACTIVE_WEEK")} {coaching?.activeWeek}
+      </div>
 
       <InformationRow>
         <Lessons>
@@ -38,6 +41,15 @@ const CoachingCard: FC<Props> = ({ coaching }) => {
           />
           {coaching?.lessons?.length} {t("LESSONS")}
         </Lessons>
+        <Weeks>
+          <Icon
+            height="20px"
+            width="20px"
+            name="presentation"
+            stroke="currentColor"
+          />
+          {coaching?.weeks?.length} {t("WEEKS")}
+        </Weeks>
       </InformationRow>
     </Card>
   )
@@ -65,6 +77,14 @@ const Card = styled.div`
 const Info = styled.div``
 
 const Lessons = styled.span`
+  background-color: #f6f8ff;
+  margin: 0rem 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+`
+
+const Weeks = styled.span`
   background-color: #f6f8ff;
   margin: 0rem 1rem;
   padding: 0.5rem 1rem;

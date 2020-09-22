@@ -1,4 +1,10 @@
-import { useQuery, QueryResult, useMutation, MutationResult } from "react-query"
+import {
+  useQuery,
+  QueryResult,
+  useMutation,
+  MutationResult,
+  MutationFunction,
+} from "react-query"
 import { Auth, API, graphqlOperation } from "aws-amplify"
 import {
   GetUserQuery,
@@ -73,7 +79,7 @@ export const useGetUser = (): QueryResult<GetUserQuery["getUser"]> => {
   return useQuery(["user"], getUserData)
 }
 
-export const useUpdateUser = (): MutationResult<
+export const useUpdateUser = (): MutationFunction<
   UpdateUserMutation["updateUser"],
   any
 > => {

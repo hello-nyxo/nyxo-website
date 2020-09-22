@@ -14,6 +14,24 @@ export const createSleepData = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -44,6 +62,24 @@ export const updateSleepData = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -74,6 +110,24 @@ export const deleteSleepData = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -146,10 +200,36 @@ export const createUser = /* GraphQL */ `
       activeCoaching {
         id
         userId
+        user {
+          connectionId
+          id
+          email
+          nickname
+          darkMode
+          intercomId
+          createdAt
+          updatedAt
+        }
         stage
+        active {
+          connectionId
+          id
+          email
+          nickname
+          darkMode
+          intercomId
+          createdAt
+          updatedAt
+        }
         activeWeek
         started
         ended
+        weeks {
+          started
+          ended
+          locked
+          slug
+        }
         lessons
         createdAt
         updatedAt
@@ -178,10 +258,36 @@ export const updateUser = /* GraphQL */ `
       activeCoaching {
         id
         userId
+        user {
+          connectionId
+          id
+          email
+          nickname
+          darkMode
+          intercomId
+          createdAt
+          updatedAt
+        }
         stage
+        active {
+          connectionId
+          id
+          email
+          nickname
+          darkMode
+          intercomId
+          createdAt
+          updatedAt
+        }
         activeWeek
         started
         ended
+        weeks {
+          started
+          ended
+          locked
+          slug
+        }
         lessons
         createdAt
         updatedAt
@@ -210,10 +316,36 @@ export const deleteUser = /* GraphQL */ `
       activeCoaching {
         id
         userId
+        user {
+          connectionId
+          id
+          email
+          nickname
+          darkMode
+          intercomId
+          createdAt
+          updatedAt
+        }
         stage
+        active {
+          connectionId
+          id
+          email
+          nickname
+          darkMode
+          intercomId
+          createdAt
+          updatedAt
+        }
         activeWeek
         started
         ended
+        weeks {
+          started
+          ended
+          locked
+          slug
+        }
         lessons
         createdAt
         updatedAt
@@ -242,6 +374,24 @@ export const createCoachingData = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -253,6 +403,24 @@ export const createCoachingData = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -284,6 +452,24 @@ export const updateCoachingData = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -295,6 +481,24 @@ export const updateCoachingData = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -326,6 +530,24 @@ export const deleteCoachingData = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -337,6 +559,24 @@ export const deleteCoachingData = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -368,6 +608,24 @@ export const createHabit = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -401,6 +659,24 @@ export const updateHabit = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -434,6 +710,24 @@ export const deleteHabit = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -467,6 +761,24 @@ export const createNight = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -494,6 +806,24 @@ export const updateNight = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -521,6 +851,24 @@ export const deleteNight = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -587,6 +935,24 @@ export const createNightRating = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -610,6 +976,24 @@ export const updateNightRating = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }
@@ -633,6 +1017,24 @@ export const deleteNightRating = /* GraphQL */ `
         nickname
         darkMode
         intercomId
+        activeCoaching {
+          id
+          userId
+          stage
+          activeWeek
+          started
+          ended
+          lessons
+          createdAt
+          updatedAt
+          owner
+        }
+        sleepPoints {
+          efficiency
+          duration
+          socialJetLag
+          timing
+        }
         createdAt
         updatedAt
       }

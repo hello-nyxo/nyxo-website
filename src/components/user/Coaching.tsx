@@ -30,9 +30,11 @@ const Coaching: FC = () => {
       {active?.activeCoaching && (
         <>
           <H4>{t("USER.CURRENTLY_ACTIVE")}</H4>
-          <CoachingCard coaching={active.activeCoaching} />
+          <CoachingCard coaching={active?.activeCoaching} />
         </>
       )}
+
+      <pre>{JSON.stringify(active?.activeCoaching, undefined, 4)}</pre>
 
       <H4>{t("USER.ALL_COACHING_DATA")}</H4>
       {coaching?.items?.map((item) => (
