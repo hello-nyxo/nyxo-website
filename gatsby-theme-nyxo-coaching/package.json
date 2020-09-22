@@ -1,0 +1,29 @@
+{
+  "name": "gatsby-theme-nyxo-coaching",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "gatsby": "^2.24.12",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "peerDependencies": {
+    "dotenv": "^8.2.0",
+    "gatsby": "^2.24.12",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "dependencies": {
+    "@contentful/rich-text-plain-text-renderer": "^14.0.0",
+    "@contentful/rich-text-react-renderer": "^14.1.1",
+    "gatsby-source-contentful": "^2.3.33",
+    "styled-components": "^5.2.0"
+  }
+}
