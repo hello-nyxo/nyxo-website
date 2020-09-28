@@ -7,9 +7,8 @@ import {
   ContentfulQuestionnaire,
   ContentfulWeek,
 } from "../../graphql-types"
-import { getLocalizedPath } from "../Helpers/i18n-helpers"
+import { getLocalizedPath } from "../helpers/i18n"
 import { GatsbyCreatePages } from "../types"
-import markdownQuery from "./query-blog-posts"
 import { contentfulData } from "./query-contentful"
 // import { BlogPostNode } from "../typings/blog-types"
 
@@ -20,7 +19,6 @@ type ContentfulTag = {
 export const createPages: GatsbyCreatePages = async ({
   graphql,
   boundActionCreators,
-  // eslint-disable-next-line sonarjs/cognitive-complexity
 }) => {
   const { createPage } = boundActionCreators
 
