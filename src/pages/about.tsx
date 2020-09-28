@@ -5,7 +5,7 @@ import { GatsbyImage } from "../../@types/childImageSharp"
 import { Meta } from "../../@types/content/meta"
 import devices from "../devices"
 import PersonCard from "../components/About/PersonCard"
-import InstagramFeaturette from "../components/Footer/InstagramFeaturette"
+// import InstagramFeaturette from "../components/Footer/InstagramFeaturette"
 import { H1, H2 } from "../components/Html/HtmlContent"
 import Layout from "../components/layout"
 import { Container, P } from "../components/Primitives"
@@ -158,7 +158,7 @@ const AboutPage: FC<PageProps<Props>> = ({
           <P>{t("ABOUT.WORK_FOR_US_TEXT")}</P>
         </JoinUs>
 
-        <InstagramFeaturette />
+        {/* <InstagramFeaturette /> */}
       </Container>
     </Layout>
   )
