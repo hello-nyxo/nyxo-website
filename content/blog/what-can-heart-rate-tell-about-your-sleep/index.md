@@ -18,7 +18,7 @@ If your night-time heart rate scores higher than usual, it is more than likely y
 
 #### Mental Overload
 
-Stress, alertness, and emotional or cognitive overload are among the most typical causes of sleeping troubles. In these cases, something in your life or surroundings (be that work, relationship worries, or video games) activates fight or flight reaction in your body. Your heart rate gets high, stress hormone levels elevated, and your whole body alerted. As useful as this may be in some situations, in the evening-time, it makes falling asleep very difficult and severely disrupts your sleep. Unusually high heart rate at the beginning of the night might indicate mental overload.
+[Stress, alertness, and emotional or cognitive overload](https://nyxo.app/lesson/difficulty-falling-asleep) are among the most typical causes of sleeping troubles. In these cases, something in your life or surroundings (be that work, relationship worries, or video games) activates fight or flight reaction in your body. Your heart rate gets high, stress hormone levels elevated, and your whole body alerted. As useful as this may be in some situations, in the evening-time, it makes falling asleep very difficult and severely disrupts your sleep. Unusually high heart rate at the beginning of the night might indicate mental overload.
 
 #### Physical Overload
 
@@ -26,7 +26,7 @@ Physical overload can have similar effects as mental overload. Overtraining is a
 
 #### Chemical Substances
 
-Alcohol, nicotine, and caffeine can all elevate your heart rate during the night and disrupt your sleep.
+[Alcohol](https://nyxo.app/lesson/alcohol-myths-and-facts), [nicotine](https://nyxo.app/lesson/how-nicotine-affects-your-sleep), and [caffeine](https://nyxo.app/lesson/addicted-to-caffeine) can all elevate your heart rate during the night and disrupt your sleep.
 
 #### Sickness
 
