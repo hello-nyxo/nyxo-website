@@ -189,25 +189,6 @@ const Habits = styled.span`
   display: inline-block;
 `
 
-const FavoriteButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  border: none;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  padding: 0px;
-  justify-content: center;
-`
-
-const Heart = styled(Icon).attrs(() => ({
-  fill: "black",
-  stroke: "none",
-}))`
-  margin: 0px;
-`
-
 const InnerContent = styled.div`
   padding: 0rem 0.5rem 1rem;
 `

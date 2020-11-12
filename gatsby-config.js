@@ -1,3 +1,5 @@
+require("ts-node").register()
+require("ts-node").register()
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -10,6 +12,11 @@ module.exports = {
     siteUrl: `https://nyxo.app`,
   },
   plugins: [
+    {
+      resolve: `@hello-nyxo/gatsby-theme-nyxo-coaching`,
+      options: {},
+    },
+    "gatsby-plugin-slug",
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -27,7 +34,6 @@ module.exports = {
         siteUrl: `https://nyxo.app`,
       },
     },
-    "gatsby-plugin-slug",
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
