@@ -153,17 +153,11 @@ module.exports = {
               maxWidth: 590,
             },
           },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            showLineNumbers: false,
-            inlineCodeMarker: { typescript: "tsx" },
-          },
+          // {
+          //   resolve: `gatsby-remark-prismjs`,
+          //   showLineNumbers: false,
+          //   inlineCodeMarker: { typescript: "tsx" },
+          // },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
@@ -196,13 +190,13 @@ module.exports = {
         display: `minimal-ui`,
         icon: `${__dirname}/static/images/icon.jpg`,
         cache_busting_mode: "none",
-        prefer_related_applications: true,
-        related_applications: [
-          {
-            platform: "play",
-            id: "fi.nyxo.app",
-          },
-        ],
+        // prefer_related_applications: true,
+        // related_applications: [
+        //   {
+        //     platform: "play",
+        //     id: "fi.nyxo.app",
+        //   },
+        // ],
       },
     },
     {
@@ -257,14 +251,6 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
-
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sass`,
     {
@@ -308,12 +294,6 @@ module.exports = {
         id: process.env.GTAG_ID,
         includeInDevelopment: true,
         defaultDataLayer: { platform: "gatsby" },
-      },
-    },
-    {
-      resolve: `gatsby-remark-images-contentful`,
-      options: {
-        maxWidth: 600,
       },
     },
   ],

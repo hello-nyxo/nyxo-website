@@ -18,7 +18,18 @@
     "noEmit": true,
     "types": ["node", "jest"],
     "typeRoots": ["./node_modules/@types"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "~components/*": ["src/components/*"],
+      "~auth/*": ["src/auth/*"],
+      "~templates/*": ["src/templates/*"],
+      "~helpers/*": ["src/Helpers/*"],
+      "~graphql/*": ["src/graphql/*"],
+      "~hooks/*": ["src/hooks/*"],
+      "~styles/*": ["src/styles/*"],
+      "~gatsby/*": ["src/gatsby/*"]
+    }
   },
   "exclude": ["node_modules", "public", ".cache", "gatsby-config.js"]
 }

@@ -1,23 +1,18 @@
 import { graphql, PageProps } from "gatsby"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
-import { GatsbyImage } from "../../@types/childImageSharp"
-import { Meta } from "../../@types/content/meta"
-import AuthorFeaturette from "../components/Author/AuthorFeaturette"
-import BlogPreview from "../components/BlogPreview"
-import Featured from "../components/Featured/Featured"
-import Image from "../components/image"
-import Layout from "../components/layout"
-import NewsLetterForm from "../components/newsletter"
-import { Container, Demo } from "../components/Primitives"
-import SEO from "../components/SEO/SEO"
-import {
-  Link,
-  Trans,
-  useTranslation,
-  useI18next,
-} from "gatsby-plugin-react-i18next"
-import { P } from "../components/Html/HtmlContent"
+import { GatsbyImage } from "childImageSharp"
+import { Meta } from "content/meta"
+import AuthorFeaturette from "@components/Author/AuthorFeaturette"
+import BlogPreview from "@components/BlogPreview"
+import Featured from "@components/Featured/Featured"
+import { P } from "@components/Html/HtmlContent"
+import Image from "@components/image"
+import Layout from "@components/layout"
+import NewsLetterForm from "@components/newsletter"
+import { Container, Demo } from "@components/Primitives"
+import SEO from "@components/SEO/SEO"
 
 type Props = {
   datasource: GatsbyImage
