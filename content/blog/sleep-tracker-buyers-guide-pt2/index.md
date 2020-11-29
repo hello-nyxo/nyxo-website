@@ -18,7 +18,7 @@ Each manufacturer uses its own algorithm to combine data from multiple sources t
 
 #### Emphasize Data Quality
 
-Pay attention to the actual data sources the device provides for sleep tracking. How many different ones are there? What kind of sensors are equipped in the device? Don't let marketing jargon fool you. Consider which of the data sources are actually useful in sleep tracking, and which are there just because they sound scientific and convincing? Often activity and heart rate measurements alone are enough to provide a solid foundation for basic sleep tracking needs. [Read more on sleep data here](<(https://nyxo.app/sleep-tracker-buyers-guide-pt1)>).
+Pay attention to the actual data sources the device provides for sleep tracking. How many different ones are there? What kind of sensors are equipped in the device? Don't let marketing jargon fool you. Consider which of the data sources are actually useful in sleep tracking, and which are there just because they sound scientific and convincing? Often activity and heart rate measurements alone are enough to provide a solid foundation for basic sleep tracking needs. [Read more on sleep data here](https://nyxo.app/sleep-tracker-buyers-guide-pt1).
 
 #### 'Advanced' Sleep Tracking Features
 
