@@ -1,26 +1,25 @@
 import { graphql, PageProps } from "gatsby"
-import Image, { FluidObject } from "gatsby-image"
+import Image, { FluidObject, GatsbyImageProps } from "gatsby-image"
 import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { ContentfulWeek } from "../../graphql-types"
-import AuthorList from "../components/Author/AuthorList"
-import GetAppBanner from "../components/GetAppBanner"
-import HabitHighlights from "../components/Habit/HabitHighlights"
-import { H1, H2, H3 } from "../components/Html/HtmlContent"
-import Layout from "../components/layout"
-import LessonHighlights from "../components/LessonHighlights/LessonHighlights"
-import { Container, P } from "../components/Primitives"
-import SEO from "../components/SEO/SEO"
-import WeekCard from "../components/week/WeekCard"
+import AuthorList from "~components/Author/AuthorList"
+import GetAppBanner from "~components/GetAppBanner"
+import HabitHighlights from "~components/Habit/HabitHighlights"
+import { H1, H2, H3 } from "~components/Html/HtmlContent"
+import Layout from "~components/layout"
+import LessonHighlights from "~components/LessonHighlights/LessonHighlights"
+import { Container, P } from "~components/Primitives"
+import SEO from "~components/SEO/SEO"
+import WeekCard from "~components/week/WeekCard"
+import { SuggestedContent } from "@hello-nyxo/gatsby-theme-nyxo-coaching"
 
 type Props = {
-  weeksFI: {
+  weeks: {
     nodes: ContentfulWeek[]
   }
-  weeksEN: {
-    nodes: ContentfulWeek[]
-  }
+
   coachingMeta: {
     childImageSharp: {
       fixed: {
@@ -38,17 +37,18 @@ type Props = {
 const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
   const {
     data: {
-      weeksFI: { nodes: fiWeeks },
-      weeksEN: { nodes: enWeeks },
+      weeks: { nodes: weeks },
+      allContentfulLesson: { nodes: lessons },
+      habits: { nodes: habits },
+      recentlyUpdated: { nodes: recentlyUpdated },
       coachingMeta,
       coachingCover,
     },
-    pathContext: { language },
+    pageContext: { language },
     location: { pathname },
   } = props
 
   const { t } = useTranslation()
-  const weeks = language === "fi" ? fiWeeks : enWeeks
 
   return (
     <Layout>
@@ -67,6 +67,8 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
         <CoverPhotoContainer>
           <Cover fluid={coachingCover.childImageSharp.fluid} />
         </CoverPhotoContainer>
+
+        <SuggestedContent lessons={lessons} habits={habits} />
 
         <P>{t("COACHING.INTRODUCTION")}</P>
         <H3>{t("COACHING.HOW_IT_WORKS")}</H3>
@@ -126,7 +128,7 @@ const CoverPhotoContainer = styled.div`
     0 18px 36px -18px rgba(0, 0, 0, 0.22);
 `
 
-const Cover = styled(Image)`
+const Cover = styled(Image)<GatsbyImageProps>`
   width: 100%;
   height: 100%;
 `
@@ -139,7 +141,7 @@ export const Weeks = styled.div`
 `
 
 export const pageQueryCoaching = graphql`
-  query CoachingPageQuery {
+  query CoachingQuery($language: String) {
     coachingMeta: file(name: { regex: "/Coaching/" }) {
       childImageSharp {
         fixed(width: 800, quality: 75) {
@@ -161,21 +163,39 @@ export const pageQueryCoaching = graphql`
         title
       }
     }
-
-    weeksEN: allContentfulWeek(
-      filter: { node_locale: { eq: "en-US" }, slug: { ne: "introduction" } }
+    weeks: allContentfulWeek(
+      filter: {
+        fields: { language: { eq: $language } }
+        slug: { ne: "introduction" }
+      }
       sort: { fields: order }
     ) {
       nodes {
         ...WeekFragment
       }
     }
-    weeksFI: allContentfulWeek(
-      filter: { node_locale: { eq: "fi-FI" }, slug: { ne: "introduction" } }
-      sort: { fields: order }
+
+    habits: allContentfulHabit(
+      filter: { fields: { language: { eq: $language } } }
     ) {
       nodes {
-        ...WeekFragment
+        ...HabitFragment
+      }
+    }
+
+    allContentfulLesson(filter: { fields: { language: { eq: $language } } }) {
+      nodes {
+        ...LessonFragment
+      }
+    }
+
+    recentlyUpdated: allContentfulLesson(
+      filter: { fields: { language: { eq: $language } } }
+      sort: { fields: updatedAt, order: DESC }
+      limit: 6
+    ) {
+      nodes {
+        ...LessonFragment
       }
     }
   }

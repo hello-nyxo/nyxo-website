@@ -1,19 +1,19 @@
-import { Link } from "gatsby"
-import Image, { FluidObject } from "gatsby-image"
-import React from "react"
+import Image, { FluidObject, GatsbyImageProps } from "gatsby-image"
+import React, { FC } from "react"
+import { Link } from "gatsby-plugin-react-i18next"
 import styled from "styled-components"
 import {
   ContentfulAuthor,
   MarkdownRemarkFrontmatter,
 } from "../../../graphql-types"
-import { device } from "../../components/Primitives"
+import { device } from "~components/Primitives"
 
 type Author = {
   author: ContentfulAuthor
   blogPosts: MarkdownRemarkFrontmatter[]
 }
 
-const AuthorCardLarge = ({ author, blogPosts }: Author) => {
+const AuthorCardLarge: FC<Author> = ({ author, blogPosts }) => {
   const lessonCount = author?.lesson?.length
   const postCount = blogPosts.length
   return (
@@ -39,7 +39,7 @@ const AuthorCardLarge = ({ author, blogPosts }: Author) => {
 
 export default AuthorCardLarge
 
-const Avatar = styled(Image)`
+const Avatar = styled(Image)<GatsbyImageProps>`
   min-height: 5rem;
   min-width: 5rem;
   border-radius: 10rem;

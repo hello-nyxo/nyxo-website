@@ -1,27 +1,20 @@
 import { graphql } from "gatsby"
 
-export const lessonFragment = graphql`
-  fragment LessonFragment on ContentfulLesson {
+export const lessonFragmentNyxo = graphql`
+  fragment LessonFragmentNyxo on ContentfulLesson {
     lessonName
     slug
     updatedAt(formatString: "")
     createdAt(formatString: "")
     habit {
-      title
-      period
-      slug
-      description {
-        fields {
-          excerpt
-        }
-      }
+      ...HabitFragment
     }
     authorCard {
       credentials
       name
       slug
       avatar {
-        fluid(maxWidth: 50) {
+        fluid(maxWidth: 150) {
           ...GatsbyContentfulFluid_withWebp
         }
       }
@@ -38,26 +31,42 @@ export const lessonFragment = graphql`
       }
     }
     keywords
+    fields {
+      excerpt
+      readingTime
+    }
+    weights: childContentfulLessonWeightsJsonNode {
+      jetlag
+      duration
+      efficiency
+      consistency
+    }
     lessonContent {
-      json
-      fields {
-        excerpt
-        readingTime {
-          minutes
+      raw
+      references {
+        ... on ContentfulAsset {
+          description
+          __typename
+          title
+          contentful_id
+          fluid(maxWidth: 600) {
+            ...GatsbyContentfulFluid_withWebp
+          }
         }
       }
     }
     additionalInformation {
-      json
+      raw
     }
     week {
+      weekName
       slug
     }
   }
 `
 
 export const weekFragment = graphql`
-  fragment WeekFragment on ContentfulWeek {
+  fragment WeekFragmentNyxo on ContentfulWeek {
     slug
     updatedAt(formatString: "")
     createdAt(formatString: "")
@@ -65,7 +74,7 @@ export const weekFragment = graphql`
     weekName
     intro
     weekDescription {
-      json
+      raw
     }
     coverPhoto {
       description
@@ -90,24 +99,18 @@ export const weekFragment = graphql`
         title
         order
         description {
-          json
+          raw
         }
       }
       habit {
-        title
+        ...HabitFragment
+      }
+      fields {
+        excerpt
+        readingTime
       }
       lessonContent {
-        fields {
-          excerpt
-          readingTime {
-            text
-            minutes
-          }
-        }
-      }
-      habit {
-        slug
-        title
+        raw
       }
       authorCard {
         ...AuthorFragment
@@ -116,15 +119,27 @@ export const weekFragment = graphql`
   }
 `
 
-export const habitFragment = graphql`
-  fragment HabitFragment on ContentfulHabit {
+export const habitFragmentNyxo = graphql`
+  fragment HabitFragmentNyxo on ContentfulHabit {
     slug
     period
     title
+    fields {
+      excerpt
+    }
     description {
-      json
-      fields {
-        excerpt
+      raw
+      references {
+        ... on ContentfulHabit {
+          __typename
+          title
+          contentful_id
+          period
+          slug
+          fields {
+            excerpt
+          }
+        }
       }
     }
     updatedAt(formatString: "DD/MM/YYYY")
@@ -136,11 +151,11 @@ export const habitFragment = graphql`
         title
         slug
         period
+        fields {
+          excerpt
+        }
         description {
-          json
-          fields {
-            excerpt
-          }
+          raw
         }
       }
       week {
@@ -151,8 +166,8 @@ export const habitFragment = graphql`
   }
 `
 
-export const authorFragment = graphql`
-  fragment AuthorFragment on ContentfulAuthor {
+export const authorFragmentNyxo = graphql`
+  fragment AuthorFragmentNyxo on ContentfulAuthor {
     id
     name
     slug
@@ -163,6 +178,9 @@ export const authorFragment = graphql`
       fixed(width: 10) {
         src
       }
+    }
+    fields {
+      excerpt
     }
     credentials
     lesson {

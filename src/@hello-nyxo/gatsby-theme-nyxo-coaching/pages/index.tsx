@@ -2,7 +2,7 @@ import { graphql, PageProps } from "gatsby"
 import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
-import { GatsbyImage } from "childImageSharp"
+
 import { Meta } from "content/meta"
 import AuthorFeaturette from "~components/Author/AuthorFeaturette"
 import BlogPreview from "~components/BlogPreview"
@@ -13,6 +13,8 @@ import Layout from "~components/layout"
 import NewsLetterForm from "~components/newsletter"
 import { Container, Demo } from "~components/Primitives"
 import SEO from "~components/SEO/SEO"
+import { RecentyUpdated as RecentlyUpdated } from "@hello-nyxo/gatsby-theme-nyxo-coaching"
+import GatsbyImage from "gatsby-image"
 
 type Props = {
   datasource: GatsbyImage
@@ -26,7 +28,14 @@ type Props = {
 
 const IndexPage: FC<PageProps<Props>> = ({
   location: { pathname },
-  data: { indexMeta, datasources, lessons, cover, data },
+  data: {
+    indexMeta,
+    datasources,
+    lessons,
+    cover,
+    data,
+    recentlyUpdated: { nodes: recentlyUpdated },
+  },
 }) => {
   const { t } = useTranslation()
 
@@ -162,7 +171,7 @@ const IndexPage: FC<PageProps<Props>> = ({
           </div>
         </div>
       </IndexContainer>
-
+      <RecentlyUpdated lessons={recentlyUpdated} />
       <BlogPreview />
 
       <NewsLetterForm />
@@ -227,7 +236,7 @@ const HeroContentWrap = styled.div`
 `
 
 export const pageQuery = graphql`
-  query IndexPageQuery {
+  query IndexPageQuery($language: String) {
     indexMeta: file(name: { regex: "/Index/" }) {
       childImageSharp {
         fixed(width: 800, quality: 75) {
@@ -256,6 +265,16 @@ export const pageQuery = graphql`
         fluid(maxWidth: 1000) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
+      }
+    }
+
+    recentlyUpdated: allContentfulLesson(
+      filter: { fields: { language: { eq: $language } } }
+      sort: { fields: updatedAt, order: DESC }
+      limit: 6
+    ) {
+      nodes {
+        ...LessonFragment
       }
     }
 
