@@ -1,5 +1,5 @@
-require("ts-node").register()
-require("ts-node").register()
+require("source-map-support").install()
+require("ts-node").register({ files: true })
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
