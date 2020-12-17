@@ -1,7 +1,8 @@
-name: "Build, test, and release"
+name: "Update content every daily"
 on:
-  release:
-    types: ["published"]
+  schedule:
+    - cron: "0 1 * * *"
+
 jobs:
   build-test-deploy:
     runs-on: ubuntu-latest
