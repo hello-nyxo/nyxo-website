@@ -39,7 +39,12 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: eu-central-1
 
+      - name: Install dependencies
       - run: yarn install --frozen-lockfile --non-interactive
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build
       - run: yarn build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
