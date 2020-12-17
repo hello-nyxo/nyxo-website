@@ -1,8 +1,7 @@
 import React, { FC, useEffect } from "react"
-import "../../static/styles/all.scss"
-import generateAscii from "../Helpers/AsciiHelper"
-import Footer from "./Footer/Footer"
-import Header from "./header"
+import Footer from "~components/Footer/Footer"
+import Header from "~components/header"
+// import generateAscii from "~helpers/AsciiHelper"
 
 type Props = {
   children: JSX.Element | JSX.Element[]
@@ -10,7 +9,7 @@ type Props = {
 
 const Layout: FC<Props> = ({ children }) => {
   useEffect(() => {
-    generateAscii()
+    // generateAscii()
   }, [])
 
   return (

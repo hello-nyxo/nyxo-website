@@ -53,9 +53,9 @@ const LessonHighlights: FC<Props> = ({ language }) => {
               loading={false}
               path={`/lesson/${lesson?.slug}`}
               lesson={lesson}
-              readingTime={lesson?.lessonContent?.fields?.readingTime?.minutes}
+              readingTime={lesson?.fields?.readingTime?.minutes}
               cover={lesson?.cover?.fluid as FluidObject}
-              excerpt={lesson?.lessonContent?.fields?.excerpt}
+              excerpt={lesson?.fields?.excerpt}
             />
           )
         })}

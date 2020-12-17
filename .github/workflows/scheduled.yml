@@ -1,8 +1,7 @@
-name: "Site: Build and deploy"
+name: "Update content every daily"
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    - cron: "0 1 * * *"
 
 jobs:
   build-test-deploy:
