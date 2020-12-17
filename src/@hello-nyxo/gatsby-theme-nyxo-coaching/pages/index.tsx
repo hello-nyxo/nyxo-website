@@ -13,7 +13,7 @@ import Layout from "~components/layout"
 import NewsLetterForm from "~components/newsletter"
 import { Container, Demo } from "~components/Primitives"
 import SEO from "~components/SEO/SEO"
-import { RecentyUpdated as RecentlyUpdated } from "@hello-nyxo/gatsby-theme-nyxo-coaching"
+import { RecentlyUpdated } from "@hello-nyxo/gatsby-theme-nyxo-coaching"
 import GatsbyImage from "gatsby-image"
 
 type Props = {

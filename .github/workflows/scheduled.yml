@@ -23,7 +23,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "10.x"
+          node-version: "12.x"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@hello-nyxo"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configure amplify
         uses: ambientlight/amplify-cli-action@0.2.1
@@ -38,6 +42,7 @@ jobs:
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn build
         env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GATSBY_TELEMETRY_DISABLED: 1
           INSTAGRAM_API_TOKEN: ${{ secrets.INSTAGRAM_API_TOKEN }}
           INSTAGRAM_BUSINES_ID: ${{ secrets.INSTAGRAM_BUSINES_ID }}
