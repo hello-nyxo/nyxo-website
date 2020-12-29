@@ -10,8 +10,6 @@
     "@hello-nyxo/gatsby-theme-nyxo-coaching": "0.1.2",
     "@types/d3": "^6.1.0",
     "@types/react-table": "^7.0.22",
-    "aws-amplify": "^3.3.8",
-    "aws-amplify-react": "^4.2.12",
     "babel-plugin-styled-components": "^1.10.7",
     "contentful-typescript-codegen": "^3.0.1",
     "d3": "^6.1.1",
