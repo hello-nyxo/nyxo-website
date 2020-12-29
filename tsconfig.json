@@ -5,10 +5,13 @@
     "lib": ["dom"],
     "jsx": "preserve",
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "paths": {
       "~components/*": ["src/components/*"],
+      "~content/*": ["content/*"],
       "~auth/*": ["src/auth/*"],
+      "~theme/*": ["src/@hello-nyxo/gatsby-theme-nyxo-coaching/*"],
       "~templates/*": ["src/templates/*"],
       "~helpers/*": ["src/Helpers/*"],
       "~graphql/*": ["src/graphql/*"],

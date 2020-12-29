@@ -71,10 +71,15 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       alias: {
         "~auth": path.resolve(__dirname, "src/auth/"),
         "~components": path.resolve(__dirname, "src/components/"),
+        "~content": path.resolve(__dirname, "content/"),
+        "~theme": path.resolve(
+          __dirname,
+          "src/@hello-nyxo/gatsby-theme-nyxo-coaching/"
+        ),
         "~hooks": path.resolve(__dirname, "src/hooks/"),
         "~styles": path.resolve(__dirname, "src/styles/"),
         "~graphql": path.resolve(__dirname, "src/graphql/"),
-        "~@helpers": path.resolve(__dirname, "src/Helpers/"),
+        "~helpers": path.resolve(__dirname, "src/Helpers/"),
         "~gatsby": path.resolve(__dirname, "src/gatsby/"),
       },
     },

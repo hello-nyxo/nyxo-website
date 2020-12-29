@@ -1,6 +1,6 @@
 import React from "react"
 
-import Layout from "../components/layout"
+import Layout from "~theme/components/Layout/Layout"
 import SEO from "../components/SEO/SEO"
 import { PageProps, graphql } from "gatsby"
 

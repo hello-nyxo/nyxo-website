@@ -3,13 +3,13 @@ import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 
-import { Meta } from "content/meta"
+import { Meta } from "~content/data/meta"
 import AuthorFeaturette from "~components/Author/AuthorFeaturette"
 import BlogPreview from "~components/BlogPreview"
 import Featured from "~components/Featured/Featured"
 import { P } from "~components/Html/HtmlContent"
 import Image from "~components/image"
-import Layout from "~components/layout"
+import Layout from "~theme/components/Layout/Layout"
 import NewsLetterForm from "~components/newsletter"
 import { Container, Demo } from "~components/Primitives"
 import SEO from "~components/SEO/SEO"
@@ -170,8 +170,8 @@ const IndexPage: FC<PageProps<Props>> = ({
             </div>
           </div>
         </div>
+        <RecentlyUpdated lessons={recentlyUpdated} />
       </IndexContainer>
-      <RecentlyUpdated lessons={recentlyUpdated} />
       <BlogPreview />
 
       <NewsLetterForm />
