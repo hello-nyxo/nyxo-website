@@ -153,11 +153,6 @@ module.exports = {
               maxWidth: 590,
             },
           },
-          // {
-          //   resolve: `gatsby-remark-prismjs`,
-          //   showLineNumbers: false,
-          //   inlineCodeMarker: { typescript: "tsx" },
-          // },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           `gatsby-remark-prismjs`,
@@ -191,13 +186,6 @@ module.exports = {
         display: `minimal-ui`,
         icon: `${__dirname}/static/images/icon.jpg`,
         cache_busting_mode: "none",
-        // prefer_related_applications: true,
-        // related_applications: [
-        //   {
-        //     platform: "play",
-        //     id: "fi.nyxo.app",
-        //   },
-        // ],
       },
     },
     {
