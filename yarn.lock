@@ -3164,10 +3164,10 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@hello-nyxo/gatsby-theme-nyxo-coaching@0.1.5":
-  version "0.1.5"
-  resolved "https://npm.pkg.github.com/download/@hello-nyxo/gatsby-theme-nyxo-coaching/0.1.5/7a41648e1828edeb27dad97d7a5220f8bb761fdd3613c615feec4b370974bdf6#22a5ae10f27de07457b742264791cac4a9fece1d"
-  integrity sha512-lZUP77wCKkSonnuqj1oaGcKrty08G6Xe0pARlfO3l3tt7ww1dS8R8hTBjShbUpbo5G3RLs4XPQVrL2iXPHw9Yw==
+"@hello-nyxo/gatsby-theme-nyxo-coaching@0.1.6":
+  version "0.1.6"
+  resolved "https://npm.pkg.github.com/download/@hello-nyxo/gatsby-theme-nyxo-coaching/0.1.6/c251895d4c5643c322a76a275219871fec070b660cff3f67bf2246429b3c66c1#cef01bb8bb6f0e29454c30b788f41910c5df7dd1"
+  integrity sha512-jCrbeQz0eypALYH1tUyUbNi9ya3pJF2A4mqToi3vyCl+3uTqXp8qlMLVv8cgGAOHZEXrLOLCgZiPBej8SvQQJA==
   dependencies:
     "@contentful/rich-text-plain-text-renderer" "^14.1.2"
     "@contentful/rich-text-react-renderer" "^14.1.2"
