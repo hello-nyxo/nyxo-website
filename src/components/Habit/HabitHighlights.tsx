@@ -23,10 +23,11 @@ const HabitHighlights: FC<Props> = ({ locale }) => {
           title
           slug
           period
+          fields {
+            excerpt
+          }
           description {
-            fields {
-              excerpt
-            }
+            raw
           }
         }
       }
@@ -38,10 +39,11 @@ const HabitHighlights: FC<Props> = ({ locale }) => {
           title
           slug
           period
+          fields {
+            excerpt
+          }
           description {
-            fields {
-              excerpt
-            }
+            raw
           }
         }
       }
@@ -61,8 +63,8 @@ const HabitHighlights: FC<Props> = ({ locale }) => {
             key={node.slug as string}
             period={node.period}
             title={node.title}
-            slug={getLocalizedPath(`/habit/${node.slug}`, locale)}
-            excerpt={node.description?.fields?.excerpt}
+            slug={`/habit/${node.slug}`}
+            excerpt={node.fields?.excerpt}
           />
         ))}
       </Habits>

@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "fi.nyxo.app",
+      "sha256_cert_fingerprints": [
+        "SHA256: 26:DC:4F:D5:C1:9C:C9:13:CC:DC:55:7F:F9:11:5F:9A:A4:1B:23:98:9D:FE:FD:55:A4:FC:18:4F:BD:3D:10:FB"
+      ]
+    }
+  }
+]

@@ -1,28 +1,50 @@
 import { graphql, PageProps } from "gatsby"
-import Image from "gatsby-image"
+import Image, { FluidObject, GatsbyImageProps } from "gatsby-image"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
-import { CoachingPageQueryQuery, ContentfulWeek } from "../../graphql-types"
-import AuthorList from "../components/Author/AuthorList"
-import GetAppBanner from "../components/GetAppBanner"
-import HabitHighlights from "../components/Habit/HabitHighlights"
-import { H1, H2, H3 } from "../components/Html/HtmlContent"
-import Layout from "../components/layout"
-import LessonHighlights from "../components/LessonHighlights/LessonHighlights"
-import { Container, P } from "../components/Primitives"
-import SEO from "../components/SEO/SEO"
-import WeekCard from "../components/WeekCard"
-import { useTranslation } from "gatsby-plugin-react-i18next"
+import { ContentfulWeek } from "../../graphql-types"
+import AuthorList from "~components/Author/AuthorList"
+import GetAppBanner from "~components/GetAppBanner"
+import HabitHighlights from "~components/Habit/HabitHighlights"
+import { H1, H2, H3 } from "~components/Html/HtmlContent"
+import Layout from "~theme/components/Layout/Layout"
+import LessonHighlights from "~components/LessonHighlights/LessonHighlights"
+import { Container, P } from "~components/Primitives"
+import SEO from "~components/SEO/SEO"
+import WeekCard from "~components/week/WeekCard"
+import { SuggestedContent } from "@hello-nyxo/gatsby-theme-nyxo-coaching"
 
-const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
+type Props = {
+  weeks: {
+    nodes: ContentfulWeek[]
+  }
+
+  coachingMeta: {
+    childImageSharp: {
+      fixed: {
+        src: string
+      }
+    }
+  }
+  coachingCover: {
+    childImageSharp: {
+      fluid: FluidObject
+    }
+  }
+}
+
+const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
   const {
     data: {
-      weeksFI: { nodes: fiWeeks },
-      weeksEN: { nodes: enWeeks },
+      weeks: { nodes: weeks },
+      allContentfulLesson: { nodes: lessons },
+      habits: { nodes: habits },
+      recentlyUpdated: { nodes: recentlyUpdated },
       coachingMeta,
       coachingCover,
     },
-    pathContext: { language },
+    pageContext: { language },
     location: { pathname },
   } = props
 
@@ -34,7 +56,7 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
         title={t("COACHING.TITLE")}
         description={t("COACHING.DESCRIPTION")}
         pathName={pathname}
-        image={coachingMeta.childImageSharp.fixed.src}
+        image={coachingMeta?.childImageSharp?.fixed?.src}
         staticImage={true}
       />
 
@@ -46,8 +68,9 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
           <Cover fluid={coachingCover.childImageSharp.fluid} />
         </CoverPhotoContainer>
 
-        <P>{t("COACHING.INTRODUCTION")}</P>
+        <SuggestedContent lessons={lessons} habits={habits} />
 
+        <P>{t("COACHING.INTRODUCTION")}</P>
         <H3>{t("COACHING.HOW_IT_WORKS")}</H3>
         <P>{t("COACHING.HOW_IT_WORKS_TEXT")}</P>
 
@@ -55,31 +78,22 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
 
         <H2>{t("COACHING.WEEKS")}</H2>
         <P>{t("COACHING.WEEKS_TEXT")}</P>
-
         <Weeks>
-          {language === "fi"
-            ? fiWeeks.map((week: ContentfulWeek) => (
-                <WeekCard
-                  key={week.slug}
-                  path={`/week/${week.slug}`}
-                  intro={week.intro}
-                  name={week.weekName}
-                  duration={week.duration}
-                  lessons={week.lessons}
-                  coverPhoto={week.coverPhoto.fluid}
-                />
-              ))
-            : enWeeks.map((week: ContentfulWeek) => (
-                <WeekCard
-                  key={week.slug}
-                  path={`/week/${week.slug}`}
-                  intro={week.intro}
-                  name={week.weekName}
-                  duration={week.duration}
-                  lessons={week.lessons}
-                  coverPhoto={week.coverPhoto.fluid}
-                />
-              ))}
+          {weeks.map((week: ContentfulWeek) => {
+            return (
+              <WeekCard
+                bookmarked={false}
+                key={`${week?.slug}`}
+                path={`/week/${week?.slug}`}
+                intro={week?.intro}
+                name={week?.weekName}
+                duration={week?.duration}
+                lessons={week?.lessons}
+                coverPhoto={week?.coverPhoto?.fluid as FluidObject}
+                slug={week.slug}
+              />
+            )
+          })}
         </Weeks>
 
         <HabitHighlights locale={language} />
@@ -94,14 +108,6 @@ const CoachingPage: FC<PageProps<CoachingPageQueryQuery>> = (props) => {
 }
 
 export default CoachingPage
-
-const Weeks = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  padding: 3rem 0rem;
-  margin: 2rem -1rem;
-`
 
 const Title = styled(H1)`
   text-align: center;
@@ -122,13 +128,20 @@ const CoverPhotoContainer = styled.div`
     0 18px 36px -18px rgba(0, 0, 0, 0.22);
 `
 
-const Cover = styled(Image)`
+const Cover = styled(Image)<GatsbyImageProps>`
   width: 100%;
   height: 100%;
 `
 
+export const Weeks = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 2rem -1rem;
+`
+
 export const pageQueryCoaching = graphql`
-  query CoachingPageQuery {
+  query CoachingQuery($language: String) {
     coachingMeta: file(name: { regex: "/Coaching/" }) {
       childImageSharp {
         fixed(width: 800, quality: 75) {
@@ -150,21 +163,39 @@ export const pageQueryCoaching = graphql`
         title
       }
     }
-
-    weeksEN: allContentfulWeek(
-      filter: { node_locale: { eq: "en-US" }, slug: { ne: "introduction" } }
+    weeks: allContentfulWeek(
+      filter: {
+        fields: { language: { eq: $language } }
+        slug: { ne: "introduction" }
+      }
       sort: { fields: order }
     ) {
       nodes {
         ...WeekFragment
       }
     }
-    weeksFI: allContentfulWeek(
-      filter: { node_locale: { eq: "fi-FI" }, slug: { ne: "introduction" } }
-      sort: { fields: order }
+
+    habits: allContentfulHabit(
+      filter: { fields: { language: { eq: $language } } }
     ) {
       nodes {
-        ...WeekFragment
+        ...HabitFragment
+      }
+    }
+
+    allContentfulLesson(filter: { fields: { language: { eq: $language } } }) {
+      nodes {
+        ...LessonFragment
+      }
+    }
+
+    recentlyUpdated: allContentfulLesson(
+      filter: { fields: { language: { eq: $language } } }
+      sort: { fields: updatedAt, order: DESC }
+      limit: 6
+    ) {
+      nodes {
+        ...LessonFragment
       }
     }
   }

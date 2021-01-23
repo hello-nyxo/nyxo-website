@@ -1,0 +1,25 @@
+{
+   "activitycontinuation": {
+    "apps": [
+      "RPKZ2YP3VZ.app.sleepcircle.application"
+    ]
+  },
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "RPKZ2YP3VZ.app.sleepcircle.application",
+        "paths": [
+          "/*",
+          "link/*",
+          "/link?",
+					"/lesson/*",
+					"/fi/lesson/*",
+          "huawei-redirect/*",
+          "/huawei-redirect?",
+          "*"
+        ]
+      }
+    ]
+  }
+}

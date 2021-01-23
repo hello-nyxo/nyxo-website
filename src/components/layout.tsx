@@ -1,11 +1,11 @@
-import React, { useEffect, FC } from "react"
+import React, { FC, useEffect } from "react"
 import "../../static/styles/all.scss"
-import Header from "./header"
 import generateAscii from "../Helpers/AsciiHelper"
 import Footer from "./Footer/Footer"
+import Header from "./header"
 
 type Props = {
-  children: JSX
+  children: JSX.Element | JSX.Element[]
 }
 
 const Layout: FC<Props> = ({ children }) => {

@@ -2,12 +2,12 @@ import { graphql, PageProps } from "gatsby"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "../../@types/childImageSharp"
-import { Meta } from "../../@types/content/meta"
+import { Meta } from "~content/data/meta"
 import devices from "../devices"
 import PersonCard from "../components/About/PersonCard"
-import InstagramFeaturette from "../components/Footer/InstagramFeaturette"
+// import InstagramFeaturette from "../components/Footer/InstagramFeaturette"
 import { H1, H2 } from "../components/Html/HtmlContent"
-import Layout from "../components/layout"
+import Layout from "~theme/components/Layout/Layout"
 import { Container, P } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 import { useTranslation } from "gatsby-plugin-react-i18next"
@@ -158,7 +158,7 @@ const AboutPage: FC<PageProps<Props>> = ({
           <P>{t("ABOUT.WORK_FOR_US_TEXT")}</P>
         </JoinUs>
 
-        <InstagramFeaturette />
+        {/* <InstagramFeaturette /> */}
       </Container>
     </Layout>
   )

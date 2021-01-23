@@ -1,6 +1,6 @@
 import { graphql, PageProps } from "gatsby"
 import React, { FC } from "react"
-import Layout from "../components/layout"
+import Layout from "~theme/components/Layout/Layout"
 import PageHeader from "../components/PageHeader"
 import { Container } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"

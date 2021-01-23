@@ -11,9 +11,9 @@ import Amplify from "aws-amplify"
 import "prism-theme-night-owl"
 import { setUser } from "./src/auth/AppUser"
 
-const config = require("./src/aws-exports").default
 require("prismjs/plugins/line-numbers/prism-line-numbers.css")
 require("prismjs/plugins/command-line/prism-command-line.css")
+const config = require("./src/aws-exports.js").default
 
 export const onClientEntry = () => {
   Amplify.configure(config)

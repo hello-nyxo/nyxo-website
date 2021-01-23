@@ -11,7 +11,7 @@ const getUser = () => {
   return {}
 }
 
-export const isLoggedIn = (): boolean => {
+export const isLoggedIn = (): boolean | undefined => {
   if (!isBrowser) return false
 
   const user = getUser()

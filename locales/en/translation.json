@@ -24,6 +24,7 @@
     "YOU": "You",
     "ORGANIZATIONS": "Organizations",
     "COACHING": "Sleep",
+    "ME": "Me",
     "BLOG": "Blog",
     "LOGIN": "Login",
     "LOGOUT": "Logout"
@@ -93,8 +94,10 @@
   },
 
   "COACHING": {
-    "TITLE": "Want Sleep Better? Get Nyxo Sleep Coaching Now",
+    "TITLE": "Want to Sleep Better? Get Nyxo Sleep Coaching",
     "SUBTITLE": "The secret to good sleep is at your fingertips",
+
+    "DESCRIPTION": "A good night’s sleep is the key to success. It makes you feel better, think better, and makes your more productive. The question is how can one improve their sleep? Once you go to bed, there isn’t much you can do to improve your sleep quality. However, there´s a clear connection between what you do during the day and your nightly sleep quality, and this is the central thesis of our sleep coaching.",
 
     "INTRODUCTION": "A good night’s sleep is the key to success. It makes you feel better, think better, and makes your more productive. The question is how can one improve their sleep? Once you go to bed, there isn’t much you can do to improve your sleep quality. However, there´s a clear connection between what you do during the day and your nightly sleep quality, and this is the central thesis of our sleep coaching.",
 
@@ -107,7 +110,8 @@
     "HABITS": "Habits",
     "HABITS_TEXT": "Below is a small sample of habits and exercises from the Nyxo Sleep Coaching",
     "AUTHORS": "Authors",
-    "AUTHORS_TEXT": "These are the authors behind the Nyxo materials you love. Here you can learn more about the authors, including their areas of expertise, and find all materials they've written."
+    "AUTHORS_TEXT": "These are the authors behind the Nyxo materials you love. Here you can learn more about the authors, including their areas of expertise, and find all materials they've written.",
+    "SLEEP_COACHING": "Sleep Coaching"
   },
 
   "BLOG": {
@@ -163,6 +167,10 @@
   "CHECKOUT_BLOG": "Check Out Our Blog",
   "MORE_FROM_BLOG": "More From Our Blog",
 
+  "ADD_BOOKMARK": "Add to bookmarks",
+  "REMOVE_BOOKMARK": "Remove bookmark",
+  "LOADING_DATA": "Loading data...",
+
   "ABOUT": {
     "TITLE": "We’re on a mission to make the world sleep better",
     "NYXO": "Our Story",
@@ -176,6 +184,26 @@
     "WORK_FOR_US_TEXT": "We’re a small team but growing quickly. As an early team member, you’ll have an outsized impact on what we build and how we build it. If you’re interested, we’d love to hear from you.",
 
     "INSTAGRAM": "Follow Us"
+  },
+
+  "PROMPT": {
+    "MOBILE": "Get Nyxo App",
+    "TABLET": "Sleep Tracking & Coaching",
+    "DESKTOP": "Track your sleep and get personalized sleep coaching",
+    "BUTTON": "Get Nyxo"
+  },
+
+  "USER": {
+    "EMAIL": "Email",
+    "ID": "ID",
+    "INTERCOM": "Intercom ID",
+    "LINK": "Link code",
+    "ACTIVE_COACHING": "Coaching",
+    "CREATED": "Account created",
+    "UPDATED": "Account updated",
+    "COACHING": "Coaching",
+    "CURRENTLY_ACTIVE": "Currently Active Coaching",
+    "ALL_COACHING_DATA": "All Coaching Periods"
   },
 
   "en": "english",

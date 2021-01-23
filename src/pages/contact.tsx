@@ -3,7 +3,7 @@ import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
 import { H1, P } from "../components/Html/HtmlContent"
-import Layout from "../components/layout"
+import Layout from "~theme/components/Layout/Layout"
 import { Container } from "../components/Primitives"
 import SEO from "../components/SEO/SEO"
 

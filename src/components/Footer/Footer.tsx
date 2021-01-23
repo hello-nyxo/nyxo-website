@@ -93,8 +93,7 @@ const Footer: FC = () => {
                     className={"links__special"}
                     href={"https://help.nyxo.app"}
                     target="_new"
-                    rel="noopener noreferrer"
-                    title={t("FOOTER.SUPPORT")}>
+                    rel="noopener noreferrer">
                     {t("FOOTER.SUPPORT")}
                   </OutboundLink>
                 </li>

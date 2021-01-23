@@ -181,11 +181,16 @@ $radiant-blue: #4a5aef;
 
   --shadow: 9px 9px 22px -2px var(--darkShadow),
     -9px -9px 18px var(--lightShadow);
+  --shadowInset: inset 9px 9px 22px -2px var(--darkShadow),
+    -9px -9px 18px var(--lightShadow);
 
   --shadowFull: 0px 1px 5px 5px rgb(163, 177, 198, 0.25);
 
   --semibold: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
   --medium: "Montserrat-medium", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --morning: #ffecf2;
+  --morningAccent: #f42d97;
 }
 
 body {

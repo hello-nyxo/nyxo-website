@@ -1,7 +1,7 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import WeekCard from "../WeekCard"
+import WeekCard from "../week/WeekCard"
 
 describe("Week card", () => {
   const name = "Week name"

@@ -24,6 +24,7 @@
     "YOU": "Sinulle",
     "ORGANIZATIONS": "Yrityksille",
     "COACHING": "Uni",
+    "ME": "Minä",
     "BLOG": "Blogi",
     "LOGIN": "Kirjaudu",
     "LOGOUT": "Kirjaudu ulos"
@@ -95,7 +96,7 @@
   "COACHING": {
     "TITLE": "Nyxo Univalmennus",
     "SUBTITLE": "Tutustu hyvien yöunien salaisuuksiin",
-
+    "DESCRIPTION": "Hyvät unet ovat avain menestykseen. Tunnet olosi paremmaksi, ajatukset ovat kirkkaat, ja saat enemmän aikaan. Kysymys kuuluukin, miten unta pystyy parantamaan? Sänkyyn mentyäsi ei unen laatuun varsinaisesti voi vaikuttaa. Tästä huolimatta, sillä mitä teet päivän aikana ja sillä miten nukut on suora yhteys toisiinsa. Tähän valmennuksemme perustuu.",
     "INTRODUCTION": "Hyvät unet ovat avain menestykseen. Tunnet olosi paremmaksi, ajatukset ovat kirkkaat, ja saat enemmän aikaan. Kysymys kuuluukin, miten unta pystyy parantamaan? Sänkyyn mentyäsi ei unen laatuun varsinaisesti voi vaikuttaa. Tästä huolimatta, sillä mitä teet päivän aikana ja sillä miten nukut on suora yhteys toisiinsa. Tähän valmennuksemme perustuu.",
 
     "HOW_IT_WORKS": "Kuinka Nyxo Univalmennus toimii",
@@ -107,7 +108,8 @@
     "HABITS": "Tavoitteet",
     "HABITS_TEXT": "Alla pieni läpileikkaus Nyxo Univalmennuksessa valittavista harjoitteista ja tavoitteista.",
     "AUTHORS": "Kirjoittajat",
-    "AUTHORS_TEXT": "Alla olevat henkilöt ovat luoneet Nyxo Univalmennuksen."
+    "AUTHORS_TEXT": "Alla olevat henkilöt ovat luoneet Nyxo Univalmennuksen.",
+    "SLEEP_COACHING": "Univalmennus"
   },
 
   "BLOG": {
@@ -163,6 +165,10 @@
   "CHECKOUT_BLOG": "Blogistamme",
   "MORE_FROM_BLOG": "Lisää blogikirjoituksia",
 
+  "ADD_BOOKMARK": "Tallenna",
+  "REMOVE_BOOKMARK": "Poista kirjanmerkki",
+  "LOADING_DATA": "Odota hetki...",
+
   "ABOUT": {
     "TITLE": "Jokaisella ihmisellä on oikeus hyviin yöuniin",
     "NYXO": "Tietoa meistä",
@@ -176,6 +182,26 @@
     "WORK_FOR_US_TEXT": "Olemme pieni, mutta jatkuvasti kasvava tiimi. Liittymällä mukaan varhaisessa vaiheessa pääset vaikuttamaan vahvasti siihen, miten rakennamme ja kehitämme tuotteitamme tulevaisuudessa. Jos olet kiinnostunut, ota ihmeessä yhteyttä!",
 
     "INSTAGRAM": "Seuraa meitä"
+  },
+
+  "PROMPT": {
+    "MOBILE": "Lataa Nyxo",
+    "TABLET": "Unen seuranta & valmennus",
+    "DESKTOP": "Seuraa untasi ja saa henkilökohtaista univalmennusta",
+    "BUTTON": "Lataa Nyxo"
+  },
+
+  "USER": {
+    "EMAIL": "Sähköposti",
+    "ID": "ID",
+    "INTERCOM": "Intercom ID",
+    "LINK": "Linkkikoodi",
+    "ACTIVE_COACHING": "Valmennus",
+    "CREATED": "Tili luotu",
+    "UPDATED": "Tili päivitetty",
+    "COACHING": "Valmennus",
+    "CURRENTLY_ACTIVE": "Tällä hetkellä aktiivinen valmennus",
+    "ALL_COACHING_DATA": "Kaikki valmennusjaksot"
   },
 
   "en": "In English",

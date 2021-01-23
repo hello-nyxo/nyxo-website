@@ -7,12 +7,12 @@ exports[`Get the app renders correctly 1`] = `
   <h2
     className="sc-AxhUy izZJGo"
   >
-    Get the app
+    GET_THE_APP.TITLE
   </h2>
   <p
     className="sc-AxhCb cxKEKE"
   >
-    Download the app for free and sleep better starting tonight.
+    GET_THE_APP.TEXT
   </p>
   <div
     className="sc-AxirZ jzSnfk"

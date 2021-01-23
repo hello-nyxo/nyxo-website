@@ -19,13 +19,10 @@ const LargeLessonCard: FC<Props> = ({ path = `/`, lesson }) => {
     <Card to={path as string}>
       <ImageContainer>
         <Cover fluid={lesson?.cover?.fluid} />
-        <FavoriteButton>
-          <Heart height="25px" width="25px" name="heart" />
-        </FavoriteButton>
         <Wrap>
           <Icon height="15px" width="15px" name="clock" />
           <ReadingTime>
-            {Math.ceil(lesson?.lessonContent?.fields?.readingTime?.minutes)}m
+            {Math.ceil(lesson?.fields?.readingTime?.minutes)}m
           </ReadingTime>
           {!!countHabits && (
             <Habits>
@@ -37,9 +34,7 @@ const LargeLessonCard: FC<Props> = ({ path = `/`, lesson }) => {
       </ImageContainer>
       <InnerContent>
         <Name>{lesson?.lessonName}</Name>
-        <Excerpt>
-          {truncate(lesson?.lessonContent?.fields?.excerpt, 100, true)}
-        </Excerpt>
+        <Excerpt>{truncate(lesson?.fields?.excerpt, 100, true)}</Excerpt>
       </InnerContent>
     </Card>
   )
@@ -166,25 +161,6 @@ const Habits = styled.span`
   margin-left: 1rem;
   font-size: 0.9rem;
   display: inline-block;
-`
-
-const FavoriteButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  border: none;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  padding: 0px;
-  justify-content: center;
-`
-
-const Heart = styled(Icon).attrs(() => ({
-  fill: "black",
-  stroke: "none",
-}))`
-  margin: 0px;
 `
 
 const InnerContent = styled.div`

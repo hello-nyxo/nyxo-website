@@ -18,6 +18,8 @@ exports[`Footer renders correctly 1`] = `
         >
           <a
             href="/"
+            hrefLang="en"
+            onClick={[Function]}
             title="Nyxo"
           >
             <img
@@ -30,7 +32,7 @@ exports[`Footer renders correctly 1`] = `
           className="sc-AxiKw jPEmWe"
         >
           <p>
-            Personalized sleep coaching that works!
+            FOOTER.TITLE
           </p>
         </div>
       </div>
@@ -51,41 +53,51 @@ exports[`Footer renders correctly 1`] = `
             <li>
               <a
                 href="/for-you"
-                title="For You"
+                hrefLang="en"
+                onClick={[Function]}
+                title="FOOTER.YOU)"
               >
-                For You
+                FOOTER.YOU
               </a>
             </li>
             <li>
               <a
                 href="/for-organizations"
-                title="For Organizations"
+                hrefLang="en"
+                onClick={[Function]}
+                title="FOOTER.ORGANIZATIONS)"
               >
-                For Organizations
+                FOOTER.ORGANIZATIONS
               </a>
             </li>
             <li>
               <a
                 href="/coaching"
-                title="Coaching"
+                hrefLang="en"
+                onClick={[Function]}
+                title="FOOTER.COACHING)"
               >
-                Coaching
+                FOOTER.COACHING
               </a>
             </li>
             <li>
               <a
                 href="/about"
-                title="About Us"
+                hrefLang="en"
+                onClick={[Function]}
+                title="FOOTER.ABOUT_US)"
               >
-                About Us
+                FOOTER.ABOUT_US
               </a>
             </li>
             <li>
               <a
                 href="/blog"
-                title="Blog"
+                hrefLang="en"
+                onClick={[Function]}
+                title="FOOTER.BLOG)"
               >
-                Blog
+                FOOTER.BLOG
               </a>
             </li>
             <li>
@@ -94,9 +106,9 @@ exports[`Footer renders correctly 1`] = `
                 onClick={[Function]}
                 rel="noopener noreferrer"
                 target="_new"
-                title="Nyxo press kit."
+                title="FOOTER.PRESS_KIT"
               >
-                Press Kit
+                FOOTER.PRESS_KIT
               </a>
             </li>
           </ul>
@@ -113,7 +125,7 @@ exports[`Footer renders correctly 1`] = `
           className="links"
         >
           <h4>
-            Support
+            FOOTER.SUPPORT
           </h4>
           <ul>
             <li>
@@ -123,33 +135,38 @@ exports[`Footer renders correctly 1`] = `
                 onClick={[Function]}
                 rel="noopener noreferrer"
                 target="_new"
-                title="If you need any help, you can find it here"
               >
-                Support
+                FOOTER.SUPPORT
               </a>
             </li>
             <li>
               <a
                 href="/contact"
-                title="Contact Us"
+                hrefLang="en"
+                onClick={[Function]}
+                title="FOOTER.CONTACT"
               >
-                Contact
+                FOOTER.CONTACT
               </a>
             </li>
             <li>
               <a
                 href="/privacy"
-                title="Privacy Policy"
+                hrefLang="en"
+                onClick={[Function]}
+                title="FOOTER.PRIVACY"
               >
-                Privacy
+                FOOTER.PRIVACY
               </a>
             </li>
             <li>
               <a
                 href="/terms"
-                title="Terms Of Use"
+                hrefLang="en"
+                onClick={[Function]}
+                title="FOOTER.TERMS"
               >
-                Terms Of Use
+                FOOTER.TERMS
               </a>
             </li>
           </ul>
@@ -177,6 +194,7 @@ exports[`Footer renders correctly 1`] = `
               fill="none"
               height="30px"
               stroke="#333"
+              strokeLinecap="round"
               strokeWidth="1.5"
               version="1.1"
               viewBox="0 0 30 30"
@@ -202,6 +220,7 @@ exports[`Footer renders correctly 1`] = `
               fill="none"
               height="30px"
               stroke="#333"
+              strokeLinecap="round"
               strokeWidth="1.5"
               version="1.1"
               viewBox="0 0 30 30"
@@ -233,6 +252,7 @@ exports[`Footer renders correctly 1`] = `
               fill="none"
               height="30px"
               stroke="#333"
+              strokeLinecap="round"
               strokeWidth="1.5"
               version="1.1"
               viewBox="0 0 30 30"
@@ -258,6 +278,7 @@ exports[`Footer renders correctly 1`] = `
               fill="none"
               height="30px"
               stroke="#333"
+              strokeLinecap="round"
               strokeWidth="1.5"
               version="1.1"
               viewBox="0 0 30 30"

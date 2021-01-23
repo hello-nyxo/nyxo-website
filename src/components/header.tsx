@@ -39,25 +39,32 @@ const Header: FC = () => {
       <Links>
         {links.map(({ title, path }) => (
           <Li key={title}>
-            {(title === "LOGIN" || title === "ME") && (
+            {title === "LOGIN" || title === "ME" ? (
               <NonLocalizedMenuLink to={`/${path}`}>
                 {t(`NAVIGATION.${title}`)}
               </NonLocalizedMenuLink>
-            )}
-            {title != "LOGIN" && (
+            ) : (
               <MenuLink to={`/${path}`}>{t(`NAVIGATION.${title}`)}</MenuLink>
             )}
           </Li>
         ))}
-        {languages.map((lang) =>
-          lang === language ? null : (
-            <Li key={lang}>
-              <MenuLink to={originalPath} language={lang}>
-                {t(lang)}
-              </MenuLink>
-            </Li>
-          )
+        {/* {languages.map((lang) => // TODO create a better language dropdown
+          lang === language ? null : ( */}
+        {language === "en" ? (
+          <Li key={"fi"}>
+            <MenuLink to={originalPath} language={"fi"}>
+              {t("fi")}
+            </MenuLink>
+          </Li>
+        ) : (
+          <Li key={"en"}>
+            <MenuLink to={originalPath} language={"en"}>
+              {t("en")}
+            </MenuLink>
+          </Li>
         )}
+        {/* )
+        )} */}
       </Links>
     </HeaderContainer>
   )
