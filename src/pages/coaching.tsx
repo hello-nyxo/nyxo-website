@@ -13,7 +13,10 @@ import LessonHighlights from "~components/LessonHighlights/LessonHighlights"
 import { Container, P } from "~components/Primitives"
 import SEO from "~components/SEO/SEO"
 import WeekCard from "~components/week/WeekCard"
-import { SuggestedContent } from "@hello-nyxo/gatsby-theme-nyxo-coaching"
+import {
+  SuggestedContent,
+  RecentlyUpdated,
+} from "@hello-nyxo/gatsby-theme-nyxo-coaching"
 
 type Props = {
   weeks: {
@@ -74,6 +77,8 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
         <H3>{t("COACHING.HOW_IT_WORKS")}</H3>
         <P>{t("COACHING.HOW_IT_WORKS_TEXT")}</P>
 
+        <RecentlyUpdated lessons={recentlyUpdated} />
+
         <LessonHighlights language={language} />
 
         <H2>{t("COACHING.WEEKS")}</H2>
@@ -97,7 +102,6 @@ const CoachingPage: FC<PageProps<Props, { language: string }>> = (props) => {
         </Weeks>
 
         <HabitHighlights locale={language} />
-
         <H2>{t("COACHING.AUTHORS")}</H2>
         <P>{t("COACHING.AUTHORS_TEXT")}</P>
         <AuthorList locale={language} />

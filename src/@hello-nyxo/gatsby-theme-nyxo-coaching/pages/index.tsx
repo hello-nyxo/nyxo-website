@@ -9,12 +9,10 @@ import BlogPreview from "~components/BlogPreview"
 import Featured from "~components/Featured/Featured"
 import { AuthorFeaturette } from "~components/features/AuthorFeaturette"
 import { DataDrivenDemo } from "~components/features/DataDriven"
-import { Hero } from "~components/features/Hero"
 import { SyncFeatures } from "~components/features/SyncFeatures"
-import { P } from "~components/Html/HtmlContent"
+import { Hero } from "~components/hero/Hero"
 import Image from "~components/image"
 import NewsLetterForm from "~components/newsletter"
-import { Container } from "~components/Primitives"
 import SEO from "~components/SEO/SEO"
 import Layout from "~theme/components/Layout/Layout"
 
@@ -32,7 +30,6 @@ const IndexPage: FC<PageProps<Props>> = ({
   location: { pathname },
   data: {
     indexMeta,
-    cover,
     recentlyUpdated: { nodes: recentlyUpdated },
   },
 }) => {
@@ -49,31 +46,14 @@ const IndexPage: FC<PageProps<Props>> = ({
         canonical={pathname}
       />
 
-      <div className={"page-header home"}>
-        <HeroMessage>{t("INDEX.TITLE")}</HeroMessage>
-        <Container>
-          <HeroContentWrap>
-            <P>{t("INDEX.INTRODUCTION")}</P>
-          </HeroContentWrap>
-        </Container>
-        <HeroImg>
-          <NewImage
-            alt={"Nyxo Dashboard and phone"}
-            path={cover.childImageSharp.fluid}
-          />
-        </HeroImg>
-      </div>
-
       <Hero />
       <Featured />
       {/* <CoachingHighlight /> */}
 
       <IndexContainer>
-        <div className={"features"}>
-          <SyncFeatures />
-          <DataDrivenDemo />
-          <AuthorFeaturette />
-        </div>
+        <SyncFeatures />
+        <DataDrivenDemo />
+        <AuthorFeaturette />
 
         <RecentlyUpdated lessons={recentlyUpdated} />
       </IndexContainer>
@@ -157,21 +137,6 @@ export const pageQuery = graphql`
         }
       }
     }
-    datasources: file(relativePath: { eq: "datasources.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-
-    lessons: file(relativePath: { eq: "lessons.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
 
     recentlyUpdated: allContentfulLesson(
       filter: { fields: { language: { eq: $language } } }
@@ -180,14 +145,6 @@ export const pageQuery = graphql`
     ) {
       nodes {
         ...LessonFragment
-      }
-    }
-
-    data: file(relativePath: { eq: "data.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
       }
     }
   }

@@ -146,7 +146,7 @@ export const AskExperts: FC = () => {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  margin: 5rem 0rem;
+  margin: 10rem 0rem;
 
   @media ${devices.mobileL} {
     flex-direction: column-reverse;

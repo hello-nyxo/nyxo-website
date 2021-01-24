@@ -27,51 +27,36 @@ export const SyncFeatures: FC = () => {
     {
       googleFit: file(name: { regex: "/google-fit-icon/" }) {
         childImageSharp {
-          fluid {
-            base64
-            tracedSVG
-            srcWebp
-            srcSetWebp
+          fluid(maxWidth: 1000, quality: 75) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
       withings: file(name: { regex: "/withings-icon/" }) {
         childImageSharp {
-          fluid {
-            base64
-            tracedSVG
-            srcWebp
-            srcSetWebp
+          fluid(maxWidth: 1000, quality: 75) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
       garmin: file(name: { regex: "/garmin-icon/" }) {
         childImageSharp {
-          fluid {
-            base64
-            tracedSVG
-            srcWebp
-            srcSetWebp
+          fluid(maxWidth: 1000, quality: 75) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
       polar: file(name: { regex: "/polar-icon/" }) {
         childImageSharp {
-          fluid {
-            base64
-            tracedSVG
-            srcWebp
-            srcSetWebp
+          fluid(maxWidth: 1000, quality: 75) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
       oura: file(name: { regex: "/oura-icon/" }) {
         childImageSharp {
           fluid {
-            base64
-            tracedSVG
-            srcWebp
-            srcSetWebp
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
@@ -146,7 +131,7 @@ export const SyncFeatures: FC = () => {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  margin: 5rem 0rem;
+  margin: 10rem 0rem;
 
   @media ${devices.mobileL} {
     flex-direction: column-reverse;

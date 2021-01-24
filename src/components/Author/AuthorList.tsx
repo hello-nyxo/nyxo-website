@@ -10,32 +10,10 @@ type Props = {
 
 const queryEN = graphql`
   query {
-    allContentfulAuthor(filter: { node_locale: { eq: "en-US" } }) {
-      edges {
-        node {
-          ...AuthorFragment
-        }
-      }
-    }
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/blog/" } }
+    allContentfulAuthor(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { fields: lesson, order: ASC }
     ) {
-      edges {
-        node {
-          id
-          excerpt
-          frontmatter {
-            authorSlug
-          }
-        }
-      }
-    }
-  }
-`
-
-const queryFI = graphql`
-  query {
-    allContentfulAuthor(filter: { node_locale: { eq: "en-US" } }) {
       edges {
         node {
           ...AuthorFragment

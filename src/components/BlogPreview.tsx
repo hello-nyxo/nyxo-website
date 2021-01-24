@@ -1,10 +1,13 @@
-import React, { FC } from "react"
-import styled from "styled-components"
-import { Link, useTranslation } from "gatsby-plugin-react-i18next"
 import { graphql, useStaticQuery } from "gatsby"
-import BlogPost from "./BlogPost"
+import { Link, useTranslation } from "gatsby-plugin-react-i18next"
+import React, { FC } from "react"
+import { useInView } from "react-intersection-observer"
+import { animated, useTrail } from "react-spring"
+import styled from "styled-components"
+import { useBoop } from "~hooks/use-boop"
 import { H2 } from "../components/Html/HtmlContent"
-import { BlogPostNode } from "../typings/blog-types"
+import BlogPost from "./BlogPost"
+import { Icon } from "./Icons"
 
 const BlogPreview: FC = () => {
   const data = useStaticQuery(graphql`
@@ -19,20 +22,18 @@ const BlogPreview: FC = () => {
         sort: { fields: [frontmatter___date], order: DESC }
         limit: 3
       ) {
-        edges {
-          node {
-            excerpt
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
-              author
-              title
-              slug
-              tags
-              thumbnailBlog {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                  }
+        nodes {
+          excerpt
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            author
+            title
+            slug
+            tags
+            thumbnailBlog {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
               }
             }
@@ -41,14 +42,32 @@ const BlogPreview: FC = () => {
       }
     }
   `)
-
-  const posts = data.allMarkdownRemark.edges
   const { t } = useTranslation()
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+  })
+
+  const posts = data.allMarkdownRemark.nodes
+
+  const trail = useTrail(
+    posts.length,
+    inView
+      ? {
+          opacity: 1,
+          transform: `scale(1)`,
+        }
+      : {
+          opacity: 0.2,
+          transform: `scale(0.96)`,
+        }
+  )
+
   return (
-    <>
+    <div ref={ref}>
       <BlogSection>{t("CHECKOUT_BLOG")}</BlogSection>
       <Posts>
-        {posts.map(({ node }: { node: BlogPostNode }) => {
+        {trail.map((style, index) => {
+          const node = posts[index]
           const frontmatter = node.frontmatter
           const fields = node.fields
           const slug = frontmatter?.slug
@@ -62,7 +81,8 @@ const BlogPreview: FC = () => {
 
           return (
             <BlogPost
-              key={slug as string}
+              style={style}
+              key={`${slug}`}
               author={author}
               title={title}
               slug={`/${slug}`}
@@ -77,7 +97,7 @@ const BlogPreview: FC = () => {
       <BlogText>
         <BlogLink to="/blog">{t("MORE_FROM_BLOG")}</BlogLink>
       </BlogText>
-    </>
+    </div>
   )
 }
 
