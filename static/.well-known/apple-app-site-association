@@ -10,14 +10,16 @@
       {
         "appID": "RPKZ2YP3VZ.app.sleepcircle.application",
         "paths": [
-          "/*",
           "link/*",
           "/link?",
 					"/lesson/*",
 					"/fi/lesson/*",
+					"/week/*",
+					"/fi/week/*",
+					"/habit/*",
+					"/fi/habit/*",
           "huawei-redirect/*",
           "/huawei-redirect?",
-          "*"
         ]
       }
     ]
