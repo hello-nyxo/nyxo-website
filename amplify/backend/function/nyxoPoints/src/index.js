@@ -88,7 +88,7 @@ exports.handler = async (event, context, callback) => {
 // EFFICIENCY
 const calculateEfficiencyScore = async (nights) => {
   if (nights && nights.length !== 0) {
-    return 10
+    return 100
   }
   return 0
 }
@@ -102,7 +102,7 @@ const calculateDurationScore = async (nights) => {
       .range([0, 0, 50, 100])
       .clamp(true)
 
-    return 10
+    return 60
   }
   return 0
 }
@@ -111,7 +111,7 @@ const calculateDurationScore = async (nights) => {
 
 const calculateTimingScore = async (nights) => {
   if (nights && nights.length !== 0) {
-    return 10
+    return 80
   }
   return 0
 }
@@ -122,5 +122,5 @@ const calculateSocialJetLagScore = async (nights) => {
   if (nights && nights.length !== 0) {
     return 10
   }
-  return 0
+  return 30
 }
