@@ -4,6 +4,7 @@ date: "2020-02-20"
 title: "How to Fix 'VirtualizedLists should never be nested inside plain ScrollViews' Warning"
 authorSlug: "perttu-lahteenlahti"
 author: Perttu Lähteenlahti
+canonical: "https://javascript.plainenglish.io/how-to-fix-virtualizedlists-should-never-be-nested-inside-plain-scrollviews-warning-3a2a887b4ea0"
 tags: ["Engineering", "React Native", "Mobile Development"]
 thumbnailBlog: "./warning.jpeg"
 ---
