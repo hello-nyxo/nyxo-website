@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import React, { FC, ReactNode } from "react"
 import {
   Block,
   BLOCKS,
@@ -116,8 +116,8 @@ const options: Options = {
   },
 }
 
-const HtmlContent = ({ document }: Props): JSX.Element => {
-  return documentToReactComponents(document as Document, options)
+const HtmlContent: FC<Props> = ({ document }) => {
+  return <>{documentToReactComponents(document as Document, options)}</>
 }
 
 export default HtmlContent
@@ -145,7 +145,7 @@ export const H1 = styled.h1`
   font-weight: bold;
   font-style: normal;
   color: hsl(255deg, 85%, 30%);
-  line-height: 5rem;
+  line-height: 3.5rem;
 `
 
 export const H2 = styled.h2`
@@ -154,6 +154,7 @@ export const H2 = styled.h2`
   font-weight: bold;
   font-style: normal;
   font-size: 2rem;
+  line-height: 2.4rem;
   color: hsl(255deg, 85%, 30%);
 `
 

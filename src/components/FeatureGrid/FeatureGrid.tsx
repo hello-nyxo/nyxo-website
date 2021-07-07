@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Icon } from "../Icons"
 import { useStaticQuery, graphql } from "gatsby"
 
-const FeatureGrid = () => {
+const FeatureGrid: FC = () => {
   const { forYou } = useStaticQuery(graphql`
     query FeaturesQuery {
       forYou: pagesJson {

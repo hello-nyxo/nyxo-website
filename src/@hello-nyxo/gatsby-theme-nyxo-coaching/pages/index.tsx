@@ -1,23 +1,23 @@
+import { RecentlyUpdated } from "@hello-nyxo/gatsby-theme-nyxo-coaching"
+import { Meta } from "@types/content/meta"
 import { graphql, PageProps } from "gatsby"
+import GatsbyImage from "gatsby-image"
 import { useTranslation } from "gatsby-plugin-react-i18next"
 import React, { FC } from "react"
 import styled from "styled-components"
-
-import { Meta } from "~content/data/meta"
-import AuthorFeaturette from "~components/Author/AuthorFeaturette"
 import BlogPreview from "~components/BlogPreview"
 import Featured from "~components/Featured/Featured"
-import { P } from "~components/Html/HtmlContent"
+import { AuthorFeaturette } from "~components/features/AuthorFeaturette"
+import { DataDrivenDemo } from "~components/features/DataDriven"
+import { SyncFeatures } from "~components/features/SyncFeatures"
+import { Hero } from "~components/hero/Hero"
 import Image from "~components/image"
-import Layout from "~theme/components/Layout/Layout"
 import NewsLetterForm from "~components/newsletter"
-import { Container, Demo } from "~components/Primitives"
 import SEO from "~components/SEO/SEO"
-import { RecentlyUpdated } from "@hello-nyxo/gatsby-theme-nyxo-coaching"
-import GatsbyImage from "gatsby-image"
+import Layout from "~theme/components/Layout/Layout"
 
 type Props = {
-  datasource: GatsbyImage
+  wce: GatsbyImage
   indexMeta: GatsbyImage
   datasources: GatsbyImage
   lessons: GatsbyImage
@@ -30,10 +30,6 @@ const IndexPage: FC<PageProps<Props>> = ({
   location: { pathname },
   data: {
     indexMeta,
-    datasources,
-    lessons,
-    cover,
-    data,
     recentlyUpdated: { nodes: recentlyUpdated },
   },
 }) => {
@@ -50,126 +46,15 @@ const IndexPage: FC<PageProps<Props>> = ({
         canonical={pathname}
       />
 
-      <div className={"page-header home"}>
-        <HeroMessage>{t("INDEX.TITLE")}</HeroMessage>
-        <Container>
-          <HeroContentWrap>
-            <P>{t("INDEX.INTRODUCTION")}</P>
-          </HeroContentWrap>
-        </Container>
-        <HeroImg>
-          <NewImage
-            alt={"Nyxo Dashboard and phone"}
-            path={cover.childImageSharp.fluid}
-          />
-        </HeroImg>
-      </div>
-
+      <Hero />
       <Featured />
+      {/* <CoachingHighlight /> */}
 
       <IndexContainer>
-        <div className={"features"}>
-          <div className={"feature__item"}>
-            <div className={"row"}>
-              <div className="col-6 first">
-                <div className={"thumbnail"}>
-                  <Image
-                    alt="Nyxo data sources"
-                    path={datasources.childImageSharp.fluid}
-                  />
-                </div>
-              </div>
+        <SyncFeatures />
+        <DataDrivenDemo />
+        <AuthorFeaturette />
 
-              <div className={"col-6"}>
-                <div className={"feature__content"}>
-                  <FeaturesHeroText>{t("INDEX.IMPORTING")}</FeaturesHeroText>
-                  <P>{t("INDEX.IMPORTING_TEXT")}</P>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className={"feature__item"}>
-            <div className={"row"}>
-              <div className={"col-6"}>
-                <div className={"feature__content"}>
-                  <FeaturesHeroText>{t("INDEX.AUTHORS")}</FeaturesHeroText>
-                  <P>{t("INDEX.AUTHORS_TEXT")}</P>
-                </div>
-              </div>
-              <div className="col-6 first">
-                <AuthorFeaturette />
-              </div>
-            </div>
-          </div>
-
-          <div className={"feature__item"}>
-            <div className={"row"}>
-              <div className="col-6 first">
-                <div className={"thumbnail"}>
-                  <Image
-                    alt="Nyxo data sources"
-                    path={data.childImageSharp.fluid}
-                  />
-                </div>
-              </div>
-              <div className={"col-6"}>
-                <div className={"feature__content"}>
-                  <FeaturesHeroText>{t("INDEX.EASE_OF_USE")}</FeaturesHeroText>
-                  <P>{t("INDEX.EASE_OF_USE_TEXT")}</P>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={"feature__item"}>
-            <div className={"row"}>
-              <div className={"col-6"}>
-                <div className={"feature__content"}>
-                  <FeaturesHeroText>{t("INDEX.DATA")}</FeaturesHeroText>
-                  <P>{t("INDEX.DATA_TEXT")}</P>
-                </div>
-              </div>
-
-              <div className="col-6 first">
-                <div className={"thumbnail"}>
-                  <Image
-                    alt="Nyxo data sources"
-                    path={lessons.childImageSharp.fluid}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className={"feature__item"}>
-            <div className={"row"}>
-              <div className="col-6 first">
-                <div className={"thumbnail"}>
-                  <Image
-                    alt="Nyxo data sources"
-                    path={datasources.childImageSharp.fluid}
-                  />
-                </div>
-              </div>
-
-              <div className={"col-6"}>
-                <div className={"feature__content"}>
-                  <FeaturesHeroText>
-                    {t("INDEX.ORGANIZATIONS")}
-                  </FeaturesHeroText>
-                  <P>{t("INDEX.ORGANIZATIONS_TEXT")}</P>
-
-                  <Demo
-                    rel="noopener"
-                    href="https://calendly.com/nyxo"
-                    target="_blank">
-                    {t("FOR_ORGANIZATIONS.DEMO_BUTTON")}
-                  </Demo>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <RecentlyUpdated lessons={recentlyUpdated} />
       </IndexContainer>
       <BlogPreview />
@@ -252,21 +137,6 @@ export const pageQuery = graphql`
         }
       }
     }
-    datasources: file(relativePath: { eq: "datasources.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-
-    lessons: file(relativePath: { eq: "lessons.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
 
     recentlyUpdated: allContentfulLesson(
       filter: { fields: { language: { eq: $language } } }
@@ -275,14 +145,6 @@ export const pageQuery = graphql`
     ) {
       nodes {
         ...LessonFragment
-      }
-    }
-
-    data: file(relativePath: { eq: "data.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
       }
     }
   }

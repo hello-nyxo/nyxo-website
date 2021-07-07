@@ -1,9 +1,10 @@
 import Img from "gatsby-image"
-import React, { FC } from "react"
+import React, { CSSProperties, FC } from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "../../@types/childImageSharp"
 import devices from "../devices"
 import { Link } from "gatsby-plugin-react-i18next"
+import { animated } from "react-spring"
 
 type Props = {
   title?: string | null | undefined
@@ -12,6 +13,7 @@ type Props = {
   description?: string | null | undefined
   thumbnailBlog: GatsbyImage
   tags?: string[] | null[] | null
+  style?: CSSProperties
 }
 
 const BlogPost: FC<Props> = ({
@@ -20,36 +22,40 @@ const BlogPost: FC<Props> = ({
   author,
   description,
   thumbnailBlog,
+  style,
   tags = ["sleep"],
 }) => {
   const mainTag = tags ? tags[0] : ["sleep"]
 
   return (
-    <Card to={`${slug}`}>
-      <ImageContainer>
-        <Image
-          alt="Blog Cover Image"
-          fluid={thumbnailBlog?.childImageSharp?.fluid}
-        />
-        <Tags>
-          <Tag>{mainTag}</Tag>
-        </Tags>
-      </ImageContainer>
+    <AnimationContainer style={style}>
+      <Card to={`${slug}`}>
+        <ImageContainer>
+          <Image
+            alt="Blog Cover Image"
+            fluid={thumbnailBlog?.childImageSharp?.fluid}
+          />
+          <Tags>
+            <Tag>{mainTag}</Tag>
+          </Tags>
+        </ImageContainer>
 
-      <H3>{title}</H3>
-      <Author>{author}</Author>
-      <Excerpt
-        dangerouslySetInnerHTML={{
-          __html: description as string,
-        }}
-      />
-    </Card>
+        <H3>{title}</H3>
+        <Author>{author}</Author>
+        <Excerpt
+          dangerouslySetInnerHTML={{
+            __html: description as string,
+          }}
+        />
+      </Card>
+    </AnimationContainer>
   )
 }
 
 export default BlogPost
 
-const Card = styled(Link)`
+const AnimationContainer = styled(animated.div)`
+  will-change: opacity, scale;
   padding: 0.5rem;
   box-sizing: border-box;
   width: 100%;
@@ -70,6 +76,8 @@ const Card = styled(Link)`
   }
 `
 
+const Card = styled(Link)``
+
 const Author = styled.span`
   font-size: 0.9rem;
   color: var(--textSecondary);
@@ -86,7 +94,7 @@ const H3 = styled.h3`
   line-height: 23px;
 `
 
-const Image = styled(Img)`
+const Image = styled(Img)<GatsbyImage>`
   height: 100%;
 `
 
