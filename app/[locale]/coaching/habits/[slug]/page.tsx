@@ -30,6 +30,8 @@ function periodStyle(period: unknown) {
   };
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const slugs = await getAllHabitSlugs();
   return slugs.map((slug) => ({ slug }));

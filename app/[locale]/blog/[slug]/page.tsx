@@ -8,6 +8,8 @@ import {
 import BlogPostCard from "@/components/BlogPostCard";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs();
   return slugs.map((slug) => ({ slug }));

@@ -22,6 +22,8 @@ function periodColor(period: unknown) {
   return "bg-accent-dusk/15 text-accent-dusk";
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const slugs = await getAllLessonSlugs();
   return slugs.map((slug) => ({ slug }));
