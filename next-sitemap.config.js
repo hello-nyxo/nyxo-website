@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const contentful = require("contentful");
 
-const SITE_URL = "https://nyxo.app";
+const SITE_URL = "https://www.nyxo.app";
 const locales = ["en", "fi", "es", "de", "sv", "fr"];
 const defaultLocale = "en";
 
@@ -58,7 +58,7 @@ module.exports = {
     ],
   },
   additionalPaths: async (config) => {
-    const staticPages = ["/", "/blog", "/coaching", "/privacy", "/terms", "/contact"];
+    const staticPages = ["/", "/blog", "/coaching", "/privacy", "/terms"];
     const blogSlugs = getBlogSlugs();
     const [weekSlugs, lessonSlugs, habitSlugs] = await Promise.all([
       getContentfulSlugs("coachingWeek"),

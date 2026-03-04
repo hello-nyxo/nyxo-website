@@ -17,6 +17,8 @@
     "@contentful/rich-text-types": "^17.2.5",
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "@vercel/analytics": "^1.6.1",
     "contentful": "^11.3.0",
     "gray-matter": "^4.0.3",
     "next": "^16.1.6",

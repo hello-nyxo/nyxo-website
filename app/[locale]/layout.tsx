@@ -4,6 +4,7 @@ import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
 import { routing } from "@/lib/i18n/routing";
 import { getWeeks, getLessons, getHabits } from "@/lib/contentful";
 import { normalizeImageUrl } from "@/lib/contentful";
+import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -90,6 +91,7 @@ export default async function LocaleLayout({
           />
           <main className="min-h-screen">{children}</main>
           <Footer />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>
