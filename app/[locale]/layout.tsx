@@ -45,9 +45,9 @@ export default async function LocaleLayout({
   }
 
   const [weeks, lessons, habits] = await Promise.all([
-    getWeeks(),
-    getLessons(),
-    getHabits(),
+    getWeeks(locale),
+    getLessons(locale),
+    getHabits(locale),
   ]);
 
   const navWeeks = weeks.slice(0, 4).map((w) => {

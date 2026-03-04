@@ -1,19 +1,12 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { getPostBySlug, getAllPostSlugs, getAllPosts } from "@/lib/markdown";
+import { getPostBySlug, getAllPosts } from "@/lib/markdown";
 import {
   generatePageMetadata,
   generateArticleJsonLd,
 } from "@/lib/seo";
 import BlogPostCard from "@/components/BlogPostCard";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
-
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  const slugs = getAllPostSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({
   params,

@@ -27,13 +27,18 @@ function periodColor(period: unknown) {
   return "bg-accent-dusk/15 text-accent-dusk";
 }
 
-export default async function CoachingPage() {
+export default async function CoachingPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   const t = await getTranslations("COACHING");
 
   const [weeks, lessons, habits] = await Promise.all([
-    getWeeks(),
-    getLessons(),
-    getHabits(),
+    getWeeks(locale),
+    getLessons(locale),
+    getHabits(locale),
   ]);
 
   return (

@@ -5,7 +5,6 @@ import { Link } from "@/lib/i18n/navigation";
 import { generatePageMetadata } from "@/lib/seo";
 import {
   getWeekBySlug,
-  getAllWeekSlugs,
   renderRichText,
   normalizeImageUrl,
 } from "@/lib/contentful";
@@ -16,16 +15,9 @@ interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
 }
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  const slugs = await getAllWeekSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
-
 export async function generateMetadata({ params }: PageProps) {
   const { locale, slug } = await params;
-  const week = await getWeekBySlug(slug);
+  const week = await getWeekBySlug(slug, locale);
   if (!week) return {};
   const fields = week.fields as Record<string, unknown>;
   return generatePageMetadata({
@@ -37,10 +29,10 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function WeekPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const t = await getTranslations();
   const tCoaching = await getTranslations("COACHING");
-  const week = await getWeekBySlug(slug);
+  const week = await getWeekBySlug(slug, locale);
 
   if (!week) notFound();
 

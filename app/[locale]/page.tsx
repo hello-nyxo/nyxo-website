@@ -34,15 +34,20 @@ function periodColor(period: unknown) {
   return "bg-accent-dusk/15 text-accent-dusk";
 }
 
-export default async function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   const t = await getTranslations("INDEX");
   const tCoaching = await getTranslations("COACHING");
   const tBlog = await getTranslations();
   const posts = getAllPosts().slice(0, 3);
   const [weeks, lessons, habits] = await Promise.all([
-    getWeeks(),
-    getLessons(),
-    getHabits(),
+    getWeeks(locale),
+    getLessons(locale),
+    getHabits(locale),
   ]);
 
   return (

@@ -13,6 +13,12 @@ function getClient(): ContentfulClientApi<undefined> | null {
   return _client;
 }
 
+// Map app locales to Contentful locale codes
+function contentfulLocale(locale?: string): string {
+  if (locale === "fi") return "fi-FI";
+  return "en-US";
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ContentfulEntry = any;
 
@@ -21,7 +27,7 @@ export function normalizeImageUrl(url?: string): string | undefined {
   return url.startsWith("//") ? `https:${url}` : url;
 }
 
-export async function getWeeks(): Promise<ContentfulEntry[]> {
+export async function getWeeks(locale?: string): Promise<ContentfulEntry[]> {
   try {
     const client = getClient();
     if (!client) return [];
@@ -29,6 +35,7 @@ export async function getWeeks(): Promise<ContentfulEntry[]> {
       content_type: "coachingWeek",
       order: ["fields.order"],
       include: 2,
+      locale: contentfulLocale(locale),
     });
     return entries.items;
   } catch (err) {
@@ -38,7 +45,8 @@ export async function getWeeks(): Promise<ContentfulEntry[]> {
 }
 
 export async function getWeekBySlug(
-  slug: string
+  slug: string,
+  locale?: string
 ): Promise<ContentfulEntry | null> {
   try {
     const client = getClient();
@@ -47,6 +55,7 @@ export async function getWeekBySlug(
       content_type: "coachingWeek",
       "fields.slug": slug,
       include: 3,
+      locale: contentfulLocale(locale),
     });
     return entries.items[0] || null;
   } catch {
@@ -54,7 +63,7 @@ export async function getWeekBySlug(
   }
 }
 
-export async function getLessons(): Promise<ContentfulEntry[]> {
+export async function getLessons(locale?: string): Promise<ContentfulEntry[]> {
   try {
     const client = getClient();
     if (!client) return [];
@@ -62,6 +71,7 @@ export async function getLessons(): Promise<ContentfulEntry[]> {
       content_type: "lesson",
       include: 2,
       limit: 100,
+      locale: contentfulLocale(locale),
     });
     return entries.items;
   } catch {
@@ -71,7 +81,8 @@ export async function getLessons(): Promise<ContentfulEntry[]> {
 }
 
 export async function getLessonBySlug(
-  slug: string
+  slug: string,
+  locale?: string
 ): Promise<ContentfulEntry | null> {
   try {
     const client = getClient();
@@ -80,6 +91,7 @@ export async function getLessonBySlug(
       content_type: "lesson",
       "fields.slug": slug,
       include: 3,
+      locale: contentfulLocale(locale),
     });
     return entries.items[0] || null;
   } catch {
@@ -87,7 +99,7 @@ export async function getLessonBySlug(
   }
 }
 
-export async function getHabits(): Promise<ContentfulEntry[]> {
+export async function getHabits(locale?: string): Promise<ContentfulEntry[]> {
   try {
     const client = getClient();
     if (!client) return [];
@@ -95,6 +107,7 @@ export async function getHabits(): Promise<ContentfulEntry[]> {
       content_type: "habit",
       include: 2,
       limit: 100,
+      locale: contentfulLocale(locale),
     });
     return entries.items;
   } catch {
@@ -104,7 +117,8 @@ export async function getHabits(): Promise<ContentfulEntry[]> {
 }
 
 export async function getHabitBySlug(
-  slug: string
+  slug: string,
+  locale?: string
 ): Promise<ContentfulEntry | null> {
   try {
     const client = getClient();
@@ -113,6 +127,7 @@ export async function getHabitBySlug(
       content_type: "habit",
       "fields.slug": slug,
       include: 3,
+      locale: contentfulLocale(locale),
     });
     return entries.items[0] || null;
   } catch {

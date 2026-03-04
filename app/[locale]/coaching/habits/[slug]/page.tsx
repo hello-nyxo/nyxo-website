@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 import { generatePageMetadata } from "@/lib/seo";
 import {
   getHabitBySlug,
-  getAllHabitSlugs,
   renderRichText,
 } from "@/lib/contentful";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -30,16 +29,9 @@ function periodStyle(period: unknown) {
   };
 }
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  const slugs = await getAllHabitSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
-
 export async function generateMetadata({ params }: PageProps) {
   const { locale, slug } = await params;
-  const habit = await getHabitBySlug(slug);
+  const habit = await getHabitBySlug(slug, locale);
   if (!habit) return {};
   const fields = habit.fields as Record<string, unknown>;
   return generatePageMetadata({
@@ -51,10 +43,10 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function HabitPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const t = await getTranslations();
   const tCoaching = await getTranslations("COACHING");
-  const habit = await getHabitBySlug(slug);
+  const habit = await getHabitBySlug(slug, locale);
 
   if (!habit) notFound();
 

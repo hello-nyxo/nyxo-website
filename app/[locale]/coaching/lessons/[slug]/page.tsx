@@ -5,7 +5,6 @@ import { Link } from "@/lib/i18n/navigation";
 import { generatePageMetadata } from "@/lib/seo";
 import {
   getLessonBySlug,
-  getAllLessonSlugs,
   renderRichText,
   normalizeImageUrl,
 } from "@/lib/contentful";
@@ -22,16 +21,9 @@ function periodColor(period: unknown) {
   return "bg-accent-dusk/15 text-accent-dusk";
 }
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  const slugs = await getAllLessonSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
-
 export async function generateMetadata({ params }: PageProps) {
   const { locale, slug } = await params;
-  const lesson = await getLessonBySlug(slug);
+  const lesson = await getLessonBySlug(slug, locale);
   if (!lesson) return {};
   const fields = lesson.fields as Record<string, unknown>;
   return generatePageMetadata({
@@ -46,10 +38,10 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function LessonPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const t = await getTranslations();
   const tCoaching = await getTranslations("COACHING");
-  const lesson = await getLessonBySlug(slug);
+  const lesson = await getLessonBySlug(slug, locale);
 
   if (!lesson) notFound();
 
