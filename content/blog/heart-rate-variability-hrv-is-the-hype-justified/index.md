@@ -4,20 +4,7 @@ date: "2020-08-24"
 title: Heart Rate Variability (HRV) – Is the Hype Justified?
 authorSlug: "pietari-nurmi"
 author: Pietari Nurmi
-tags:
-  [
-    "Sleep",
-    "heart rate",
-    "HRV",
-    "sleep trackers",
-    "oura",
-    "stress",
-    "recovery",
-    "alertness",
-    "restful sleep",
-    "optimization",
-    "sports",
-  ]
+tags: ["Sleep", "Health", "Sleep Trackers"]
 thumbnailBlog: "./hr-monitor.jpg"
 ---
 

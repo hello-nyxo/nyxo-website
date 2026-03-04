@@ -4,7 +4,7 @@ date: "2020-08-19"
 title: Short Sleep Can Lead to Weight Gain
 authorSlug: "perttu-lahteenlahti"
 author: Perttu Lähteenlahti
-tags: ["Sleep", "Weight", "Nutrition"]
+tags: ["Sleep", "Health", "Nutrition"]
 thumbnailBlog: "./cover.jpeg"
 ---
 

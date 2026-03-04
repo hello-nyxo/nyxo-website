@@ -4,7 +4,7 @@ date: "2020-07-14"
 title: "NBA Bought 2000 Oura Rings, and This Is Why It's the Best Thing for Sports Ever"
 authorSlug: "pietari-nurmi"
 author: Pietari Nurmi
-tags: ["sleep trackers", "benefits of sleep", "oura"]
+tags: ["Sleep", "Sleep Trackers"]
 thumbnailBlog: "./basketball-cover.jpg"
 ---
 

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nyxo.app
+
+# Sitemaps
+Sitemap: https://nyxo.app/sitemap.xml

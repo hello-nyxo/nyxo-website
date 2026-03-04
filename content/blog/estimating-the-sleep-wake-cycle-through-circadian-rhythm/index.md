@@ -4,7 +4,7 @@ date: "2020-09-28"
 title: "Estimating the Sleep-Wake Cycle Through Circadian Rhythm"
 authorSlug: "miska-nurmi"
 author: Perttu Lähteenlahti
-tags: ["Sleep", "Engineering", "Circadian Rhythm"]
+tags: ["Sleep", "Circadian Rhythm"]
 thumbnailBlog: "./sunset.jpeg"
 ---
 

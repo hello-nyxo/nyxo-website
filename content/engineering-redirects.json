@@ -1,0 +1,61 @@
+{
+  "_comment": "Engineering/technical blog posts removed from the site. Use these slugs to set up redirects if needed.",
+  "posts": [
+    {
+      "slug": "checklist-for-releasing-apps",
+      "title": "Checklist for Releasing React Native apps"
+    },
+    {
+      "slug": "creating-a-clock-face-in-react-native-with-svg",
+      "title": "Build a Clock Face with SVG in React Native"
+    },
+    {
+      "slug": "deploy-gatsby-to-netlify",
+      "title": "Deploy Your Gatsby Website to Netlify"
+    },
+    {
+      "slug": "fixing-virtualizedlists-should-never-be-nested-inside-plain-scrollviews",
+      "title": "How to Fix 'VirtualizedLists should never be nested inside plain ScrollViews' Warning"
+    },
+    {
+      "slug": "gatsby-netlify-amplify-part-1",
+      "title": "Gatsby, Netlify and Amplify Part 1: The Basics"
+    },
+    {
+      "slug": "gastby-netlify-amplify-part-2",
+      "title": "Gatsby, Netlify and Amplify Part 2: Amplify Authentication"
+    },
+    {
+      "slug": "gatsby-netlify-amplify-part-3",
+      "title": "Part 3: Using Contentful with Gatsby"
+    },
+    {
+      "slug": "how-to-use-publish",
+      "title": "Static Sites in Swift: Getting Started With Publish"
+    },
+    {
+      "slug": "nyxo.app-is-now-open-source",
+      "title": "Nyxo.app website is now open source"
+    },
+    {
+      "slug": "statistical-queries-with-swift-and-healthkit",
+      "title": "How to do a Simple Statistical Query for HealthKit Data through SwiftUI"
+    },
+    {
+      "slug": "supporting-localizations-at-nyxo",
+      "title": "Nyxo.app Now Available in Both Finnish and English"
+    },
+    {
+      "slug": "tips-for-using-typescript-with-styled-components",
+      "title": "Tips for Using TypeScript With styled-components"
+    },
+    {
+      "slug": "nyxo-kiuas-summer19",
+      "title": "Nyxo is part of Kiuas Accelerator Summer 2019!"
+    },
+    {
+      "slug": "nyxo-took-part-in-kiuas-start-accelerator",
+      "title": "Nyxo Took Part in Kiuas Start Accelerator"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[files]
+extend-exclude = [
+  "messages/de.json",
+  "messages/fr.json",
+  "messages/es.json",
+  "messages/sv.json",
+  "messages/fi.json",
+  "bun.lock",
+]
+
+[default.extend-words]
+# Sleep tracking domain term (in-bed time)
+inbed = "inbed"
+# Author surname (de Weerd)
+Weerd = "Weerd"

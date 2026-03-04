@@ -4,7 +4,7 @@ date: "2020-08-17"
 title: What Can Heart Rate Tell About Your Sleep
 authorSlug: "pietari-nurmi"
 author: Pietari Nurmi
-tags: ["Sleep", "heart rate", "sleep trackers", "restful sleep", "body rhythms"]
+tags: ["Sleep", "Health", "Sleep Trackers"]
 thumbnailBlog: "./applewatch.jpg"
 ---
 

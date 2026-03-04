@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-brand-blue: #4A5AEF;
+  --color-brand-deep: #1a0a4a;
+  --color-brand-teal: #4aefd5;
+
+  /* Time-of-day accents */
+  --color-accent-warm: #F5A623;
+  --color-accent-noon: #4A9AEF;
+  --color-accent-dusk: #7C5CFC;
+
+  /* Backgrounds */
+  --color-bg-primary: #FAFAFA;
+  --color-bg-cream: #FDF8F4;
+  --color-bg-white: #FFFFFF;
+  --color-bg-dark: #0f0a2a;
+
+  /* Text */
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+
+  /* UI */
+  --color-hairline: #e5e7eb;
+  --color-error: #e71934;
+
+  /* Sleep-specific colors */
+  --color-sleep-inbed: #7552ef;
+  --color-sleep-asleep: #4a5aef;
+  --color-sleep-bedtime: #4aefd5;
+  --color-sleep-wakeup: #DD956E;
+
+  /* Fonts */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 8px 30px rgba(74, 90, 239, 0.12);
+  --shadow-glow: 0 0 60px rgba(74, 90, 239, 0.15);
+
+  /* Animations */
+  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+  --animate-fade-in: fade-in 0.5s ease-out both;
+  --animate-scale-in: scale-in 0.5s ease-out both;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Base styles */
+@layer base {
+  body {
+    @apply bg-bg-primary text-text-primary font-sans antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif text-brand-deep font-semibold;
+  }
+
+  h4, h5, h6 {
+    @apply font-sans text-brand-deep font-semibold;
+  }
+
+  a {
+    @apply text-brand-blue hover:text-brand-deep transition-colors;
+  }
+}
+
+/* Grain texture overlay for dark sections */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.3;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Night sky ambient glow */
+.night-sky {
+  background: linear-gradient(
+    180deg,
+    #0f0a2a 0%,
+    #1a0a4a 40%,
+    #2a1a6a 70%,
+    #3a2a8a 100%
+  );
+}
+
+.night-sky-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 600px 400px at 20% 30%, rgba(74, 90, 239, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 350px at 80% 60%, rgba(124, 92, 252, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 300px 200px at 50% 80%, rgba(74, 239, 213, 0.08) 0%, transparent 70%);
+}
+
+/* Prose styles for markdown content */
+.prose h1, .prose h2, .prose h3 {
+  @apply font-serif text-brand-deep;
+}
+
+.prose h4, .prose h5, .prose h6 {
+  @apply font-sans text-brand-deep;
+}
+
+.prose a {
+  @apply text-brand-blue hover:text-brand-deep;
+}
+
+.prose ul {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.prose ul li::before {
+  content: "\2022";
+  color: #4A5AEF;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.prose ol {
+  counter-reset: custom-counter;
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.prose ol li {
+  counter-increment: custom-counter;
+}
+
+.prose ol li::before {
+  content: counter(custom-counter) ".";
+  color: #4A5AEF;
+  font-weight: 600;
+  display: inline-block;
+  width: 1.5em;
+  margin-left: -1.5em;
+}
+
+/* Code highlighting */
+pre[class*="language-"] {
+  @apply rounded-2xl my-6 p-5 overflow-x-auto text-sm;
+  background: #1a1a2e;
+}
+
+code[class*="language-"] {
+  @apply text-sm;
+}

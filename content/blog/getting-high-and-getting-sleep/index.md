@@ -4,16 +4,7 @@ date: "2020-09-07"
 title: Getting High and Getting Sleep
 authorSlug: "liisa-kuula"
 author: Liisa Kuula
-tags:
-  [
-    "cannabis",
-    "Sleep",
-    "sleep aids",
-    "sleep duration",
-    "sleep quality",
-    "sleep stages",
-    "REM sleep",
-  ]
+tags: ["Sleep", "Lifestyle"]
 thumbnailBlog: "./cannabis1.jpg"
 ---
 

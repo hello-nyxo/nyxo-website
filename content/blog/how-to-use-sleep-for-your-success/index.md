@@ -4,7 +4,7 @@ date: "2020-10-02"
 title: How to Use Sleep for Your Success
 authorSlug: "pietari-nurmi"
 author: Pietari Nurmi
-tags: ["Sleep", "well-being", "optimization", "sleep hygiene", "success", "sleep debt", "chronotype", "waking up", "body rhythms"]
+tags: ["Sleep", "Well-being", "Circadian Rhythm"]
 thumbnailBlog: "./mountain-winner.jpg"
 ---
 

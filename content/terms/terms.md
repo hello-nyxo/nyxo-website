@@ -7,9 +7,9 @@ Last updated: 06/07/2020
 
 ## 1. Introduction
 
-Welcome to SleepCircle Oy (“Company”, “we”, “our”, “us”)! As you have just clicked our Terms of Service, please pause, grab a cup of coffee and carefully read the following pages. It will take you approximately 20 minutes.
+Welcome to Fenrir Digital Oy (“Company”, “we”, “our”, “us”)! As you have just clicked our Terms of Service, please pause, grab a cup of coffee and carefully read the following pages. It will take you approximately 20 minutes.
 
-These Terms of Service (“Terms”, “Terms of Service”) govern your use of our web pages located at https://nyxo.app and our mobile application Nyxo (together or individually “Service”) operated by SleepCircle Oy.
+These Terms of Service (“Terms”, “Terms of Service”) govern your use of our web pages located at https://nyxo.app and our mobile application Nyxo (together or individually “Service”) operated by Fenrir Digital Oy.
 
 Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages. Please read it here https://nyxo.app/privacy.
 
@@ -43,27 +43,27 @@ Any contests, sweepstakes or other promotions (collectively, “Promotions”) m
 
 Some parts of Service are billed on a subscription basis (“Subscription(s)”). You will be billed in advance on a recurring and periodic basis (“Billing Cycle”). Billing cycles are set either on a monthly or annual basis, depending on the type of subscription plan you select when purchasing a Subscription.
 
-At the end of each Billing Cycle, your Subscription will automatically renew under the exact same conditions unless you cancel it or SleepCircle Oy cancels it. You may cancel your Subscription renewal either through your online account management page or by contacting SleepCircle Oy customer support team.
+At the end of each Billing Cycle, your Subscription will automatically renew under the exact same conditions unless you cancel it or Fenrir Digital Oy cancels it. You may cancel your Subscription renewal either through your online account management page or by contacting Fenrir Digital Oy customer support team.
 
-A valid payment method, including credit card, is required to process the payment for your subscription. You shall provide SleepCircle Oy with accurate and complete billing information including full name, address, state, zip code, telephone number, and a valid payment method information. By submitting such payment information, you automatically authorize SleepCircle Oy to charge all Subscription fees incurred through your account to any such payment instruments.
+A valid payment method, including credit card, is required to process the payment for your subscription. You shall provide Fenrir Digital Oy with accurate and complete billing information including full name, address, state, zip code, telephone number, and a valid payment method information. By submitting such payment information, you automatically authorize Fenrir Digital Oy to charge all Subscription fees incurred through your account to any such payment instruments.
 
-Should automatic billing fail to occur for any reason, SleepCircle Oy will issue an electronic invoice indicating that you must proceed manually, within a certain deadline date, with the full payment corresponding to the billing period as indicated on the invoice.
+Should automatic billing fail to occur for any reason, Fenrir Digital Oy will issue an electronic invoice indicating that you must proceed manually, within a certain deadline date, with the full payment corresponding to the billing period as indicated on the invoice.
 
 ## 6. Free Trial
 
-SleepCircle Oy may, at its sole discretion, offer a Subscription with a free trial for a limited period of time (“Free Trial”).
+Fenrir Digital Oy may, at its sole discretion, offer a Subscription with a free trial for a limited period of time (“Free Trial”).
 
 You may be required to enter your billing information in order to sign up for Free Trial.
 
-If you do enter your billing information when signing up for Free Trial, you will not be charged by SleepCircle Oy until Free Trial has expired. On the last day of Free Trial period, unless you cancelled your Subscription, you will be automatically charged the applicable Subscription fees for the type of Subscription you have selected.
+If you do enter your billing information when signing up for Free Trial, you will not be charged by Fenrir Digital Oy until Free Trial has expired. On the last day of Free Trial period, unless you cancelled your Subscription, you will be automatically charged the applicable Subscription fees for the type of Subscription you have selected.
 
-At any time and without notice, SleepCircle Oy reserves the right to (i) modify Terms of Service of Free Trial offer, or (ii) cancel such Free Trial offer.
+At any time and without notice, Fenrir Digital Oy reserves the right to (i) modify Terms of Service of Free Trial offer, or (ii) cancel such Free Trial offer.
 
 ## 7. Fee Changes
 
-SleepCircle Oy, in its sole discretion and at any time, may modify Subscription fees for the Subscriptions. Any Subscription fee change will become effective at the end of the then-current Billing Cycle.
+Fenrir Digital Oy, in its sole discretion and at any time, may modify Subscription fees for the Subscriptions. Any Subscription fee change will become effective at the end of the then-current Billing Cycle.
 
-SleepCircle Oy will provide you with a reasonable prior notice of any change in Subscription fees to give you an opportunity to terminate your Subscription before such change becomes effective.
+Fenrir Digital Oy will provide you with a reasonable prior notice of any change in Subscription fees to give you an opportunity to terminate your Subscription before such change becomes effective.
 
 Your continued use of Service after Subscription fee change comes into effect constitutes your agreement to pay the modified Subscription fee amount.
 
@@ -79,9 +79,9 @@ By posting Content on or through Service, You represent and warrant that: (i) Co
 
 You retain any and all of your rights to any Content you submit, post or display on or through Service and you are responsible for protecting those rights. We take no responsibility and assume no liability for Content you or any third party posts on or through Service. However, by posting Content using Service you grant us the right and license to use, modify, publicly perform, publicly display, reproduce, and distribute such Content on and through Service. You agree that this license includes the right for us to make your Content available to other users of Service, who may also use your Content subject to these Terms.
 
-SleepCircle Oy has the right but not the obligation to monitor and edit all Content provided by users.
+Fenrir Digital Oy has the right but not the obligation to monitor and edit all Content provided by users.
 
-In addition, Content found on or through this Service are the property of SleepCircle Oy or used with permission. You may not distribute, modify, transmit, reuse, download, repost, copy, or use said Content, whether in whole or in part, for commercial purposes or for personal gain, without express advance written permission from us.
+In addition, Content found on or through this Service are the property of Fenrir Digital Oy or used with permission. You may not distribute, modify, transmit, reuse, download, repost, copy, or use said Content, whether in whole or in part, for commercial purposes or for personal gain, without express advance written permission from us.
 
 ## 10. Prohibited Uses
 
@@ -146,7 +146,7 @@ We reserve the right to refuse service, terminate accounts, remove or edit conte
 
 ## 14. Intellectual Property
 
-Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of SleepCircle Oy and its licensors. Service is protected by copyright, trademark, and other laws of foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of SleepCircle Oy.
+Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of Fenrir Digital Oy and its licensors. Service is protected by copyright, trademark, and other laws of foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of Fenrir Digital Oy.
 
 ## 15. Copyright Policy
 
@@ -192,11 +192,11 @@ For more information on what type of information Firebase collects, please visit
 
 ## 18. Links To Other Web Sites
 
-Our Service may contain links to third party web sites or services that are not owned or controlled by SleepCircle Oy.
+Our Service may contain links to third party web sites or services that are not owned or controlled by Fenrir Digital Oy.
 
-SleepCircle Oy has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third party web sites or services. We do not warrant the offerings of any of these entities/individuals or their websites.
+Fenrir Digital Oy has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third party web sites or services. We do not warrant the offerings of any of these entities/individuals or their websites.
 
-YOU ACKNOWLEDGE AND AGREE THAT SLEEPCIRCLE OY SHALL NOT BE RESPONSIBLE OR LIABLE, DIRECTLY OR INDIRECTLY, FOR ANY DAMAGE OR LOSS CAUSED OR ALLEGED TO BE CAUSED BY OR IN CONNECTION WITH USE OF OR RELIANCE ON ANY SUCH CONTENT, GOODS OR SERVICES AVAILABLE ON OR THROUGH ANY SUCH THIRD PARTY WEB SITES OR SERVICES.
+YOU ACKNOWLEDGE AND AGREE THAT FENRIR DIGITAL OY SHALL NOT BE RESPONSIBLE OR LIABLE, DIRECTLY OR INDIRECTLY, FOR ANY DAMAGE OR LOSS CAUSED OR ALLEGED TO BE CAUSED BY OR IN CONNECTION WITH USE OF OR RELIANCE ON ANY SUCH CONTENT, GOODS OR SERVICES AVAILABLE ON OR THROUGH ANY SUCH THIRD PARTY WEB SITES OR SERVICES.
 
 WE STRONGLY ADVISE YOU TO READ THE TERMS OF SERVICE AND PRIVACY POLICIES OF ANY THIRD PARTY WEB SITES OR SERVICES THAT YOU VISIT.
 

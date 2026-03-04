@@ -7,9 +7,9 @@ Effective date: 06/07/2020
 
 ## 1. Introduction
 
-Welcome to **SleepCircle Oy**.
+Welcome to **Fenrir Digital Oy**.
 
-SleepCircle Oy (“us”, “we”, or “our”) operates https://nyxo.app and Nyxo App mobile application (hereinafter referred to as **“Service”**).
+Fenrir Digital Oy (“us”, “we”, or “our”) operates https://nyxo.app and Nyxo App mobile application (hereinafter referred to as **“Service”**).
 
 Our Privacy Policy governs your visit to https://nyxo.app and Nyxo App mobile application, and explains how we collect, safeguard and disclose information that results from your use of our Service.
 
@@ -19,7 +19,7 @@ Our Terms and Conditions (**“Terms”**) govern all use of our Service and tog
 
 ## 2. Definitions
 
-**SERVICE** means the https://nyxo.app website and Nyxo App mobile application operated by SleepCircle Oy.
+**SERVICE** means the https://nyxo.app website and Nyxo App mobile application operated by Fenrir Digital Oy.
 
 **PERSONAL DATA** means data about a living individual who can be identified from those data (or from those and other information either in our possession or likely to come into our possession).
 
@@ -81,7 +81,7 @@ Examples of Cookies we use:
 
 ## 5. Use of Data
 
-SleepCircle Oy uses the collected data for various purposes:
+Fenrir Digital Oy uses the collected data for various purposes:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a) to provide and maintain our Service;
 
@@ -123,7 +123,7 @@ If you are located outside United States and choose to provide information to us
 
 Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.
 
-SleepCircle Oy will take all the steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organisation or a country unless there are adequate controls in place including the security of your data and other personal information.
+Fenrir Digital Oy will take all the steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organisation or a country unless there are adequate controls in place including the security of your data and other personal information.
 
 ## 8. Disclosure of Data
 
@@ -293,7 +293,7 @@ For more information on what data Fastlane collects for what purpose and how the
 
 ## 16. Behavioral Remarketing
 
-SleepCircle Oy uses remarketing services to advertise on third party websites to you after you visited our Service. We and our third-party vendors use cookies to inform, optimise and serve ads based on your past visits to our Service.
+Fenrir Digital Oy uses remarketing services to advertise on third party websites to you after you visited our Service. We and our third-party vendors use cookies to inform, optimise and serve ads based on your past visits to our Service.
 
 ### Google Ads (AdWords)
 
