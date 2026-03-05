@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { generatePageMetadata } from "@/lib/seo";
 import {
   getHabitBySlug,
+  getAllHabitSlugs,
   renderRichText,
 } from "@/lib/contentful";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -10,6 +11,11 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const slugs = await getAllHabitSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 function periodStyle(period: unknown) {

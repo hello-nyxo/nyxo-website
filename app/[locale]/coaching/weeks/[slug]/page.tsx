@@ -5,6 +5,7 @@ import { Link } from "@/lib/i18n/navigation";
 import { generatePageMetadata } from "@/lib/seo";
 import {
   getWeekBySlug,
+  getAllWeekSlugs,
   renderRichText,
   normalizeImageUrl,
 } from "@/lib/contentful";
@@ -13,6 +14,11 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const slugs = await getAllWeekSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {

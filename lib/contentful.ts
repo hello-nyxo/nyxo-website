@@ -87,13 +87,27 @@ export async function getLessonBySlug(
   try {
     const client = getClient();
     if (!client) return null;
+    const cfLocale = contentfulLocale(locale);
     const entries = await client.getEntries({
       content_type: "lesson",
       "fields.slug": slug,
       include: 3,
-      locale: contentfulLocale(locale),
+      locale: cfLocale,
     });
-    return entries.items[0] || null;
+    if (entries.items[0]) return entries.items[0];
+
+    // Slug is localized — the slug may belong to the other locale.
+    // Try finding it via the other locale, then re-fetch with the correct one.
+    const otherLocale = cfLocale === "fi-FI" ? "en-US" : "fi-FI";
+    const otherEntries = await client.getEntries({
+      content_type: "lesson",
+      "fields.slug": slug,
+      locale: otherLocale,
+    });
+    if (!otherEntries.items[0]) return null;
+
+    const entryId = otherEntries.items[0].sys.id;
+    return await client.getEntry(entryId, { include: 3, locale: cfLocale });
   } catch {
     return null;
   }
@@ -218,8 +232,10 @@ export async function getAllWeekSlugs(): Promise<string[]> {
     .filter(Boolean) as string[];
 }
 
-export async function getAllLessonSlugs(): Promise<string[]> {
-  const lessons = await getLessons();
+export async function getAllLessonSlugs(
+  locale?: string
+): Promise<string[]> {
+  const lessons = await getLessons(locale);
   return lessons
     .map((l: ContentfulEntry) => l.fields?.slug)
     .filter(Boolean) as string[];

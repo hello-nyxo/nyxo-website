@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { generatePageMetadata } from "@/lib/seo";
 import {
   getQuestionnaireBySlug,
+  getAllQuestionnaireSlugs,
   serializeQuestionnaire,
 } from "@/lib/contentful";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -10,6 +11,11 @@ import Questionnaire from "@/components/Questionnaire";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const slugs = await getAllQuestionnaireSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {

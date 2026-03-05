@@ -9,6 +9,11 @@ import {
 import BlogPostCard from "@/components/BlogPostCard";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 
+export function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {

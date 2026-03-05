@@ -1,10 +1,11 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/lib/i18n/navigation";
 import { generatePageMetadata } from "@/lib/seo";
 import {
   getLessonBySlug,
+  getAllLessonSlugs,
   renderRichText,
   normalizeImageUrl,
   serializeQuestionnaire,
@@ -15,6 +16,15 @@ import Questionnaire from "@/components/Questionnaire";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const [enSlugs, fiSlugs] = await Promise.all([
+    getAllLessonSlugs("en"),
+    getAllLessonSlugs("fi"),
+  ]);
+  const allSlugs = new Set([...enSlugs, ...fiSlugs]);
+  return Array.from(allSlugs).map((slug) => ({ slug }));
 }
 
 function periodColor(period: unknown) {
@@ -28,13 +38,14 @@ export async function generateMetadata({ params }: PageProps) {
   const lesson = await getLessonBySlug(slug, locale);
   if (!lesson) return {};
   const fields = lesson.fields as Record<string, unknown>;
+  const correctSlug = (fields.slug as string) || slug;
   return generatePageMetadata({
     title: fields.lessonName as string,
     description:
       Array.isArray(fields.keywords)
         ? (fields.keywords as string[]).join(", ")
         : "",
-    path: `/coaching/lessons/${slug}`,
+    path: `/coaching/lessons/${correctSlug}`,
     locale,
   });
 }
@@ -46,6 +57,13 @@ export default async function LessonPage({ params }: PageProps) {
   const lesson = await getLessonBySlug(slug, locale);
 
   if (!lesson) notFound();
+
+  // If the URL slug is from another locale, redirect to the correct one
+  const fields0 = lesson.fields as Record<string, unknown>;
+  const correctSlug = fields0.slug as string;
+  if (correctSlug && correctSlug !== slug) {
+    redirect(`/${locale}/coaching/lessons/${correctSlug}`);
+  }
 
   const fields = lesson.fields as Record<string, unknown>;
   const cover = fields.cover as
