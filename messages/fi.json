@@ -176,6 +176,14 @@
 
   "LESSONS_BY": "Oppitunteja henkilöltä",
 
+  "WEEK_NUMBER": "Viikko {order}",
+  "WRITTEN_BY": "Kirjoittanut",
+  "RELATED_POSTS": "Aiheeseen liittyviä artikkeleita",
+  "ALL_WEEKS": "Kaikki viikot",
+  "ALL_LESSONS": "Kaikki oppitunnit",
+  "ALL_HABITS": "Kaikki tavoitteet",
+  "SOCIAL": "Sosiaalinen media",
+
   "CHECKOUT_BLOG": "Blogistamme",
   "MORE_FROM_BLOG": "Lisää blogikirjoituksia",
 

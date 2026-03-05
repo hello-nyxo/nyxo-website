@@ -3,6 +3,7 @@ import { Link } from "@/lib/i18n/navigation";
 import Image from "next/image";
 
 export default function Footer() {
+  const tRoot = useTranslations();
   const t = useTranslations("FOOTER");
   const year = new Date().getFullYear();
 
@@ -85,7 +86,7 @@ export default function Footer() {
           {/* Social */}
           <div>
             <h4 className="text-xs font-semibold text-white/30 uppercase tracking-widest mb-5">
-              Social
+              {tRoot("SOCIAL")}
             </h4>
             <div className="flex gap-3">
               {[

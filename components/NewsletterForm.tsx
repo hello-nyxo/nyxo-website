@@ -36,12 +36,17 @@ export default function NewsletterForm() {
             onSubmit={handleSubmit}
             className="flex flex-col sm:flex-row gap-3"
           >
+            <label htmlFor="newsletter-email" className="sr-only">
+              {t("EMAIL")}
+            </label>
             <input
+              id="newsletter-email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t("PLACEHOLDER")}
               required
+              aria-label={t("EMAIL")}
               className="flex-1 px-5 py-3.5 rounded-full bg-white/8 text-white placeholder-white/30 border border-white/10 focus:outline-none focus:border-brand-blue/50 focus:bg-white/12 transition-all"
             />
             <button

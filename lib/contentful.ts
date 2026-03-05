@@ -1,6 +1,6 @@
 import { createClient, type ContentfulClientApi } from "contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES, type Document } from "@contentful/rich-text-types";
 
 let _client: ContentfulClientApi<undefined> | null = null;
 
@@ -19,8 +19,33 @@ function contentfulLocale(locale?: string): string {
   return "en-US";
 }
 
+/** Generic Contentful entry shape used throughout the app. */
+export interface ContentfulEntry {
+  sys: { id: string; [key: string]: unknown };
+  fields: Record<string, unknown>;
+  [key: string]: unknown;
+}
+
+/** Cast Contentful SDK entries to our generic shape. */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type ContentfulEntry = any;
+function asEntries(items: any[]): ContentfulEntry[] {
+  return items as ContentfulEntry[];
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function asEntry(item: any): ContentfulEntry {
+  return item as ContentfulEntry;
+}
+
+/** Escape HTML special characters to prevent XSS */
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 export function normalizeImageUrl(url?: string): string | undefined {
   if (!url) return undefined;
@@ -37,7 +62,7 @@ export async function getWeeks(locale?: string): Promise<ContentfulEntry[]> {
       include: 2,
       locale: contentfulLocale(locale),
     });
-    return entries.items;
+    return asEntries(entries.items);
   } catch (err) {
     console.warn("Failed to fetch weeks from Contentful", err);
     return [];
@@ -57,7 +82,7 @@ export async function getWeekBySlug(
       include: 3,
       locale: contentfulLocale(locale),
     });
-    return entries.items[0] || null;
+    return asEntry(entries.items[0]) || null;
   } catch {
     return null;
   }
@@ -73,7 +98,7 @@ export async function getLessons(locale?: string): Promise<ContentfulEntry[]> {
       limit: 100,
       locale: contentfulLocale(locale),
     });
-    return entries.items;
+    return asEntries(entries.items);
   } catch {
     console.warn("Failed to fetch lessons from Contentful");
     return [];
@@ -94,7 +119,7 @@ export async function getLessonBySlug(
       include: 3,
       locale: cfLocale,
     });
-    if (entries.items[0]) return entries.items[0];
+    if (entries.items[0]) return asEntry(entries.items[0]);
 
     // Slug is localized — the slug may belong to the other locale.
     // Try finding it via the other locale, then re-fetch with the correct one.
@@ -107,7 +132,7 @@ export async function getLessonBySlug(
     if (!otherEntries.items[0]) return null;
 
     const entryId = otherEntries.items[0].sys.id;
-    return await client.getEntry(entryId, { include: 3, locale: cfLocale });
+    return asEntry(await client.getEntry(entryId, { include: 3, locale: cfLocale }));
   } catch {
     return null;
   }
@@ -123,7 +148,7 @@ export async function getHabits(locale?: string): Promise<ContentfulEntry[]> {
       limit: 100,
       locale: contentfulLocale(locale),
     });
-    return entries.items;
+    return asEntries(entries.items);
   } catch {
     console.warn("Failed to fetch habits from Contentful");
     return [];
@@ -143,7 +168,7 @@ export async function getHabitBySlug(
       include: 3,
       locale: contentfulLocale(locale),
     });
-    return entries.items[0] || null;
+    return asEntry(entries.items[0]) || null;
   } catch {
     return null;
   }
@@ -160,7 +185,7 @@ export async function getQuestionnaires(
       include: 3,
       locale: contentfulLocale(locale),
     });
-    return entries.items;
+    return asEntries(entries.items);
   } catch {
     console.warn("Failed to fetch questionnaires from Contentful");
     return [];
@@ -180,7 +205,7 @@ export async function getQuestionnaireBySlug(
       include: 3,
       locale: contentfulLocale(locale),
     });
-    return entries.items[0] || null;
+    return asEntry(entries.items[0]) || null;
   } catch {
     return null;
   }
@@ -194,7 +219,7 @@ export async function getAuthors(): Promise<ContentfulEntry[]> {
       content_type: "author",
       include: 2,
     });
-    return entries.items;
+    return asEntries(entries.items);
   } catch {
     console.warn("Failed to fetch authors from Contentful");
     return [];
@@ -212,7 +237,7 @@ export async function getAuthorBySlug(
       "fields.slug": slug,
       include: 2,
     });
-    return entries.items[0] || null;
+    return asEntry(entries.items[0]) || null;
   } catch {
     return null;
   }
@@ -255,85 +280,80 @@ export async function getAllQuestionnaireSlugs(): Promise<string[]> {
     .filter(Boolean) as string[];
 }
 
-// Serialize a Contentful questionnaire entry into plain props for the client component
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function serializeQuestionnaire(entry: any) {
+/** Serialize a Contentful questionnaire entry into plain props for the client component */
+export function serializeQuestionnaire(entry: ContentfulEntry | null) {
   if (!entry?.fields) return null;
-  const f = entry.fields;
+  const f = entry.fields as Record<string, unknown>;
 
-  const questions = (f.questions || [])
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .map((q: any) => {
+  const questions = (Array.isArray(f.questions) ? f.questions : [])
+    .map((q: ContentfulEntry) => {
       if (!q?.fields) return null;
-      const qf = q.fields;
-      // Only include questions that have selectable answers
-      const answers = (qf.answers || [])
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        .map((a: any) => {
+      const qf = q.fields as Record<string, unknown>;
+      const answers = (Array.isArray(qf.answers) ? qf.answers : [])
+        .map((a: ContentfulEntry) => {
           if (!a?.fields) return null;
+          const af = a.fields as Record<string, unknown>;
           return {
             id: a.sys?.id || String(Math.random()),
-            title: a.fields.title as string,
-            score: (a.fields.score as number) || 0,
+            title: String(af.title ?? ""),
+            score: Number(af.score) || 0,
           };
         })
-        .filter(Boolean);
+        .filter((a): a is NonNullable<typeof a> => a !== null);
       if (answers.length === 0) return null;
       return {
         id: q.sys?.id || String(Math.random()),
-        question: qf.question as string,
-        type: qf.type as string,
+        question: String(qf.question ?? ""),
+        type: String(qf.type ?? ""),
         answers,
       };
     })
-    .filter(Boolean);
+    .filter((q): q is NonNullable<typeof q> => q !== null);
 
-  const results = (f.results || [])
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .map((r: any) => {
+  const results = (Array.isArray(f.results) ? f.results : [])
+    .map((r: ContentfulEntry) => {
       if (!r?.fields) return null;
-      const rf = r.fields;
-      const range = rf.scoreRange || {};
+      const rf = r.fields as Record<string, unknown>;
+      const range = (rf.scoreRange as Record<string, unknown>) || {};
       return {
         id: r.sys?.id || String(Math.random()),
-        title: rf.title as string,
+        title: String(rf.title ?? ""),
         scoreRange: {
-          min: (range.lowEnd as number) ?? 0,
-          max: (range.highEnd as number) ?? 100,
+          min: Number(range.lowEnd) || 0,
+          max: Number(range.highEnd) || 100,
         },
         description: renderRichText(rf.description),
       };
     })
-    .filter(Boolean);
+    .filter((r): r is NonNullable<typeof r> => r !== null);
 
   return {
-    title: f.title as string,
-    slug: f.slug as string,
+    title: String(f.title ?? ""),
+    slug: String(f.slug ?? ""),
     description: renderRichText(f.description),
     questions,
     results,
   };
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function renderRichText(document: any): string {
-  if (!document) return "";
+export function renderRichText(richTextDocument: unknown): string {
+  if (!richTextDocument) return "";
   try {
-    return documentToHtmlString(document, {
+    return documentToHtmlString(richTextDocument as Document, {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: (node) => {
           const url = node.data?.target?.fields?.file?.url;
           const title = node.data?.target?.fields?.title || "";
           if (!url) return "";
           const src = url.startsWith("//") ? `https:${url}` : url;
-          return `<img src="${src}" alt="${title}" class="rounded-lg my-6 max-w-full" />`;
+          return `<img src="${escapeHtml(src)}" alt="${escapeHtml(title)}" class="rounded-lg my-6 max-w-full" loading="lazy" />`;
         },
         [INLINES.HYPERLINK]: (node) => {
           const url = node.data?.uri || "#";
           const text = node.content
             ?.map((c: { value?: string }) => c.value || "")
             .join("");
-          return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:underline">${text}</a>`;
+          return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:underline">${escapeHtml(text)}</a>`;
         },
       },
     });
