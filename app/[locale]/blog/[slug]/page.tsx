@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { Link } from "@/lib/i18n/navigation";
 import { getPostBySlug, getAllPosts } from "@/lib/markdown";
 import {
   generatePageMetadata,
@@ -85,7 +86,12 @@ export default async function BlogPostPage({
             {post.title}
           </h1>
           <div className="flex items-center justify-center gap-4 text-sm text-text-secondary">
-            <span>{post.author}</span>
+            <Link
+              href={`/coaching/authors/${post.authorSlug}`}
+              className="text-brand-blue hover:underline"
+            >
+              {post.author}
+            </Link>
             <span>·</span>
             <time dateTime={post.date}>
               {new Date(post.date).toLocaleDateString("en-US", {
@@ -127,9 +133,12 @@ export default async function BlogPostPage({
         <div className="mt-16 pt-8 border-t border-hairline">
           <p className="text-sm text-text-secondary">
             Written by{" "}
-            <span className="font-semibold text-text-primary">
+            <Link
+              href={`/coaching/authors/${post.authorSlug}`}
+              className="font-semibold text-text-primary hover:text-brand-blue transition-colors"
+            >
               {post.author}
-            </span>
+            </Link>
           </p>
         </div>
       </article>

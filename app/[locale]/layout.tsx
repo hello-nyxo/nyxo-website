@@ -2,8 +2,10 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
 import { routing } from "@/lib/i18n/routing";
-import { getWeeks, getLessons, getHabits } from "@/lib/contentful";
+import { getWeeks, getLessons, getHabits, getAuthors, getQuestionnaires } from "@/lib/contentful";
 import { normalizeImageUrl } from "@/lib/contentful";
+import { getAllPosts } from "@/lib/markdown";
+import CommandPalette, { type SearchableItem } from "@/components/CommandPalette";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -44,10 +46,12 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const [weeks, lessons, habits] = await Promise.all([
+  const [weeks, lessons, habits, authors, questionnaires] = await Promise.all([
     getWeeks(locale),
     getLessons(locale),
     getHabits(locale),
+    getAuthors(),
+    getQuestionnaires(locale),
   ]);
 
   const navWeeks = weeks.slice(0, 4).map((w) => {
@@ -78,6 +82,70 @@ export default async function LocaleLayout({
     };
   });
 
+  const blogPosts = getAllPosts();
+
+  const searchItems: SearchableItem[] = [
+    ...weeks.map((w) => {
+      const f = w.fields as Record<string, unknown>;
+      return {
+        id: `week-${f.slug}`,
+        name: f.weekName as string,
+        category: "week" as const,
+        slug: f.slug as string,
+        href: `/coaching/weeks/${f.slug}`,
+      };
+    }),
+    ...lessons.map((l) => {
+      const f = l.fields as Record<string, unknown>;
+      return {
+        id: `lesson-${f.slug}`,
+        name: f.lessonName as string,
+        category: "lesson" as const,
+        slug: f.slug as string,
+        href: `/coaching/lessons/${f.slug}`,
+      };
+    }),
+    ...habits.map((h) => {
+      const f = h.fields as Record<string, unknown>;
+      return {
+        id: `habit-${f.slug}`,
+        name: f.title as string,
+        category: "habit" as const,
+        slug: f.slug as string,
+        href: `/coaching/habits/${f.slug}`,
+      };
+    }),
+    ...questionnaires.map((q) => {
+      const f = q.fields as Record<string, unknown>;
+      return {
+        id: `questionnaire-${f.slug}`,
+        name: f.title as string,
+        category: "questionnaire" as const,
+        slug: f.slug as string,
+        href: `/coaching/questionnaires/${f.slug}`,
+      };
+    }),
+    ...authors.map((a) => {
+      const f = a.fields as Record<string, unknown>;
+      const name = (f.name as string) || "";
+      const slug = (f.slug as string) || name.toLowerCase().replace(/\s+/g, "-");
+      return {
+        id: `author-${a.sys.id}`,
+        name,
+        category: "author" as const,
+        slug,
+        href: `/coaching/authors/${slug}`,
+      };
+    }),
+    ...blogPosts.map((p) => ({
+      id: `blog-${p.slug}`,
+      name: p.title,
+      category: "blog" as const,
+      slug: p.slug,
+      href: `/blog/${p.slug}`,
+    })),
+  ];
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
@@ -90,6 +158,7 @@ export default async function LocaleLayout({
             navHabits={navHabits}
           />
           <main className="min-h-screen">{children}</main>
+          <CommandPalette items={searchItems} />
           <Footer />
           <Analytics />
         </NextIntlClientProvider>

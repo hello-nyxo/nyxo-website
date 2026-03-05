@@ -107,7 +107,13 @@
     "HABITS_TEXT": "Below is a small sample of habits and exercises from the Nyxo Sleep Coaching",
     "AUTHORS": "Authors",
     "AUTHORS_TEXT": "These are the authors behind the Nyxo materials you love. Here you can learn more about the authors, including their areas of expertise, and find all materials they've written.",
-    "SLEEP_COACHING": "Sleep Coaching"
+    "SLEEP_COACHING": "Sleep Coaching",
+    "QUESTIONNAIRES": "Questionnaires",
+    "QUESTIONNAIRES_TEXT": "Test your knowledge and discover your sleep patterns with our interactive questionnaires.",
+    "ALL_AUTHORS": "All Authors",
+    "ALL_AUTHORS_TEXT": "Meet the sleep researchers and experts behind the Nyxo coaching materials.",
+    "CONTENT_BY": "Content by {name}",
+    "NO_CONTENT_YET": "No content available from this author yet."
   },
 
   "BLOG": {
@@ -159,6 +165,13 @@
   "HABITS_TO_TRY": "Habits From This Lesson",
   "ADDITIONAL_READING": "Additional Reading",
 
+  "TEST_YOUR_KNOWLEDGE": "Test Your Knowledge",
+  "NEXT_QUESTION": "Next",
+  "SEE_RESULTS": "See Results",
+  "YOUR_RESULT": "Your Result",
+  "RETAKE_QUIZ": "Retake Quiz",
+  "QUESTION_OF": "of",
+
   "LESSONS_BY": "Lessons by",
 
   "CHECKOUT_BLOG": "Check Out Our Blog",
@@ -201,6 +214,20 @@
     "COACHING": "Coaching",
     "CURRENTLY_ACTIVE": "Currently Active Coaching",
     "ALL_COACHING_DATA": "All Coaching Periods"
+  },
+
+  "COMMAND_PALETTE": {
+    "PLACEHOLDER": "Search blog posts, lessons, weeks, habits, authors…",
+    "WEEKS": "Coaching Weeks",
+    "LESSONS": "Lessons",
+    "BLOG": "Blog Posts",
+    "HABITS": "Habits",
+    "AUTHORS": "Authors",
+    "QUESTIONNAIRES": "Questionnaires",
+    "NO_RESULTS": "No results found",
+    "NO_RESULTS_TEXT": "We couldn't find anything matching your search. Try a different term.",
+    "HINT": "Navigate with ↑↓ · Select with ↵",
+    "TO_CLOSE": "to close"
   },
 
   "en": "english",

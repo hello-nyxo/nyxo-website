@@ -105,7 +105,13 @@
     "HABITS_TEXT": "Alla pieni läpileikkaus Nyxo Univalmennuksessa valittavista harjoitteista ja tavoitteista.",
     "AUTHORS": "Kirjoittajat",
     "AUTHORS_TEXT": "Alla olevat henkilöt ovat luoneet Nyxo Univalmennuksen.",
-    "SLEEP_COACHING": "Univalmennus"
+    "SLEEP_COACHING": "Univalmennus",
+    "QUESTIONNAIRES": "Kyselyt",
+    "QUESTIONNAIRES_TEXT": "Testaa tietosi ja löydä omat unitottumuksesi interaktiivisten kyselyiden avulla.",
+    "ALL_AUTHORS": "Kaikki kirjoittajat",
+    "ALL_AUTHORS_TEXT": "Tutustu unitutkijoihin ja asiantuntijoihin Nyxo-valmennusmateriaalien takana.",
+    "CONTENT_BY": "Sisällöt henkilöltä {name}",
+    "NO_CONTENT_YET": "Tältä kirjoittajalta ei ole vielä sisältöjä."
   },
 
   "BLOG": {
@@ -157,6 +163,13 @@
   "HABITS_TO_TRY": "Oppituntiin liittyviä tavoitteita",
   "ADDITIONAL_READING": "Lisää luettavaa",
 
+  "TEST_YOUR_KNOWLEDGE": "Testaa tietosi",
+  "NEXT_QUESTION": "Seuraava",
+  "SEE_RESULTS": "Näytä tulokset",
+  "YOUR_RESULT": "Tuloksesi",
+  "RETAKE_QUIZ": "Tee uudelleen",
+  "QUESTION_OF": "/",
+
   "LESSONS_BY": "Oppitunteja henkilöltä",
 
   "CHECKOUT_BLOG": "Blogistamme",
@@ -199,6 +212,20 @@
     "COACHING": "Valmennus",
     "CURRENTLY_ACTIVE": "Tällä hetkellä aktiivinen valmennus",
     "ALL_COACHING_DATA": "Kaikki valmennusjaksot"
+  },
+
+  "COMMAND_PALETTE": {
+    "PLACEHOLDER": "Hae blogikirjoituksia, oppitunteja, viikkoja, tavoitteita, kirjoittajia…",
+    "WEEKS": "Valmennusviikot",
+    "LESSONS": "Oppitunnit",
+    "BLOG": "Blogikirjoitukset",
+    "HABITS": "Tavoitteet",
+    "AUTHORS": "Kirjoittajat",
+    "QUESTIONNAIRES": "Kyselyt",
+    "NO_RESULTS": "Ei tuloksia",
+    "NO_RESULTS_TEXT": "Haullasi ei löytynyt mitään. Kokeile toista hakusanaa.",
+    "HINT": "Navigoi ↑↓ · Valitse ↵",
+    "TO_CLOSE": "sulje"
   },
 
   "en": "In English",

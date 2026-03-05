@@ -7,9 +7,11 @@ import {
   getLessonBySlug,
   renderRichText,
   normalizeImageUrl,
+  serializeQuestionnaire,
 } from "@/lib/contentful";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import Questionnaire from "@/components/Questionnaire";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -58,6 +60,9 @@ export default async function LessonPage({ params }: PageProps) {
       fields: Record<string, unknown>;
     }>) || [];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const quizData = serializeQuestionnaire(fields.questionnaire as any);
+
   return (
     <article className="pb-16">
       {/* Breadcrumbs */}
@@ -90,7 +95,13 @@ export default async function LessonPage({ params }: PageProps) {
         </h1>
         {typeof fields.author === "string" && (
           <p className="text-sm text-text-secondary">
-            {t("LESSON_BY")}: {fields.author}
+            {t("LESSON_BY")}:{" "}
+            <Link
+              href={`/coaching/authors/${(fields.author as string).toLowerCase().replace(/\s+/g, "-")}`}
+              className="text-brand-blue hover:underline"
+            >
+              {fields.author}
+            </Link>
           </p>
         )}
       </header>
@@ -160,6 +171,23 @@ export default async function LessonPage({ params }: PageProps) {
               );
             })}
           </div>
+        </section>
+      )}
+
+      {/* Questionnaire */}
+      {quizData && quizData.questions.length > 0 && (
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-hairline">
+          <AnimateOnScroll>
+            <h2 className="text-2xl font-serif font-semibold text-brand-deep mb-6">
+              {t("TEST_YOUR_KNOWLEDGE")}
+            </h2>
+          </AnimateOnScroll>
+          <Questionnaire
+            title={quizData.title}
+            description={quizData.description}
+            questions={quizData.questions}
+            results={quizData.results}
+          />
         </section>
       )}
 

@@ -135,6 +135,43 @@ export async function getHabitBySlug(
   }
 }
 
+export async function getQuestionnaires(
+  locale?: string
+): Promise<ContentfulEntry[]> {
+  try {
+    const client = getClient();
+    if (!client) return [];
+    const entries = await client.getEntries({
+      content_type: "questionnaire",
+      include: 3,
+      locale: contentfulLocale(locale),
+    });
+    return entries.items;
+  } catch {
+    console.warn("Failed to fetch questionnaires from Contentful");
+    return [];
+  }
+}
+
+export async function getQuestionnaireBySlug(
+  slug: string,
+  locale?: string
+): Promise<ContentfulEntry | null> {
+  try {
+    const client = getClient();
+    if (!client) return null;
+    const entries = await client.getEntries({
+      content_type: "questionnaire",
+      "fields.slug": slug,
+      include: 3,
+      locale: contentfulLocale(locale),
+    });
+    return entries.items[0] || null;
+  } catch {
+    return null;
+  }
+}
+
 export async function getAuthors(): Promise<ContentfulEntry[]> {
   try {
     const client = getClient();
@@ -148,6 +185,30 @@ export async function getAuthors(): Promise<ContentfulEntry[]> {
     console.warn("Failed to fetch authors from Contentful");
     return [];
   }
+}
+
+export async function getAuthorBySlug(
+  slug: string
+): Promise<ContentfulEntry | null> {
+  try {
+    const client = getClient();
+    if (!client) return null;
+    const entries = await client.getEntries({
+      content_type: "author",
+      "fields.slug": slug,
+      include: 2,
+    });
+    return entries.items[0] || null;
+  } catch {
+    return null;
+  }
+}
+
+export async function getAllAuthorSlugs(): Promise<string[]> {
+  const authors = await getAuthors();
+  return authors
+    .map((a: ContentfulEntry) => a.fields?.slug)
+    .filter(Boolean) as string[];
 }
 
 export async function getAllWeekSlugs(): Promise<string[]> {
@@ -169,6 +230,73 @@ export async function getAllHabitSlugs(): Promise<string[]> {
   return habits
     .map((h: ContentfulEntry) => h.fields?.slug)
     .filter(Boolean) as string[];
+}
+
+export async function getAllQuestionnaireSlugs(): Promise<string[]> {
+  const questionnaires = await getQuestionnaires();
+  return questionnaires
+    .map((q: ContentfulEntry) => q.fields?.slug)
+    .filter(Boolean) as string[];
+}
+
+// Serialize a Contentful questionnaire entry into plain props for the client component
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function serializeQuestionnaire(entry: any) {
+  if (!entry?.fields) return null;
+  const f = entry.fields;
+
+  const questions = (f.questions || [])
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .map((q: any) => {
+      if (!q?.fields) return null;
+      const qf = q.fields;
+      // Only include questions that have selectable answers
+      const answers = (qf.answers || [])
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .map((a: any) => {
+          if (!a?.fields) return null;
+          return {
+            id: a.sys?.id || String(Math.random()),
+            title: a.fields.title as string,
+            score: (a.fields.score as number) || 0,
+          };
+        })
+        .filter(Boolean);
+      if (answers.length === 0) return null;
+      return {
+        id: q.sys?.id || String(Math.random()),
+        question: qf.question as string,
+        type: qf.type as string,
+        answers,
+      };
+    })
+    .filter(Boolean);
+
+  const results = (f.results || [])
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .map((r: any) => {
+      if (!r?.fields) return null;
+      const rf = r.fields;
+      const range = rf.scoreRange || {};
+      return {
+        id: r.sys?.id || String(Math.random()),
+        title: rf.title as string,
+        scoreRange: {
+          min: (range.lowEnd as number) ?? 0,
+          max: (range.highEnd as number) ?? 100,
+        },
+        description: renderRichText(rf.description),
+      };
+    })
+    .filter(Boolean);
+
+  return {
+    title: f.title as string,
+    slug: f.slug as string,
+    description: renderRichText(f.description),
+    questions,
+    results,
+  };
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

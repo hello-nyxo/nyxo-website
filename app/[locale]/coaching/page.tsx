@@ -2,7 +2,12 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/lib/i18n/navigation";
 import { generatePageMetadata } from "@/lib/seo";
-import { getWeeks, getLessons, getHabits } from "@/lib/contentful";
+import {
+  getWeeks,
+  getLessons,
+  getHabits,
+  getQuestionnaires,
+} from "@/lib/contentful";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 export async function generateMetadata({
@@ -35,10 +40,11 @@ export default async function CoachingPage({
   const { locale } = await params;
   const t = await getTranslations("COACHING");
 
-  const [weeks, lessons, habits] = await Promise.all([
+  const [weeks, lessons, habits, questionnaires] = await Promise.all([
     getWeeks(locale),
     getLessons(locale),
     getHabits(locale),
+    getQuestionnaires(locale),
   ]);
 
   return (
@@ -251,6 +257,51 @@ export default async function CoachingPage({
                 );
               })}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Questionnaires */}
+      {questionnaires.length > 0 && (
+        <section
+          id="questionnaires"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-20"
+        >
+          <AnimateOnScroll>
+            <h2 className="text-3xl font-serif font-semibold text-brand-deep mb-3">
+              {t("QUESTIONNAIRES")}
+            </h2>
+            <p className="text-text-secondary mb-10">
+              {t("QUESTIONNAIRES_TEXT")}
+            </p>
+          </AnimateOnScroll>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {questionnaires.map((q, i) => {
+              const fields = q.fields as Record<string, unknown>;
+              const questionCount = Array.isArray(fields.questions)
+                ? fields.questions.length
+                : 0;
+
+              return (
+                <AnimateOnScroll key={q.sys.id} delay={i * 80}>
+                  <Link
+                    href={`/coaching/questionnaires/${fields.slug as string}`}
+                    className="group block no-underline"
+                  >
+                    <div className="bg-white rounded-2xl p-6 border border-hairline hover:border-brand-blue/20 hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
+                      <h3 className="text-base font-semibold font-sans text-text-primary group-hover:text-brand-blue transition-colors mb-2">
+                        {fields.title as string}
+                      </h3>
+                      {questionCount > 0 && (
+                        <p className="text-sm text-text-secondary">
+                          {questionCount} questions
+                        </p>
+                      )}
+                    </div>
+                  </Link>
+                </AnimateOnScroll>
+              );
+            })}
           </div>
         </section>
       )}
