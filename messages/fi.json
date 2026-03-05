@@ -169,6 +169,10 @@
   "YOUR_RESULT": "Tuloksesi",
   "RETAKE_QUIZ": "Tee uudelleen",
   "QUESTION_OF": "/",
+  "CORRECT_ANSWER": "Oikein!",
+  "INCORRECT_ANSWER": "Väärin. Oikea vastaus on:",
+  "CORRECT_ANSWERS": "oikein",
+  "ANSWER_REVIEW": "Yhteenveto",
 
   "LESSONS_BY": "Oppitunteja henkilöltä",
 
