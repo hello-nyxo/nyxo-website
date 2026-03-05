@@ -24,6 +24,7 @@ import {
   AcademicCapIcon,
   SparklesIcon,
 } from "@heroicons/react/20/solid";
+import { periodColor } from "@/lib/utils";
 
 interface NavWeek {
   name: string;
@@ -49,17 +50,12 @@ interface HeaderProps {
   navHabits?: NavHabit[];
 }
 
-function periodColor(period: string) {
-  if (period === "MORNING") return "bg-accent-warm/15 text-accent-warm";
-  if (period === "AFTERNOON") return "bg-accent-noon/15 text-accent-noon";
-  return "bg-accent-dusk/15 text-accent-dusk";
-}
-
 export default function Header({
   navWeeks = [],
   navLessons = [],
   navHabits = [],
 }: HeaderProps) {
+  const tRoot = useTranslations();
   const t = useTranslations("NAVIGATION");
   const tCoaching = useTranslations("COACHING");
   const pathname = usePathname();
@@ -363,7 +359,7 @@ export default function Header({
                       onClick={() => setMobileMenuOpen(false)}
                       className="block rounded-lg py-2 pr-3 pl-10 text-sm font-medium text-brand-blue hover:bg-bg-primary no-underline"
                     >
-                      All weeks &rarr;
+                      {tRoot("ALL_WEEKS")} &rarr;
                     </Link>
                   </DisclosurePanel>
                 </Disclosure>
@@ -396,7 +392,7 @@ export default function Header({
                       onClick={() => setMobileMenuOpen(false)}
                       className="block rounded-lg py-2 pr-3 pl-10 text-sm font-medium text-brand-blue hover:bg-bg-primary no-underline"
                     >
-                      All lessons &rarr;
+                      {tRoot("ALL_LESSONS")} &rarr;
                     </Link>
                   </DisclosurePanel>
                 </Disclosure>
@@ -429,7 +425,7 @@ export default function Header({
                       onClick={() => setMobileMenuOpen(false)}
                       className="block rounded-lg py-2 pr-3 pl-10 text-sm font-medium text-brand-blue hover:bg-bg-primary no-underline"
                     >
-                      All habits &rarr;
+                      {tRoot("ALL_HABITS")} &rarr;
                     </Link>
                   </DisclosurePanel>
                 </Disclosure>
