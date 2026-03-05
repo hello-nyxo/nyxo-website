@@ -32,6 +32,11 @@ function asEntries(items: any[]): ContentfulEntry[] {
   return items as ContentfulEntry[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function asEntry(item: any): ContentfulEntry {
+  return item as ContentfulEntry;
+}
+
 /** Escape HTML special characters to prevent XSS */
 function escapeHtml(str: string): string {
   return str
@@ -77,7 +82,7 @@ export async function getWeekBySlug(
       include: 3,
       locale: contentfulLocale(locale),
     });
-    return (entries.items[0] as ContentfulEntry) || null;
+    return asEntry(entries.items[0]) || null;
   } catch {
     return null;
   }
@@ -114,7 +119,7 @@ export async function getLessonBySlug(
       include: 3,
       locale: cfLocale,
     });
-    if (entries.items[0]) return entries.items[0] as ContentfulEntry;
+    if (entries.items[0]) return asEntry(entries.items[0]);
 
     // Slug is localized — the slug may belong to the other locale.
     // Try finding it via the other locale, then re-fetch with the correct one.
@@ -127,7 +132,7 @@ export async function getLessonBySlug(
     if (!otherEntries.items[0]) return null;
 
     const entryId = otherEntries.items[0].sys.id;
-    return (await client.getEntry(entryId, { include: 3, locale: cfLocale })) as ContentfulEntry;
+    return asEntry(await client.getEntry(entryId, { include: 3, locale: cfLocale }));
   } catch {
     return null;
   }
@@ -163,7 +168,7 @@ export async function getHabitBySlug(
       include: 3,
       locale: contentfulLocale(locale),
     });
-    return (entries.items[0] as ContentfulEntry) || null;
+    return asEntry(entries.items[0]) || null;
   } catch {
     return null;
   }
@@ -200,7 +205,7 @@ export async function getQuestionnaireBySlug(
       include: 3,
       locale: contentfulLocale(locale),
     });
-    return (entries.items[0] as ContentfulEntry) || null;
+    return asEntry(entries.items[0]) || null;
   } catch {
     return null;
   }
@@ -232,7 +237,7 @@ export async function getAuthorBySlug(
       "fields.slug": slug,
       include: 2,
     });
-    return (entries.items[0] as ContentfulEntry) || null;
+    return asEntry(entries.items[0]) || null;
   } catch {
     return null;
   }
