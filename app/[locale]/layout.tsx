@@ -6,13 +6,9 @@ import { routing } from "@/lib/i18n/routing";
 import { getWeeks, getLessons, getHabits, getAuthors, getQuestionnaires } from "@/lib/contentful";
 import { normalizeImageUrl } from "@/lib/contentful";
 import { getAllPosts } from "@/lib/markdown";
-import dynamic from "next/dynamic";
 import { type SearchableItem } from "@/components/CommandPalette";
 import { Analytics } from "@vercel/analytics/react";
-
-const CommandPalette = dynamic(() => import("@/components/CommandPalette"), {
-  ssr: false,
-});
+import LazyCommandPalette from "@/components/LazyCommandPalette";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -172,7 +168,7 @@ export default async function LocaleLayout({
             navHabits={navHabits}
           />
           <main id="main-content" className="min-h-screen">{children}</main>
-          <CommandPalette items={searchItems} />
+          <LazyCommandPalette items={searchItems} />
           <Footer />
           <Analytics />
         </NextIntlClientProvider>
