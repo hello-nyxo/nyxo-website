@@ -288,7 +288,7 @@ export function serializeQuestionnaire(entry: ContentfulEntry | null) {
             score: Number(af.score) || 0,
           };
         })
-        .filter(Boolean);
+        .filter((a): a is NonNullable<typeof a> => a !== null);
       if (answers.length === 0) return null;
       return {
         id: q.sys?.id || String(Math.random()),
@@ -297,7 +297,7 @@ export function serializeQuestionnaire(entry: ContentfulEntry | null) {
         answers,
       };
     })
-    .filter(Boolean);
+    .filter((q): q is NonNullable<typeof q> => q !== null);
 
   const results = (Array.isArray(f.results) ? f.results : [])
     .map((r: ContentfulEntry) => {
@@ -314,7 +314,7 @@ export function serializeQuestionnaire(entry: ContentfulEntry | null) {
         description: renderRichText(rf.description),
       };
     })
-    .filter(Boolean);
+    .filter((r): r is NonNullable<typeof r> => r !== null);
 
   return {
     title: String(f.title ?? ""),

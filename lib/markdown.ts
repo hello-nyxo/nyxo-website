@@ -34,13 +34,12 @@ export interface BlogPostMeta {
 }
 
 function resolveImagePath(imagePath: string, slug: string): string {
-  if (imagePath.startsWith("./")) {
-    return `/blog/${slug}/${imagePath.slice(2)}`;
-  }
-  if (imagePath.startsWith("/")) {
+  if (imagePath.startsWith("/") || imagePath.startsWith("http")) {
     return imagePath;
   }
-  return `/blog/${slug}/${imagePath}`;
+  // Resolve relative paths like ../other-post/image.jpg
+  const resolved = path.posix.normalize(`/blog/${slug}/${imagePath}`);
+  return resolved;
 }
 
 function generateExcerpt(content: string, maxLength = 160): string {
@@ -113,7 +112,10 @@ export async function getPostBySlug(
   // Resolve relative image paths in markdown content
   const resolvedContent = content.replace(
     /!\[([^\]]*)\]\((?!http)([^)]+)\)/g,
-    (_, alt, src) => `![${alt}](/blog/${slug}/${src})`
+    (_, alt, src) => {
+      const resolved = path.posix.normalize(`/blog/${slug}/${src}`);
+      return `![${alt}](${resolved})`;
+    }
   );
 
   const processedContent = await remark().use(html).process(resolvedContent);
