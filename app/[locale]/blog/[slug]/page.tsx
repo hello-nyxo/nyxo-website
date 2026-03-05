@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/lib/i18n/navigation";
 import { getPostBySlug, getAllPosts } from "@/lib/markdown";
@@ -42,7 +43,8 @@ export default async function BlogPostPage({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
   const post = await getPostBySlug(slug);
 
   if (!post) notFound();

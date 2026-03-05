@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/lib/i18n/navigation";
 import { generatePageMetadata } from "@/lib/seo";
@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function AuthorPage({ params }: PageProps) {
   const { locale, slug } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations();
   const tCoaching = await getTranslations("COACHING");
   const author = await getAuthorBySlug(slug);

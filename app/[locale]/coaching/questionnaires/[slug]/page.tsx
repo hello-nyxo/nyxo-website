@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { generatePageMetadata } from "@/lib/seo";
 import {
   getQuestionnaireBySlug,
@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function QuestionnairePage({ params }: PageProps) {
   const { locale, slug } = await params;
+  setRequestLocale(locale);
   const tCoaching = await getTranslations("COACHING");
   const entry = await getQuestionnaireBySlug(slug, locale);
 

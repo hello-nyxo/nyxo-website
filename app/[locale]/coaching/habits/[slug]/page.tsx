@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { generatePageMetadata } from "@/lib/seo";
 import {
   getHabitBySlug,
@@ -50,6 +50,7 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function HabitPage({ params }: PageProps) {
   const { locale, slug } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations();
   const tCoaching = await getTranslations("COACHING");
   const habit = await getHabitBySlug(slug, locale);

@@ -1,4 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
 import { routing } from "@/lib/i18n/routing";
@@ -38,6 +39,8 @@ export default async function LocaleLayout({
   if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
+
+  setRequestLocale(locale);
 
   let messages;
   try {

@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/lib/i18n/navigation";
 import { generatePageMetadata } from "@/lib/seo";
@@ -26,7 +26,8 @@ export default async function AuthorsPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  await params;
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("COACHING");
   const authors = await getAuthors();
 

@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/lib/i18n/navigation";
 import { getAllPosts } from "@/lib/markdown";
@@ -40,6 +40,7 @@ export default async function HomePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("INDEX");
   const tCoaching = await getTranslations("COACHING");
   const tBlog = await getTranslations();

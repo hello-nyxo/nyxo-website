@@ -1,3 +1,4 @@
+import { setRequestLocale } from "next-intl/server";
 import { getTerms } from "@/lib/markdown";
 import { generatePageMetadata } from "@/lib/seo";
 
@@ -16,7 +17,13 @@ export async function generateMetadata({
   });
 }
 
-export default async function TermsPage() {
+export default async function TermsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const terms = await getTerms();
 
   return (

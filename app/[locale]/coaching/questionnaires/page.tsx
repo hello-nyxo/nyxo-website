@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/lib/i18n/navigation";
 import { generatePageMetadata } from "@/lib/seo";
 import { getQuestionnaires } from "@/lib/contentful";
@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function QuestionnairesPage({ params }: PageProps) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("COACHING");
   const questionnaires = await getQuestionnaires(locale);
 

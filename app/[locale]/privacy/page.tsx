@@ -1,3 +1,4 @@
+import { setRequestLocale } from "next-intl/server";
 import { getPrivacy } from "@/lib/markdown";
 import { generatePageMetadata } from "@/lib/seo";
 
@@ -16,7 +17,13 @@ export async function generateMetadata({
   });
 }
 
-export default async function PrivacyPage() {
+export default async function PrivacyPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const privacy = await getPrivacy();
 
   return (
