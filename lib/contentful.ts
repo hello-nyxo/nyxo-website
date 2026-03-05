@@ -19,11 +19,17 @@ function contentfulLocale(locale?: string): string {
   return "en-US";
 }
 
-/** Generic Contentful entry shape returned by the SDK. */
+/** Generic Contentful entry shape used throughout the app. */
 export interface ContentfulEntry {
   sys: { id: string; [key: string]: unknown };
   fields: Record<string, unknown>;
   [key: string]: unknown;
+}
+
+/** Cast Contentful SDK entries to our generic shape. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function asEntries(items: any[]): ContentfulEntry[] {
+  return items as ContentfulEntry[];
 }
 
 /** Escape HTML special characters to prevent XSS */
@@ -51,7 +57,7 @@ export async function getWeeks(locale?: string): Promise<ContentfulEntry[]> {
       include: 2,
       locale: contentfulLocale(locale),
     });
-    return entries.items;
+    return asEntries(entries.items);
   } catch (err) {
     console.warn("Failed to fetch weeks from Contentful", err);
     return [];
@@ -71,7 +77,7 @@ export async function getWeekBySlug(
       include: 3,
       locale: contentfulLocale(locale),
     });
-    return entries.items[0] || null;
+    return (entries.items[0] as ContentfulEntry) || null;
   } catch {
     return null;
   }
@@ -87,7 +93,7 @@ export async function getLessons(locale?: string): Promise<ContentfulEntry[]> {
       limit: 100,
       locale: contentfulLocale(locale),
     });
-    return entries.items;
+    return asEntries(entries.items);
   } catch {
     console.warn("Failed to fetch lessons from Contentful");
     return [];
@@ -108,7 +114,7 @@ export async function getLessonBySlug(
       include: 3,
       locale: cfLocale,
     });
-    if (entries.items[0]) return entries.items[0];
+    if (entries.items[0]) return entries.items[0] as ContentfulEntry;
 
     // Slug is localized — the slug may belong to the other locale.
     // Try finding it via the other locale, then re-fetch with the correct one.
@@ -121,7 +127,7 @@ export async function getLessonBySlug(
     if (!otherEntries.items[0]) return null;
 
     const entryId = otherEntries.items[0].sys.id;
-    return await client.getEntry(entryId, { include: 3, locale: cfLocale });
+    return (await client.getEntry(entryId, { include: 3, locale: cfLocale })) as ContentfulEntry;
   } catch {
     return null;
   }
@@ -137,7 +143,7 @@ export async function getHabits(locale?: string): Promise<ContentfulEntry[]> {
       limit: 100,
       locale: contentfulLocale(locale),
     });
-    return entries.items;
+    return asEntries(entries.items);
   } catch {
     console.warn("Failed to fetch habits from Contentful");
     return [];
@@ -157,7 +163,7 @@ export async function getHabitBySlug(
       include: 3,
       locale: contentfulLocale(locale),
     });
-    return entries.items[0] || null;
+    return (entries.items[0] as ContentfulEntry) || null;
   } catch {
     return null;
   }
@@ -174,7 +180,7 @@ export async function getQuestionnaires(
       include: 3,
       locale: contentfulLocale(locale),
     });
-    return entries.items;
+    return asEntries(entries.items);
   } catch {
     console.warn("Failed to fetch questionnaires from Contentful");
     return [];
@@ -194,7 +200,7 @@ export async function getQuestionnaireBySlug(
       include: 3,
       locale: contentfulLocale(locale),
     });
-    return entries.items[0] || null;
+    return (entries.items[0] as ContentfulEntry) || null;
   } catch {
     return null;
   }
@@ -208,7 +214,7 @@ export async function getAuthors(): Promise<ContentfulEntry[]> {
       content_type: "author",
       include: 2,
     });
-    return entries.items;
+    return asEntries(entries.items);
   } catch {
     console.warn("Failed to fetch authors from Contentful");
     return [];
@@ -226,7 +232,7 @@ export async function getAuthorBySlug(
       "fields.slug": slug,
       include: 2,
     });
-    return entries.items[0] || null;
+    return (entries.items[0] as ContentfulEntry) || null;
   } catch {
     return null;
   }
