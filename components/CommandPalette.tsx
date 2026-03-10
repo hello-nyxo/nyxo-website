@@ -99,6 +99,17 @@ export default function CommandPalette({
   const categoryOrder = ["week", "lesson", "habit", "questionnaire", "author", "blog"];
 
   return (
+    <>
+    {/* Mobile floating search button */}
+    <button
+      type="button"
+      onClick={() => setOpen(true)}
+      className="fixed bottom-6 right-6 z-40 lg:hidden flex items-center justify-center w-14 h-14 rounded-full bg-brand-blue text-white shadow-lg hover:shadow-xl active:scale-95 transition-all"
+      aria-label={t("PLACEHOLDER")}
+    >
+      <MagnifyingGlassIcon className="size-6" />
+    </button>
+
     <Dialog
       className="relative z-50"
       open={open}
@@ -205,5 +216,6 @@ export default function CommandPalette({
         </DialogPanel>
       </div>
     </Dialog>
+    </>
   );
 }
