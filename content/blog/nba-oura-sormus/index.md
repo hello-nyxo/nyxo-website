@@ -1,5 +1,6 @@
 ---
 slug: "nba-oura-sormus"
+lang: "fi"
 date: "2020-07-14"
 title: "NBA osti 2000 Oura-sormusta -- ja siksi se on parasta mitä urheilulle on tapahtunut"
 authorSlug: "pietari-nurmi"

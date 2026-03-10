@@ -1,5 +1,6 @@
 ---
 slug: "sailyyko-uni-tasaisena-karsitko-sosiaalisesta-jet-lagista"
+lang: "fi"
 date: "2019-10-20"
 title: "Säilyykö uni tasaisena -- kärsitkö sosiaalisesta jet lagista?"
 authorSlug: "eeva-siika-aho"

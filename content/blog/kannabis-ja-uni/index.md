@@ -1,5 +1,6 @@
 ---
 slug: "kannabis-ja-uni"
+lang: "fi"
 date: "2020-09-07"
 title: "Kannabis ja uni"
 authorSlug: "liisa-kuula"

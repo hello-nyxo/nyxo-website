@@ -1,5 +1,6 @@
 ---
 slug: "sleep-tracker-buyers-guide-pt2"
+lang: "en"
 date: "2020-09-01"
 title: "Sleep Tracker Buyer's Guide Pt. 2: How to Choose the Best Tracker for You"
 authorSlug: "pietari-nurmi"

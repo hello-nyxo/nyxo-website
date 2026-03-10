@@ -37,7 +37,7 @@ export default async function HomePage({
   const t = await getTranslations("INDEX");
   const tCoaching = await getTranslations("COACHING");
   const tBlog = await getTranslations();
-  const posts = getAllPosts().slice(0, 3);
+  const posts = getAllPosts(locale).slice(0, 3);
   const weeks = await getWeeks(locale);
 
   return (

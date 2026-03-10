@@ -1,5 +1,6 @@
 ---
 slug: "6-tips-for-better-sleep"
+lang: "en"
 date: "2020-04-28"
 title: "The 6 Things You Need for Good Sleep"
 author: "Perttu Lähteenlahti"

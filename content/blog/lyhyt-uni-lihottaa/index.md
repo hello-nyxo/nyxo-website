@@ -1,5 +1,6 @@
 ---
 slug: "lyhyt-uni-lihottaa"
+lang: "fi"
 date: "2020-08-19"
 title: "Lyhyet younet voivat johtaa painonnousuun"
 authorSlug: "perttu-lahteenlahti"
