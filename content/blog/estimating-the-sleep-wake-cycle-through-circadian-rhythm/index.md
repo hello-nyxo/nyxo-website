@@ -1,5 +1,6 @@
 ---
 slug: "estimating-the-sleep-wake-cycle-through-circadian-rhythm"
+lang: "en"
 date: "2020-09-28"
 title: "Estimating the Sleep-Wake Cycle Through Circadian Rhythm"
 authorSlug: "miska-nurmi"

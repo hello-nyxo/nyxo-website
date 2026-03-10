@@ -17,6 +17,7 @@ export interface BlogPost {
   tags: string[];
   thumbnailBlog: string;
   canonical?: string;
+  lang: string;
   content: string;
   excerpt: string;
 }
@@ -30,6 +31,7 @@ export interface BlogPostMeta {
   tags: string[];
   thumbnailBlog: string;
   canonical?: string;
+  lang: string;
   excerpt: string;
 }
 
@@ -66,7 +68,7 @@ export function getAllPostSlugs(): string[] {
     );
 }
 
-export function getAllPosts(): BlogPostMeta[] {
+export function getAllPosts(locale?: string): BlogPostMeta[] {
   const slugs = getAllPostSlugs();
 
   const posts = slugs
@@ -88,12 +90,17 @@ export function getAllPosts(): BlogPostMeta[] {
           ? resolveImagePath(data.thumbnailBlog, slug)
           : "",
         canonical: data.canonical,
+        lang: data.lang || "en",
         excerpt: generateExcerpt(content),
       } satisfies BlogPostMeta;
     })
     .filter(Boolean) as BlogPostMeta[];
 
-  return posts.sort(
+  const filtered = locale
+    ? posts.filter((p) => p.lang === locale)
+    : posts;
+
+  return filtered.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }
@@ -131,13 +138,14 @@ export async function getPostBySlug(
       ? resolveImagePath(data.thumbnailBlog, slug)
       : "",
     canonical: data.canonical,
+    lang: data.lang || "en",
     content: processedContent.toString(),
     excerpt: generateExcerpt(content),
   };
 }
 
-export function getAllTags(): { tag: string; count: number }[] {
-  const posts = getAllPosts();
+export function getAllTags(locale?: string): { tag: string; count: number }[] {
+  const posts = getAllPosts(locale);
   const tagCount = new Map<string, number>();
 
   for (const post of posts) {

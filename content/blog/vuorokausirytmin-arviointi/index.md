@@ -1,5 +1,6 @@
 ---
 slug: "vuorokausirytmin-arviointi"
+lang: "fi"
 date: "2020-09-28"
 title: "Uni-valvesyklin arviointi vuorokausirytmin avulla"
 authorSlug: "miska-nurmi"

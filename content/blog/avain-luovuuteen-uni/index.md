@@ -1,5 +1,6 @@
 ---
 slug: "avain-luovuuteen-uni"
+lang: "fi"
 date: "2018-05-07"
 title: "Avain luovuuteen: uni"
 authorSlug: "perttu-lahteenlahti"

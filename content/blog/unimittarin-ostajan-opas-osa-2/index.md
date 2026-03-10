@@ -1,5 +1,6 @@
 ---
 slug: "unimittarin-ostajan-opas-osa-2"
+lang: "fi"
 date: "2020-09-01"
 title: "Unimittarin ostajan opas, osa 2: Miten valitset parhaan mittarin juuri sinulle"
 authorSlug: "pietari-nurmi"

@@ -1,5 +1,6 @@
 ---
 slug: "key-to-unlocking-creativity-sleep"
+lang: "en"
 date: "2018-05-07"
 title: "Key to Unlocking Creativity: Sleep"
 authorSlug: "perttu-lahteenlahti"

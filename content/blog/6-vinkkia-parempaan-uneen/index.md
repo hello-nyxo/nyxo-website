@@ -1,5 +1,6 @@
 ---
 slug: "6-vinkkia-parempaan-uneen"
+lang: "fi"
 date: "2020-04-28"
 title: "6 asiaa, jotka tarvitset hyvään uneen"
 author: "Perttu Lähteenlahti"
