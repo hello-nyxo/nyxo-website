@@ -68,17 +68,15 @@ export default async function HomePage({
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 sm:pt-28 sm:pb-32 text-center">
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-semibold text-white leading-[1.1] mb-6"
-            style={{ animation: "fade-in-up 0.6s ease-out both" }}
           >
             {t("TITLE")}
           </h1>
           <p
             className="text-lg sm:text-xl text-white/60 leading-relaxed mb-10 max-w-2xl mx-auto"
-            style={{ animation: "fade-in-up 0.6s ease-out 150ms both" }}
           >
             {t("INTRODUCTION")}
           </p>
-          <div style={{ animation: "fade-in-up 0.6s ease-out 300ms both" }}>
+          <div>
             <Link
               href="/coaching"
               className="inline-flex items-center px-8 py-4 bg-white text-brand-deep font-semibold rounded-full no-underline hover:shadow-glow hover:bg-white/90 transition-all"

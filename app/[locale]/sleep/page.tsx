@@ -43,15 +43,11 @@ export default async function SleepIndexPage({ params }: PageProps) {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold text-white leading-tight mb-6"
-            style={{ animation: "fade-in-up 0.6s ease-out both" }}
           >
             {t("HERO_TITLE")}
           </h1>
           <p
             className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto"
-            style={{
-              animation: "fade-in-up 0.6s ease-out 100ms both",
-            }}
           >
             {t("HERO_DESCRIPTION")}
           </p>

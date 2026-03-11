@@ -55,13 +55,11 @@ export default async function CoachingPage({
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 sm:pt-28 sm:pb-32">
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold text-white leading-[1.1] mb-5"
-            style={{ animation: "fade-in-up 0.6s ease-out both" }}
           >
             {t("TITLE")}
           </h1>
           <p
             className="text-xl text-white/60 max-w-2xl"
-            style={{ animation: "fade-in-up 0.6s ease-out 150ms both" }}
           >
             {t("SUBTITLE")}
           </p>
