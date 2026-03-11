@@ -1,12 +1,14 @@
 import { Link } from "@/lib/i18n/navigation";
 import Image from "next/image";
 import type { BlogPostMeta } from "@/lib/markdown";
+import { formatDate } from "@/lib/utils";
 
 interface BlogPostCardProps {
   post: BlogPostMeta;
+  locale?: string;
 }
 
-export default function BlogPostCard({ post }: BlogPostCardProps) {
+export default function BlogPostCard({ post, locale = "en" }: BlogPostCardProps) {
   return (
     <Link
       href={`/blog/${post.slug}`}
@@ -44,11 +46,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
           <div className="flex items-center justify-between text-xs text-text-muted">
             <span>{post.author}</span>
             <time dateTime={post.date}>
-              {new Date(post.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
+              {formatDate(post.date, locale)}
             </time>
           </div>
         </div>

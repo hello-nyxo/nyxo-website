@@ -6,8 +6,9 @@ import { routing } from "@/lib/i18n/routing";
 import { getWeeks, getLessons, getHabits, getAuthors, getQuestionnaires } from "@/lib/contentful";
 import { normalizeImageUrl } from "@/lib/contentful";
 import { getAllPosts } from "@/lib/markdown";
-import CommandPalette, { type SearchableItem } from "@/components/CommandPalette";
+import { type SearchableItem } from "@/components/CommandPalette";
 import { Analytics } from "@vercel/analytics/react";
+import LazyCommandPalette from "@/components/LazyCommandPalette";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -155,13 +156,19 @@ export default async function LocaleLayout({
         className={`${jakarta.variable} ${fraunces.variable} font-sans bg-bg-primary text-text-primary antialiased`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-brand-blue focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
+          >
+            Skip to main content
+          </a>
           <Header
             navWeeks={navWeeks}
             navLessons={navLessons}
             navHabits={navHabits}
           />
-          <main className="min-h-screen">{children}</main>
-          <CommandPalette items={searchItems} />
+          <main id="main-content" className="min-h-screen">{children}</main>
+          <LazyCommandPalette items={searchItems} />
           <Footer />
           <Analytics />
         </NextIntlClientProvider>

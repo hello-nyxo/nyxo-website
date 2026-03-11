@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/lib/i18n/navigation";
 import { getPostBySlug, getAllPosts } from "@/lib/markdown";
@@ -9,6 +9,7 @@ import {
 } from "@/lib/seo";
 import BlogPostCard from "@/components/BlogPostCard";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import { formatDate } from "@/lib/utils";
 
 export function generateStaticParams() {
   const posts = getAllPosts();
@@ -45,6 +46,7 @@ export default async function BlogPostPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations();
   const post = await getPostBySlug(slug);
 
   if (!post) notFound();
@@ -101,7 +103,7 @@ export default async function BlogPostPage({
             </Link>
             <span>·</span>
             <time dateTime={post.date}>
-              {new Date(post.date).toLocaleDateString("en-US", {
+              {formatDate(post.date, locale, {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
@@ -139,7 +141,7 @@ export default async function BlogPostPage({
         {/* Author */}
         <div className="mt-16 pt-8 border-t border-hairline">
           <p className="text-sm text-text-secondary">
-            Written by{" "}
+            {t("WRITTEN_BY")}{" "}
             <Link
               href={`/coaching/authors/${post.authorSlug}`}
               className="font-semibold text-text-primary hover:text-brand-blue transition-colors"
@@ -155,13 +157,13 @@ export default async function BlogPostPage({
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-hairline">
           <AnimateOnScroll>
             <h2 className="text-2xl font-serif font-semibold text-brand-deep mb-8">
-              Related Posts
+              {t("RELATED_POSTS")}
             </h2>
           </AnimateOnScroll>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {relatedPosts.map((p, i) => (
               <AnimateOnScroll key={p.slug} delay={i * 80}>
-                <BlogPostCard post={p} />
+                <BlogPostCard post={p} locale={locale} />
               </AnimateOnScroll>
             ))}
           </div>
