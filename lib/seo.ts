@@ -41,13 +41,13 @@ export function generatePageMetadata({
   for (const lang of routing.locales) {
     const prefix = lang === routing.defaultLocale ? "" : `/${lang}`;
       const normalizedPath = path.replace(
-      new RegExp(`^/(${routing.locales.join("|")})`),
+      new RegExp(`^/(${routing.locales.join("|")})(?=/|$)`),
       ""
     );
     alternates[lang] = `${SITE_URL}${prefix}${normalizedPath}`;
   }
   const defaultPath = path.replace(
-    new RegExp(`^/(${routing.locales.join("|")})`),
+    new RegExp(`^/(${routing.locales.join("|")})(?=/|$)`),
     ""
   );
   alternates["x-default"] = `${SITE_URL}${defaultPath}`;
