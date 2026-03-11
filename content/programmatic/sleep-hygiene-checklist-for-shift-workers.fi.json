@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "shift-workers",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Unihygienian tarkistuslista vuorotyöntekijöille",
+    "description": "20 kohdan unihygienian tarkistuslista vuorotyöntekijöille. Konkreettiset askeleet päiväunen parantamiseen, vuorokausirytmin hallintaan ja virkeämpään oloon.",
+    "keywords": [
+      "vuorotyö unen tarkistuslista",
+      "unihygienia yövuoro",
+      "vuorotyö unirytmi",
+      "päiväunen tarkistuslista",
+      "yövuoro unihygienia",
+      "vuorotyö unitotumus",
+      "vuorokausirytmi tarkistuslista",
+      "vuorotyön unihäiriön ehkäisy"
+    ]
+  },
+  "content": {
+    "intro": "Jos teet yövuoroja, kiertäviä vuoroja tai aikaisia aamuvuoroja, tavalliset unihygienian neuvot eivät usein osu maaliin. Tämä tarkistuslista on rakennettu juuri sinun todellisuuttasi varten — nukkumista silloin, kun muu maailma on hereillä. Käytä sitä käytännöllisenä, kohta kohdalta etenevänä oppaana uniympäristösi, tapojesi ja rutiinejasi tarkistamiseen ja parantamiseen vuoroaikataulusi ympärillä.",
+    "why_this_checklist": "Vuorotyöntekijät menettävät keskimäärin yhdestä kahteen tuntia unta päivässä verrattuna päivätyöntekijöihin, ja suuri osa tästä vajeesta on ehkäistävissä kohdennetuilla muutoksilla. Yleiset unitarkistuslistat olettavat, että nukut yöllä hiljaisessa, pimeässä kodissa — sinun listasi pitää ottaa huomioon ikkunoista tulviva auringonvalo, kodin äänet ja vuorokausirytmi, joka taistelee aikatauluasi vastaan. Jokainen alla oleva kohta käsittelee tiettyä vuorotyöntekijöiden kohtaamaa haastetta, ja ne on priorisoitu niin, että voit aloittaa tärkeimmästä.",
+    "items": [
+      {
+        "id": "install-blackout-window-coverings",
+        "text": "Asenna pimennysverhot tai ikkunapeitot makuuhuoneeseesi",
+        "explanation": "Päivänvalo on ensisijainen signaali, joka pitää aivosi valvetilassa. Ikkunankarmia vasten tiivistyvät pimennysverhot voivat vähentää huoneen valon lähes nollaan luksiin, jolloin melatoniinipitoisuutesi pääsevät nousemaan kuin olisi yö.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "set-consistent-anchor-sleep",
+        "text": "Aseta johdonmukainen ankkuriunijakso joka päivälle",
+        "explanation": "Valitse vähintään neljän tunnin jakso, joka pysyy samana työpäivinä ja vapaapäivinä. Tämä ankkurijakso vakauttaa vuorokausirytmiäsi ja vähentää jatkuvasta uniaikojen vaihtamisesta johtuvaa aikaerorasituksen tunnetta.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "silence-phone-and-doorbell",
+        "text": "Hiljennä puhelin ja ovikello unijaksosi ajaksi",
+        "explanation": "Yksikin ilmoitusääni voi vetää sinut pois syvän unen vaiheesta, johon palaaminen kestää 30–45 minuuttia. Käytä Älä häiritse -tilaa ja salli poikkeukset vain aitoihin hätätapauksiin tietyiltä yhteyshenkilöiltä.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "set-caffeine-cutoff-time",
+        "text": "Aseta tiukka kofeiiniraja viisi tuntia ennen unta",
+        "explanation": "Kofeiini estää adenosiinia, molekyyliä, joka vastaa unipaineen kertymisestä. Viidestä kuuteen tunnin puoliintumisajalla klo 3 juodun kahvin vaikutus on vielä puolet jäljellä, kun yrität nukahtaa klo 8.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "keep-bedroom-cool",
+        "text": "Pidä makuuhuoneesi lämpötila 15–18 asteessa",
+        "explanation": "Päiväajan lämpötilat ovat yleensä korkeampia kuin yöllä, mikä toimii vastaan kehosi ydinlämpötilan laskua, jota se tarvitsee unen aikana. Käytä ilmastointia, tuulettimia tai viilentäviä vuodevaatteita tämän kompensoimiseksi.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "wear-blue-blocking-glasses-home",
+        "text": "Käytä sinivaloa suodattavia laseja kotimatkalla",
+        "explanation": "Aamun auringonvalo yövuoron jälkeen lähettää voimakkaan heräämissignaalin suprakiasmaattiseen tumakkeeseesi. Keltasävyiset lasit estävät melatoniinin eritystä tukahduttavat siniset aallonpituudet ja auttavat aivojasi aloittamaan siirtymisen unitilaan.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "run-white-noise-machine",
+        "text": "Pidä valkoisen kohinan laite tai tuuletin päällä nukkuessasi",
+        "explanation": "Päiväsaikaan ympäristöstä kuuluu arvaamattomia ääniä kuten liikennettä, ruohonleikkureita ja pakettien toimituksia. Jatkuva valkoinen kohina peittää nämä äkilliset äänihuiput, jotka muuten aiheuttaisivat aivokuoren heräämisreaktioita ja katkaisisivat untasi.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "post-sleep-window-sign",
+        "text": "Laita uniaikataulusi näkyville perheenjäsenille",
+        "explanation": "Perhe ja kämppäkaverit eivät voi kunnioittaa untasi, jos he eivät tiedä, milloin nukut. Näkyvä aikataulu jääkaapissa tai makuuhuoneen ovessa vähentää tahattomia häiriöitä ja rakentaa yhteistä ymmärrystä tarpeistasi.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "eat-light-pre-sleep-meal",
+        "text": "Syö kevyt, proteiinipitoinen välipala ennen päiväunta",
+        "explanation": "Nälkäisenä nukkumaan meneminen laukaisee kortisolieritystä, kun taas raskas ateria aiheuttaa refluksia ja nostaa kehon lämpötilaa. Pieni proteiinia ja hitaita hiilihydraatteja sisältävä välipala edistää tryptofaanin saatavuutta melatoniinisynteesiin ylikuormittamatta ruoansulatusta.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "warm-shower-after-shift",
+        "text": "Käy lämpimässä suihkussa heti vuoron päätyttyä",
+        "explanation": "Lämmin suihku nostaa ihosi lämpötilaa, ja sitä seuraava viileneminen kuivuessasi jäljittelee luonnollista lämmönsäätelyn laskua, joka viestii nukahtamisesta. Tämä on erityisen hyödyllistä vuorotyöntekijöille, jotka tulevat kotiin ylivirittyneenä aktiivisen vuoron jälkeen.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "use-bright-light-first-half-shift",
+        "text": "Käytä kirkasvaloterapiaa vuorosi ensimmäisen puoliskon aikana",
+        "explanation": "Altistuminen yli 2 500 luksin kirkkaalle valolle vuoron alkutunteina auttaa vuorokausirytmiäsi sopeutumaan työaikatauluusi. Vältä kirkasta valoa vuoron jälkipuoliskolla ja kotimatkalla, ettet siirrä rytmiäsi väärään suuntaan.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "avoid-alcohol-as-sleep-aid",
+        "text": "Vältä alkoholin käyttöä unilääkkeenä päiväunelle",
+        "explanation": "Alkoholi voi auttaa nukahtamaan nopeammin vuoron jälkeen, mutta se tukahduttaa REM-unta, lisää unen katkonaisuutta jälkipuoliskolla ja pahentaa uniapneaa — ongelmia, joille vuorotyöntekijät ovat jo alttiita.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "keep-sleep-mask-ready",
+        "text": "Pidä sopiva unimaski yöpöydällä varuiksi",
+        "explanation": "Pimennysverhoissakin valo voi hiipiä reunojen yli tai oviaukosta, kun joku avaa oven. Muotoiltu unimaski tarjoaa toisen pimeyskerroksen painamatta silmäluomia.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "practice-wind-down-routine",
+        "text": "Noudata 15 minuutin rauhoittumisrutiinia jokaisen vuoron jälkeen",
+        "explanation": "Hermostosi tarvitsee siirtymäpuskurin työn korkean vireystilan ja unen välille. Lyhyt, toistuva rutiini — kuten vaatteiden vaihto, valojen himmentäminen ja kehoskannaus — harjoittaa aivojasi yhdistämään nämä vihjeet nukahtamiseen.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "take-prophylactic-nap-pre-shift",
+        "text": "Ota 20 minuutin nokoset ennen vuoron alkua",
+        "explanation": "Lyhyet nokoset ennen vuoroa vähentävät kertynyttä univajetta ja tarjoavat vireystilapuskurin vuorosi ensimmäisille kriittisille tunneille. Pidä ne alle 30 minuutissa välttääksesi uni-inertiaa, joka jättäisi sinut tokkuraisemmaksi kuin ennen.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "schedule-exercise-strategically",
+        "text": "Ajoita liikunta vähintään kolme tuntia ennen nukkumista",
+        "explanation": "Liikunta nostaa kehon ydinlämpötilaa ja kortisolipitoisuutta kahdesta kolmeen tuntia sen jälkeen. Vuorotyöntekijöille tämä tarkoittaa treenaamista ennen vuoroa mieluummin kuin sen jälkeen, tai vain kevyen venyttelyn valintaa vuoron jälkeen.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "manage-light-exposure-days-off",
+        "text": "Oleskele ulkovalossa myöhään iltapäivällä vain vapaapäivinä",
+        "explanation": "Vapaapäivinä myöhäinen iltapäivän auringonvalo auttaa ylläpitämään riittävää vuorokausirytmin sopeutumista sosiaalisia aktiviteetteja varten häiritsemättä kykyäsi nukkua aamuyöllä. Vältä kirkasta aamuvaloa vapaapäivinä, jos palaat pian yövuoroihin.",
+        "category": "morning",
+        "priority": "bonus"
+      },
+      {
+        "id": "use-cognitive-shuffle-technique",
+        "text": "Käytä kognitiivista sekoitustekniikkaa kiertäviin ajatuksiin",
+        "explanation": "Intensiivisten vuorojen jälkeen mielesi saattaa kelata tapahtumia, jotka pitävät sinut hereillä. Kognitiivinen sekoitus — satunnaisten, toisiinsa liittymättömien esineiden visualisointi peräkkäin — työllistää ajattelevat aivosi juuri riittävästi irrottaakseen ongelmanratkaisusilmukat, jotka estävät nukahtamista.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "track-sleep-two-week-diary",
+        "text": "Pidä unipäiväkirjaa kahden viikon ajan",
+        "explanation": "Uniaikojen, vuoroaikataulujen, kofeiinin, aterioiden ja koetun unenlaadun kirjaaminen paljastaa henkilökohtaisia kaavoja, jotka muuten jäisivät huomaamatta. Saatat huomata, että jaettu uni toimii paremmin nopeissa vuoronvaihdoissa tai että tietyt ruoat heikentävät untasi.",
+        "category": "morning",
+        "priority": "bonus"
+      },
+      {
+        "id": "plan-gradual-schedule-transitions",
+        "text": "Suunnittele asteittaiset uniaikojen siirrot vuorotyyppien välillä",
+        "explanation": "Kun siirryt yövuoroista päivävuoroihin tai päinvastoin, siirrä nukkumaanmenoaikaa yhdestä kahteen tuntia päivässä äkillisen käännöksen sijaan. Tämä vähentää vuorokausirytmin häiriötä, joka aiheuttaa pahimman väsymyksen ja kognitiivisen suorituskyvyn heikkenemisen kiertoviikkojen aikana.",
+        "category": "morning",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "Jos teet pysyviä yövuoroja, harkitse yöllisen aikataulun ylläpitämistä myös vapaapäivinä — nukkumista suunnilleen klo 8–16 — välttääksesi viikoittaisen vuorokausirytmin heittelyn, joka aiheuttaa eniten väsymystä ja terveysriskejä.",
+      "Yhdistä ajoitettu melatoniinilisä (0,5–1 mg 30 minuuttia ennen tavoiteuniaikaa) sinivalon suodatukseen saadaksesi synergisen vaikutuksen vuorokausirytmin mukauttamiseen, mutta keskustele lääkärin kanssa ensin.",
+      "Käytä aamunvaloherätyskelloa käänteisesti: aseta se himmenemään asteittain 20 minuutin aikana nukahtaessasi päivällä, jäljitellen auringonlaskusignaalia, joka vahvistaa aivojesi yhteyttä pimeyden ja unen välillä.",
+      "Jos jaat sängyn päivärytmiä noudattavan kumppanin kanssa, harkitse erillisiä peittoja tai jaettua patjaa eri jäykkyysasteilla vähentääksesi liikkeen siirtymistä kumppanisi herätessä sinun unijaksosi aikana.",
+      "Rakenna vuorokohtainen aterioiden esivalmistelutapa vapaapäivinäsi, jotta sinulla on aina valmiina kevyitä, unea edistäviä aterioita vuorojen jälkeen sen sijaan, että turvautuisit raskaaseen noutoruokaan tai jättäisit ruoan kokonaan väliin."
+    ],
+    "conclusion": "Sinun ei tarvitse rastittaa jokaista kohtaa ensimmäisenä päivänä — aloita kuudesta välttämättömästä ja lisää loput sitä mukaa kun kustakin tulee tapa. Pienten, johdonmukaisten parannusten yhteisvaikutus kerääntyy nopeasti, ja useimmat vuorotyöntekijät huomaavat unenlaadun paranevan yhdestä kahteen viikon kuluessa, vaikka noudattaisivat vain puolta tästä tarkistuslistasta. Kehosi pystyy sopeutumaan epätavanomaisiin aikatauluihin, kun annat sille oikeat signaalit, ja jokainen rastittamasi kohta vie sinua lähemmäs sitä palauttavaa unta, jonka tarvitset ja ansaitset."
+  }
+}

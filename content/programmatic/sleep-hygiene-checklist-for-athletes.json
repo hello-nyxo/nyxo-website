@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "athletes",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Sleep Hygiene Checklist for Athletes",
+    "description": "A 20-point sleep hygiene checklist built for athletes. Optimize your recovery, reduce injury risk, and elevate game-day performance with better sleep habits.",
+    "keywords": [
+      "sleep hygiene checklist athletes",
+      "athlete sleep routine",
+      "sports sleep optimization",
+      "recovery sleep checklist",
+      "sleep for athletic performance",
+      "pre-competition sleep",
+      "athlete bedtime routine",
+      "sleep and training recovery"
+    ]
+  },
+  "content": {
+    "intro": "Your training plan covers sets, reps, and nutrition, but does it account for the eight hours that determine how well your body actually adapts? This checklist gives you a concrete, actionable framework for optimizing your sleep as an athlete. Work through each item, check it off, and watch your recovery and performance improve.",
+    "why_this_checklist": "Sleep is when your body consolidates motor skills, repairs muscle fibers, and rebalances hormones critical to performance. Without a structured approach, it is easy to let poor habits erode the gains you work so hard to build in training. This checklist turns sleep optimization from a vague goal into a measurable daily practice.",
+    "items": [
+      {
+        "id": "set-consistent-wake-time",
+        "text": "Wake up at the same time every day",
+        "explanation": "A fixed wake time anchors your circadian rhythm, making it easier to fall asleep at a consistent time each night. Maintain this even on rest days and weekends to avoid social jet lag.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "get-morning-sunlight",
+        "text": "Get 10 minutes of direct sunlight upon waking",
+        "explanation": "Morning light exposure suppresses melatonin and sets a strong circadian signal for the day ahead. Step outside before your first training session, even on overcast days, as outdoor light intensity far exceeds indoor lighting.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "check-hrv-upon-waking",
+        "text": "Record your morning HRV before getting out of bed",
+        "explanation": "Heart rate variability provides an objective snapshot of your autonomic nervous system recovery. Tracking trends over weeks helps you identify when poor sleep is accumulating and adjust your training load accordingly.",
+        "category": "morning",
+        "priority": "recommended"
+      },
+      {
+        "id": "caffeine-cutoff-early-afternoon",
+        "text": "Stop all caffeine intake by 1 PM",
+        "explanation": "This includes coffee, energy drinks, and caffeinated pre-workout supplements. With a half-life of five to six hours, afternoon caffeine is still active in your system at bedtime and reduces deep sleep even if you fall asleep on time.",
+        "category": "daytime",
+        "priority": "essential"
+      },
+      {
+        "id": "schedule-hard-training-early",
+        "text": "Complete high-intensity sessions before late afternoon",
+        "explanation": "Vigorous exercise elevates core temperature and cortisol for several hours. Training earlier in the day allows both to return to baseline well before your sleep window opens.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "limit-naps-to-30-minutes",
+        "text": "Keep daytime naps under 30 minutes before 3 PM",
+        "explanation": "Short naps restore alertness without entering deep sleep, which can cause grogginess and interfere with nighttime sleep pressure. Set an alarm every time you nap to stay disciplined.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "hydrate-strategically",
+        "text": "Front-load hydration and taper fluid intake by evening",
+        "explanation": "Dehydration impairs sleep quality, but drinking large volumes before bed leads to nighttime bathroom trips. Aim to consume most of your fluids during training and taper off two hours before bed.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "avoid-heavy-meals-before-bed",
+        "text": "Finish your last large meal three hours before bedtime",
+        "explanation": "A full stomach raises core temperature and can cause acid reflux when lying down. If you train in the evening, eat your post-workout meal promptly and keep any later snack small and protein-focused.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "pre-sleep-casein-snack",
+        "text": "Have a small casein-rich snack 30 to 60 minutes before bed",
+        "explanation": "Cottage cheese, Greek yogurt, or a casein shake provides slow-releasing amino acids that support overnight muscle protein synthesis. Keep the portion to 20 to 30 grams of protein to avoid digestive discomfort.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "skip-alcohol-for-recovery",
+        "text": "Eliminate alcohol on training and pre-competition nights",
+        "explanation": "Alcohol suppresses REM sleep and fragments your sleep architecture, reducing the restorative quality of each hour in bed. Replace post-game drinks with tart cherry juice or herbal tea.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "start-wind-down-routine",
+        "text": "Begin a consistent wind-down routine 60 minutes before bed",
+        "explanation": "A repeatable sequence of calming activities signals your brain that sleep is approaching. Over time, simply starting your routine triggers a parasympathetic shift that lowers heart rate and blood pressure.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "activate-blue-light-filter",
+        "text": "Enable blue light filters on all screens after sunset",
+        "explanation": "Blue wavelength light suppresses melatonin production and delays sleep onset. Use built-in night mode settings or wear blue-light-blocking glasses if you need to review game film in the evening.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "do-breathing-exercises",
+        "text": "Practice five minutes of slow diaphragmatic breathing",
+        "explanation": "Extended exhales stimulate the vagus nerve and shift your nervous system from the sympathetic fight-or-flight state into parasympathetic rest mode. Try inhaling for four counts and exhaling for eight counts.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "brain-dump-journal",
+        "text": "Write down worries and tomorrow's tasks in a notebook",
+        "explanation": "Externalizing concerns onto paper reduces the cognitive rumination that keeps athletes awake, especially before competitions. Spend five minutes writing freely, then close the notebook and begin relaxing.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "warm-shower-before-bed",
+        "text": "Take a warm shower or bath 90 minutes before bed",
+        "explanation": "The post-shower cooling effect mimics the natural core temperature drop that precedes sleep. This simple habit can reduce the time it takes you to fall asleep by up to 10 minutes.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "set-thermostat-cool",
+        "text": "Set your bedroom temperature between 16 and 19 degrees Celsius",
+        "explanation": "A cool room supports the thermoregulatory process your body uses to initiate and maintain deep sleep. If you tend to overheat on hard training days, err toward the lower end of the range.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "blackout-the-room",
+        "text": "Eliminate all light with blackout curtains or a sleep mask",
+        "explanation": "Even small amounts of ambient light can suppress melatonin and reduce sleep depth. Cover indicator lights on electronics and use a quality sleep mask when traveling for away competitions.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "use-white-noise",
+        "text": "Use a white noise machine or app to mask disruptions",
+        "explanation": "Consistent background sound prevents sudden noises from waking you during lighter sleep stages. A portable white noise source is especially valuable in hotels and shared athlete housing.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "remove-devices-from-bedroom",
+        "text": "Charge your phone outside the bedroom overnight",
+        "explanation": "Removing your phone eliminates the temptation to check notifications or scroll social media, both of which increase cognitive arousal. Use a standalone alarm clock instead.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "pack-travel-sleep-kit",
+        "text": "Prepare a travel sleep kit for competition trips",
+        "explanation": "Include a sleep mask, earplugs, your own pillowcase, and a white noise app. Familiar sleep cues reduce the first-night effect in unfamiliar hotel rooms and help you maintain sleep quality on the road.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "pre-adjust-for-time-zones",
+        "text": "Shift your schedule 30 minutes per day before traveling across time zones",
+        "explanation": "Gradual pre-adjustment prevents the performance dip associated with jet lag. Start three to four days before departure and use morning or evening light exposure to accelerate the shift.",
+        "category": "daytime",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "Periodize your sleep targets alongside your training plan: aim for nine to ten hours during heavy loading blocks and eight hours during deload weeks.",
+      "Use your HRV trend data to identify when accumulated sleep debt is affecting recovery, and proactively schedule an earlier bedtime before performance suffers.",
+      "On competition travel days, expose yourself to bright light at the times that match your destination time zone to accelerate circadian adjustment.",
+      "If you must review game film in the evening, wear blue-light-blocking glasses and set a firm cutoff 45 minutes before your wind-down routine begins.",
+      "Test any new sleep supplement, such as magnesium glycinate or tart cherry extract, during a low-stakes training week first to confirm it does not cause digestive issues or grogginess."
+    ],
+    "conclusion": "Consistent sleep hygiene is not about perfection; it is about building reliable habits that compound over time. Start by checking off the essential items on this list, then layer in the recommended and bonus practices as they become second nature. Your body does its best recovery work while you sleep, so give it every advantage you can."
+  }
+}

@@ -22,6 +22,7 @@
 
   "NAVIGATION": {
     "COACHING": "Coaching",
+    "SLEEP_GUIDES": "Sleep Guides",
     "BLOG": "Blog",
     "ABOUT": "About"
   },
@@ -240,6 +241,44 @@
     "NO_RESULTS_TEXT": "We couldn't find anything matching your search. Try a different term.",
     "HINT": "Navigate with ↑↓ · Select with ↵",
     "TO_CLOSE": "to close"
+  },
+
+  "SLEEP": {
+    "HERO_TITLE": "Sleep Guides",
+    "HERO_DESCRIPTION": "Evidence-based sleep strategies tailored to your lifestyle. Find guides designed for your specific challenges.",
+    "TIPS_HEADING": "Sleep Tips by Lifestyle",
+    "TIPS_DESCRIPTION": "Practical, actionable sleep advice designed for your specific situation and challenges.",
+    "TIPS_COUNT": "{count} tips",
+    "CHECKLISTS_HEADING": "Sleep Hygiene Checklists",
+    "CHECKLISTS_DESCRIPTION": "Interactive checklists to track your sleep hygiene habits. Check off items as you build better sleep routines.",
+    "ITEMS_COUNT": "{count} items",
+    "WHY_IT_WORKS": "Why it works:",
+    "QUICK_WINS": "Quick Wins for Tonight",
+    "COMMON_MISTAKES": "Common Mistakes to Avoid",
+    "PRO_TIPS": "Pro Tips",
+    "YOUR_PROGRESS": "Your progress",
+    "COMPLETED": "[checked]/[total] completed",
+    "FILTER_ALL": "All",
+    "SLEEP_TIPS": "Sleep Tips",
+    "CHECKLIST": "Checklist",
+    "CTA_TITLE": "Ready to Transform Your Sleep?",
+    "CTA_DESCRIPTION": "Explore our personalized sleep coaching program with science-backed lessons, habits, and tracking.",
+    "CTA_BUTTON": "Explore Coaching",
+    "CATEGORY_ENVIRONMENT": "Environment",
+    "CATEGORY_ROUTINE": "Routine",
+    "CATEGORY_NUTRITION": "Nutrition",
+    "CATEGORY_MINDSET": "Mindset",
+    "CATEGORY_ACTIVITY": "Activity",
+    "CATEGORY_BEFORE_BED": "Before Bed",
+    "CATEGORY_BEDROOM": "Bedroom",
+    "CATEGORY_DAYTIME": "Daytime",
+    "CATEGORY_MORNING": "Morning",
+    "DIFFICULTY_EASY": "Easy",
+    "DIFFICULTY_MODERATE": "Moderate",
+    "DIFFICULTY_ADVANCED": "Advanced",
+    "PRIORITY_ESSENTIAL": "Essential",
+    "PRIORITY_RECOMMENDED": "Recommended",
+    "PRIORITY_BONUS": "Bonus"
   },
 
   "en": "english",

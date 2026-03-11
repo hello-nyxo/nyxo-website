@@ -46,6 +46,8 @@
     "functions",
     "amplify",
     "cypress",
-    "tests"
+    "tests",
+    "scripts",
+    "vitest.config.ts"
   ]
 }

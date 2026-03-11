@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "remote-workers",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Sleep Hygiene Checklist for Remote Workers",
+    "description": "A comprehensive sleep hygiene checklist designed for remote workers. 20 actionable steps to improve sleep when you work from home.",
+    "keywords": ["sleep checklist remote workers", "work from home sleep", "remote work insomnia", "home office sleep hygiene", "wfh sleep tips", "remote worker sleep schedule", "work from home routine", "digital sleep hygiene"]
+  },
+  "content": {
+    "intro": "Working from home blurs the line between productivity and rest in ways that office workers never experience. When your commute is ten steps and your bedroom doubles as your office, your brain loses the environmental cues it needs to switch off. This checklist is designed to rebuild those boundaries.",
+    "why_this_checklist": "A checklist works better than general advice because remote work sleep problems are cumulative — no single thing ruins your sleep, but a dozen small habits compound into chronic poor sleep. Checking off items systematically helps you identify which specific habits are your biggest offenders.",
+    "items": [
+      {
+        "id": "dedicated-workspace",
+        "text": "Set up a dedicated workspace outside the bedroom",
+        "explanation": "Your brain forms strong associations between spaces and activities. Working from your bedroom trains your brain to be alert in the exact place you need to feel sleepy.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "fixed-end-time",
+        "text": "Set a hard stop time for work each day",
+        "explanation": "Without a commute to signal the end of work, it's easy to keep checking emails until 10 PM. A fixed stop time gives your brain a clear transition point from work mode to rest mode.",
+        "category": "daytime",
+        "priority": "essential"
+      },
+      {
+        "id": "morning-light",
+        "text": "Get 10 minutes of natural light within 30 minutes of waking",
+        "explanation": "Natural morning light sets your circadian clock and suppresses melatonin. Remote workers often miss this by going straight from bed to screen without stepping outside.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "movement-breaks",
+        "text": "Take a 5-minute movement break every 90 minutes",
+        "explanation": "Sedentary behavior reduces your physical sleep drive. Regular movement throughout the day helps build the adenosine pressure that makes you naturally sleepy at night.",
+        "category": "daytime",
+        "priority": "essential"
+      },
+      {
+        "id": "caffeine-cutoff",
+        "text": "No caffeine after 2 PM",
+        "explanation": "With a kitchen always nearby, it's tempting to pour another cup. Caffeine has a 5-7 hour half-life, meaning that 3 PM coffee still has half its effect at 10 PM.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "digital-sunset",
+        "text": "Enable night mode on all devices after 7 PM",
+        "explanation": "Blue light from screens suppresses melatonin production by up to 50%. Night mode reduces the blue wavelength emission that signals 'daytime' to your brain.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "walk-commute",
+        "text": "Take a fake commute walk in the morning and evening",
+        "explanation": "A 15-minute walk simulates the transition time a commute provides. Morning walks add light exposure, evening walks help decompress and signal the workday is over.",
+        "category": "morning",
+        "priority": "recommended"
+      },
+      {
+        "id": "lunch-outside",
+        "text": "Eat lunch away from your desk and preferably outdoors",
+        "explanation": "Midday light exposure reinforces your circadian rhythm. Eating at your desk means you've spent the entire day in the same indoor environment with identical lighting.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "notification-schedule",
+        "text": "Disable work notifications on your phone after work hours",
+        "explanation": "A single Slack ping at 9 PM can trigger a cascade of work thoughts that keep your mind spinning at bedtime. Set your apps to snooze notifications after your stop time.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "cool-bedroom",
+        "text": "Keep bedroom temperature between 60-67°F (15-19°C)",
+        "explanation": "Your body needs to drop its core temperature by about 2°F to initiate sleep. A cool room facilitates this natural process.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "wind-down-ritual",
+        "text": "Create a 30-minute wind-down routine before bed",
+        "explanation": "Without the commute home, your brain has no natural transition ritual. Build one deliberately: change clothes, dim lights, read, stretch, or take a warm shower.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "consistent-meals",
+        "text": "Eat meals at consistent times each day",
+        "explanation": "Meal timing is a peripheral clock setter. When you eat at random times while working from home, you desynchronize the body clocks in your liver and gut from your master clock.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "change-clothes",
+        "text": "Change out of work clothes into sleepwear as an evening ritual",
+        "explanation": "Even if your 'work clothes' are just a nicer t-shirt, the act of changing signals to your brain that the work period is over and rest period has begun.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "exercise-routine",
+        "text": "Schedule at least 20 minutes of exercise before 5 PM",
+        "explanation": "Physical activity increases sleep drive and deep sleep. Scheduling it ensures it happens — remote workers often intend to exercise but let work expand to fill the time.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "separate-screens",
+        "text": "Use different devices or browser profiles for work and personal",
+        "explanation": "Using the same laptop for Netflix and work means your brain never fully leaves work mode when you open that device. Separate contexts reduce work-related cognitive intrusions at night.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "evening-snack",
+        "text": "If hungry before bed, eat a light snack with tryptophan",
+        "explanation": "A banana, small handful of almonds, or warm milk contains tryptophan, a precursor to melatonin. Going to bed hungry can disrupt sleep, but heavy meals do too.",
+        "category": "nutrition",
+        "priority": "bonus"
+      },
+      {
+        "id": "social-plans",
+        "text": "Schedule at least one in-person social activity per week",
+        "explanation": "Social isolation from remote work contributes to anxiety and depression, both of which degrade sleep quality. Regular social contact provides emotional regulation that supports healthy sleep.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "bedroom-declutter",
+        "text": "Remove all work materials from the bedroom each evening",
+        "explanation": "Even seeing your laptop bag or work notebook in the bedroom activates work-related thoughts. Physically removing them reinforces the bedroom-as-sanctuary association.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "standing-desk",
+        "text": "Use a standing desk or alternating sit-stand position",
+        "explanation": "Standing periodically throughout the day reduces the sedentary hours that diminish sleep drive. It also improves posture, reducing the back and neck pain that can disrupt sleep.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "gratitude-log",
+        "text": "Write three things that went well today before bed",
+        "explanation": "Remote workers tend to ruminate on incomplete tasks because work is always 'right there.' Shifting focus to accomplishments reduces pre-sleep anxiety and work-related thought intrusions.",
+        "category": "before-bed",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "If you must work from the bedroom, create a physical divider (even a curtain) between your workspace and bed to establish separate zones.",
+      "Use a sunrise alarm clock to simulate natural dawn — especially important in winter months when you might not get natural light before starting work.",
+      "Consider working from a co-working space or café one day per week to break the monotony and restore environmental variety that supports circadian health.",
+      "Set up a second user account on your computer for personal use — logging out of work at end of day becomes a tangible ritual.",
+      "Track your screen time for a week to establish a baseline, then set a goal to reduce evening screen time by 30 minutes."
+    ],
+    "conclusion": "The beauty of remote work is flexibility, and that flexibility can work for your sleep instead of against it. You don't need to check off every item on this list — start with the essentials, build them into habits, and then layer in the recommended and bonus items. Small, consistent changes compound into dramatically better sleep."
+  }
+}

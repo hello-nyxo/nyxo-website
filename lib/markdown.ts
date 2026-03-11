@@ -31,6 +31,7 @@ export interface BlogPostMeta {
   thumbnailBlog: string;
   canonical?: string;
   excerpt: string;
+  lang: string;
 }
 
 function resolveImagePath(imagePath: string, slug: string): string {
@@ -66,7 +67,7 @@ export function getAllPostSlugs(): string[] {
     );
 }
 
-export function getAllPosts(): BlogPostMeta[] {
+export function getAllPosts(locale?: string): BlogPostMeta[] {
   const slugs = getAllPostSlugs();
 
   const posts = slugs
@@ -89,11 +90,16 @@ export function getAllPosts(): BlogPostMeta[] {
           : "",
         canonical: data.canonical,
         excerpt: generateExcerpt(content),
+        lang: data.lang || "en",
       } satisfies BlogPostMeta;
     })
     .filter(Boolean) as BlogPostMeta[];
 
-  return posts.sort(
+  const filtered = locale
+    ? posts.filter((p) => p.lang === locale)
+    : posts;
+
+  return filtered.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }
@@ -136,8 +142,8 @@ export async function getPostBySlug(
   };
 }
 
-export function getAllTags(): { tag: string; count: number }[] {
-  const posts = getAllPosts();
+export function getAllTags(locale?: string): { tag: string; count: number }[] {
+  const posts = getAllPosts(locale);
   const tagCount = new Map<string, number>();
 
   for (const post of posts) {

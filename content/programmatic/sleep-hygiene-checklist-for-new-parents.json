@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "new-parents",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Sleep Hygiene Checklist for New Parents",
+    "description": "Use this 20-item sleep hygiene checklist designed for new parents to build better sleep habits, even with a newborn waking you throughout the night.",
+    "keywords": [
+      "sleep hygiene checklist",
+      "new parent sleep checklist",
+      "sleep hygiene for parents",
+      "postpartum sleep habits",
+      "newborn parent sleep guide",
+      "better sleep with baby",
+      "sleep routine checklist",
+      "healthy sleep habits parents"
+    ]
+  },
+  "content": {
+    "intro": "Sleep hygiene might feel like a distant luxury when you have a newborn, but small, intentional habits can make a real difference in the quality of rest you get. This checklist gives you 20 specific, actionable items you can start using today. You do not need to do all of them at once; pick a few that fit your life and add more as you settle into your new routine.",
+    "why_this_checklist": "New parents face unique sleep challenges that generic advice does not address, from fragmented sleep schedules to the anxiety of caring for a vulnerable newborn. This checklist is tailored to your reality, focusing on practical steps that work even when your nights are unpredictable. Each item is grounded in sleep science and adapted for the constraints of early parenthood.",
+    "items": [
+      {
+        "id": "keep-bedroom-cool",
+        "text": "Set your bedroom temperature between 60 and 67 degrees",
+        "explanation": "A cool room helps your core body temperature drop, which is a key trigger for sleep onset. This is especially important if you are co-sleeping or your body temperature fluctuates postpartum.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "use-blackout-curtains",
+        "text": "Install blackout curtains or shades in your bedroom",
+        "explanation": "Blocking outside light helps you fall asleep during unconventional hours, such as daytime naps when your baby sleeps. Even streetlights or early dawn can disrupt your already fragmented sleep.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "consistent-wake-time",
+        "text": "Wake up at the same time each morning when possible",
+        "explanation": "A consistent wake time anchors your circadian rhythm, even if your total sleep was reduced. This helps your body predict when to feel alert and when to feel sleepy, making it easier to fall asleep at night.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "morning-light-exposure",
+        "text": "Get bright natural light within 30 minutes of waking",
+        "explanation": "Morning sunlight suppresses melatonin and signals your brain that the day has started. A short walk outside with your baby gives both of you the light exposure needed to regulate your internal clocks.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "cut-caffeine-by-1pm",
+        "text": "Stop consuming caffeine after 1 PM each day",
+        "explanation": "Caffeine stays active in your body for five to six hours, and afternoon consumption can delay sleep onset significantly. Switching to herbal tea or water after lunch protects your nighttime sleep window.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "limit-heavy-meals-before-bed",
+        "text": "Avoid large meals within two hours of bedtime",
+        "explanation": "Heavy meals close to bedtime increase metabolic activity and can cause discomfort or acid reflux, both of which interfere with falling and staying asleep. A light snack is fine if you are hungry.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "dim-lights-evening",
+        "text": "Dim household lights one hour before your target bedtime",
+        "explanation": "Bright artificial light in the evening suppresses melatonin production. Using dimmer switches or turning off overhead lights in favor of lamps helps prepare your brain for sleep.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "no-screens-30-min",
+        "text": "Put away all screens 30 minutes before bed",
+        "explanation": "Blue light from phones, tablets, and TVs delays melatonin release and stimulates your brain when it should be winding down. Use this time for a calming activity like reading or gentle stretching instead.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "wind-down-routine",
+        "text": "Follow a short wind-down routine of 5 to 10 minutes",
+        "explanation": "A brief, consistent pre-sleep ritual such as deep breathing, washing your face, or light stretching creates a conditioned signal that tells your brain it is time to sleep. It does not need to be elaborate to be effective.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "use-white-noise",
+        "text": "Run a white noise machine or fan while you sleep",
+        "explanation": "White noise masks sudden sounds from your baby, partner, or environment that might wake you during lighter sleep stages. It creates a consistent auditory backdrop that helps you stay asleep longer.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "reserve-bed-for-sleep",
+        "text": "Use your bed only for sleep, not for scrolling or worrying",
+        "explanation": "Stimulus control is a proven technique from cognitive behavioral therapy for insomnia. When your brain associates the bed exclusively with sleep, you fall asleep faster when you lie down.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "share-night-duties",
+        "text": "Coordinate nighttime shifts with your partner if possible",
+        "explanation": "Splitting the night so each parent gets at least one stretch of three to four hours of uninterrupted sleep allows you to complete full sleep cycles. This improves both deep sleep and REM sleep quality.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "gentle-daily-movement",
+        "text": "Get at least 20 minutes of gentle movement each day",
+        "explanation": "Light exercise such as walking or postnatal yoga increases slow-wave sleep at night and reduces anxiety. Avoid vigorous activity within two hours of bedtime, as it can be stimulating.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "nap-when-baby-naps",
+        "text": "Take a short nap when your baby naps during the day",
+        "explanation": "A 20-to-30-minute nap can restore alertness without causing sleep inertia. Prioritize rest over household tasks during this window, especially in the first three months.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "hydrate-throughout-day",
+        "text": "Stay well hydrated during the day, tapering before bed",
+        "explanation": "Dehydration can cause headaches and restlessness, but drinking too much before bed leads to frequent bathroom trips. Front-load your water intake earlier in the day to balance both needs.",
+        "category": "nutrition",
+        "priority": "bonus"
+      },
+      {
+        "id": "prepare-nighttime-station",
+        "text": "Set up a dim, comfortable feeding station outside the bedroom",
+        "explanation": "Having a dedicated space for nighttime feedings with dim lighting and supplies keeps your bedroom associated with sleep. You can return to bed and fall back asleep more quickly after each feeding.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "write-worry-journal",
+        "text": "Write down worries or a to-do list before bed",
+        "explanation": "Externalizing your thoughts onto paper reduces the cognitive arousal that keeps you awake. Spending just two to three minutes on this practice has been shown to speed up sleep onset significantly.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "limit-alcohol",
+        "text": "Avoid alcohol as a sleep aid, especially postpartum",
+        "explanation": "While alcohol may help you fall asleep initially, it disrupts REM sleep and increases nighttime awakenings. For breastfeeding parents, it also affects milk composition and your baby's sleep patterns.",
+        "category": "nutrition",
+        "priority": "bonus"
+      },
+      {
+        "id": "practice-self-compassion",
+        "text": "Release perfectionism and practice self-compassion about sleep",
+        "explanation": "Worrying about not sleeping enough creates a self-fulfilling cycle of anxiety and insomnia. Remind yourself that imperfect sleep is normal for new parents and that this phase is temporary.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "accept-help-from-others",
+        "text": "Accept offers of help so you can rest during the day",
+        "explanation": "Allowing a trusted friend or family member to watch your baby for even one hour gives you an opportunity for restorative rest. You do not need to do everything alone, and asking for help is a sign of strength.",
+        "category": "daytime",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "Track your baby's longest sleep stretch for a week and align your own bedtime to overlap with it, even if that means going to bed at 8 PM.",
+      "If you are breastfeeding, try side-lying feeding positions so you can rest your body even while your baby eats, reducing the physical toll of nighttime feeds.",
+      "Use a sleep diary for one week to identify your biggest sleep disruptors, then focus your energy on addressing those specific issues rather than trying to overhaul everything at once.",
+      "Consider cognitive behavioral therapy for insomnia (CBT-I) if your sleep problems persist beyond the newborn phase, as it is more effective and safer than sleep medications for long-term results.",
+      "If you notice persistent feelings of sadness, anxiety, or dread that go beyond normal tiredness, talk to your healthcare provider about postpartum mood disorders, which are common and treatable."
+    ],
+    "conclusion": "You do not need to check every box on this list to see meaningful improvements in your sleep. Start with a few essential items, notice how they affect your rest, and gradually add more as your family's routine evolves. Your sleep matters, and taking even small steps to protect it will help you show up as the parent you want to be."
+  }
+}

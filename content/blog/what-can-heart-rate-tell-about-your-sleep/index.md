@@ -1,5 +1,6 @@
 ---
 slug: "what-can-heart-rate-tell-about-your-sleep"
+lang: "en"
 date: "2020-08-17"
 title: What Can Heart Rate Tell About Your Sleep
 authorSlug: "pietari-nurmi"

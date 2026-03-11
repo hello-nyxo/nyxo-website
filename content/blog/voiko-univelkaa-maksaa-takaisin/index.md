@@ -1,5 +1,6 @@
 ---
 slug: "voiko-univelkaa-maksaa-takaisin"
+lang: "fi"
 date: "2020-04-06"
 title: "Voiko univelkaa maksaa takaisin?"
 authorSlug: "anu-katriina-pesonen"

@@ -7,6 +7,18 @@ const SITE_URL = "https://nyxo.app";
 const locales = ["en", "fi"];
 const defaultLocale = "en";
 
+function getProgrammaticSlugs() {
+  const dir = path.join(process.cwd(), "content/programmatic");
+  try {
+    return fs
+      .readdirSync(dir)
+      .filter((f) => f.endsWith(".json"))
+      .map((f) => f.replace(".json", ""));
+  } catch {
+    return [];
+  }
+}
+
 function getBlogSlugs() {
   const blogDir = path.join(process.cwd(), "content/blog");
   try {
@@ -66,9 +78,13 @@ module.exports = {
       getContentfulSlugs("habit"),
     ]);
 
+    const programmaticSlugs = getProgrammaticSlugs();
+
     const allPaths = [
       ...staticPages,
       ...blogSlugs.map((s) => `/blog/${s}`),
+      "/sleep",
+      ...programmaticSlugs.map((s) => `/sleep/${s}`),
       ...weekSlugs.map((s) => `/coaching/weeks/${s}`),
       ...lessonSlugs.map((s) => `/coaching/lessons/${s}`),
       ...habitSlugs.map((s) => `/coaching/habits/${s}`),

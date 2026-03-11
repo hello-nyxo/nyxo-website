@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "content_type": "sleep-tips",
+    "audience_slug": "students",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Sleep Tips for Students: How to Sleep Better",
+    "description": "Practical sleep tips for students balancing academics, social life, and rest. Evidence-based strategies to improve sleep quality and academic performance.",
+    "keywords": ["sleep tips for students", "college sleep schedule", "student sleep habits", "sleep and studying", "how to sleep better in college", "student insomnia", "exam sleep tips", "dorm room sleep"]
+  },
+  "content": {
+    "intro": "Between late-night study sessions, early morning classes, and an active social life, sleep often feels like the first thing to sacrifice. But here's the truth: the students who sleep well consistently outperform those who pull all-nighters. These tips are designed specifically for the unique challenges you face.",
+    "why_sleep_matters": "Sleep is when your brain consolidates memories and processes what you learned during the day. Research shows that students who get 7-8 hours of sleep perform a full letter grade better on average. Your brain literally cannot form long-term memories without adequate sleep.",
+    "tips": [
+      {
+        "title": "Set a non-negotiable wake-up time",
+        "description": "Choose a consistent wake-up time that works for your earliest class day and stick to it every day, including weekends. This is more important than your bedtime because it anchors your circadian rhythm. Even if you go to bed late one night, getting up at the same time prevents your schedule from drifting.",
+        "why_it_works": "Your circadian clock is primarily set by your wake time and morning light exposure. Consistency strengthens your sleep drive and makes falling asleep easier.",
+        "difficulty": "easy",
+        "category": "routine"
+      },
+      {
+        "title": "Create a 30-minute buffer between studying and sleep",
+        "description": "Stop all academic work at least 30 minutes before bed. Your brain needs time to shift from problem-solving mode to rest mode. Use this buffer for low-stimulation activities like stretching, reading fiction, or listening to calm music.",
+        "why_it_works": "Cognitive arousal from studying activates your prefrontal cortex and keeps cortisol elevated. A wind-down buffer allows your nervous system to transition to parasympathetic (rest) mode.",
+        "difficulty": "easy",
+        "category": "routine"
+      },
+      {
+        "title": "Use your desk for studying, your bed for sleeping",
+        "description": "Never study, scroll your phone, or watch videos in bed. This trains your brain to associate your bed exclusively with sleep. If your dorm is small, even sitting on top of your covers vs. under them creates a mental distinction.",
+        "why_it_works": "Stimulus control is a core principle of cognitive behavioral therapy for insomnia (CBT-I). Strong bed-sleep associations reduce the time it takes to fall asleep.",
+        "difficulty": "easy",
+        "category": "environment"
+      },
+      {
+        "title": "Replace late-night caffeine with a warm herbal drink",
+        "description": "Set a caffeine cutoff at 2 PM. That afternoon coffee or energy drink has a half-life of 5-7 hours, meaning half the caffeine is still in your system at bedtime. Switch to chamomile tea or warm water with lemon for evening studying.",
+        "why_it_works": "Caffeine blocks adenosine receptors, the chemical that builds sleep pressure throughout the day. Even if you can fall asleep with caffeine in your system, it reduces deep sleep quality by up to 20%.",
+        "difficulty": "moderate",
+        "category": "nutrition"
+      },
+      {
+        "title": "Invest in a good pair of earplugs or a white noise machine",
+        "description": "Dorm noise is one of the biggest sleep disruptors for students. Foam earplugs, a white noise app, or a small fan can mask sudden noises from hallmates, parties, or street noise. Test a few options to find what works for your comfort.",
+        "why_it_works": "Noise doesn't have to wake you fully to disrupt sleep. Sudden sounds trigger micro-arousals that fragment your sleep architecture, reducing the restorative deep sleep stages.",
+        "difficulty": "easy",
+        "category": "environment"
+      },
+      {
+        "title": "Take a 20-minute power nap between 1 and 3 PM",
+        "description": "If you're sleep-deprived, a short nap can restore alertness without affecting nighttime sleep. Set an alarm for exactly 20 minutes and nap sitting slightly upright to prevent oversleeping. Avoid napping after 3 PM.",
+        "why_it_works": "A 20-minute nap keeps you in the lighter stages of sleep (N1-N2), providing cognitive restoration without sleep inertia. Napping later than 3 PM reduces your homeostatic sleep drive at bedtime.",
+        "difficulty": "easy",
+        "category": "activity"
+      },
+      {
+        "title": "Use blue light glasses or night mode after 8 PM",
+        "description": "Enable night mode on all your devices after 8 PM, or wear blue light blocking glasses during evening study sessions. The warm-toned screen is less stimulating and won't suppress your melatonin production as much.",
+        "why_it_works": "Blue light wavelengths (460-480nm) suppress melatonin production by up to 50%. Night mode reduces blue light emission, helping your brain recognize that bedtime is approaching.",
+        "difficulty": "easy",
+        "category": "environment"
+      },
+      {
+        "title": "Front-load difficult studying to earlier hours",
+        "description": "Schedule your most cognitively demanding work for the morning or early afternoon when alertness naturally peaks. Save lighter review, reading, or organizing for the evening. This reduces cognitive arousal before bed.",
+        "why_it_works": "Your cognitive performance follows a circadian pattern, peaking 2-4 hours after waking. Evening studying is less efficient and more likely to cause pre-sleep rumination.",
+        "difficulty": "moderate",
+        "category": "routine"
+      },
+      {
+        "title": "Exercise for at least 20 minutes, but not within 3 hours of bed",
+        "description": "Regular physical activity is one of the strongest sleep promoters available. Walk, gym, sports, yoga — the type matters less than consistency. Just avoid intense workouts close to bedtime as they elevate core temperature and heart rate.",
+        "why_it_works": "Exercise increases time spent in deep sleep by 20-30% and raises core body temperature, which later drops and signals sleepiness. The post-exercise temperature decline mimics the natural pattern your body uses to initiate sleep.",
+        "difficulty": "moderate",
+        "category": "activity"
+      },
+      {
+        "title": "Keep weekend sleep schedule within 1 hour of weekdays",
+        "description": "Sleeping until noon on weekends feels great but creates social jet lag equivalent to flying across two time zones. Limit weekend lie-ins to one hour past your regular wake time. If you need more sleep, go to bed earlier instead.",
+        "why_it_works": "Social jet lag desynchronizes your circadian clock, making Monday mornings significantly harder. Studies show each hour of social jet lag increases daytime sleepiness by 11%.",
+        "difficulty": "moderate",
+        "category": "routine"
+      },
+      {
+        "title": "Write a worry dump list before bed",
+        "description": "Spend 5 minutes writing down everything on your mind — assignments due, worries, tomorrow's tasks. Getting thoughts out of your head and onto paper reduces the mental chatter that keeps you awake. Keep a notebook by your bed specifically for this.",
+        "why_it_works": "Research from Baylor University found that writing a to-do list before bed helped participants fall asleep 9 minutes faster than those who listed completed activities. Externalizing concerns reduces cognitive arousal.",
+        "difficulty": "easy",
+        "category": "mindset"
+      },
+      {
+        "title": "Use the 4-7-8 breathing technique when you can't fall asleep",
+        "description": "Inhale through your nose for 4 seconds, hold for 7 seconds, exhale slowly through your mouth for 8 seconds. Repeat 4 times. This activates your parasympathetic nervous system and is especially useful during exam stress.",
+        "why_it_works": "Extended exhalation stimulates the vagus nerve, which activates the rest-and-digest response. This physiologically reduces heart rate and blood pressure, countering the hyperarousal that anxiety creates.",
+        "difficulty": "moderate",
+        "category": "mindset"
+      },
+      {
+        "title": "Eat your last big meal 3 hours before sleep",
+        "description": "Late-night pizza runs are a student staple, but eating a heavy meal close to bed forces your digestive system to work when it should be resting. If you need a late snack, choose something light with tryptophan like a banana or small handful of nuts.",
+        "why_it_works": "Digestion raises core body temperature and can cause acid reflux in a lying position. Foods containing tryptophan are precursors to serotonin and melatonin, gently supporting the sleep process.",
+        "difficulty": "moderate",
+        "category": "nutrition"
+      },
+      {
+        "title": "Build a sleep sanctuary in your dorm with blackout curtains",
+        "description": "Hang temporary blackout curtains or use a sleep mask to block light from hallways, streetlights, or your roommate's screen. Even small amounts of light during sleep reduce melatonin production and decrease deep sleep quality.",
+        "why_it_works": "Light is the strongest zeitgeber (time cue) for your circadian clock. Even dim light exposure during sleep has been linked to increased insulin resistance and reduced overnight brain cleaning processes.",
+        "difficulty": "moderate",
+        "category": "environment"
+      },
+      {
+        "title": "Practice sleep restriction if you're lying awake for over 30 minutes regularly",
+        "description": "If you consistently spend more than 30 minutes trying to fall asleep, temporarily limit your time in bed to match how much you actually sleep. For example, if you sleep 6 hours but spend 8 hours in bed, only go to bed 6 hours before your wake time. Gradually extend as efficiency improves.",
+        "why_it_works": "Sleep restriction is the most effective component of CBT-I. It builds stronger sleep pressure by consolidating sleep, then gradually extending the sleep window as your sleep efficiency improves above 85%.",
+        "difficulty": "advanced",
+        "category": "routine"
+      }
+    ],
+    "quick_wins": [
+      "Set your phone to Do Not Disturb mode 30 minutes before bed tonight.",
+      "Move your phone charger to your desk instead of next to your pillow.",
+      "Download a white noise app and play it at low volume while you sleep.",
+      "Switch to decaf or herbal tea for any drinks after 2 PM today.",
+      "Write down tomorrow's three most important tasks before you get into bed."
+    ],
+    "common_mistakes": [
+      "Using all-nighters as a study strategy — you retain 40% less information without sleep between study sessions.",
+      "Relying on weekend catch-up sleep to make up for weekday sleep debt — this disrupts your circadian rhythm more than it helps.",
+      "Scrolling social media in bed as a 'wind-down' activity — the blue light and emotional stimulation actually increase alertness.",
+      "Drinking alcohol to help fall asleep — while it may help you fall asleep faster, it dramatically reduces REM sleep quality.",
+      "Studying in bed to 'be more comfortable' — this destroys the mental association between your bed and sleep."
+    ],
+    "conclusion": "Better sleep doesn't mean giving up your student life. It means making small, strategic changes that protect your sleep while still allowing for the flexibility college demands. Start with one or two tips from this list, build the habit, then add more. Your grades, mood, and energy will thank you."
+  }
+}

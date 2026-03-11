@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "anxiety-sufferers",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Sleep Hygiene Checklist for People with Anxiety",
+    "description": "A 20-item sleep hygiene checklist designed for anxiety sufferers. Includes CBT-I techniques, worry management strategies, and calming bedtime routines.",
+    "keywords": [
+      "sleep hygiene checklist anxiety",
+      "bedtime routine for anxiety",
+      "sleep checklist for anxious people",
+      "CBT-I checklist",
+      "anxiety sleep habits",
+      "sleep hygiene tips anxiety",
+      "calming bedtime checklist",
+      "insomnia anxiety checklist"
+    ]
+  },
+  "content": {
+    "intro": "When anxiety is part of your life, good sleep hygiene is not just helpful, it is essential. This checklist gives you 20 concrete, actionable items you can work through to build a sleep environment and routine that actively counteracts anxious arousal. You do not need to tackle all 20 at once; start with the essentials and add more as each one becomes a habit.",
+    "why_this_checklist": "Generic sleep advice often misses what makes sleep so difficult for people with anxiety: the racing thoughts, the hypervigilance, the cruel irony of being exhausted yet unable to let go. This checklist is specifically designed around the sleep-anxiety cycle, incorporating CBT-I principles and anxiety-specific strategies that address the root causes of your sleeplessness, not just the symptoms.",
+    "items": [
+      {
+        "id": "set-consistent-wake-time",
+        "text": "Set and keep a consistent wake time daily",
+        "explanation": "Wake up at the same time every day, including weekends. This anchors your circadian rhythm and builds reliable sleep pressure, which is especially important when anxiety disrupts your sleep timing.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "get-morning-light-exposure",
+        "text": "Get bright light exposure within 30 minutes of waking",
+        "explanation": "Step outside or sit by a bright window for at least 10 minutes each morning. Morning light suppresses melatonin and sets your internal clock, helping you feel naturally sleepy at the right time later that evening.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "cut-caffeine-by-noon",
+        "text": "Stop all caffeine consumption by noon",
+        "explanation": "Caffeine blocks sleep-promoting adenosine and directly increases the physiological arousal that mimics anxiety symptoms. Switching to herbal tea after midday protects both your sleep and your anxiety levels.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "schedule-daily-worry-time",
+        "text": "Schedule a 15-minute worry journaling session before dinner",
+        "explanation": "Write down all your worries in a dedicated notebook during this time, then close it. This CBT-I technique trains your brain to process concerns at a designated time rather than when you are trying to fall asleep.",
+        "category": "daytime",
+        "priority": "essential"
+      },
+      {
+        "id": "exercise-before-late-afternoon",
+        "text": "Complete physical exercise at least four hours before bed",
+        "explanation": "Regular moderate exercise reduces anxiety and improves deep sleep, but finishing too late keeps your core temperature and adrenaline elevated. Aim for morning or early afternoon sessions.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "avoid-alcohol-as-sleep-aid",
+        "text": "Avoid using alcohol to manage evening anxiety",
+        "explanation": "While alcohol may initially reduce anxious feelings, it fragments your sleep architecture in the second half of the night and increases next-day anxiety, creating a worsening cycle.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "eat-light-sleep-snack",
+        "text": "Eat a small tryptophan-rich snack one hour before bed",
+        "explanation": "A light snack combining complex carbohydrates and tryptophan, such as oatmeal with banana or crackers with almond butter, supports serotonin and melatonin production without causing disruptive blood sugar swings.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "dim-lights-one-hour-before",
+        "text": "Dim all household lights one hour before bedtime",
+        "explanation": "Bright light suppresses melatonin production and keeps your brain in alert mode. Use warm, low-wattage lamps or candles to signal to your body and anxious mind that the active part of the day is over.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "screens-off-45-minutes",
+        "text": "Turn off all screens 45 minutes before bed",
+        "explanation": "Screens deliver blue light that delays melatonin onset and expose you to stimulating or anxiety-triggering content. Replace screen time with a physical book, gentle stretching, or a calming audio program.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "practice-progressive-muscle-relaxation",
+        "text": "Practice progressive muscle relaxation in your wind-down routine",
+        "explanation": "Systematically tense and release each muscle group from toes to head over 10 to 15 minutes. This gives your anxious mind a physical anchor and activates the parasympathetic nervous system to lower pre-sleep arousal.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "use-breathing-technique",
+        "text": "Perform 4-7-8 breathing exercises before getting into bed",
+        "explanation": "The extended exhale in 4-7-8 breathing stimulates the vagus nerve, directly counteracting the shallow rapid breathing that accompanies anxiety. Four cycles are usually enough to feel a measurable shift in your body.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "keep-bedroom-cool",
+        "text": "Set your bedroom temperature between 60 and 67 degrees",
+        "explanation": "A cool room helps your core body temperature drop, which is a prerequisite for sleep onset. For anxiety sufferers, overheating can trigger restlessness and hypervigilance that feels indistinguishable from anxiety.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "remove-clocks-from-sight",
+        "text": "Remove or hide all visible clocks from your bedroom",
+        "explanation": "Clock-watching fuels catastrophic calculations about lost sleep, which is one of the most common anxiety triggers during the night. If you need an alarm, face it away from you or place it across the room.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "use-white-noise",
+        "text": "Use a white noise machine or fan for consistent sound",
+        "explanation": "Steady ambient sound masks the sudden noises that startle an anxious, hypervigilant brain and fills the silence that many anxiety sufferers find unbearable when trying to fall asleep.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "remove-work-from-bedroom",
+        "text": "Remove all work materials and devices from the bedroom",
+        "explanation": "Your bedroom should only be associated with sleep and rest. Work materials act as visual cues that activate problem-solving and worry circuits, which is the opposite of what your anxious mind needs at bedtime.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "prepare-tomorrow-list",
+        "text": "Write a brief to-do list for tomorrow before winding down",
+        "explanation": "Externalizing tomorrow's tasks onto paper frees your working memory from holding onto them. Research shows that writing a specific to-do list before bed helps people fall asleep significantly faster than journaling about completed tasks.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "leave-bed-if-awake",
+        "text": "Leave bed if you are awake for roughly 20 minutes",
+        "explanation": "This CBT-I stimulus control technique prevents your brain from associating bed with anxious wakefulness. Go to another room, do something calm in low light, and return only when you feel genuinely drowsy.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "practice-cognitive-defusion",
+        "text": "Use cognitive defusion phrases for intrusive bedtime thoughts",
+        "explanation": "When a worry surfaces, preface it with 'I notice I am having the thought that...' to create distance. This Acceptance and Commitment Therapy technique reduces the emotional grip of anxious thoughts without trying to suppress them.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "limit-naps-to-twenty-minutes",
+        "text": "Limit any daytime naps to 20 minutes before 2pm",
+        "explanation": "Long or late naps reduce your homeostatic sleep drive, making it harder to fall asleep at night. When anxiety has cost you sleep, it is tempting to nap extensively, but this perpetuates the cycle of nighttime wakefulness.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "try-paradoxical-intention",
+        "text": "Try paradoxical intention when sleep pressure feels overwhelming",
+        "explanation": "If you are desperately trying to fall asleep and growing more anxious, gently challenge yourself to stay awake instead. This validated CBT-I technique removes the performance pressure around falling asleep, allowing your natural sleep drive to take over.",
+        "category": "bonus",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "Track your sleep efficiency, which is time asleep divided by time in bed, for two weeks. If it falls below 85 percent, consider working with a therapist trained in CBT-I to implement sleep restriction therapy safely.",
+      "If racing thoughts persist despite a worry journal, try the cognitive shuffle technique: pick a random letter, then slowly think of unrelated words starting with that letter, giving your brain a task that is just engaging enough to displace anxious rumination.",
+      "Layer your relaxation techniques by combining progressive muscle relaxation with 4-7-8 breathing: tense on the inhale, hold during the hold, and release on the long exhale for a compounding calming effect.",
+      "Create a paradoxical intention mantra such as 'I will keep my eyes open and simply rest' and repeat it gently when you notice yourself straining to fall asleep, as the reduced effort often leads to faster sleep onset.",
+      "Consider keeping a sleep diary that tracks not just hours slept but your pre-bed anxiety level on a 1-to-10 scale, so you can identify which checklist items have the greatest impact on your specific anxiety-sleep pattern."
+    ],
+    "conclusion": "You do not need a perfect night of sleep to start feeling better; you just need a system that gently works in your favor. Check off what you can, forgive yourself on the nights that are harder, and trust that each small improvement is loosening anxiety's grip on your rest. You are building a foundation that will support calmer, more restorative sleep over time."
+  }
+}

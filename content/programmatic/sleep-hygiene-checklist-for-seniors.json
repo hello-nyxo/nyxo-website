@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "seniors",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Sleep Hygiene Checklist for Seniors",
+    "description": "A 20-item sleep hygiene checklist designed for adults over 60. Covers bedroom setup, daytime habits, nutrition, and routines to improve your sleep quality.",
+    "keywords": [
+      "sleep hygiene checklist seniors",
+      "elderly sleep checklist",
+      "sleep routine for older adults",
+      "senior bedtime checklist",
+      "sleep hygiene over 60",
+      "healthy sleep habits elderly",
+      "improve sleep quality seniors",
+      "age-related sleep solutions"
+    ]
+  },
+  "content": {
+    "intro": "Good sleep hygiene is the foundation of restful nights, and it becomes even more important as you get older. This checklist gives you 20 specific, actionable items you can work through at your own pace. Use it as a daily reference to build habits that support deeper, more consistent sleep.",
+    "why_this_checklist": "After age 60, your body produces less melatonin, your sleep becomes lighter, and conditions like chronic pain, nocturia, and medication side effects can all interfere with rest. A structured checklist helps you address these challenges systematically rather than guessing at what might work. Research shows that multi-component sleep hygiene interventions are more effective than any single change alone.",
+    "items": [
+      {
+        "id": "consistent-bedtime",
+        "text": "Go to bed at the same time every night",
+        "explanation": "A fixed bedtime anchors your circadian rhythm, which becomes less robust with age. Consistency helps your brain anticipate sleep and begin winding down automatically.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "consistent-wake-time",
+        "text": "Wake up at the same time every morning",
+        "explanation": "Your wake time is the single most important anchor for your body clock. Keeping it steady, even after a poor night, prevents your sleep schedule from drifting.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "morning-light-exposure",
+        "text": "Get 20 minutes of bright light each morning",
+        "explanation": "Morning light tells your brain to stop producing melatonin and start the daytime alertness cycle. This is especially important for seniors whose reduced melatonin production makes circadian signals weaker.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "cool-bedroom-temperature",
+        "text": "Keep your bedroom between 65 and 68 degrees",
+        "explanation": "A cool room supports the natural core temperature drop that triggers sleep onset. Older adults often have impaired thermoregulation, making environmental temperature control even more critical.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "dark-sleeping-environment",
+        "text": "Block all light sources in your bedroom",
+        "explanation": "Use blackout curtains or a sleep mask and cover any LED indicator lights. Aging eyes are more susceptible to light-induced melatonin suppression, even through closed eyelids.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "limit-evening-fluids",
+        "text": "Stop large drinks two hours before bedtime",
+        "explanation": "Nocturia is one of the top sleep disruptors for adults over 60. Reducing fluid intake in the evening decreases the number of bathroom trips that fragment your sleep cycles.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "wind-down-routine",
+        "text": "Start a 30-minute wind-down routine before bed",
+        "explanation": "Dim the lights and switch to calming activities like reading or gentle stretching. A predictable routine trains your nervous system to transition from alertness to sleepiness.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "no-screens-before-bed",
+        "text": "Turn off screens 60 minutes before bedtime",
+        "explanation": "Blue light from phones, tablets, and televisions suppresses melatonin production. Since your melatonin levels are already lower with age, avoiding screens in the evening protects what remains.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "caffeine-cutoff",
+        "text": "Avoid all caffeine after 12 noon",
+        "explanation": "Caffeine metabolism slows significantly with age, meaning an afternoon coffee can still be active in your system at bedtime. Switch to herbal tea or decaf after noon.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "daily-physical-activity",
+        "text": "Get at least 30 minutes of movement each day",
+        "explanation": "Regular moderate exercise, such as walking or swimming, increases the amount of restorative slow-wave sleep you experience. Finish vigorous activity at least four hours before bed.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "limit-naps",
+        "text": "Keep daytime naps under 20 minutes before 2 PM",
+        "explanation": "Short early-afternoon naps can boost alertness without undermining nighttime sleep. Longer or later naps reduce your sleep drive, making it harder to fall asleep at your regular bedtime.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "amber-nightlights",
+        "text": "Install amber nightlights for bathroom trips",
+        "explanation": "Warm-toned nightlights let you navigate safely without exposing yourself to blue or white light that suppresses melatonin. Motion-activated models are ideal for reducing fall risk.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "comfortable-mattress",
+        "text": "Ensure your mattress supports joints and spine alignment",
+        "explanation": "Chronic pain from arthritis or joint stiffness is a major cause of nighttime awakenings in seniors. A medium-firm mattress with adequate pressure relief can significantly reduce pain-related sleep disruption.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "review-medications",
+        "text": "Review medication timing with your doctor annually",
+        "explanation": "Many common prescriptions, including diuretics, beta-blockers, and corticosteroids, can interfere with sleep. Your doctor may be able to adjust timing to minimize nighttime disruption.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "morning-hydration",
+        "text": "Drink most of your daily fluids before 4 PM",
+        "explanation": "Front-loading your hydration ensures you stay well-hydrated during the day while naturally reducing the need for bathroom visits at night. This is a simple strategy to manage nocturia.",
+        "category": "morning",
+        "priority": "bonus"
+      },
+      {
+        "id": "light-evening-snack",
+        "text": "Eat a small tryptophan-rich snack before bed",
+        "explanation": "A light snack like a banana with a few almonds or whole-grain cereal with milk provides tryptophan, a precursor to sleep-promoting melatonin and serotonin. Avoid heavy or spicy foods that trigger reflux.",
+        "category": "nutrition",
+        "priority": "bonus"
+      },
+      {
+        "id": "relaxation-breathing",
+        "text": "Practice deep breathing exercises in bed",
+        "explanation": "Slow diaphragmatic breathing with extended exhales activates your parasympathetic nervous system. Even five minutes of focused breathing can lower your heart rate and ease you into sleep.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "sleep-diary",
+        "text": "Keep a brief sleep diary each morning",
+        "explanation": "Recording your bedtime, wake time, and nighttime awakenings helps you spot patterns and identify personal sleep disruptors. Share this diary with your healthcare provider for more targeted advice.",
+        "category": "morning",
+        "priority": "bonus"
+      },
+      {
+        "id": "social-engagement",
+        "text": "Maintain regular social activities during the day",
+        "explanation": "Social interaction supports healthy circadian function by keeping you mentally stimulated and physically active during daytime hours. Isolation and inactivity often worsen sleep quality in older adults.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "manage-pain-proactively",
+        "text": "Address chronic pain before it disrupts your night",
+        "explanation": "Work with your doctor to manage arthritis, back pain, or neuropathy with appropriately timed medications, gentle stretching, or heat therapy before bed. Uncontrolled pain is one of the most common and treatable causes of insomnia in seniors.",
+        "category": "before-bed",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "If you wake during the night and cannot fall back asleep within 20 minutes, get out of bed and do a quiet activity in dim light until you feel drowsy, then return to bed.",
+      "Consider asking your doctor about a sleep study if you snore loudly, gasp during sleep, or feel excessively tired despite adequate time in bed, as undiagnosed sleep apnea is common in older adults.",
+      "Use a white noise machine or fan to mask environmental sounds, which become more disruptive as your sleep naturally becomes lighter with age.",
+      "If you take melatonin, use the lowest effective dose (0.5 to 1 mg) about 90 minutes before bedtime, and consult your doctor first since it can interact with blood thinners and diabetes medications.",
+      "Gradually adjust your sleep schedule by 15 minutes per week rather than making sudden changes, which gives your aging circadian system time to adapt smoothly."
+    ],
+    "conclusion": "You do not need to tackle every item on this list at once. Start with the essentials, give each change a week or two to take effect, and then layer in additional items as you build momentum. Consistent small improvements add up to meaningfully better sleep, and you are absolutely capable of making these changes work for you."
+  }
+}

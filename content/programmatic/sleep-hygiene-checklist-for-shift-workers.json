@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "shift-workers",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Sleep Hygiene Checklist for Shift Workers",
+    "description": "A 20-point sleep hygiene checklist designed for shift workers. Actionable steps to improve daytime sleep, manage circadian disruption, and feel rested.",
+    "keywords": [
+      "shift worker sleep checklist",
+      "sleep hygiene night shift",
+      "shift work sleep routine",
+      "daytime sleep checklist",
+      "night shift sleep hygiene",
+      "rotating shift sleep tips",
+      "circadian rhythm checklist",
+      "shift work disorder prevention"
+    ]
+  },
+  "content": {
+    "intro": "If you work nights, rotating shifts, or early mornings, standard sleep hygiene advice often misses the mark. This checklist is built specifically for the reality of sleeping when the rest of the world is awake. Use it as a practical, item-by-item guide to audit and improve your sleep environment, habits, and routines around your shift schedule.",
+    "why_this_checklist": "Shift workers lose an average of one to two hours of sleep per day compared to daytime workers, and much of that loss is preventable with targeted changes. Generic sleep checklists assume you sleep at night in a quiet, dark house — yours needs to account for sunlight streaming through windows, household noise, and a circadian clock that is fighting your schedule. Each item below addresses a specific challenge that shift workers face, prioritized so you can start with what matters most.",
+    "items": [
+      {
+        "id": "install-blackout-window-coverings",
+        "text": "Install blackout curtains or window coverings in your bedroom",
+        "explanation": "Daylight is the primary signal that keeps your brain in wake mode. Blackout coverings that seal against the window frame can reduce room light to near-zero lux, allowing your melatonin levels to rise as if it were nighttime.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "set-consistent-anchor-sleep",
+        "text": "Set a consistent anchor sleep window every day",
+        "explanation": "Choose at least a four-hour block that remains the same on workdays and off days. This anchor period stabilizes your circadian rhythm and reduces the feeling of perpetual jet lag that comes with constantly shifting sleep times.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "silence-phone-and-doorbell",
+        "text": "Silence your phone and doorbell during sleep hours",
+        "explanation": "A single notification ping can pull you out of a deep sleep cycle that takes 30 to 45 minutes to re-enter. Use do-not-disturb mode with exceptions only for genuine emergencies from specific contacts.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "set-caffeine-cutoff-time",
+        "text": "Set a firm caffeine cutoff five hours before sleep",
+        "explanation": "Caffeine blocks adenosine, the molecule responsible for building sleep pressure. With a half-life of five to six hours, a coffee at 3 AM can still have half its effect when you try to sleep at 8 AM.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "keep-bedroom-cool",
+        "text": "Keep your bedroom temperature between 15 and 18 degrees",
+        "explanation": "Daytime temperatures tend to be higher than nighttime, working against the core body temperature drop your body needs for sleep. Use air conditioning, fans, or cooling bedding to counteract this.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "wear-blue-blocking-glasses-home",
+        "text": "Wear blue-light-blocking glasses on your commute home",
+        "explanation": "Morning sunlight after a night shift delivers a powerful wake signal to your suprachiasmatic nucleus. Amber-tinted glasses block the blue wavelengths responsible for suppressing melatonin, helping your brain start the transition to sleep mode.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "run-white-noise-machine",
+        "text": "Run a white noise machine or fan while sleeping",
+        "explanation": "Daytime brings unpredictable sounds like traffic, lawn mowers, and deliveries. Continuous white noise masks these sudden spikes in sound that would otherwise trigger cortical arousals and fragment your sleep.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "post-sleep-window-sign",
+        "text": "Post your sleep schedule where household members can see it",
+        "explanation": "Family and housemates cannot respect your sleep if they do not know when it happens. A visible schedule on the fridge or bedroom door reduces accidental disruptions and builds a shared understanding of your needs.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "eat-light-pre-sleep-meal",
+        "text": "Eat a light protein-rich snack before daytime sleep",
+        "explanation": "Going to bed hungry triggers cortisol release, while a heavy meal causes reflux and raises body temperature. A small snack with protein and complex carbs promotes tryptophan availability for melatonin synthesis without overloading digestion.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "warm-shower-after-shift",
+        "text": "Take a warm shower right after your shift ends",
+        "explanation": "A warm shower raises your skin temperature, and the subsequent cooling as you dry off mimics the natural thermoregulatory drop that signals sleep onset. This is especially useful for shift workers who come home wired from an active shift.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "use-bright-light-first-half-shift",
+        "text": "Use bright light therapy during the first half of your shift",
+        "explanation": "Exposure to bright light above 2,500 lux during early shift hours helps your circadian clock adapt to your work schedule. Avoid bright light in the second half and on the way home so you do not push your clock in the wrong direction.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "avoid-alcohol-as-sleep-aid",
+        "text": "Avoid using alcohol as a daytime sleep aid",
+        "explanation": "Alcohol may help you fall asleep faster after a shift, but it suppresses REM sleep, increases sleep fragmentation in the second half of sleep, and worsens sleep apnea — problems shift workers are already prone to.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "keep-sleep-mask-ready",
+        "text": "Keep a fitted sleep mask on your nightstand as backup",
+        "explanation": "Even with blackout curtains, light can creep around edges or through doorways when someone opens them. A contoured sleep mask provides a second layer of darkness without putting pressure on your eyelids.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "practice-wind-down-routine",
+        "text": "Follow a 15-minute wind-down routine after every shift",
+        "explanation": "Your nervous system needs a transition buffer between the high-alertness demands of your job and sleep. A short, repeatable routine — like changing clothes, dimming lights, and doing a body scan — trains your brain to associate these cues with sleep onset.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "take-prophylactic-nap-pre-shift",
+        "text": "Take a 20-minute nap before your shift starts",
+        "explanation": "A short pre-shift nap reduces accumulated sleep debt and provides an alertness buffer for the first critical hours of your shift. Keep it under 30 minutes to avoid sleep inertia that would leave you groggier than before.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "schedule-exercise-strategically",
+        "text": "Schedule exercise at least three hours before sleeping",
+        "explanation": "Exercise elevates core body temperature and cortisol for two to three hours afterward. For shift workers, this means working out before a shift rather than after, or choosing only gentle stretching if you exercise post-shift.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "manage-light-exposure-days-off",
+        "text": "Get outdoor light in late afternoon on days off only",
+        "explanation": "On days off, late-afternoon sunlight helps maintain enough circadian alignment for social activities without disrupting your ability to sleep in the early morning. Avoid bright morning light on off days if you will return to night shifts soon.",
+        "category": "morning",
+        "priority": "bonus"
+      },
+      {
+        "id": "use-cognitive-shuffle-technique",
+        "text": "Use the cognitive shuffle technique for racing thoughts",
+        "explanation": "After intense shifts, your mind may replay events that keep you alert. The cognitive shuffle — visualizing random, unrelated objects in sequence — occupies your thinking mind just enough to disengage the problem-solving loops that prevent sleep onset.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "track-sleep-two-week-diary",
+        "text": "Track your sleep in a diary for two weeks",
+        "explanation": "Logging sleep times, shift schedules, caffeine, meals, and subjective sleep quality reveals personal patterns you would otherwise miss. You may discover that split sleep works better on quick turnarounds or that certain foods impair your rest.",
+        "category": "morning",
+        "priority": "bonus"
+      },
+      {
+        "id": "plan-gradual-schedule-transitions",
+        "text": "Plan gradual sleep shifts when rotating between shift types",
+        "explanation": "When transitioning from nights to days or vice versa, shift your bedtime by one to two hours per day rather than flipping all at once. This reduces the circadian disruption that causes the worst fatigue and cognitive impairment during rotation weeks.",
+        "category": "morning",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "If you work permanent night shifts, consider keeping a nocturnal schedule even on days off — sleeping from roughly 8 AM to 4 PM — to avoid the weekly circadian whiplash that causes the most fatigue and health risk.",
+      "Combine timed melatonin supplementation (0.5 to 1 mg taken 30 minutes before your target sleep time) with blue-light blocking for a synergistic effect on circadian entrainment, but consult your doctor first.",
+      "Use a dawn-simulation alarm clock in reverse: set it to gradually dim over 20 minutes as you fall asleep during the day, mimicking a sunset signal that reinforces your brain's association between darkness and sleep.",
+      "If you share a bed with a daytime-schedule partner, consider separate bedding or a split mattress with different firmness levels to reduce motion transfer during their wake and your sleep periods.",
+      "Build a shift-specific meal prep routine on your days off so you always have light, sleep-friendly meals ready to eat after shifts instead of defaulting to heavy takeout or skipping food entirely."
+    ],
+    "conclusion": "You do not need to check off every item on day one — start with the six essentials and add more as each becomes a habit. The compound effect of small, consistent improvements adds up quickly, and most shift workers notice better sleep within one to two weeks of applying even half of this checklist. Your body is capable of adapting to unconventional schedules when you give it the right signals, and every item you check off brings you closer to the restorative sleep you need and deserve."
+  }
+}

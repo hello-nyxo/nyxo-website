@@ -266,6 +266,18 @@ export default function Header({
             </PopoverPanel>
           </Popover>
 
+          {/* Sleep Guides */}
+          <Link
+            href="/sleep"
+            className={`rounded-full px-3.5 py-2 text-sm font-medium no-underline transition-all hover:bg-brand-blue/5 hover:text-brand-blue ${
+              pathname.startsWith("/sleep")
+                ? "text-brand-blue bg-brand-blue/5"
+                : "text-text-secondary"
+            }`}
+          >
+            {t("SLEEP_GUIDES")}
+          </Link>
+
           {/* Blog */}
           <Link
             href="/blog"
@@ -429,6 +441,15 @@ export default function Header({
                     </Link>
                   </DisclosurePanel>
                 </Disclosure>
+
+                {/* Sleep Guides */}
+                <Link
+                  href="/sleep"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="-mx-3 block rounded-xl px-3 py-2.5 text-base font-semibold text-text-primary hover:bg-bg-primary no-underline transition-colors"
+                >
+                  {t("SLEEP_GUIDES")}
+                </Link>
 
                 {/* Blog */}
                 <Link

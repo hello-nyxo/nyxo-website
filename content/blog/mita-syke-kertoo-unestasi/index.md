@@ -1,5 +1,6 @@
 ---
 slug: "mita-syke-kertoo-unestasi"
+lang: "fi"
 date: "2020-08-17"
 title: "Mitä syke kertoo unestasi"
 authorSlug: "pietari-nurmi"

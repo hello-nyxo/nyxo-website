@@ -86,7 +86,7 @@ export default async function LocaleLayout({
     };
   });
 
-  const blogPosts = getAllPosts();
+  const blogPosts = getAllPosts(locale);
 
   const searchItems: SearchableItem[] = [
     ...weeks.map((w) => {

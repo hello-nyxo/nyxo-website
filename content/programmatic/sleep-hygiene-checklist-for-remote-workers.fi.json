@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "remote-workers",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Unihygienian tarkistuslista etätyöntekijöille",
+    "description": "Kattava unihygienian tarkistuslista etätyöntekijöille. 20 konkreettista askelta paremman unen saavuttamiseksi kotona työskennellessä.",
+    "keywords": [
+      "unitarkistuslista etätyöntekijöille",
+      "etätyö ja uni",
+      "kotona työskentely unettomuus",
+      "kotitoimiston unihygienia",
+      "etätyö univinkit",
+      "etätyöntekijän unirytmi",
+      "etätyön arkirutiinit",
+      "digitaalinen unihygienia"
+    ]
+  },
+  "content": {
+    "intro": "Kotona työskentely hämärtää tuottavuuden ja levon rajan tavalla, jota toimistotyöntekijät eivät koskaan koe. Kun työmatkasi on kymmenen askelta ja makuuhuoneesi toimii samalla toimistonasi, aivosi menettävät ympäristövihjeet, joita ne tarvitsevat irrottautumiseen. Tämä tarkistuslista on suunniteltu rakentamaan nuo rajat uudelleen.",
+    "why_this_checklist": "Tarkistuslista toimii yleisiä neuvoja paremmin, koska etätyön uniongelmat ovat kumulatiivisia — mikään yksittäinen asia ei pilaa untasi, mutta kymmenkunta pientä tapaa kasautuu krooniseksi huonoksi uneksi. Järjestelmällinen tarkistaminen auttaa tunnistamaan, mitkä tietyt tavat ovat sinun suurimpia ongelmiasi.",
+    "items": [
+      {
+        "id": "dedicated-workspace",
+        "text": "Järjestä erillinen työtila makuuhuoneen ulkopuolelle",
+        "explanation": "Aivosi muodostavat vahvoja yhteyksiä tilojen ja toimintojen välille. Makuuhuoneessa työskentely opettaa aivosi olemaan valppaana juuri siinä paikassa, jossa sinun pitäisi tuntea väsymystä.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "fixed-end-time",
+        "text": "Aseta joka päivä ehdoton lopetusaika työlle",
+        "explanation": "Ilman työmatkaa, joka merkitsisi työpäivän päättymistä, on helppo jatkaa sähköpostien tarkistamista kello 22 asti. Kiinteä lopetusaika antaa aivoillesi selkeän siirtymäpisteen työtilasta lepotilaan.",
+        "category": "daytime",
+        "priority": "essential"
+      },
+      {
+        "id": "morning-light",
+        "text": "Saa 10 minuuttia luonnonvaloa 30 minuutin sisällä heräämisestä",
+        "explanation": "Luonnollinen aamuvalo asettaa vuorokausirytmisi ja tukahduttaa melatoniinin. Etätyöntekijät jäävät usein paitsi tästä, koska he siirtyvät suoraan sängystä ruudulle astumatta ulos.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "movement-breaks",
+        "text": "Pidä 5 minuutin liikuntatauot 90 minuutin välein",
+        "explanation": "Passiivinen istuminen vähentää fyysistä unipainettasi. Säännöllinen liikkuminen päivän aikana auttaa kerryttämään adenosiinipainetta, joka tekee sinut luonnollisesti uneliaaksi illalla.",
+        "category": "daytime",
+        "priority": "essential"
+      },
+      {
+        "id": "caffeine-cutoff",
+        "text": "Ei kofeiinia kello 14 jälkeen",
+        "explanation": "Kun keittiö on aina lähellä, on houkuttelevaa kaataa vielä yksi kuppi. Kofeiinin puoliintumisaika on 5–7 tuntia, mikä tarkoittaa, että kello 15 juodun kahvin vaikutuksesta puolet on vielä jäljellä kello 22.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "digital-sunset",
+        "text": "Ota yötila käyttöön kaikissa laitteissa kello 19 jälkeen",
+        "explanation": "Ruutujen sinivalo vaimentaa melatoniinituotantoa jopa 50 prosenttia. Yötila vähentää sinisen aallonpituuden säteilyä, joka viestittää aivoillesi päiväsaikaa.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "walk-commute",
+        "text": "Tee keinotekoinen työmatkakävely aamulla ja illalla",
+        "explanation": "15 minuutin kävely simuloi siirtymäaikaa, jonka oikea työmatka tarjoaa. Aamukävelyt lisäävät valoaltistusta, iltakävelyt auttavat purkamaan painetta ja viestittävät työpäivän päättyneen.",
+        "category": "morning",
+        "priority": "recommended"
+      },
+      {
+        "id": "lunch-outside",
+        "text": "Syö lounas pois työpöydän äärestä, mieluiten ulkona",
+        "explanation": "Keskipäivän valoaltistus vahvistaa vuorokausirytmiäsi. Työpöydän ääressä syöminen tarkoittaa, että olet viettänyt koko päivän samassa sisätilassa identtisessä valaistuksessa.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "notification-schedule",
+        "text": "Poista työilmoitukset puhelimesta käytöstä työajan jälkeen",
+        "explanation": "Yksikin Slack-ilmoitus kello 21 voi laukaista työajatusten vyöryn, joka pitää mielesi pyörimässä nukkumaanmenoaikaan. Aseta sovellukset hiljentämään ilmoitukset lopetusaikasi jälkeen.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "cool-bedroom",
+        "text": "Pidä makuuhuoneen lämpötila 15–19 °C:ssa",
+        "explanation": "Kehosi ydinlämpötilan täytyy laskea noin asteella unen käynnistämiseksi. Viileä huone helpottaa tätä luonnollista prosessia.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "wind-down-ritual",
+        "text": "Luo 30 minuutin rauhoittumisrutiini ennen nukkumaanmenoa",
+        "explanation": "Ilman kotimatkaa aivoillasi ei ole luonnollista siirtymärituaalia. Rakenna sellainen tietoisesti: vaihda vaatteet, himmennä valoja, lue, venyttele tai käy lämpimässä suihkussa.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "consistent-meals",
+        "text": "Syö ateriat säännöllisiin aikoihin joka päivä",
+        "explanation": "Aterioiden ajoitus on perifeerinen kellonasettaja. Kun syöt satunnaisiin aikoihin kotona työskennellessäsi, desynkronisoit maksan ja suoliston kehonkellot pääkellostasi.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "change-clothes",
+        "text": "Vaihda työvaatteet yövaatteisiin iltarituaalina",
+        "explanation": "Vaikka työvaatteesi olisivat vain hieman siistimpi t-paita, vaatteiden vaihtaminen viestittää aivoillesi, että työaika on ohi ja lepoaika on alkanut.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "exercise-routine",
+        "text": "Aikatauluta vähintään 20 minuuttia liikuntaa ennen kello 17",
+        "explanation": "Fyysinen aktiivisuus lisää unipainetta ja syvää unta. Aikatauluttaminen varmistaa, että se todella tapahtuu — etätyöntekijät aikovat usein liikkua, mutta antavat työn laajentua täyttämään ajan.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "separate-screens",
+        "text": "Käytä eri laitteita tai selainprofiileja työhön ja vapaa-aikaan",
+        "explanation": "Saman kannettavan käyttäminen sekä Netflixiin että työhön tarkoittaa, ettei aivosi koskaan täysin irtaudu työtilasta tuon laitteen avatessasi. Erilliset kontekstit vähentävät työhön liittyviä kognitiivisia tunkeutumia yöllä.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "evening-snack",
+        "text": "Jos nälkä iskee ennen nukkumaanmenoa, syö kevyt tryptofaanipitoinen välipala",
+        "explanation": "Banaani, pieni kourallinen manteleita tai lämmin maito sisältää tryptofaania, melatoniinin esiastetta. Nälkäisenä nukkumaan meneminen voi häiritä unta, mutta raskaat ateriat samoin.",
+        "category": "nutrition",
+        "priority": "bonus"
+      },
+      {
+        "id": "social-plans",
+        "text": "Aikatauluta vähintään yksi sosiaalinen tapaaminen kasvotusten viikossa",
+        "explanation": "Etätyön sosiaalinen eristäytyneisyys myötävaikuttaa ahdistukseen ja masennukseen, jotka molemmat heikentävät unenlaatua. Säännöllinen sosiaalinen kanssakäyminen tarjoaa tunnesäätelyä, joka tukee tervettä unta.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "bedroom-declutter",
+        "text": "Poista kaikki työmateriaalit makuuhuoneesta joka ilta",
+        "explanation": "Pelkkä kannettavan laukun tai työmuistiinpanojen näkeminen makuuhuoneessa aktivoi työhön liittyviä ajatuksia. Niiden fyysinen poistaminen vahvistaa makuuhuone-turvapaikka-assosiaatiota.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "standing-desk",
+        "text": "Käytä seisomapöytää tai vaihtele istumis- ja seisoma-asentoa",
+        "explanation": "Ajoittainen seisominen päivän aikana vähentää passiivisia tunteja, jotka pienentävät unipainetta. Se parantaa myös ryhtiä ja vähentää selkä- ja niskakipuja, jotka voivat häiritä unta.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "gratitude-log",
+        "text": "Kirjoita kolme hyvin mennyttä asiaa ennen nukkumaanmenoa",
+        "explanation": "Etätyöntekijät jäävät helposti märehtimään keskeneräisiä tehtäviä, koska työ on aina käden ulottuvilla. Huomion siirtäminen saavutuksiin vähentää nukkumaanmenoa edeltävää ahdistusta ja työhön liittyviä ajatustunkeutumia.",
+        "category": "before-bed",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "Jos sinun on pakko työskennellä makuuhuoneessa, luo fyysinen tilanjakaja (vaikkapa verho) työtilan ja sängyn välille erillisten vyöhykkeiden luomiseksi.",
+      "Käytä auringonnousuherätyskelloa simuloimaan luonnollista aamunkoittoa — tämä on erityisen tärkeää talvikuukausina, jolloin et ehkä saa luonnonvaloa ennen työn aloittamista.",
+      "Harkitse työskentelyä yhteistyötilassa tai kahvilassa kerran viikossa yksitoikkoisuuden katkaisemiseksi ja ympäristön vaihtelun palauttamiseksi, mikä tukee vuorokausirytmin terveyttä.",
+      "Luo tietokoneellesi toinen käyttäjätili henkilökohtaiseen käyttöön — työtilistä uloskirjautumisesta päivän päätteeksi tulee konkreettinen rituaali.",
+      "Seuraa ruutuaikaasi viikon ajan lähtötason selvittämiseksi ja aseta sitten tavoitteeksi vähentää ilta-ajan ruutuaikaa 30 minuutilla."
+    ],
+    "conclusion": "Etätyön parasta antia on joustavuus, ja tuo joustavuus voi toimia unesi hyväksi eikä sitä vastaan. Sinun ei tarvitse rastittaa jokaista kohtaa tästä listasta — aloita välttämättömistä, rakenna niistä tapoja ja lisää sitten suositeltuja ja bonuskohteita. Pienet ja johdonmukaiset muutokset kasautuvat merkittävästi paremmaksi uneksi."
+  }
+}

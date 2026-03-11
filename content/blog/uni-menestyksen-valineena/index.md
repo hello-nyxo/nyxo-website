@@ -1,5 +1,6 @@
 ---
 slug: "uni-menestyksen-valineena"
+lang: "fi"
 date: "2020-10-02"
 title: "Kuinka hyödyntää unta menestyksen välineenä"
 authorSlug: "pietari-nurmi"

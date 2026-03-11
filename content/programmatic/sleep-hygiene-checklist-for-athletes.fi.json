@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "athletes",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Unihygienian tarkistuslista urheilijoille",
+    "description": "20 kohdan unihygienian tarkistuslista urheilijoille. Optimoi palautumisesi, vähennä loukkaantumisriskiä ja paranna kilpailusuoritustasi paremmilla unitavoilla.",
+    "keywords": [
+      "unihygienia tarkistuslista urheilijoille",
+      "urheilijan unirutiini",
+      "urheilijan unen optimointi",
+      "palautuminen ja uni tarkistuslista",
+      "uni ja urheilusuorituskyky",
+      "kilpailua edeltävä uni",
+      "urheilijan iltarutiini",
+      "uni ja harjoittelupalautuminen"
+    ]
+  },
+  "content": {
+    "intro": "Harjoitussuunnitelmasi kattaa sarjat, toistot ja ravinnon, mutta huomioiko se kahdeksaa tuntia, jotka ratkaisevat, kuinka hyvin kehosi todella sopeutuu? Tämä tarkistuslista antaa sinulle konkreettisen ja toiminnallisen kehyksen unesi optimointiin urheilijana. Käy jokainen kohta läpi, merkitse se tehdyksi ja seuraa, kuinka palautumisesi ja suorituskykysi paranevat.",
+    "why_this_checklist": "Unen aikana kehosi vahvistaa motorisia taitoja, korjaa lihassäikeitä ja tasapainottaa suorituskyvyn kannalta kriittisiä hormoneja. Ilman jäsenneltyä lähestymistapaa huonot tavat nakertavat helposti niitä tuloksia, joiden eteen teet niin kovasti töitä harjoittelussa. Tämä tarkistuslista muuttaa unen optimoinnin epämääräisestä tavoitteesta mitattavaksi päivittäiseksi käytännöksi.",
+    "items": [
+      {
+        "id": "set-consistent-wake-time",
+        "text": "Herää samaan aikaan joka päivä",
+        "explanation": "Kiinteä heräämisaika ankkuroi vuorokausirytmisi ja helpottaa nukahtamista johdonmukaiseen aikaan joka ilta. Ylläpidä tätä myös lepopäivinä ja viikonloppuisin välttääksesi sosiaalista aikaerorasitusta.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "get-morning-sunlight",
+        "text": "Saa 10 minuuttia suoraa auringonvaloa heti herättyäsi",
+        "explanation": "Aamuaurinko tukahduttaa melatoniinin ja asettaa vahvan vuorokausisignaalin tulevalle päivälle. Astu ulos ennen ensimmäistä harjoitusta, myös pilvisillä säillä, sillä ulkoilman valoteho ylittää moninkertaisesti sisävalaistuksen.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "check-hrv-upon-waking",
+        "text": "Kirjaa aamun HRV-arvosi ennen sängystä nousua",
+        "explanation": "Sykevälivaihtelu antaa objektiivisen kuvan autonomisen hermostosi palautumisesta. Trendien seuraaminen viikkojen yli auttaa tunnistamaan, milloin heikko uni alkaa kasaantua, jotta voit säätää harjoituskuormaasi sen mukaisesti.",
+        "category": "morning",
+        "priority": "recommended"
+      },
+      {
+        "id": "caffeine-cutoff-early-afternoon",
+        "text": "Lopeta kaikki kofeiinin käyttö kello 13 mennessä",
+        "explanation": "Tämä koskee kahvia, energiajuomia ja kofeiinipitoisia treenilisäravinteita. Viidestä kuuteen tunnin puoliintumisajalla iltapäivän kofeiini on yhä aktiivinen elimistössäsi nukkumaanmenoaikaan ja vähentää syvää unta, vaikka nukahtaisitkin ajallaan.",
+        "category": "daytime",
+        "priority": "essential"
+      },
+      {
+        "id": "schedule-hard-training-early",
+        "text": "Suorita korkean intensiteetin harjoitukset ennen myöhäistä iltapäivää",
+        "explanation": "Raskas liikunta nostaa ydinlämpötilaa ja kortisolia useiksi tunneiksi. Aikaisemmin päivällä harjoittelu antaa molempien palautua perustasolle hyvissä ajoin ennen uniajan alkua.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "limit-naps-to-30-minutes",
+        "text": "Pidä päiväunet alle 30 minuutissa ennen kello 15",
+        "explanation": "Lyhyet päiväunet palauttavat vireystilan vajoamatta syvään uneen, joka voi aiheuttaa tokkuraisuutta ja häiritä yöllisen unipaineen kertymistä. Aseta herätys joka kerta, kun otat päiväunet.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "hydrate-strategically",
+        "text": "Painota nesteytystä päivälle ja vähennä nesteitä iltaa kohti",
+        "explanation": "Kuivuminen heikentää unen laatua, mutta suurten nestemäärien juominen ennen nukkumista johtaa yöllisiin vessakäynteihin. Pyri nauttimaan suurin osa nesteistäsi harjoittelun aikana ja vähennä juomista kaksi tuntia ennen nukkumista.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "avoid-heavy-meals-before-bed",
+        "text": "Syö viimeinen runsas ateria kolme tuntia ennen nukkumaanmenoa",
+        "explanation": "Täysi vatsa nostaa ydinlämpötilaa ja voi aiheuttaa happamuutta makuuasennossa. Jos harjoittelet illalla, syö treenin jälkeinen ateria viipymättä ja pidä myöhäisempi välipala pienenä ja proteiinipainotteisena.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "pre-sleep-casein-snack",
+        "text": "Nauti pieni kaseiinipitoinen välipala 30–60 minuuttia ennen nukkumista",
+        "explanation": "Raejuusto, kreikkalainen jogurtti tai kaseiinijuoma tarjoaa hitaasti vapautuvia aminohappoja, jotka tukevat yön aikaista lihasproteiinisynteesiä. Pidä annos 20–30 grammassa proteiinia ruoansulatusongelmien välttämiseksi.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "skip-alcohol-for-recovery",
+        "text": "Jätä alkoholi pois harjoitus- ja kilpailua edeltävinä iltoina",
+        "explanation": "Alkoholi tukahduttaa REM-unta ja pirstoo uniarkkitehtuuriasi, heikentäen jokaisen sängyssä vietetyn tunnin palautumislaatua. Korvaa pelin jälkeiset juomat hapankirsikkamehulla tai yrttiteellä.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "start-wind-down-routine",
+        "text": "Aloita johdonmukainen rauhoittumisrutiini 60 minuuttia ennen nukkumista",
+        "explanation": "Toistettava sarja rauhoittavia toimintoja viestittää aivoillesi, että uni lähestyy. Ajan myötä pelkkä rutiinin aloittaminen käynnistää parasympaattisen vasteen, joka laskee sykettä ja verenpainetta.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "activate-blue-light-filter",
+        "text": "Ota käyttöön sinisen valon suodattimet kaikissa näytöissä auringonlaskun jälkeen",
+        "explanation": "Sinisen valon aallonpituus tukahduttaa melatoniinin tuotantoa ja viivästyttää nukahtamista. Käytä laitteen sisäänrakennettua yötilaa tai sinistä valoa suodattavia laseja, jos sinun täytyy katsoa pelivideoita illalla.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "do-breathing-exercises",
+        "text": "Harjoita viiden minuutin hidasta palleahengitystä",
+        "explanation": "Pitkitetyt uloshengitykset stimuloivat kiertäjähermoa ja siirtävät hermostosi sympaattisesta taistele-tai-pakene-tilasta parasympaattiseen lepotilaan. Kokeile hengittää sisään neljään laskien ja ulos kahdeksaan laskien.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "brain-dump-journal",
+        "text": "Kirjoita huolet ja huomisen tehtävät muistikirjaan",
+        "explanation": "Huolien ulkoistaminen paperille vähentää kognitiivista märehtimistä, joka pitää urheilijoita hereillä erityisesti ennen kilpailuja. Käytä viisi minuuttia vapaaseen kirjoittamiseen, sulje sitten muistikirja ja ala rentoutua.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "warm-shower-before-bed",
+        "text": "Käy lämpimässä suihkussa tai kylvyssä 90 minuuttia ennen nukkumista",
+        "explanation": "Suihkun jälkeinen viileneminen jäljittelee luonnollista ydinlämpötilan laskua, joka edeltää unta. Tämä yksinkertainen tapa voi lyhentää nukahtamisaikaa jopa 10 minuutilla.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "set-thermostat-cool",
+        "text": "Aseta makuuhuoneen lämpötila 16–19 celsiusasteeseen",
+        "explanation": "Viileä huone tukee lämpösäätelyprosessia, jota kehosi käyttää syvän unen aloittamiseen ja ylläpitämiseen. Jos sinulla on taipumus ylikuumentua kovilla harjoituspäivillä, suosi alueen alaosaa.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "blackout-the-room",
+        "text": "Poista kaikki valo pimennyverhoilla tai unisilmäsuojalla",
+        "explanation": "Pienetkin ympäristön valomäärät voivat tukahduttaa melatoniinia ja heikentää unen syvyyttä. Peitä elektroniikan merkkivalot ja käytä laadukasta unisilmäsuojaa matkustaessasi vieraskilpailuihin.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "use-white-noise",
+        "text": "Käytä valkoisen kohinan laitetta tai sovellusta häiriöäänien peittämiseen",
+        "explanation": "Johdonmukainen taustamelu estää äkillisiä ääniä herättämästä sinua kevyempien univaiheiden aikana. Kannettava valkoisen kohinan lähde on erityisen arvokas hotelleissa ja urheilija-asuntoloissa.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "remove-devices-from-bedroom",
+        "text": "Lataa puhelimesi yön yli makuuhuoneen ulkopuolella",
+        "explanation": "Puhelimen poistaminen eliminoi kiusauksen tarkistaa ilmoitukset tai selata sosiaalista mediaa, mikä molemmat lisäävät kognitiivista kiihtymistä. Käytä erillistä herätyskelloa sen sijaan.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "pack-travel-sleep-kit",
+        "text": "Kokoa matkaunipakkaus kilpailumatkoja varten",
+        "explanation": "Sisällytä unisilmäsuoja, korvatulpat, oma tyynyliina ja valkoisen kohinan sovellus. Tutut univihjeet vähentävät ensimmäisen yön efektiä vieraissa hotellihuoneissa ja auttavat ylläpitämään unen laatua matkustaessa.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "pre-adjust-for-time-zones",
+        "text": "Siirrä aikatauluasi 30 minuuttia päivässä ennen aikavyöhykkeiden yli matkustamista",
+        "explanation": "Asteittainen ennakkosopeutuminen ehkäisee aikaeroväsymykseen liittyvää suorituskyvyn laskua. Aloita kolmesta neljään päivää ennen lähtöä ja käytä aamu- tai iltavaloaltistusta siirtymän nopeuttamiseksi.",
+        "category": "daytime",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "Jaksota unitavoitteesi harjoitussuunnitelmasi rinnalla: tavoittele yhdeksästä kymmeneen tuntia raskaiden kuormitusjaksojen aikana ja kahdeksaa tuntia kevennysviikoilla.",
+      "Käytä HRV-trenditietojasi tunnistaaksesi, milloin kertynyt univelka vaikuttaa palautumiseen, ja ajoita ennakoivasti aikaisempi nukkumaanmenoaika ennen kuin suorituskyky kärsii.",
+      "Kilpailumatkapäivinä altista itsesi kirkkaalle valolle kohdemaan aikavyöhykettä vastaavina aikoina nopeuttaaksesi vuorokausirytmin sopeutumista.",
+      "Jos sinun täytyy katsoa pelivideoita illalla, käytä sinistä valoa suodattavia laseja ja aseta ehdoton takaraja 45 minuuttia ennen rauhoittumisrutiinisi alkua.",
+      "Testaa kaikki uudet unilisäravinteet, kuten magnesiumglusinaatti tai hapankirsikkauute, matalan panoksen harjoitusviikolla ennen varmistaaksesi, etteivät ne aiheuta ruoansulatusongelmia tai tokkuraisuutta."
+    ],
+    "conclusion": "Johdonmukainen unihygienia ei ole täydellisyyden tavoittelua — se on luotettavien tapojen rakentamista, jotka kertautuvat ajan myötä. Aloita tarkistamalla tämän listan olennaiset kohdat ja lisää suositellut ja bonuskäytännöt sitä mukaa, kun ne muuttuvat toiseksi luonnoksi. Kehosi tekee parhaan palautumistyönsä nukkuessasi, joten anna sille kaikki mahdollinen etu."
+  }
+}

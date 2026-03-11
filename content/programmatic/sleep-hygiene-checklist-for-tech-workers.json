@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "tech-workers",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Sleep Hygiene Checklist for Tech Workers",
+    "description": "A 20-point sleep hygiene checklist built for tech workers. Tackle blue light, on-call stress, caffeine habits, and cognitive overload for better rest.",
+    "keywords": [
+      "sleep hygiene checklist",
+      "tech worker sleep routine",
+      "developer sleep habits",
+      "blue light sleep hygiene",
+      "programmer sleep checklist",
+      "on-call sleep tips",
+      "screen time sleep",
+      "sleep optimization tech"
+    ]
+  },
+  "content": {
+    "intro": "You optimize your code, your CI pipelines, and your development environment, but have you ever optimized your sleep? This checklist gives you 20 specific, actionable items designed for the unique sleep challenges that come with working in tech. Use it as a nightly reference until these habits become automatic.",
+    "why_this_checklist": "Tech workers face a distinct combination of sleep disruptors: prolonged screen exposure across multiple devices, high cognitive load that makes it hard to switch off, irregular schedules driven by on-call rotations and global team meetings, and a culture that often glorifies late-night productivity. This checklist addresses each of these factors with evidence-based actions you can implement immediately.",
+    "items": [
+      {
+        "id": "enable-night-mode-all-screens",
+        "text": "Enable night mode on all screens by evening",
+        "explanation": "Set f.lux, Night Shift, or your OS night mode to activate automatically two hours before bedtime on every device you use. This reduces blue light emission that suppresses melatonin production.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "stop-coding-90-minutes-before-bed",
+        "text": "Close your IDE 90 minutes before bedtime",
+        "explanation": "Active coding, debugging, and code review keep your prefrontal cortex in analytical mode. Give your brain enough time to transition out of problem-solving before you try to sleep.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "set-caffeine-cutoff",
+        "text": "Cut off all caffeine intake by 2 PM",
+        "explanation": "With a half-life of 5-6 hours, afternoon caffeine from coffee or energy drinks is still circulating in your bloodstream at bedtime. Set a firm daily cutoff and stick to it even during crunch periods.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "remove-work-devices-from-bedroom",
+        "text": "Remove all work devices from your bedroom",
+        "explanation": "Your brain forms strong associations between spaces and activities. If your laptop lives on your nightstand, your bedroom becomes an extension of your office and your brain stays in work mode.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "set-bedroom-temperature",
+        "text": "Set bedroom temperature to 65-68 degrees Fahrenheit",
+        "explanation": "Your core body temperature needs to drop by about 2-3 degrees to initiate sleep. A cool room facilitates this natural thermoregulation process and leads to deeper, more restorative sleep.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "do-not-disturb-schedule",
+        "text": "Activate Do Not Disturb on your phone nightly",
+        "explanation": "Slack notifications, GitHub alerts, and monitoring pings can pull you out of sleep or prevent you from falling asleep. Schedule automatic Do Not Disturb and whitelist only true emergency contacts.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "dim-home-office-lights",
+        "text": "Dim your home office lights after work hours",
+        "explanation": "Bright overhead lighting in your workspace mimics daylight and delays melatonin onset. Switch to warm, low-intensity lighting in the evening to support your circadian transition.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "cognitive-dump-journal",
+        "text": "Write a cognitive dump journal entry before bed",
+        "explanation": "Offload open loops, unresolved bugs, and tomorrow's tasks from your working memory onto paper. This reduces the mental rumination that keeps developers staring at the ceiling.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "morning-sunlight-exposure",
+        "text": "Get 10 minutes of sunlight within an hour of waking",
+        "explanation": "Morning light exposure sets your circadian clock and improves your ability to fall asleep at night. Step outside before you open your laptop, even on overcast days.",
+        "category": "morning",
+        "priority": "recommended"
+      },
+      {
+        "id": "consistent-wake-time",
+        "text": "Wake up at the same time every day including weekends",
+        "explanation": "A consistent wake time is the single most powerful anchor for your circadian rhythm. Sleeping in on weekends creates social jet lag that makes Monday mornings feel even worse.",
+        "category": "morning",
+        "priority": "recommended"
+      },
+      {
+        "id": "avoid-late-night-side-projects",
+        "text": "Avoid working on side projects after 9 PM",
+        "explanation": "Side projects and open-source contributions feel different from your day job, but your brain processes complex coding the same way regardless. Save creative coding for morning hours when it benefits from fresh cognitive resources.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "post-lunch-walk",
+        "text": "Take a 20-minute walk outdoors after lunch",
+        "explanation": "A midday walk provides natural light exposure during the optimal circadian window and builds gentle physical fatigue. It also gives your eyes a break from screen-focused near vision.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "standing-desk-intervals",
+        "text": "Alternate sitting and standing every 45 minutes at your desk",
+        "explanation": "Prolonged sitting leaves your body physically understimulated while your mind is exhausted. Regular standing intervals engage your postural muscles and contribute to the physical tiredness that promotes deep sleep.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "limit-evening-sugar-intake",
+        "text": "Avoid sugary snacks and energy drinks after dinner",
+        "explanation": "Late-night sugar spikes from energy drinks, candy, or snacks consumed during evening coding sessions cause blood sugar fluctuations that fragment sleep. Choose protein-rich snacks if you need something.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "blackout-bedroom",
+        "text": "Use blackout curtains or a sleep mask in your bedroom",
+        "explanation": "Even small amounts of ambient light from streetlights or device LEDs can suppress melatonin and reduce sleep quality. Block all light sources for uninterrupted darkness throughout the night.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "pre-sleep-stretching",
+        "text": "Do 10 minutes of stretching before getting into bed",
+        "explanation": "Hours of desk work creates chronic tension in your neck, shoulders, and hip flexors. Gentle stretching releases this tension, lowers cortisol, and activates your parasympathetic nervous system.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "separate-on-call-device",
+        "text": "Use a separate device for on-call duty nights",
+        "explanation": "Keeping on-call alerts on your personal phone creates anticipatory anxiety every night, even when you are not on call. A dedicated on-call device lets your brain fully disengage from work when the device is off.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "morning-exercise-routine",
+        "text": "Exercise in the morning rather than late evening",
+        "explanation": "Vigorous exercise within 2-3 hours of bedtime raises core body temperature and adrenaline levels, delaying sleep onset. Moving your workout to the morning improves both your sleep and your daytime energy.",
+        "category": "morning",
+        "priority": "bonus"
+      },
+      {
+        "id": "hydration-cutoff",
+        "text": "Stop drinking large amounts of fluids 90 minutes before bed",
+        "explanation": "Staying hydrated is important during long coding sessions, but drinking too much water close to bedtime leads to nighttime bathroom trips that fragment your sleep cycles.",
+        "category": "nutrition",
+        "priority": "bonus"
+      },
+      {
+        "id": "daytime-screen-breaks",
+        "text": "Take a 5-minute screen break every hour during the workday",
+        "explanation": "Cumulative screen strain from a full day of monitor use increases eye fatigue and mental exhaustion that can paradoxically make it harder to fall asleep. Regular breaks reduce the total strain your visual system carries into the evening.",
+        "category": "daytime",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "Set up a Home Assistant or smart home automation that dims all lights, activates night mode on your smart TV, and adjusts your thermostat at a scheduled time each evening so your environment transitions automatically.",
+      "If you are on a global team with meetings that span time zones, negotiate a meeting-free window of at least 3 hours before your bedtime and protect it as firmly as you would protect a production deployment window.",
+      "Use your sleep tracker data to run personal experiments: change one variable per week (caffeine cutoff time, screen curfew, room temperature) and measure the impact on your sleep efficiency score.",
+      "During crunch periods, establish a team-wide sleep protection agreement where on-call responsibilities rotate strictly and no one is expected to be available for more than two consecutive late nights.",
+      "Create a dedicated shutdown ritual for your workday that includes closing all browser tabs, setting your Slack status to away, and physically closing your laptop lid. This creates a psychological boundary that tells your brain work is finished."
+    ],
+    "conclusion": "You do not need to check off all 20 items on day one. Start with the six essential items, build consistency over two weeks, then layer in the recommended and bonus items as your routine solidifies. Treat this checklist the way you would treat a deployment runbook: follow the steps, track the outcomes, and iterate. Better sleep is the highest-leverage investment you can make in your performance and well-being as a tech professional."
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "new-parents",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Unihygienian tarkistuslista tuoreille vanhemmille",
+    "description": "Käytä tätä 20 kohdan unihygienian tarkistuslistaa, joka on suunniteltu tuoreille vanhemmille. Rakenna parempia unitapoja, vaikka vastasyntynyt herättäisi sinut läpi yön.",
+    "keywords": [
+      "unihygienia tarkistuslista",
+      "tuoreen vanhemman unitarkistuslista",
+      "unihygienia vanhemmille",
+      "synnytyksen jälkeiset unitavat",
+      "vastasyntyneen vanhemman uniopas",
+      "parempi uni vauvan kanssa",
+      "unirutiini tarkistuslista",
+      "terveelliset unitavat vanhemmille"
+    ]
+  },
+  "content": {
+    "intro": "Unihygienia voi tuntua kaukaiselta ylellisyydeltä vastasyntyneen kanssa, mutta pienet, tarkoitukselliset tavat voivat tehdä todellisen eron saamasi levon laatuun. Tämä tarkistuslista antaa sinulle 20 konkreettista ja toteutettavaa kohtaa, joita voit alkaa käyttää jo tänään. Sinun ei tarvitse tehdä kaikkia kerralla; valitse muutama elämäntilanteeseesi sopiva ja lisää muita sitä mukaa kun uusi arki vakiintuu.",
+    "why_this_checklist": "Tuoreet vanhemmat kohtaavat ainutlaatuisia unihaasteita, joihin yleiset neuvot eivät vastaa – pirstaleisista unirytmeistä haavoittuvaisen vastasyntyneen hoitamisen aiheuttamaan ahdistukseen. Tämä tarkistuslista on räätälöity sinun todellisuuteesi ja keskittyy käytännön askeleisiin, jotka toimivat silloinkin kun yöt ovat arvaamattomia. Jokainen kohta perustuu unitutkimukseen ja on mukautettu varhaisen vanhemmuuden rajoitteisiin.",
+    "items": [
+      {
+        "id": "keep-bedroom-cool",
+        "text": "Aseta makuuhuoneen lämpötila 15–19 asteeseen",
+        "explanation": "Viileä huone auttaa kehon ydinlämpötilaa laskemaan, mikä on keskeinen nukahtamisen käynnistäjä. Tämä on erityisen tärkeää, jos nukut vauvan lähellä tai kehonlämpötilasi vaihtelee synnytyksen jälkeen.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "use-blackout-curtains",
+        "text": "Asenna pimennysverhot tai -kaihtimet makuuhuoneeseen",
+        "explanation": "Ulkoa tulevan valon estäminen auttaa nukahtamaan epätavallisina aikoina, kuten päiväunilla vauvan nukkuessa. Jopa katuvalaistus tai varhainen aamunkoitto voi häiritä jo ennestään katkonaista untasi.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "consistent-wake-time",
+        "text": "Herää joka aamu samaan aikaan kun mahdollista",
+        "explanation": "Säännöllinen heräämisaika ankkuroi vuorokausirytmisi, vaikka kokonaisunesi olisi vähentynyt. Tämä auttaa kehoasi ennakoimaan milloin olla virkeä ja milloin väsynyt, helpottaen nukahtamista illalla.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "morning-light-exposure",
+        "text": "Altista itsesi kirkkaalle luonnonvalolle 30 minuutin sisällä heräämisestä",
+        "explanation": "Aamun auringonvalo estää melatoniinin eritystä ja viestittää aivoille, että päivä on alkanut. Lyhyt ulkokävely vauvan kanssa antaa molemmille valon altistuksen, jota sisäiset kellonne tarvitsevat.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "cut-caffeine-by-1pm",
+        "text": "Lopeta kofeiinin nauttiminen kello 13 jälkeen",
+        "explanation": "Kofeiini pysyy aktiivisena elimistössäsi viidestä kuuteen tuntia, ja iltapäivän nauttiminen voi viivästyttää nukahtamista merkittävästi. Siirtyminen yrttiteehen tai veteen lounaan jälkeen suojaa yöunen ikkunaasi.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "limit-heavy-meals-before-bed",
+        "text": "Vältä raskaita aterioita kahden tunnin sisällä nukkumaanmenosta",
+        "explanation": "Raskaat ateriat lähellä nukkumaanmenoa lisäävät aineenvaihdunnan aktiivisuutta ja voivat aiheuttaa epämukavuutta tai happorefluksia, jotka molemmat häiritsevät nukahtamista ja unessa pysymistä. Kevyt iltapala on kuitenkin sallittu nälän yllättäessä.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "dim-lights-evening",
+        "text": "Himmennä kodin valot tunti ennen tavoiteltua nukkumaanmenoaikaa",
+        "explanation": "Kirkas keinovalo illalla estää melatoniinin tuotantoa. Himmennyskytkimien käyttö tai kattovalojen sammuttaminen pöytälamppujen hyväksi auttaa valmistelemaan aivojasi uneen.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "no-screens-30-min",
+        "text": "Laita kaikki näytöt pois 30 minuuttia ennen nukkumaanmenoa",
+        "explanation": "Puhelimien, tablettien ja televisioiden sininen valo viivästyttää melatoniinin vapautumista ja stimuloi aivoja, kun niiden pitäisi rauhoittua. Käytä tämä aika rauhoittavaan toimintaan, kuten lukemiseen tai kevyeen venyttelyyn.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "wind-down-routine",
+        "text": "Noudata lyhyttä 5–10 minuutin rauhoittumisrutiinia",
+        "explanation": "Lyhyt ja johdonmukainen iltarutiini, kuten syvähengitys, kasvojen pesu tai kevyt venyttely, luo ehdollistuneen signaalin, joka kertoo aivoille, että on aika nukkua. Sen ei tarvitse olla monimutkainen ollakseen tehokas.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "use-white-noise",
+        "text": "Pidä valkoisen kohinan laitetta tai tuuletinta päällä nukkuessasi",
+        "explanation": "Valkoinen kohina peittää vauvan, kumppanin tai ympäristön äkilliset äänet, jotka saattaisivat herättää sinut kevyemmissä univaiheissa. Se luo tasaisen äänitaustan, joka auttaa pysymään unessa pidempään.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "reserve-bed-for-sleep",
+        "text": "Käytä sänkyäsi vain nukkumiseen, älä selaamiseen tai murehtimiseen",
+        "explanation": "Ärsykekontrolli on todistettu tekniikka unettomuuden kognitiivisesta käyttäytymisterapiasta. Kun aivosi yhdistävät sängyn yksinomaan nukkumiseen, nukahdat nopeammin käydessäsi makuulle.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "share-night-duties",
+        "text": "Sovi yövuoroista kumppanisi kanssa jos mahdollista",
+        "explanation": "Yön jakaminen niin, että kumpikin vanhempi saa vähintään yhden kolmen tai neljän tunnin yhtäjaksoisen unijakson, mahdollistaa kokonaisten unisyklien läpikäymisen. Tämä parantaa sekä syvän unen että REM-unen laatua.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "gentle-daily-movement",
+        "text": "Liiku kevyesti vähintään 20 minuuttia päivässä",
+        "explanation": "Kevyt liikunta, kuten kävely tai synnytyksen jälkeinen jooga, lisää syvää hidasaaltoista unta yöllä ja vähentää ahdistuneisuutta. Vältä raskasta liikuntaa kahden tunnin sisällä nukkumaanmenosta, sillä se voi olla piristävää.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "nap-when-baby-naps",
+        "text": "Ota lyhyet nokoset vauvan päiväunien aikana",
+        "explanation": "20–30 minuutin nokoset palauttavat vireystilan aiheuttamatta unihumalaa. Aseta kotityöt toiselle sijalle ja priorisoi lepo tämän ikkunan aikana, erityisesti kolmen ensimmäisen kuukauden aikana.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "hydrate-throughout-day",
+        "text": "Juo riittävästi päivällä ja vähennä nesteitä ennen nukkumaanmenoa",
+        "explanation": "Nestehukka voi aiheuttaa päänsärkyä ja levottomuutta, mutta liiallinen juominen ennen nukkumaanmenoa johtaa toistuviin vessakäynteihin. Painota vedenjuontia aikaisemmalle päivälle tasapainottaaksesi molempia tarpeita.",
+        "category": "nutrition",
+        "priority": "bonus"
+      },
+      {
+        "id": "prepare-nighttime-station",
+        "text": "Järjestä himmeästi valaistu ja mukava syöttöpiste makuuhuoneen ulkopuolelle",
+        "explanation": "Erillinen tila yösyötöille himmeine valaistuksineen ja tarvikkeineen pitää makuuhuoneesi yhdistettynä nukkumiseen. Voit palata sänkyyn ja nukahtaa uudelleen nopeammin jokaisen syötön jälkeen.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "write-worry-journal",
+        "text": "Kirjoita huolesi tai tehtävälistasi ylös ennen nukkumaanmenoa",
+        "explanation": "Ajatusten ulkoistaminen paperille vähentää kognitiivista ylivireyttä, joka pitää sinut hereillä. Jo kahdesta kolmeen minuuttia tätä harjoitusta on osoitettu nopeuttavan nukahtamista merkittävästi.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "limit-alcohol",
+        "text": "Vältä alkoholia unilääkkeenä, erityisesti synnytyksen jälkeen",
+        "explanation": "Vaikka alkoholi voi auttaa nukahtamaan aluksi, se häiritsee REM-unta ja lisää yöheräämisiä. Imettäville vanhemmille se vaikuttaa myös maidon koostumukseen ja vauvan unirytmiin.",
+        "category": "nutrition",
+        "priority": "bonus"
+      },
+      {
+        "id": "practice-self-compassion",
+        "text": "Luovu perfektionismista ja harjoittele itsemyötätuntoa unen suhteen",
+        "explanation": "Huoli riittämättömästä unesta luo itseään toteuttavan kierteen ahdistusta ja unettomuutta. Muistuta itseäsi, että epätäydellinen uni on normaalia tuoreille vanhemmille ja että tämä vaihe on väliaikainen.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "accept-help-from-others",
+        "text": "Ota vastaan tarjottu apu, jotta voit levätä päivällä",
+        "explanation": "Luotetun ystävän tai perheenjäsenen antaminen vahtia vauvaasi edes tunnin ajan antaa sinulle mahdollisuuden palauttavaan lepoon. Sinun ei tarvitse tehdä kaikkea yksin, ja avun pyytäminen on vahvuuden merkki.",
+        "category": "daytime",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "Seuraa vauvasi pisintä unijaksoa viikon ajan ja sovita oma nukkumaanmenoaikasi päällekkäin sen kanssa, vaikka se tarkoittaisi nukkumaanmenoa jo kello 20.",
+      "Jos imetät, kokeile kylkiasennossa syöttämistä, jotta kehosi saa levätä vauvan syödessä. Tämä vähentää yösyöttöjen fyysistä rasitusta.",
+      "Pidä unipäiväkirjaa viikon ajan tunnistaaksesi suurimmat unesi häiriötekijät. Keskitä sitten energiasi näiden yksittäisten ongelmien ratkaisemiseen sen sijaan, että yrittäisit muuttaa kaikkea kerralla.",
+      "Harkitse unettomuuden kognitiivista käyttäytymisterapiaa (KKT-I), jos uniongelmat jatkuvat vastasyntynevaiheen jälkeenkin, sillä se on tehokkaampi ja turvallisempi kuin unilääkkeet pitkäaikaistulosten kannalta.",
+      "Jos huomaat jatkuvaa surullisuutta, ahdistusta tai pelkoa, joka ylittää normaalin väsymyksen, keskustele terveydenhuollon ammattilaisen kanssa synnytyksen jälkeisistä mielialahäiriöistä, jotka ovat yleisiä ja hoidettavissa."
+    ],
+    "conclusion": "Sinun ei tarvitse rastittaa jokaista kohtaa tästä listasta nähdäksesi todellisia parannuksia unessasi. Aloita muutamasta olennaisimmasta kohdasta, huomioi miten ne vaikuttavat lepoosi ja lisää vähitellen lisää perheesi arjen vakiintuessa. Unesi on tärkeä, ja pienetkin askeleet sen suojelemiseksi auttavat sinua olemaan sellainen vanhempi kuin haluat olla."
+  }
+}

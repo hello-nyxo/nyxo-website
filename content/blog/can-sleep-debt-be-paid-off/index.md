@@ -1,5 +1,6 @@
 ---
 slug: "can-sleep-debt-be-paid-off"
+lang: "en"
 date: "2020-04-06"
 title: "Can Sleep Debt Be Paid Off?"
 authorSlug: "anu-katriina-pesonen"

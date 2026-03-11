@@ -66,7 +66,7 @@ export default async function AuthorPage({ params }: PageProps) {
   });
 
   // Find blog posts by this author
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts(locale);
   const authorPosts = allPosts.filter(
     (p) => p.authorSlug === slug || p.author.toLowerCase() === name.toLowerCase()
   );

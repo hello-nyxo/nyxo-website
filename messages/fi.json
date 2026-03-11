@@ -22,6 +22,7 @@
 
   "NAVIGATION": {
     "COACHING": "Valmennus",
+    "SLEEP_GUIDES": "Uniopas",
     "BLOG": "Blogi",
     "ABOUT": "Meistä"
   },
@@ -238,6 +239,44 @@
     "NO_RESULTS_TEXT": "Haullasi ei löytynyt mitään. Kokeile toista hakusanaa.",
     "HINT": "Navigoi ↑↓ · Valitse ↵",
     "TO_CLOSE": "sulje"
+  },
+
+  "SLEEP": {
+    "HERO_TITLE": "Uniopaat",
+    "HERO_DESCRIPTION": "Tutkimukseen perustuvat unistrategiat, jotka on räätälöity elämäntyyliisi. Löydä oppaita juuri sinun haasteisiisi.",
+    "TIPS_HEADING": "Univinkit elämäntilanteen mukaan",
+    "TIPS_DESCRIPTION": "Käytännöllisiä ja toimivia univinkkejä, jotka on suunniteltu juuri sinun tilanteesi ja haasteidesi mukaan.",
+    "TIPS_COUNT": "{count} vinkkiä",
+    "CHECKLISTS_HEADING": "Unihygienian tarkistuslistat",
+    "CHECKLISTS_DESCRIPTION": "Interaktiiviset tarkistuslistat unihygienian seuraamiseen. Merkitse kohdat suoritetuiksi rakentaessasi parempia unirutiineja.",
+    "ITEMS_COUNT": "{count} kohtaa",
+    "WHY_IT_WORKS": "Miksi tämä toimii:",
+    "QUICK_WINS": "Pikavoitot tähän iltaan",
+    "COMMON_MISTAKES": "Yleisiä virheitä, joita kannattaa välttää",
+    "PRO_TIPS": "Ammattilaisten vinkit",
+    "YOUR_PROGRESS": "Edistymisesi",
+    "COMPLETED": "[checked]/[total] suoritettu",
+    "FILTER_ALL": "Kaikki",
+    "SLEEP_TIPS": "Univinkit",
+    "CHECKLIST": "Tarkistuslista",
+    "CTA_TITLE": "Valmiina muuttamaan untasi?",
+    "CTA_DESCRIPTION": "Tutustu henkilökohtaiseen univalmennusohjelmaasi, joka sisältää tieteeseen perustuvia oppitunteja, tapoja ja seurantaa.",
+    "CTA_BUTTON": "Tutustu valmennukseen",
+    "CATEGORY_ENVIRONMENT": "Ympäristö",
+    "CATEGORY_ROUTINE": "Rutiini",
+    "CATEGORY_NUTRITION": "Ravinto",
+    "CATEGORY_MINDSET": "Mielenhallinta",
+    "CATEGORY_ACTIVITY": "Liikunta",
+    "CATEGORY_BEFORE_BED": "Ennen nukkumista",
+    "CATEGORY_BEDROOM": "Makuuhuone",
+    "CATEGORY_DAYTIME": "Päivällä",
+    "CATEGORY_MORNING": "Aamulla",
+    "DIFFICULTY_EASY": "Helppo",
+    "DIFFICULTY_MODERATE": "Keskitaso",
+    "DIFFICULTY_ADVANCED": "Edistynyt",
+    "PRIORITY_ESSENTIAL": "Välttämätön",
+    "PRIORITY_RECOMMENDED": "Suositeltava",
+    "PRIORITY_BONUS": "Bonus"
   },
 
   "en": "In English",

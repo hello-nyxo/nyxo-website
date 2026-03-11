@@ -51,7 +51,7 @@ export default async function BlogPostPage({
 
   if (!post) notFound();
 
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts(locale);
   const relatedPosts = allPosts
     .filter(
       (p) =>

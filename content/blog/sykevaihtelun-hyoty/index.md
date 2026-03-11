@@ -1,5 +1,6 @@
 ---
 slug: "sykevaihtelun-hyoty"
+lang: "fi"
 date: "2020-08-24"
 title: "Sykevaihtelun mittaaminen (HRV) -- onko hype perusteltua?"
 authorSlug: "pietari-nurmi"

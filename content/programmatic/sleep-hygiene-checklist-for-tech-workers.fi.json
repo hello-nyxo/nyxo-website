@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "tech-workers",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Unihygienian tarkistuslista IT-alan työntekijöille",
+    "description": "20 kohdan unihygienian tarkistuslista IT-alan ammattilaisille. Hallitse sinisen valon vaikutuksia, päivystysstressiä, kofeiinin käyttöä ja kognitiivista kuormitusta paremman unen saavuttamiseksi.",
+    "keywords": [
+      "unihygienia tarkistuslista",
+      "IT-alan työntekijän unirutiini",
+      "ohjelmoijan unitavat",
+      "sininen valo unihygienia",
+      "koodarin unitarkistuslista",
+      "päivystys ja uni",
+      "ruutuaika ja uni",
+      "unen optimointi IT-ala"
+    ]
+  },
+  "content": {
+    "intro": "Optimoit koodiasi, CI-putkiasi ja kehitysympäristöäsi, mutta oletko koskaan optimoinut untasi? Tämä tarkistuslista antaa sinulle 20 konkreettista, toteutettavaa kohtaa, jotka on suunniteltu teknologia-alan työn aiheuttamiin erityisiin unihaasteisiin. Käytä sitä iltaisin viitteenä, kunnes nämä tavat muuttuvat automaattisiksi.",
+    "why_this_checklist": "IT-alan ammattilaiset kohtaavat ainutlaatuisen yhdistelmän unen häiriötekijöitä: pitkäkestoinen näyttöaltistus useiden laitteiden välillä, korkea kognitiivinen kuormitus joka vaikeuttaa irrottautumista, epäsäännölliset aikataulut päivystysrotaatioiden ja globaalien tiimipalaverien vuoksi sekä kulttuuri, joka usein ihailee myöhäisillan tuottavuutta. Tämä tarkistuslista käsittelee jokaista näistä tekijöistä näyttöön perustuvilla toimilla, jotka voit ottaa käyttöön heti.",
+    "items": [
+      {
+        "id": "enable-night-mode-all-screens",
+        "text": "Ota yötila käyttöön kaikissa näytöissä illalla",
+        "explanation": "Aseta f.lux, Night Shift tai käyttöjärjestelmäsi yötila aktivoitumaan automaattisesti kaksi tuntia ennen nukkumaanmenoaikaa jokaisessa käyttämässäsi laitteessa. Tämä vähentää melatoniinin tuotantoa estävää sinisen valon päästöä.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "stop-coding-90-minutes-before-bed",
+        "text": "Sulje kehitysympäristösi 90 minuuttia ennen nukkumaanmenoa",
+        "explanation": "Aktiivinen koodaaminen, debuggaaminen ja katselmoiminen pitävät etuotsalohkon analyyttisessä tilassa. Anna aivoillesi tarpeeksi aikaa siirtyä pois ongelmanratkaisutilasta ennen kuin yrität nukahtaa.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "set-caffeine-cutoff",
+        "text": "Lopeta kofeiinin käyttö kello 14 mennessä",
+        "explanation": "5-6 tunnin puoliintumisajalla iltapäivän kofeiini kahvista tai energiajuomista kiertää edelleen veressäsi nukkumaanmenoaikaan. Aseta ehdoton päivittäinen raja ja pidä siitä kiinni myös kiirejaksoina.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "remove-work-devices-from-bedroom",
+        "text": "Poista kaikki työlaitteet makuuhuoneestasi",
+        "explanation": "Aivosi muodostavat vahvoja assosiaatioita tilojen ja aktiviteettien välille. Jos kannettavasi lepää yöpöydälläsi, makuuhuoneestasi tulee toimiston jatke ja aivosi pysyvät työtilassa.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "set-bedroom-temperature",
+        "text": "Aseta makuuhuoneen lämpötilaksi 18-20 celsiusastetta",
+        "explanation": "Kehosi ydinlämpötilan täytyy laskea noin 2-3 astetta unen käynnistämiseksi. Viileä huone helpottaa tätä luonnollista lämmönsäätelyprosessia ja johtaa syvempään, elvyttävämpään uneen.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "do-not-disturb-schedule",
+        "text": "Aktivoi Älä häiritse -tila puhelimeesi joka ilta",
+        "explanation": "Slack-ilmoitukset, GitHub-hälytykset ja valvontajärjestelmien viestit voivat herättää sinut tai estää nukahtamisen. Ajasta automaattinen Älä häiritse -tila ja salli vain todellisten hätäyhteyshenkilöiden puhelut.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "dim-home-office-lights",
+        "text": "Himmennä kotitoimistosi valot työajan jälkeen",
+        "explanation": "Kirkas kattovalaistus työtilassasi jäljittelee päivänvaloa ja viivästyttää melatoniinin eritystä. Vaihda illalla lämpimään, himmeään valaistukseen tukeaksesi vuorokausirytmin muutosta.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "cognitive-dump-journal",
+        "text": "Kirjoita kognitiivinen tyhjennys päiväkirjaan ennen nukkumaanmenoa",
+        "explanation": "Purkaa avoimet asiat, ratkaisemattomat bugit ja huomisen tehtävät työmuistista paperille. Tämä vähentää henkistä märehtimistä, joka saa kehittäjät tuijottamaan kattoa.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "morning-sunlight-exposure",
+        "text": "Saa 10 minuuttia auringonvaloa tunnin sisällä heräämisestä",
+        "explanation": "Aamuinen valoaltistus asettaa vuorokausikellosi ja parantaa kykyäsi nukahtaa illalla. Mene ulos ennen kuin avaat kannettavasi, myös pilvisellä säällä.",
+        "category": "morning",
+        "priority": "recommended"
+      },
+      {
+        "id": "consistent-wake-time",
+        "text": "Herää samaan aikaan joka päivä, myös viikonloppuisin",
+        "explanation": "Johdonmukainen heräämisaika on tehokkain yksittäinen vuorokausirytmin ankkuri. Viikonloppuisin pitkään nukkuminen aiheuttaa sosiaalista aikaerorasitusta, joka tekee maanantaiaamuista entistä raskaampia.",
+        "category": "morning",
+        "priority": "recommended"
+      },
+      {
+        "id": "avoid-late-night-side-projects",
+        "text": "Vältä sivuprojektien parissa työskentelyä kello 21 jälkeen",
+        "explanation": "Sivuprojektit ja avoimen lähdekoodin kontribuutiot tuntuvat erilaisilta kuin päivätyö, mutta aivosi käsittelevät monimutkaista koodaamista samalla tavalla riippumatta kontekstista. Säästä luova koodaaminen aamuun, jolloin se hyötyy tuoreista kognitiivisista resursseista.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "post-lunch-walk",
+        "text": "Kävele 20 minuuttia ulkona lounaan jälkeen",
+        "explanation": "Päiväkävely tarjoaa luonnonvaloaltistusta optimaalisessa vuorokausirytmi-ikkunassa ja kerryttää kevyttä fyysistä väsymystä. Se antaa myös silmillesi tauon näyttöjen lähietäisyyteen kohdistuvasta katselusta.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "standing-desk-intervals",
+        "text": "Vuorottele istumista ja seisomista 45 minuutin välein",
+        "explanation": "Pitkäkestoinen istuminen jättää kehosi fyysisesti alikuormitetuksi samalla kun mielesi on uuvuksissa. Säännölliset seisomajaksot aktivoivat asentolihaksia ja edistävät fyysistä väsymystä, joka tukee syvää unta.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "limit-evening-sugar-intake",
+        "text": "Vältä sokerisia välipaloja ja energiajuomia illallisen jälkeen",
+        "explanation": "Illan koodausrupeamien aikana nautitut energiajuomat, makeiset tai välipalat aiheuttavat verensokeripiikkejä, jotka pirstovat unta. Valitse proteiinipitoisia välipaloja, jos tarvitset jotain syötävää.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "blackout-bedroom",
+        "text": "Käytä pimennysverhoja tai unimaskia makuuhuoneessasi",
+        "explanation": "Pienetkin määrät ympäristövaloa katulamppuista tai laitteiden LED-valoista voivat estää melatoniinia ja heikentää unen laatua. Estä kaikki valonlähteet katkeamattoman pimeyden varmistamiseksi koko yöksi.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "pre-sleep-stretching",
+        "text": "Venyttele 10 minuuttia ennen sänkyyn menoa",
+        "explanation": "Tuntien pöytätyö aiheuttaa kroonista jännitystä niskaan, hartioihin ja lonkankoukistajiin. Kevyt venyttely vapauttaa jännitystä, laskee kortisolia ja aktivoi parasympaattisen hermoston.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "separate-on-call-device",
+        "text": "Käytä erillistä laitetta päivystysöinä",
+        "explanation": "Päivystyshälytysten pitäminen henkilökohtaisessa puhelimessa luo ennakoivaa ahdistusta joka ilta, vaikka et olisi päivystysvuorossa. Erillinen päivystyslaite antaa aivojesi irrottautua täysin työstä, kun laite on pois päältä.",
+        "category": "bedroom",
+        "priority": "bonus"
+      },
+      {
+        "id": "morning-exercise-routine",
+        "text": "Liiku aamulla myöhäisen illan sijaan",
+        "explanation": "Raskasta liikuntaa 2-3 tuntia ennen nukkumaanmenoa nostaa kehon ydinlämpötilaa ja adrenaliinitasoja, mikä viivästyttää nukahtamista. Treenin siirtäminen aamuun parantaa sekä untasi että päivänaikaista energiatasoasi.",
+        "category": "morning",
+        "priority": "bonus"
+      },
+      {
+        "id": "hydration-cutoff",
+        "text": "Lopeta suurten nestemäärien juominen 90 minuuttia ennen nukkumaanmenoa",
+        "explanation": "Nesteytys on tärkeää pitkien koodausrupeamien aikana, mutta liiallinen veden juominen lähellä nukkumaanmenoa johtaa yöllisiin vessareissuihin, jotka pirstovat unisyklejäsi.",
+        "category": "nutrition",
+        "priority": "bonus"
+      },
+      {
+        "id": "daytime-screen-breaks",
+        "text": "Pidä 5 minuutin näyttötauko tunnin välein työpäivän aikana",
+        "explanation": "Koko päivän kestävä näytön tuijottaminen lisää silmien väsymystä ja henkistä uupumusta, mikä voi paradoksaalisesti vaikeuttaa nukahtamista. Säännölliset tauot vähentävät kokonaisrasitusta, jonka näköjärjestelmäsi kantaa iltaan.",
+        "category": "daytime",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "Luo Home Assistantin tai älykodin automaatio, joka himmentää kaikki valot, aktivoi yötilan älytelevisioosi ja säätää termostaattisi ajastettuun aikaan joka ilta, jotta ympäristösi siirtyy automaattisesti yötilaan.",
+      "Jos olet globaalissa tiimissä, jonka palaverit ylittävät aikavyöhykkeet, neuvottele vähintään kolmen tunnin palaveriton ikkuna ennen nukkumaanmenoaikaasi ja suojele sitä yhtä tiukasti kuin suojelisit tuotantojulkaisun aikataulua.",
+      "Käytä uniseurannan dataa henkilökohtaisten kokeilujen tekemiseen: muuta yhtä muuttujaa viikossa (kofeiiniraja, näyttökielto, huonelämpötila) ja mittaa vaikutus unitehokkuuspisteeseesi.",
+      "Kiirejaksojen aikana sovi tiiminlaajuinen unensuojelusopimus, jossa päivystysvastuut kiertävät tiukasti eikä kenenkään odoteta olevan tavoitettavissa kahta peräkkäistä myöhäistä iltaa enempää.",
+      "Luo omistautunut lopetusrituaali työpäivällesi, joka sisältää kaikkien selaimen välilehtien sulkemisen, Slack-tilasi asettamisen poissa-tilaan ja kannettavan kannen fyysisen sulkemisen. Tämä luo psykologisen rajan, joka viestii aivoillesi, että työ on tehty."
+    ],
+    "conclusion": "Sinun ei tarvitse rastittaa kaikkia 20 kohtaa ensimmäisenä päivänä. Aloita kuudesta välttämättömästä kohdasta, rakenna johdonmukaisuus kahden viikon aikana ja lisää sitten suositellut ja bonuskohdat rutiinisi vakiintuessa. Käsittele tätä tarkistuslistaa samalla tavalla kuin käsittelisit julkaisun tarkistuslistaa: seuraa ohjeita, mittaa tuloksia ja iteroi. Parempi uni on tehokkain investointi, jonka voit tehdä suorituskykyysi ja hyvinvointiisi teknologia-alan ammattilaisena."
+  }
+}

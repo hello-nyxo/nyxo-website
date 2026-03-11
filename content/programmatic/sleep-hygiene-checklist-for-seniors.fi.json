@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "seniors",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Unihygienian tarkistuslista ikäihmisille",
+    "description": "20 kohdan unihygienian tarkistuslista yli 60-vuotiaille. Kattaa makuuhuoneen järjestelyn, päiväaikaiset tavat, ravitsemuksen ja rutiinit unen laadun parantamiseksi.",
+    "keywords": [
+      "unihygienia tarkistuslista ikäihmisille",
+      "ikääntyneiden unen tarkistuslista",
+      "unirutiini ikäihmisille",
+      "seniorien iltarutiini tarkistuslista",
+      "unihygienia yli 60",
+      "terveelliset unitavat ikääntyneille",
+      "unen laadun parantaminen senioreille",
+      "ikään liittyvät uniratkaisut"
+    ]
+  },
+  "content": {
+    "intro": "Hyvä unihygienia on levollisten öiden perusta, ja sen merkitys korostuu entisestään iän myötä. Tämä tarkistuslista tarjoaa sinulle 20 konkreettista toimenpidettä, jotka voit toteuttaa omaan tahtiisi. Käytä sitä päivittäisenä muistilistana rakentaaksesi tapoja, jotka tukevat syvempää ja tasaisempaa unta.",
+    "why_this_checklist": "60 ikävuoden jälkeen kehosi tuottaa vähemmän melatoniinia, unesi muuttuu kevyemmäksi, ja tilat kuten krooninen kipu, nokturia ja lääkkeiden sivuvaikutukset voivat kaikki häiritä lepoa. Järjestelmällinen tarkistuslista auttaa sinua käsittelemään nämä haasteet suunnitelmallisesti arvailun sijaan. Tutkimukset osoittavat, että moniosainen unihygieniaohjelma on tehokkaampi kuin mikään yksittäinen muutos.",
+    "items": [
+      {
+        "id": "consistent-bedtime",
+        "text": "Mene nukkumaan samaan aikaan joka ilta",
+        "explanation": "Säännöllinen nukkumaanmenoaika ankkuroi vuorokausirytmisi, joka heikkenee iän myötä. Johdonmukaisuus auttaa aivojasi ennakoimaan unta ja aloittamaan rauhoittumisen automaattisesti.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "consistent-wake-time",
+        "text": "Herää joka aamu samaan aikaan",
+        "explanation": "Heräämisaika on tärkein yksittäinen ankkuri vuorokausikellollesi. Sen pitäminen vakaana, myös huonon yön jälkeen, estää unirytmiäsi ajautumasta.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "morning-light-exposure",
+        "text": "Saa 20 minuuttia kirkasta valoa joka aamu",
+        "explanation": "Aamuvalo viestittää aivoillesi melatoniinin tuotannon lopettamisesta ja päiväaikaisen vireystilan aloittamisesta. Tämä on erityisen tärkeää ikääntyneille, joiden vähentynyt melatoniinituotanto heikentää vuorokausirytmin signaaleja.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "cool-bedroom-temperature",
+        "text": "Pidä makuuhuoneen lämpötila 18–20 asteessa",
+        "explanation": "Viileä huone tukee kehon luonnollista ydinlämpötilan laskua, joka käynnistää nukahtamisen. Ikääntyneiden lämmönsäätely on usein heikentynyt, mikä tekee ympäristön lämpötilan hallinnasta entistä tärkeämpää.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "dark-sleeping-environment",
+        "text": "Estä kaikki valonlähteet makuuhuoneestasi",
+        "explanation": "Käytä pimennysverhoja tai unimaskia ja peitä kaikki LED-merkkivalot. Ikääntyneiden silmät ovat alttiimpia valon aiheuttamalle melatoniinin tukahduttamiselle, jopa luomien läpi.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "limit-evening-fluids",
+        "text": "Lopeta suuret juomat kaksi tuntia ennen nukkumaanmenoa",
+        "explanation": "Nokturia on yksi yleisimmistä unen häiriötekijöistä yli 60-vuotiailla. Ilta-aikaisen nesteiden saannin vähentäminen pienentää niiden WC-käyntien määrää, jotka pirstaloivat unisyklejäsi.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "wind-down-routine",
+        "text": "Aloita 30 minuutin rauhoittumisrutiini ennen nukkumaanmenoa",
+        "explanation": "Himmennä valoja ja vaihda rauhoittaviin toimintoihin, kuten lukemiseen tai kevyeen venyttelyyn. Ennustettava rutiini opettaa hermostosi siirtymään valppaustilasta uneliaisuuteen.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "no-screens-before-bed",
+        "text": "Sammuta ruudut 60 minuuttia ennen nukkumaanmenoa",
+        "explanation": "Puhelimien, tablettien ja television sininen valo tukahduttaa melatoniinin tuotantoa. Koska melatoniinitasosi ovat jo matalammat iän myötä, ruutujen välttäminen illalla suojaa jäljellä olevaa tuotantoa.",
+        "category": "before-bed",
+        "priority": "recommended"
+      },
+      {
+        "id": "caffeine-cutoff",
+        "text": "Vältä kaikkea kofeiinia kello 12 jälkeen",
+        "explanation": "Kofeiinin aineenvaihdunta hidastuu merkittävästi iän myötä, joten iltapäivän kahvi voi olla yhä aktiivisena elimistössäsi nukkumaanmenoaikaan. Vaihda yrttiteehen tai kofeiinittomiin vaihtoehtoihin keskipäivän jälkeen.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "daily-physical-activity",
+        "text": "Liiku vähintään 30 minuuttia päivässä",
+        "explanation": "Säännöllinen kohtalainen liikunta, kuten kävely tai uinti, lisää palauttavan hidasaaltoisen unen määrää. Lopeta raskas liikunta vähintään neljä tuntia ennen nukkumaanmenoa.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "limit-naps",
+        "text": "Rajoita päiväunet alle 20 minuuttiin ennen kello 14",
+        "explanation": "Lyhyet alkuiltapäivän nokoset voivat kohottaa vireyttä heikentämättä yöunta. Pidemmät tai myöhäisemmät päiväunet vähentävät unipainettasi ja vaikeuttavat nukahtamista tavanomaiseen nukkumaanmenoaikaan.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "amber-nightlights",
+        "text": "Asenna keltasävyiset yövalot WC-käyntejä varten",
+        "explanation": "Lämmin sävyiset yövalot auttavat sinua liikkumaan turvallisesti altistamatta sinua siniselle tai valkoiselle valolle, joka tukahduttaa melatoniinia. Liiketunnistimella varustetut mallit ovat ihanteellisia kaatumisriskin vähentämiseksi.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "comfortable-mattress",
+        "text": "Varmista, että patjasi tukee niveliä ja selkärangan linjausta",
+        "explanation": "Nivelrikosta tai niveljäykkyydestä johtuva krooninen kipu on merkittävä yöllisten heräämisten syy ikääntyneillä. Keskitukeva patja riittävällä paineenpoistolla voi merkittävästi vähentää kipuun liittyvää unen häiriintymistä.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "review-medications",
+        "text": "Käy lääkkeiden ajoitus läpi lääkärisi kanssa vuosittain",
+        "explanation": "Monet yleiset reseptilääkkeet, kuten diureetit, beetasalpaajat ja kortikosteroidit, voivat häiritä unta. Lääkärisi saattaa pystyä säätämään ottoaikaa yöllisten häiriöiden minimoimiseksi.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "morning-hydration",
+        "text": "Juo suurin osa päivän nesteistä ennen kello 16",
+        "explanation": "Nestetarpeen painottaminen alkupäivään varmistaa, että pysyt hyvin nesteytettynä päivällä ja vähennät luonnostaan tarvetta yöllisille WC-käynneille. Tämä on yksinkertainen keino hallita nokturia.",
+        "category": "morning",
+        "priority": "bonus"
+      },
+      {
+        "id": "light-evening-snack",
+        "text": "Syö pieni tryptofaanipitoinen iltapala ennen nukkumaanmenoa",
+        "explanation": "Kevyt välipala, kuten banaani muutaman mantelin kanssa tai täysjyvämuroja maidon kera, tarjoaa tryptofaania – unta edistävän melatoniinin ja serotoniinin esiastetta. Vältä raskaita tai mausteisia ruokia, jotka voivat laukaista refluksin.",
+        "category": "nutrition",
+        "priority": "bonus"
+      },
+      {
+        "id": "relaxation-breathing",
+        "text": "Harjoittele syvähengitystä sängyssä",
+        "explanation": "Hidas palleahengitys pidennetyin uloshengityksin aktivoi parasympaattista hermostoasi. Jo viisi minuuttia keskittynyttä hengitystä voi laskea sykettäsi ja helpottaa nukahtamista.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "sleep-diary",
+        "text": "Pidä lyhyttä unipäiväkirjaa joka aamu",
+        "explanation": "Nukkumaanmenoajan, heräämisajan ja yöllisten heräämisten kirjaaminen auttaa sinua havaitsemaan kaavoja ja tunnistamaan henkilökohtaisia unen häiriötekijöitä. Näytä päiväkirjaa terveydenhuollon ammattilaiselle kohdennetumpien neuvojen saamiseksi.",
+        "category": "morning",
+        "priority": "bonus"
+      },
+      {
+        "id": "social-engagement",
+        "text": "Ylläpidä säännöllistä sosiaalista toimintaa päivisin",
+        "explanation": "Sosiaalinen vuorovaikutus tukee tervettä vuorokausirytmiä pitämällä sinut henkisesti virkeänä ja fyysisesti aktiivisena päiväsaikaan. Eristäytyminen ja toimettomuus heikentävät usein unen laatua ikääntyneillä.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "manage-pain-proactively",
+        "text": "Puutu krooniseen kipuun ennen kuin se häiritsee yöuntasi",
+        "explanation": "Työskentele lääkärisi kanssa nivelrikon, selkäkivun tai neuropatian hallitsemiseksi oikein ajoitetuilla lääkkeillä, kevyellä venyttelyllä tai lämpöhoidolla ennen nukkumaanmenoa. Hallitsematon kipu on yksi yleisimmistä ja hoidettavissa olevista unettomuuden syistä ikääntyneillä.",
+        "category": "before-bed",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "Jos heräät yöllä etkä pysty nukahtamaan uudelleen 20 minuutissa, nouse sängystä ja tee hiljaista toimintaa himmeässä valossa, kunnes sinua väsyttää, ja palaa sitten vuoteeseen.",
+      "Harkitse unitutkimuksen pyytämistä lääkäriltäsi, jos kuorsaat kovaa, haukkot henkeä nukkuessasi tai tunnet itsesi poikkeuksellisen väsyneeksi riittävästä vuodeajasta huolimatta – diagnosoimaton uniapnea on yleistä ikääntyneillä.",
+      "Käytä valkoisen kohinan laitetta tai tuuletinta peittämään ympäristön ääniä, jotka häiritsevät enemmän, kun uni muuttuu luonnostaan kevyemmäksi iän myötä.",
+      "Jos käytät melatoniinia, käytä pienintä tehokasta annosta (0,5–1 mg) noin 90 minuuttia ennen nukkumaanmenoa ja kysy ensin lääkäriltäsi, sillä melatoniini voi vaikuttaa verenohennuslääkkeiden ja diabeteslääkkeiden kanssa.",
+      "Säädä unirytmiäsi asteittain 15 minuuttia viikossa äkillisten muutosten sijaan – näin ikääntyvä vuorokausijärjestelmäsi ehtii sopeutua sujuvasti."
+    ],
+    "conclusion": "Sinun ei tarvitse ratkaista jokaista kohtaa tässä listassa kerralla. Aloita olennaisista, anna jokaiselle muutokselle viikko tai kaksi aikaa vaikuttaa ja lisää sitten uusia kohtia vauhtisi kasvaessa. Johdonmukaiset pienet parannukset kertyvät merkittävästi paremmaksi uneksi – ja sinä pystyt ehdottomasti siihen."
+  }
+}

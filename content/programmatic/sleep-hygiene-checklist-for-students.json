@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "content_type": "sleep-checklist",
+    "audience_slug": "students",
+    "generated_at": "2026-03-11T00:00:00.000Z"
+  },
+  "seo": {
+    "title": "Sleep Hygiene Checklist for Students",
+    "description": "A practical 20-point sleep hygiene checklist designed for high school and university students to improve sleep quality, boost focus, and ace exams.",
+    "keywords": [
+      "sleep hygiene checklist students",
+      "college student sleep tips",
+      "better sleep for students",
+      "student sleep schedule",
+      "dorm room sleep hygiene",
+      "social jet lag students",
+      "exam week sleep tips",
+      "caffeine and student sleep"
+    ]
+  },
+  "content": {
+    "intro": "As a student, you are juggling classes, assignments, social life, and possibly a part-time job, so sleep often takes the back seat. But research consistently shows that well-rested students earn higher grades, retain information more effectively, and experience less anxiety. This checklist gives you 20 concrete actions you can start tonight to reclaim your sleep and perform at your best.",
+    "why_this_checklist": "A checklist works because it removes the guesswork and turns good sleep into a repeatable habit. Studies on implementation intentions show that people who follow concrete action lists are two to three times more likely to follow through than those who rely on vague goals. For students facing irregular schedules and constant distractions, having a tangible list you can pin to your dorm wall or save on your phone makes consistency far easier.",
+    "items": [
+      {
+        "id": "set-consistent-wake-time",
+        "text": "Wake up at the same time every day",
+        "explanation": "Your circadian rhythm anchors to your wake time more than your bedtime. Keeping it consistent, even on weekends, reduces the social jet lag that leaves you groggy on Monday mornings.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "get-morning-sunlight",
+        "text": "Get bright light within 30 minutes of waking",
+        "explanation": "Exposure to sunlight or a bright lamp in the morning suppresses melatonin and sets your internal clock. Walk to class or eat breakfast near a window to get this light naturally.",
+        "category": "morning",
+        "priority": "essential"
+      },
+      {
+        "id": "stop-caffeine-after-two-pm",
+        "text": "Cut off all caffeine by 2 PM",
+        "explanation": "Caffeine has a half-life of five to six hours, meaning a 4 PM coffee still has half its stimulant effect at 10 PM. Switch to water or herbal tea for your afternoon study sessions.",
+        "category": "nutrition",
+        "priority": "essential"
+      },
+      {
+        "id": "create-wind-down-routine",
+        "text": "Start a 30-minute wind-down routine before bed",
+        "explanation": "Your brain needs a transition period between studying and sleeping. A consistent routine such as light stretching, reading fiction, or journaling signals to your nervous system that the day is over.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "screens-off-one-hour-before-bed",
+        "text": "Put away all screens one hour before sleep",
+        "explanation": "Blue light from laptops and phones suppresses melatonin production by up to 50 percent. If you must use a device, enable a warm-tone night mode and lower the brightness significantly.",
+        "category": "before-bed",
+        "priority": "essential"
+      },
+      {
+        "id": "keep-bedroom-dark",
+        "text": "Make your sleeping area as dark as possible",
+        "explanation": "Even dim light during sleep disrupts melatonin and reduces time spent in deep sleep stages. Use blackout curtains or a quality sleep mask, especially in a dorm where hallway light leaks in.",
+        "category": "bedroom",
+        "priority": "essential"
+      },
+      {
+        "id": "limit-weekend-sleep-in",
+        "text": "Limit weekend sleep-ins to one extra hour",
+        "explanation": "Sleeping in three or more hours on weekends creates social jet lag equivalent to crossing time zones. Capping the difference at one hour keeps your body clock stable without feeling deprived.",
+        "category": "morning",
+        "priority": "recommended"
+      },
+      {
+        "id": "use-earplugs-or-white-noise",
+        "text": "Block dorm noise with earplugs or white noise",
+        "explanation": "Dorm hallways and shared walls produce unpredictable noise that fragments sleep. A white noise app or foam earplugs create a consistent sound environment that helps you stay asleep through disturbances.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "cool-your-room",
+        "text": "Keep your room between 16 and 19 degrees Celsius",
+        "explanation": "Your core body temperature needs to drop slightly to initiate sleep. A cooler room facilitates this process, so crack a window or use a fan if you cannot control the thermostat in your dorm.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "exercise-regularly-before-evening",
+        "text": "Exercise at least 30 minutes before 7 PM",
+        "explanation": "Regular physical activity increases deep sleep duration by up to 20 percent. However, intense workouts within two hours of bedtime raise your core temperature and adrenaline, making it harder to fall asleep.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "avoid-heavy-meals-late",
+        "text": "Finish heavy meals at least three hours before bed",
+        "explanation": "Late-night pizza runs are a student staple, but a full stomach triggers digestion that raises your body temperature and can cause acid reflux. If you need a snack, choose something light like a banana or a small handful of nuts.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "limit-alcohol-before-sleep",
+        "text": "Avoid alcohol within three hours of bedtime",
+        "explanation": "Alcohol may make you drowsy initially, but it fragments your sleep in the second half of the night and significantly reduces REM sleep, which is critical for memory consolidation before exams.",
+        "category": "nutrition",
+        "priority": "recommended"
+      },
+      {
+        "id": "use-bed-only-for-sleep",
+        "text": "Reserve your bed exclusively for sleeping",
+        "explanation": "When you study, scroll, and eat in bed, your brain stops associating the bed with sleep. Study at your desk or the library so that getting into bed becomes a strong sleep cue.",
+        "category": "bedroom",
+        "priority": "recommended"
+      },
+      {
+        "id": "no-all-nighters",
+        "text": "Replace all-nighters with spaced study sessions",
+        "explanation": "Research shows that pulling an all-nighter before an exam impairs cognitive performance as much as being legally intoxicated. Spreading study over several days with proper sleep between sessions leads to significantly better retention.",
+        "category": "daytime",
+        "priority": "recommended"
+      },
+      {
+        "id": "strategic-nap-timing",
+        "text": "Nap only before 3 PM and under 25 minutes",
+        "explanation": "A short power nap can restore alertness between classes, but napping too late or too long builds sleep pressure that makes it difficult to fall asleep at your normal bedtime.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "journal-worries-before-bed",
+        "text": "Write down tomorrow's tasks before sleeping",
+        "explanation": "A study from Baylor University found that writing a specific to-do list before bed helped participants fall asleep nine minutes faster. Offloading your worries onto paper stops your mind from rehearsing them in bed.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "manage-class-schedule-strategically",
+        "text": "Choose class times that align with your chronotype",
+        "explanation": "If you are naturally a night owl, back-to-back 8 AM lectures will chronically cut into your sleep. When possible, select mid-morning or afternoon sections that let you get a full seven to nine hours.",
+        "category": "daytime",
+        "priority": "bonus"
+      },
+      {
+        "id": "practice-relaxation-technique",
+        "text": "Try a five-minute breathing exercise in bed",
+        "explanation": "Techniques like 4-7-8 breathing or progressive muscle relaxation activate the parasympathetic nervous system. These are especially useful during exam weeks when racing thoughts keep you awake.",
+        "category": "before-bed",
+        "priority": "bonus"
+      },
+      {
+        "id": "limit-energy-drink-intake",
+        "text": "Cap energy drinks at one per day maximum",
+        "explanation": "Many energy drinks contain 150 to 300 milligrams of caffeine plus other stimulants. Consuming multiple cans disrupts both sleep onset and sleep quality, creating a vicious cycle of fatigue and dependence.",
+        "category": "nutrition",
+        "priority": "bonus"
+      },
+      {
+        "id": "communicate-with-roommate",
+        "text": "Set sleep-friendly ground rules with your roommate",
+        "explanation": "Agree on quiet hours, lighting rules, and guest policies with your roommate early in the semester. A simple conversation prevents nightly conflicts and protects both of your sleep schedules.",
+        "category": "bedroom",
+        "priority": "bonus"
+      }
+    ],
+    "pro_tips": [
+      "During finals week, schedule your hardest study blocks in the morning or early afternoon when cortisol naturally peaks, and protect the last two hours before bed as a strict no-study zone to let your brain transition into sleep mode.",
+      "If you share a dorm room and your roommate keeps different hours, invest in a sleep mask and a pair of comfortable silicone earplugs, which together cost less than a single energy drink habit and deliver far better returns on your alertness.",
+      "Track your sleep for two weeks using a free app or a simple notebook to identify your personal patterns, because most students overestimate how much sleep they actually get by 40 to 60 minutes per night.",
+      "When transitioning between semesters or break periods, shift your sleep schedule by no more than 30 minutes per day to avoid the multi-day grogginess that comes from abrupt changes to your circadian rhythm.",
+      "Replace late-night caffeine-fueled cramming with the evidence-based technique of studying for 50 minutes, sleeping a full night, then doing a brief 20-minute review in the morning, which leverages sleep-dependent memory consolidation."
+    ],
+    "conclusion": "Better sleep is not a luxury you earn after graduation; it is the foundation that makes everything else in your student life work. Start by picking three to five items from this checklist that feel most relevant to your situation and build from there. Within two weeks of consistent practice, you will likely notice improved focus, better mood, and stronger academic performance."
+  }
+}

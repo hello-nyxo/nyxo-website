@@ -33,6 +33,7 @@
     "remark-prism": "^1.3.6"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
     "@tailwindcss/postcss": "^4.2.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",

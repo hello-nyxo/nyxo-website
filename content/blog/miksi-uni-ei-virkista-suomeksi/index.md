@@ -1,5 +1,6 @@
 ---
 slug: "miksi-uni-ei-virkista-suomeksi"
+lang: "fi"
 date: "2020-04-30"
 title: "Miksi uni ei virkistä?"
 authorSlug: "pietari-nurmi"
