@@ -3,8 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const contentful = require("contentful");
 
-const SITE_URL = "https://www.nyxo.app";
-const locales = ["en", "fi", "es", "de", "sv", "fr"];
+const SITE_URL = "https://nyxo.app";
+const locales = ["en", "fi"];
 const defaultLocale = "en";
 
 function getBlogSlugs() {

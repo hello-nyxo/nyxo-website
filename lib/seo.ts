@@ -40,10 +40,16 @@ export function generatePageMetadata({
   const alternates: Record<string, string> = {};
   for (const lang of routing.locales) {
     const prefix = lang === routing.defaultLocale ? "" : `/${lang}`;
-    const normalizedPath = path.replace(/^\/(en|fi)/, "");
+      const normalizedPath = path.replace(
+      new RegExp(`^/(${routing.locales.join("|")})`),
+      ""
+    );
     alternates[lang] = `${SITE_URL}${prefix}${normalizedPath}`;
   }
-  const defaultPath = path.replace(/^\/(en|fi)/, "");
+  const defaultPath = path.replace(
+    new RegExp(`^/(${routing.locales.join("|")})`),
+    ""
+  );
   alternates["x-default"] = `${SITE_URL}${defaultPath}`;
 
   return {
