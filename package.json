@@ -23,7 +23,7 @@
     "@vercel/analytics": "^1.6.1",
     "contentful": "^11.3.0",
     "gray-matter": "^4.0.3",
-    "next": "^16.1.6",
+    "next": "^16.2.3",
     "next-intl": "^4.8.3",
     "next-sitemap": "^4.2.3",
     "react": "^19.2.4",
