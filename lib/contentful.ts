@@ -211,6 +211,17 @@ export async function getQuestionnaireBySlug(
   }
 }
 
+/**
+ * Authors still published in Contentful but intentionally kept off the site:
+ * engineers whose only writing was the archived engineering blog. Remove the
+ * Contentful entries to make this list unnecessary.
+ */
+const HIDDEN_AUTHOR_SLUGS = new Set(["kayla-gordon", "chinh-duong"]);
+
+function isVisibleAuthor(entry: ContentfulEntry | undefined): boolean {
+  return Boolean(entry) && !HIDDEN_AUTHOR_SLUGS.has(String(entry!.fields?.slug));
+}
+
 export async function getAuthors(): Promise<ContentfulEntry[]> {
   try {
     const client = getClient();
@@ -219,7 +230,7 @@ export async function getAuthors(): Promise<ContentfulEntry[]> {
       content_type: "author",
       include: 2,
     });
-    return asEntries(entries.items);
+    return asEntries(entries.items).filter(isVisibleAuthor);
   } catch {
     console.warn("Failed to fetch authors from Contentful");
     return [];
@@ -237,7 +248,8 @@ export async function getAuthorBySlug(
       "fields.slug": slug,
       include: 2,
     });
-    return asEntry(entries.items[0]) || null;
+    const author = asEntry(entries.items[0]);
+    return isVisibleAuthor(author) ? author : null;
   } catch {
     return null;
   }
