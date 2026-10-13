@@ -1,6 +1,7 @@
 ---
 slug: "unimittarin-ostajan-opas-osa-1"
 lang: "fi"
+translation: "sleep-tracker-buyers-guide-pt1"
 date: "2020-08-31"
 title: "Unimittarin ostajan opas, osa 1: Mitä sinun tulisi tietää unen seurannasta"
 authorSlug: "pietari-nurmi"

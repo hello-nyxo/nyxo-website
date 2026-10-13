@@ -1,6 +1,7 @@
 ---
 slug: "kohti-parempaa-unta-terveystalo-nyxo"
 lang: "fi"
+translation: "towards-better-slumber-with-terveystalo-nyxo"
 date: "2019-10-20"
 title: "Kohti parempaa unta Terveystalon ja Nyxon kanssa"
 authorSlug: "eeva-siika-aho"

@@ -336,6 +336,117 @@ export function serializeQuestionnaire(entry: ContentfulEntry | null) {
   };
 }
 
+export interface LessonAuthor {
+  name: string;
+  slug: string;
+}
+
+/** Author slugs are ASCII: "Perttu Lähteenlahti" is `perttu-lahteenlahti`. */
+export function slugifyName(name: string): string {
+  return name
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
+/**
+ * Everyone credited on a lesson. `authorCard` holds the real references (often
+ * several researchers); the legacy `author` string only names one of them.
+ */
+export function getLessonAuthors(fields: Record<string, unknown>): LessonAuthor[] {
+  const cards = (Array.isArray(fields.authorCard) ? fields.authorCard : [fields.authorCard])
+    .filter((c): c is ContentfulEntry => Boolean((c as ContentfulEntry)?.fields?.name));
+  if (cards.length > 0) {
+    return cards.map((c) => ({
+      name: String(c.fields.name),
+      slug: String(c.fields.slug || slugifyName(String(c.fields.name))),
+    }));
+  }
+  return typeof fields.author === "string" && fields.author
+    ? [{ name: fields.author, slug: slugifyName(fields.author) }]
+    : [];
+}
+
+interface RichTextNode {
+  nodeType?: string;
+  value?: string;
+  content?: RichTextNode[];
+}
+
+/**
+ * Flatten a rich-text document to plain prose, for meta descriptions and
+ * structured data. Block boundaries become spaces so words never fuse.
+ */
+export function richTextToPlain(richTextDocument: unknown): string {
+  const walk = (node: RichTextNode | undefined): string => {
+    if (!node) return "";
+    if (typeof node.value === "string") return node.value;
+    const inner = (node.content ?? []).map(walk).join("");
+    return node.nodeType?.startsWith("heading") ? "" : `${inner} `;
+  };
+  return walk(richTextDocument as RichTextNode).replace(/\s+/g, " ").trim();
+}
+
+/**
+ * Lesson slugs are localised, so the Finnish twin of `/coaching/lessons/a` is
+ * not `/fi/coaching/lessons/a`. Returns both slugs for one entry.
+ */
+export async function getLessonSlugsById(
+  entryId: string
+): Promise<{ en?: string; fi?: string }> {
+  try {
+    const client = getClient();
+    if (!client) return {};
+    const [en, fi] = await Promise.all([
+      client.getEntry(entryId, { locale: "en-US" }),
+      client.getEntry(entryId, { locale: "fi-FI" }),
+    ]);
+    return {
+      en: (en.fields.slug as string) || undefined,
+      fi: (fi.fields.slug as string) || undefined,
+    };
+  } catch {
+    return {};
+  }
+}
+
+export async function getMetalessons(locale?: string): Promise<ContentfulEntry[]> {
+  try {
+    const client = getClient();
+    if (!client) return [];
+    const entries = await client.getEntries({
+      content_type: "metalesson",
+      include: 2,
+      locale: contentfulLocale(locale),
+    });
+    return asEntries(entries.items);
+  } catch {
+    console.warn("Failed to fetch metalessons from Contentful");
+    return [];
+  }
+}
+
+export async function getMetalessonBySlug(
+  slug: string,
+  locale?: string
+): Promise<ContentfulEntry | null> {
+  try {
+    const client = getClient();
+    if (!client) return null;
+    const entries = await client.getEntries({
+      content_type: "metalesson",
+      "fields.slug": slug,
+      include: 2,
+      locale: contentfulLocale(locale),
+    });
+    return asEntry(entries.items[0]) || null;
+  } catch {
+    return null;
+  }
+}
+
 export function renderRichText(richTextDocument: unknown): string {
   if (!richTextDocument) return "";
   try {

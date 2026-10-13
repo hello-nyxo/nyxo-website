@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getAllPostSlugs, getAllPosts, getAllTags } from "@/lib/markdown";
+import { getAllPostSlugs, getAllPosts, getAllTags, getPostBySlug } from "@/lib/markdown";
 
 describe("markdown utilities", () => {
   it("getAllPostSlugs returns an array", () => {
@@ -37,6 +37,23 @@ describe("markdown utilities", () => {
       expect(t).toHaveProperty("tag");
       expect(t).toHaveProperty("count");
       expect(t.count).toBeGreaterThan(0);
+    }
+  });
+
+  it("resolves a post whose slug differs from its directory", async () => {
+    const post = await getPostBySlug("why-doesnt-sleep-refresh-you");
+    expect(post?.title).toBe("Why Doesn't Sleep Refresh You?");
+    expect(post?.lang).toBe("en");
+  });
+
+  it("pairs every translation both ways", () => {
+    const posts = getAllPosts();
+    const bySlug = new Map(posts.map((p) => [p.slug, p]));
+    for (const post of posts.filter((p) => p.translation)) {
+      const twin = bySlug.get(post.translation!);
+      expect(twin, `${post.slug} -> ${post.translation}`).toBeDefined();
+      expect(twin!.translation).toBe(post.slug);
+      expect(twin!.lang).not.toBe(post.lang);
     }
   });
 });

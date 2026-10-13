@@ -1,6 +1,7 @@
 ---
 slug: "kannabis-ja-uni"
 lang: "fi"
+translation: "getting-high-and-getting-sleep"
 date: "2020-09-07"
 title: "Kannabis ja uni"
 authorSlug: "liisa-kuula"

@@ -1,5 +1,4 @@
 import type { SleepTipsArticle } from "@/lib/programmatic/types";
-import AnimateOnScroll from "./AnimateOnScroll";
 
 export interface SleepTipsTranslations {
   whyItWorks: string;
@@ -12,9 +11,9 @@ export interface SleepTipsTranslations {
 const categoryColors: Record<string, string> = {
   environment: "bg-brand-teal/10 text-brand-teal",
   routine: "bg-brand-blue/10 text-brand-blue",
-  nutrition: "bg-accent-warm/10 text-accent-warm",
-  mindset: "bg-accent-dusk/10 text-accent-dusk",
-  activity: "bg-accent-noon/10 text-accent-noon",
+  nutrition: "bg-accent-warm/10 text-accent-warm-ink",
+  mindset: "bg-accent-dusk/10 text-accent-dusk-ink",
+  activity: "bg-accent-noon/10 text-accent-noon-ink",
 };
 
 function DifficultyDots({
@@ -75,40 +74,38 @@ export default function SleepTipsRenderer({
         </h2>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {content.tips.map((tip, i) => (
-            <AnimateOnScroll key={i} delay={i * 40}>
-              <article className="bg-white rounded-2xl border border-hairline p-6 hover:border-brand-blue/20 hover:shadow-card-hover transition-all duration-300 h-full flex flex-col">
-                <div className="flex items-center justify-between mb-3">
-                  <span
-                    className={`text-xs font-medium px-2.5 py-1 rounded-full ${
-                      categoryColors[tip.category] || "bg-gray-100 text-gray-600"
-                    }`}
-                  >
-                    {translations.categories[tip.category] || tip.category}
-                  </span>
-                  <DifficultyDots
-                    level={tip.difficulty}
-                    labels={translations.difficulties}
-                  />
-                </div>
+            <article key={i} className="flex h-full flex-col rounded-2xl border border-hairline bg-white p-6 transition-colors duration-300 hover:border-brand-blue/30">
+              <div className="flex items-center justify-between mb-3">
+                <span
+                  className={`text-xs font-medium px-2.5 py-1 rounded-full ${
+                    categoryColors[tip.category] || "bg-gray-100 text-gray-600"
+                  }`}
+                >
+                  {translations.categories[tip.category] || tip.category}
+                </span>
+                <DifficultyDots
+                  level={tip.difficulty}
+                  labels={translations.difficulties}
+                />
+              </div>
 
-                <h3 className="text-base font-semibold text-brand-deep mb-2 font-sans">
-                  {tip.title}
-                </h3>
+              <h3 className="text-base font-semibold text-brand-deep mb-2 font-sans">
+                {tip.title}
+              </h3>
 
-                <p className="text-sm text-text-secondary leading-relaxed mb-3 flex-1">
-                  {tip.description}
+              <p className="text-sm text-text-secondary leading-relaxed mb-3 flex-1">
+                {tip.description}
+              </p>
+
+              <div className="pt-3 border-t border-hairline">
+                <p className="text-xs text-text-secondary leading-relaxed">
+                  <span className="font-medium text-brand-blue">
+                    {translations.whyItWorks}
+                  </span>{" "}
+                  {tip.why_it_works}
                 </p>
-
-                <div className="pt-3 border-t border-hairline">
-                  <p className="text-xs text-text-muted leading-relaxed">
-                    <span className="font-medium text-brand-blue">
-                      {translations.whyItWorks}
-                    </span>{" "}
-                    {tip.why_it_works}
-                  </p>
-                </div>
-              </article>
-            </AnimateOnScroll>
+              </div>
+            </article>
           ))}
         </div>
       </section>

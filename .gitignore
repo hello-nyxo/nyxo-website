@@ -32,6 +32,3 @@ dist/
 .eslintcache
 .vercel
 
-# Generated sitemaps (built by next-sitemap postbuild)
-public/sitemap*.xml
-public/robots.txt

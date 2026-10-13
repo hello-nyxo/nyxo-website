@@ -19,6 +19,9 @@ export interface BlogPost {
   canonical?: string;
   content: string;
   excerpt: string;
+  lang: string;
+  /** Slug of the same article in the other language, if one exists. */
+  translation?: string;
 }
 
 export interface BlogPostMeta {
@@ -32,6 +35,7 @@ export interface BlogPostMeta {
   canonical?: string;
   excerpt: string;
   lang: string;
+  translation?: string;
 }
 
 function resolveImagePath(imagePath: string, slug: string): string {
@@ -91,6 +95,7 @@ export function getAllPosts(locale?: string): BlogPostMeta[] {
         canonical: data.canonical,
         excerpt: generateExcerpt(content),
         lang: data.lang || "en",
+        translation: data.translation,
       } satisfies BlogPostMeta;
     })
     .filter(Boolean) as BlogPostMeta[];
@@ -104,13 +109,27 @@ export function getAllPosts(locale?: string): BlogPostMeta[] {
   );
 }
 
+/**
+ * A post's public slug comes from its frontmatter, which can differ from the
+ * directory it lives in. Resolve either one to the directory on disk.
+ */
+function resolvePostDir(slug: string): string | null {
+  if (fs.existsSync(path.join(BLOG_DIR, slug, "index.md"))) return slug;
+  for (const dir of getAllPostSlugs()) {
+    const filePath = path.join(BLOG_DIR, dir, "index.md");
+    if (!fs.existsSync(filePath)) continue;
+    const { data } = matter(fs.readFileSync(filePath, "utf-8"));
+    if (data.slug === slug) return dir;
+  }
+  return null;
+}
+
 export async function getPostBySlug(
   slug: string
 ): Promise<BlogPost | null> {
-  const dir = path.join(BLOG_DIR, slug);
-  const filePath = path.join(dir, "index.md");
-
-  if (!fs.existsSync(filePath)) return null;
+  const dirName = resolvePostDir(slug);
+  if (!dirName) return null;
+  const filePath = path.join(BLOG_DIR, dirName, "index.md");
 
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
@@ -119,7 +138,7 @@ export async function getPostBySlug(
   const resolvedContent = content.replace(
     /!\[([^\]]*)\]\((?!http)([^)]+)\)/g,
     (_, alt, src) => {
-      const resolved = path.posix.normalize(`/blog/${slug}/${src}`);
+      const resolved = path.posix.normalize(`/blog/${dirName}/${src}`);
       return `![${alt}](${resolved})`;
     }
   );
@@ -134,11 +153,13 @@ export async function getPostBySlug(
     authorSlug: data.authorSlug || "",
     tags: data.tags || [],
     thumbnailBlog: data.thumbnailBlog
-      ? resolveImagePath(data.thumbnailBlog, slug)
+      ? resolveImagePath(data.thumbnailBlog, dirName)
       : "",
     canonical: data.canonical,
     content: processedContent.toString(),
     excerpt: generateExcerpt(content),
+    lang: data.lang || "en",
+    translation: data.translation,
   };
 }
 

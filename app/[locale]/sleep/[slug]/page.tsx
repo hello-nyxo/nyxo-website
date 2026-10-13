@@ -115,7 +115,7 @@ export default async function SleepArticlePage({ params }: PageProps) {
                 {audience.name}
               </span>
             )}
-            <span className="text-xs font-medium text-accent-dusk bg-accent-dusk/8 px-3 py-1 rounded-full">
+            <span className="text-xs font-medium text-accent-dusk-ink bg-accent-dusk/8 px-3 py-1 rounded-full">
               {article.meta.content_type === "sleep-tips"
                 ? t("SLEEP_TIPS")
                 : t("CHECKLIST")}

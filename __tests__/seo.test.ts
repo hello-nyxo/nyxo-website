@@ -18,7 +18,7 @@ describe("generatePageMetadata", () => {
     expect(metadata.title).toBe("Test Page");
     expect(metadata.description).toBe("A test description");
     expect(metadata.openGraph?.title).toContain("Test Page");
-    expect(metadata.twitter?.card).toBe("summary_large_image");
+    expect((metadata.twitter as { card?: string })?.card).toBe("summary_large_image");
   });
 
   it("includes alternate language links", () => {
@@ -32,6 +32,50 @@ describe("generatePageMetadata", () => {
     expect(metadata.alternates?.languages).toBeDefined();
     expect(metadata.alternates?.languages?.["en"]).toContain("/test");
     expect(metadata.alternates?.languages?.["fi"]).toContain("/fi/test");
+  });
+
+  it("makes each locale self-canonical", () => {
+    const en = generatePageMetadata({ title: "T", description: "D", path: "/blog", locale: "en" });
+    const fi = generatePageMetadata({ title: "T", description: "D", path: "/blog", locale: "fi" });
+    expect(en.alternates?.canonical).toBe("https://nyxo.app/blog");
+    expect(fi.alternates?.canonical).toBe("https://nyxo.app/fi/blog");
+    expect(fi.alternates?.languages?.["x-default"]).toBe("https://nyxo.app/blog");
+  });
+
+  it("serves the Finnish homepage without a trailing slash", () => {
+    const fi = generatePageMetadata({ title: "T", description: "D", path: "/", locale: "fi" });
+    expect(fi.alternates?.canonical).toBe("https://nyxo.app/fi");
+  });
+
+  it("uses explicit alternate paths for localised slugs", () => {
+    const m = generatePageMetadata({
+      title: "T",
+      description: "D",
+      path: "/coaching/lessons/miksi-nukumme",
+      locale: "fi",
+      alternatePaths: { en: "/coaching/lessons/why-we-sleep", fi: "/coaching/lessons/miksi-nukumme" },
+    });
+    expect(m.alternates?.languages?.en).toBe("https://nyxo.app/coaching/lessons/why-we-sleep");
+    expect(m.alternates?.languages?.fi).toBe("https://nyxo.app/fi/coaching/lessons/miksi-nukumme");
+  });
+
+  it("omits hreflang for single-language pages and external canonicals", () => {
+    const single = generatePageMetadata({
+      title: "T", description: "D", path: "/blog/only-fi", locale: "fi",
+      alternatePaths: { fi: "/blog/only-fi" },
+    });
+    expect(single.alternates?.languages).toBeUndefined();
+    const external = generatePageMetadata({
+      title: "T", description: "D", path: "/blog/x", locale: "en",
+      canonical: "https://example.com/x",
+    });
+    expect(external.alternates?.canonical).toBe("https://example.com/x");
+    expect(external.alternates?.languages).toBeUndefined();
+  });
+
+  it("supports absolute titles", () => {
+    const m = generatePageMetadata({ title: "Home | Nyxo", description: "D", path: "/", locale: "en", absoluteTitle: true });
+    expect(m.title).toEqual({ absolute: "Home | Nyxo" });
   });
 
   it("sets noIndex when requested", () => {

@@ -1,6 +1,7 @@
 ---
 slug: "consistency-is-key-are-you-unknowingly-suffering-from-social-jet-lag"
 lang: "en"
+translation: "sailyyko-uni-tasaisena-karsitko-sosiaalisesta-jet-lagista"
 date: "2019-10-20"
 title: Consistency is Key – Are You Unknowingly Suffering from Social Jet Lag?
 authorSlug: "eeva-siika-aho"

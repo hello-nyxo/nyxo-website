@@ -1,6 +1,7 @@
 ---
 slug: "uni-menestyksen-valineena"
 lang: "fi"
+translation: "how-to-use-sleep-for-your-success"
 date: "2020-10-02"
 title: "Kuinka hyödyntää unta menestyksen välineenä"
 authorSlug: "pietari-nurmi"

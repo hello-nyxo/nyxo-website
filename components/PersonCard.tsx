@@ -8,11 +8,11 @@ interface PersonCardProps {
 
 export default function PersonCard({ name, title, image }: PersonCardProps) {
   return (
-    <div className="text-center group">
-      <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden shadow-card group-hover:shadow-card-hover transition-shadow">
+    <div className="text-center">
+      <div className="relative mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full border border-hairline">
         <Image
           src={image}
-          alt={name}
+          alt=""
           fill
           className="object-cover"
           sizes="128px"

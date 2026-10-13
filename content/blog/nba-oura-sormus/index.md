@@ -1,8 +1,9 @@
 ---
 slug: "nba-oura-sormus"
 lang: "fi"
+translation: "nba-oura-ring"
 date: "2020-07-14"
-title: "NBA osti 2000 Oura-sormusta -- ja siksi se on parasta mitä urheilulle on tapahtunut"
+title: "NBA osti 2000 Oura-sormusta – ja siksi se on parasta mitä urheilulle on tapahtunut"
 authorSlug: "pietari-nurmi"
 author: Pietari Nurmi
 tags: ["Sleep", "Sleep Trackers"]

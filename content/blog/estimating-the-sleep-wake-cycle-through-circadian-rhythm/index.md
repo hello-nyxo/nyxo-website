@@ -1,10 +1,11 @@
 ---
 slug: "estimating-the-sleep-wake-cycle-through-circadian-rhythm"
 lang: "en"
+translation: "vuorokausirytmin-arviointi"
 date: "2020-09-28"
 title: "Estimating the Sleep-Wake Cycle Through Circadian Rhythm"
 authorSlug: "miska-nurmi"
-author: Perttu Lähteenlahti
+author: Miska Nurmi
 tags: ["Sleep", "Circadian Rhythm"]
 thumbnailBlog: "./sunset.jpeg"
 ---

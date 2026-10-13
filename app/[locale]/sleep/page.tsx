@@ -4,7 +4,6 @@ import { getAllProgrammaticArticles } from "@/lib/programmatic/loader";
 import { getAudienceBySlug } from "@/lib/programmatic/taxonomy";
 import type { SleepTipsArticle, SleepChecklistArticle } from "@/lib/programmatic/types";
 import { generatePageMetadata } from "@/lib/seo";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -15,7 +14,7 @@ export async function generateMetadata({ params }: PageProps) {
   const t = await getTranslations({ locale, namespace: "SLEEP" });
   return generatePageMetadata({
     title: t("HERO_TITLE"),
-    description: t("HERO_DESCRIPTION"),
+    description: t("META_DESCRIPTION"),
     path: "/sleep",
     locale,
   });
@@ -37,111 +36,107 @@ export default async function SleepIndexPage({ params }: PageProps) {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative night-sky grain overflow-hidden">
-        <div className="night-sky-glow" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-          <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold text-white leading-tight mb-6"
-          >
+      {/* Hero: the one deliberately centered moment on the page */}
+      <section className="relative night-sky night-sky-glow grain overflow-hidden">
+        <div className="relative z-10 mx-auto max-w-4xl px-4 py-24 text-center sm:px-6 lg:px-8">
+          <h1 className="font-serif text-4xl leading-tight font-semibold text-white sm:text-5xl lg:text-6xl">
             {t("HERO_TITLE")}
           </h1>
-          <p
-            className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto"
-          >
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl">
             {t("HERO_DESCRIPTION")}
           </p>
         </div>
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-bg-primary to-transparent" />
       </section>
 
-      {/* Sleep Tips Section */}
+      {/* Sleep tips: one article per audience, so an index of rows reads faster
+          than a wall of identical cards. The audience is the column that scans. */}
       {tipArticles.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <AnimateOnScroll>
-            <h2 className="text-3xl font-serif font-semibold text-brand-deep mb-2">
+        <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+          <div className="mb-10 max-w-2xl">
+            <h2 className="font-serif text-3xl font-semibold text-brand-deep sm:text-4xl">
               {t("TIPS_HEADING")}
             </h2>
-            <p className="text-text-secondary mb-8 max-w-2xl">
-              {t("TIPS_DESCRIPTION")}
-            </p>
-          </AnimateOnScroll>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {tipArticles.map(({ slug, article }, i) => {
+            <p className="mt-3 text-text-secondary">{t("TIPS_DESCRIPTION")}</p>
+          </div>
+          <ul className="divide-y divide-hairline border-y border-hairline">
+            {tipArticles.map(({ slug, article }) => {
               const audience = getAudienceBySlug(
                 article.meta.audience_slug,
                 locale
               );
               return (
-                <AnimateOnScroll key={slug} delay={i * 60}>
+                <li key={slug}>
                   <Link
                     href={`/sleep/${slug}`}
-                    className="group block no-underline h-full"
+                    className="group grid gap-2 py-7 no-underline md:grid-cols-12 md:gap-8"
                   >
-                    <article className="bg-white rounded-2xl overflow-hidden border border-hairline hover:border-brand-blue/20 hover:shadow-card-hover transition-all duration-300 h-full hover:-translate-y-1 p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="text-xs font-medium text-brand-blue bg-brand-blue/8 px-2.5 py-1 rounded-full">
-                          {audience?.name || article.meta.audience_slug}
-                        </span>
-                        <span className="text-xs text-text-muted">
-                          {t("TIPS_COUNT", { count: article.content.tips.length })}
-                        </span>
-                      </div>
-                      <h3 className="text-lg font-semibold text-brand-deep group-hover:text-brand-blue transition-colors mb-2 font-sans">
+                    <span className="text-sm font-semibold text-brand-deep md:col-span-3 md:pt-1">
+                      {audience?.name || article.meta.audience_slug}
+                    </span>
+                    <div className="md:col-span-7">
+                      <h3 className="font-sans text-lg leading-snug font-semibold text-text-primary transition-colors group-hover:text-brand-blue">
                         {article.seo.title}
                       </h3>
-                      <p className="text-sm text-text-secondary leading-relaxed line-clamp-3">
+                      <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-text-secondary">
+                        {article.seo.description}
+                      </p>
+                    </div>
+                    <span className="text-sm text-text-secondary md:col-span-2 md:pt-1 md:text-right">
+                      {t("TIPS_COUNT", { count: article.content.tips.length })}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
+
+      {/* Checklists: cards, because each one is a thing you take away and use */}
+      {checklistArticles.length > 0 && (
+        <section className="bg-bg-cream py-20 sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 max-w-2xl">
+              <h2 className="font-serif text-3xl font-semibold text-brand-deep sm:text-4xl">
+                {t("CHECKLISTS_HEADING")}
+              </h2>
+              <p className="mt-3 text-text-secondary">
+                {t("CHECKLISTS_DESCRIPTION")}
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {checklistArticles.map(({ slug, article }) => {
+                const audience = getAudienceBySlug(
+                article.meta.audience_slug,
+                locale
+              );
+                return (
+                  <Link
+                    key={slug}
+                    href={`/sleep/${slug}`}
+                    className="group block h-full no-underline"
+                  >
+                    <article className="flex h-full flex-col rounded-2xl border border-hairline bg-white p-6 transition-colors duration-300 hover:border-brand-blue/30">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-text-secondary">
+                        <span className="font-semibold text-brand-deep">
+                          {audience?.name || article.meta.audience_slug}
+                        </span>
+                        <span aria-hidden="true">·</span>
+                        <span>
+                          {t("ITEMS_COUNT", {
+                            count: article.content.items.length,
+                          })}
+                        </span>
+                      </div>
+                      <h3 className="mt-3 font-sans text-lg leading-snug font-semibold text-text-primary transition-colors group-hover:text-brand-blue">
+                        {article.seo.title}
+                      </h3>
+                      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-text-secondary">
                         {article.seo.description}
                       </p>
                     </article>
                   </Link>
-                </AnimateOnScroll>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* Checklists Section */}
-      {checklistArticles.length > 0 && (
-        <section className="bg-bg-cream">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <AnimateOnScroll>
-              <h2 className="text-3xl font-serif font-semibold text-brand-deep mb-2">
-                {t("CHECKLISTS_HEADING")}
-              </h2>
-              <p className="text-text-secondary mb-8 max-w-2xl">
-                {t("CHECKLISTS_DESCRIPTION")}
-              </p>
-            </AnimateOnScroll>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {checklistArticles.map(({ slug, article }, i) => {
-                const audience = getAudienceBySlug(
-                  article.meta.audience_slug
-                );
-                return (
-                  <AnimateOnScroll key={slug} delay={i * 60}>
-                    <Link
-                      href={`/sleep/${slug}`}
-                      className="group block no-underline h-full"
-                    >
-                      <article className="bg-white rounded-2xl overflow-hidden border border-hairline hover:border-brand-blue/20 hover:shadow-card-hover transition-all duration-300 h-full hover:-translate-y-1 p-6">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="text-xs font-medium text-accent-dusk bg-accent-dusk/8 px-2.5 py-1 rounded-full">
-                            {audience?.name || article.meta.audience_slug}
-                          </span>
-                          <span className="text-xs text-text-muted">
-                            {t("ITEMS_COUNT", { count: article.content.items.length })}
-                          </span>
-                        </div>
-                        <h3 className="text-lg font-semibold text-brand-deep group-hover:text-brand-blue transition-colors mb-2 font-sans">
-                          {article.seo.title}
-                        </h3>
-                        <p className="text-sm text-text-secondary leading-relaxed line-clamp-3">
-                          {article.seo.description}
-                        </p>
-                      </article>
-                    </Link>
-                  </AnimateOnScroll>
                 );
               })}
             </div>

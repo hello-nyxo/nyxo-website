@@ -1,6 +1,7 @@
 ---
 slug: "6-tips-for-better-sleep"
 lang: "en"
+translation: "6-vinkkia-parempaan-uneen"
 date: "2020-04-28"
 title: "The 6 Things You Need for Good Sleep"
 author: "Perttu Lähteenlahti"

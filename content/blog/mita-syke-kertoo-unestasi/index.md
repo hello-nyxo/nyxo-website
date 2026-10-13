@@ -1,6 +1,7 @@
 ---
 slug: "mita-syke-kertoo-unestasi"
 lang: "fi"
+translation: "what-can-heart-rate-tell-about-your-sleep"
 date: "2020-08-17"
 title: "Mitä syke kertoo unestasi"
 authorSlug: "pietari-nurmi"

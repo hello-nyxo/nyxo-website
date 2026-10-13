@@ -1,6 +1,7 @@
 ---
 slug: "why-doesnt-sleep-refresh-you"
-lang: "fi"
+lang: "en"
+translation: "miksi-uni-ei-virkista-suomeksi"
 date: "2020-04-30"
 title: "Why Doesn't Sleep Refresh You?"
 authorSlug: "pietari-nurmi"

@@ -25,7 +25,7 @@ const categoryIcons: Record<string, string> = {
 
 const priorityColors: Record<string, string> = {
   essential: "bg-brand-blue text-white",
-  recommended: "bg-accent-dusk/10 text-accent-dusk",
+  recommended: "bg-accent-dusk/10 text-accent-dusk-ink",
   bonus: "bg-brand-teal/10 text-brand-teal",
 };
 
@@ -131,7 +131,7 @@ export default function SleepChecklistRenderer({
                 className={`flex items-start gap-4 p-5 rounded-2xl border cursor-pointer transition-all duration-200 select-none ${
                   isChecked
                     ? "bg-brand-blue/5 border-brand-blue/20"
-                    : "bg-white border-hairline hover:border-brand-blue/20 hover:shadow-soft"
+                    : "bg-white border-hairline hover:border-brand-blue/30 hover:shadow-soft"
                 }`}
               >
                 {/* Checkbox */}
@@ -165,7 +165,7 @@ export default function SleepChecklistRenderer({
                     <h3
                       className={`text-base font-semibold transition-all duration-200 font-sans ${
                         isChecked
-                          ? "text-text-muted line-through"
+                          ? "text-text-secondary line-through"
                           : "text-brand-deep"
                       }`}
                     >
@@ -179,7 +179,7 @@ export default function SleepChecklistRenderer({
                   </div>
                   <p
                     className={`text-sm leading-relaxed transition-all duration-200 ${
-                      isChecked ? "text-text-muted" : "text-text-secondary"
+                      isChecked ? "text-text-secondary" : "text-text-secondary"
                     }`}
                   >
                     {item.explanation}
@@ -202,7 +202,7 @@ export default function SleepChecklistRenderer({
               key={i}
               className="flex items-start gap-3 bg-white rounded-xl p-4 border border-hairline"
             >
-              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-dusk/20 text-accent-dusk flex items-center justify-center text-xs font-bold mt-0.5">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-dusk/20 text-accent-dusk-ink flex items-center justify-center text-xs font-bold mt-0.5">
                 ★
               </span>
               <p className="text-sm text-text-primary leading-relaxed">

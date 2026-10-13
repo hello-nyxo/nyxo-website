@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
+import { Plus_Jakarta_Sans, Source_Serif_4 } from "next/font/google";
 import { routing } from "@/lib/i18n/routing";
 import { getWeeks, getLessons, getHabits, getAuthors, getQuestionnaires } from "@/lib/contentful";
 import { normalizeImageUrl } from "@/lib/contentful";
@@ -19,12 +19,16 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   variable: "--font-serif",
   display: "swap",
 });
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -58,13 +62,17 @@ export default async function LocaleLayout({
     getQuestionnaires(locale),
   ]);
 
-  const navWeeks = weeks.slice(0, 4).map((w) => {
+  const t = await getTranslations({ locale });
+
+  // Contentful order 1 is the Introduction; orders 2..5 are Weeks 1..4.
+  const navWeeks = weeks.map((w) => {
     const f = w.fields as Record<string, unknown>;
     const cover = f.coverPhoto as { fields: { file: { url: string } } } | undefined;
+    const order = Number(f.order) || 0;
     return {
       name: f.weekName as string,
       slug: f.slug as string,
-      order: f.order as number,
+      label: order <= 1 ? (f.weekName as string) : t("WEEK_NUMBER", { order: order - 1 }),
       image: normalizeImageUrl(cover?.fields?.file?.url),
     };
   });
@@ -82,7 +90,12 @@ export default async function LocaleLayout({
     return {
       name: f.title as string,
       slug: f.slug as string,
-      period: f.period as string,
+      period:
+        f.period === "MORNING"
+          ? t("MORNING")
+          : f.period === "AFTERNOON"
+            ? t("AFTERNOON")
+            : t("EVENING"),
     };
   });
 
@@ -153,21 +166,23 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${jakarta.variable} ${fraunces.variable} font-sans bg-bg-primary text-text-primary antialiased`}
+        className={`${jakarta.variable} ${sourceSerif.variable} font-sans bg-bg-primary text-text-primary antialiased`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-brand-blue focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
           >
-            Skip to main content
+            {t("NAVIGATION.SKIP_TO_CONTENT")}
           </a>
           <Header
             navWeeks={navWeeks}
             navLessons={navLessons}
             navHabits={navHabits}
           />
-          <main id="main-content" className="min-h-screen">{children}</main>
+          <main id="main-content" tabIndex={-1} className="min-h-[100dvh] overflow-x-clip outline-none">
+            {children}
+          </main>
           <LazyCommandPalette items={searchItems} />
           <Footer />
           <Analytics />

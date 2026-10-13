@@ -1,6 +1,7 @@
 ---
 slug: "getting-high-and-getting-sleep"
 lang: "en"
+translation: "kannabis-ja-uni"
 date: "2020-09-07"
 title: Getting High and Getting Sleep
 authorSlug: "liisa-kuula"

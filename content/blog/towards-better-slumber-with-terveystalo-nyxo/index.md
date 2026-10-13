@@ -1,6 +1,7 @@
 ---
 slug: "towards-better-slumber-with-terveystalo-nyxo"
 lang: "en"
+translation: "kohti-parempaa-unta-terveystalo-nyxo"
 date: "2019-10-20"
 title: Towards Better Slumber with Terveystalo & Nyxo
 authorSlug: "eeva-siika-aho"

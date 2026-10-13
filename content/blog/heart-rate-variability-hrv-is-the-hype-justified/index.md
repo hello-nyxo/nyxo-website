@@ -1,6 +1,7 @@
 ---
 slug: "heart-rate-variability-hrv-is-the-hype-justified"
 lang: "en"
+translation: "sykevaihtelun-hyoty"
 date: "2020-08-24"
 title: Heart Rate Variability (HRV) – Is the Hype Justified?
 authorSlug: "pietari-nurmi"

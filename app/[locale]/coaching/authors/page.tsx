@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Link } from "@/lib/i18n/navigation";
 import { generatePageMetadata } from "@/lib/seo";
 import { getAuthors, normalizeImageUrl } from "@/lib/contentful";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export async function generateMetadata({
@@ -33,25 +32,25 @@ export default async function AuthorsPage({
 
   return (
     <>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
+      <div className="mx-auto max-w-4xl px-4 pt-8 pb-6 sm:px-6 lg:px-8">
         <Breadcrumbs
           items={[{ name: t("SLEEP_COACHING"), href: "/coaching" }]}
           current={t("ALL_AUTHORS")}
         />
       </div>
 
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <AnimateOnScroll>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold text-brand-deep leading-tight mb-4">
+      <section className="mx-auto max-w-4xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="mb-10 max-w-2xl">
+          <h1 className="font-serif text-4xl font-semibold text-brand-deep sm:text-5xl">
             {t("ALL_AUTHORS")}
           </h1>
-          <p className="text-lg text-text-secondary mb-12">
+          <p className="mt-4 text-lg leading-relaxed text-text-secondary">
             {t("ALL_AUTHORS_TEXT")}
           </p>
-        </AnimateOnScroll>
+        </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {authors.map((author, i) => {
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {authors.map((author) => {
             const f = author.fields as Record<string, unknown>;
             const name = (f.name as string) || "";
             const slug =
@@ -65,44 +64,43 @@ export default async function AuthorsPage({
             const credentials = (f.credentials as string) || "";
 
             return (
-              <AnimateOnScroll key={author.sys.id} delay={i * 60}>
-                <Link
-                  href={`/coaching/authors/${slug}`}
-                  className="group block no-underline"
-                >
-                  <div className="bg-white rounded-2xl p-6 border border-hairline hover:border-brand-blue/20 hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 text-center">
-                    {photoUrl ? (
-                      <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden shadow-card">
-                        <Image
-                          src={photoUrl}
-                          alt={name}
-                          fill
-                          className="object-cover"
-                          sizes="96px"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-brand-blue/10 flex items-center justify-center">
-                        <span className="text-2xl font-semibold text-brand-blue">
-                          {name
-                            .split(" ")
-                            .map((n) => n[0])
-                            .join("")
-                            .slice(0, 2)}
-                        </span>
-                      </div>
-                    )}
-                    <h2 className="text-base font-semibold text-text-primary group-hover:text-brand-blue transition-colors">
-                      {name}
-                    </h2>
-                    {credentials && (
-                      <p className="text-sm text-text-secondary mt-1">
-                        {credentials}
-                      </p>
-                    )}
-                  </div>
-                </Link>
-              </AnimateOnScroll>
+              <Link
+                key={author.sys.id}
+                href={`/coaching/authors/${slug}`}
+                className="group block h-full no-underline"
+              >
+                <article className="h-full rounded-2xl border border-hairline bg-white p-6 text-center transition-colors duration-300 hover:border-brand-blue/30">
+                  {photoUrl ? (
+                    <div className="relative mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full">
+                      <Image
+                        src={photoUrl}
+                        alt=""
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        sizes="96px"
+                      />
+                    </div>
+                  ) : (
+                    <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-brand-blue/10">
+                      <span className="text-2xl font-semibold text-brand-blue">
+                        {name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")
+                          .slice(0, 2)}
+                      </span>
+                    </div>
+                  )}
+                  <h2 className="font-sans text-base font-semibold text-text-primary transition-colors group-hover:text-brand-blue">
+                    {name}
+                  </h2>
+                  {credentials && (
+                    <p className="mt-1 text-sm text-text-secondary">
+                      {credentials}
+                    </p>
+                  )}
+                </article>
+              </Link>
             );
           })}
         </div>

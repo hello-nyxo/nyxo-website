@@ -4,11 +4,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://nyxo.app"),
   title: {
-    default: "Nyxo – Personalized Sleep Coaching",
+    default: "Nyxo – Free Science-Backed Sleep Coaching",
     template: "%s – Nyxo",
   },
   description:
-    "Nyxo is the best aid for improving your sleep quality. We combine leading sleep research techniques with your sleep tracker's data to provide you with personalized and actionable coaching.",
+    "A free, science-backed sleep coaching program: lessons, daily habits and quizzes written with sleep researchers from the University of Helsinki.",
+  applicationName: "Nyxo",
   icons: {
     icon: "/images/icon.jpg",
   },

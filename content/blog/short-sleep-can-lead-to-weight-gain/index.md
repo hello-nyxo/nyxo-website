@@ -1,6 +1,7 @@
 ---
 slug: "short-sleep-can-lead-to-weight-gain"
 lang: "en"
+translation: "lyhyt-uni-lihottaa"
 date: "2020-08-19"
 title: Short Sleep Can Lead to Weight Gain
 authorSlug: "perttu-lahteenlahti"

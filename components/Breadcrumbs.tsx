@@ -1,5 +1,7 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/20/solid";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/lib/i18n/navigation";
+import { generateBreadcrumbJsonLd } from "@/lib/seo";
 
 interface BreadcrumbItem {
   name: string;
@@ -11,36 +13,15 @@ interface BreadcrumbsProps {
   current: string;
 }
 
-const SITE_URL = "https://nyxo.app";
-
-function generateBreadcrumbJsonLd(items: BreadcrumbItem[], current: string) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
-      ...items.map((item, index) => ({
-        "@type": "ListItem",
-        position: index + 2,
-        name: item.name,
-        item: `${SITE_URL}${item.href}`,
-      })),
-      {
-        "@type": "ListItem",
-        position: items.length + 2,
-        name: current,
-      },
-    ],
-  };
-}
-
 export default function Breadcrumbs({ items, current }: BreadcrumbsProps) {
-  const jsonLd = generateBreadcrumbJsonLd(items, current);
+  const locale = useLocale();
+  const t = useTranslations("NAVIGATION");
+  const jsonLd = generateBreadcrumbJsonLd(locale, t("HOME"), [
+    // Fragment links (`/coaching#lessons`) are not separate pages, so the
+    // structured trail points at the page itself.
+    ...items.map((item) => ({ name: item.name, path: item.href.split("#")[0] })),
+    { name: current },
+  ]);
 
   return (
     <>
@@ -48,43 +29,42 @@ export default function Breadcrumbs({ items, current }: BreadcrumbsProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <nav aria-label="Breadcrumb" className="flex">
-        <ol role="list" className="flex items-center space-x-4">
+      <nav aria-label={t("BREADCRUMB")} className="flex">
+        <ol role="list" className="flex flex-wrap items-center gap-x-3 gap-y-1">
           <li>
-            <Link href="/" className="text-text-muted hover:text-text-secondary transition-colors">
+            <Link
+              href="/"
+              className="flex text-text-secondary transition-colors hover:text-brand-blue"
+            >
               <HomeIcon aria-hidden="true" className="size-5 shrink-0" />
-              <span className="sr-only">Home</span>
+              <span className="sr-only">{t("HOME")}</span>
             </Link>
           </li>
           {items.map((item) => (
-            <li key={item.name}>
-              <div className="flex items-center">
-                <ChevronRightIcon
-                  aria-hidden="true"
-                  className="size-5 shrink-0 text-text-muted"
-                />
-                <Link
-                  href={item.href}
-                  className="ml-4 text-sm font-medium text-text-secondary hover:text-brand-blue no-underline"
-                >
-                  {item.name}
-                </Link>
-              </div>
-            </li>
-          ))}
-          <li>
-            <div className="flex items-center">
+            <li key={item.name} className="flex items-center gap-x-3">
               <ChevronRightIcon
                 aria-hidden="true"
-                className="size-5 shrink-0 text-text-muted"
+                className="size-5 shrink-0 text-text-secondary/60"
               />
-              <span
-                aria-current="page"
-                className="ml-4 text-sm font-medium text-text-primary"
+              <Link
+                href={item.href}
+                className="text-sm font-medium text-text-secondary no-underline hover:text-brand-blue"
               >
-                {current}
-              </span>
-            </div>
+                {item.name}
+              </Link>
+            </li>
+          ))}
+          <li className="flex min-w-0 items-center gap-x-3">
+            <ChevronRightIcon
+              aria-hidden="true"
+              className="size-5 shrink-0 text-text-secondary/60"
+            />
+            <span
+              aria-current="page"
+              className="line-clamp-1 text-sm font-medium text-text-primary"
+            >
+              {current}
+            </span>
           </li>
         </ol>
       </nav>

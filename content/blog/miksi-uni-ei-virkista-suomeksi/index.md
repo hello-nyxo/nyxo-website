@@ -1,6 +1,7 @@
 ---
 slug: "miksi-uni-ei-virkista-suomeksi"
 lang: "fi"
+translation: "why-doesnt-sleep-refresh-you"
 date: "2020-04-30"
 title: "Miksi uni ei virkistä?"
 authorSlug: "pietari-nurmi"

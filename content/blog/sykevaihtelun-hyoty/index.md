@@ -1,8 +1,9 @@
 ---
 slug: "sykevaihtelun-hyoty"
 lang: "fi"
+translation: "heart-rate-variability-hrv-is-the-hype-justified"
 date: "2020-08-24"
-title: "Sykevaihtelun mittaaminen (HRV) -- onko hype perusteltua?"
+title: "Sykevaihtelun mittaaminen (HRV) – onko hype perusteltua?"
 authorSlug: "pietari-nurmi"
 author: Pietari Nurmi
 tags: ["Sleep", "Health", "Sleep Trackers"]

@@ -1,16 +1,26 @@
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
-import { Link } from "@/lib/i18n/navigation";
-import { generatePageMetadata } from "@/lib/seo";
+import { generatePageMetadata, toMetaDescription } from "@/lib/seo";
 import {
   getWeekBySlug,
   getAllWeekSlugs,
   renderRichText,
   normalizeImageUrl,
 } from "@/lib/contentful";
+import {
+  getProgramme,
+  getWeekNeighbours,
+  isIntroduction,
+  weekDisplayNumber,
+  countCoachingWeeks,
+  type ProgrammeWeek,
+} from "@/lib/coaching/sequence";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import { Link } from "@/lib/i18n/navigation";
+import LessonList from "@/components/coaching/LessonList";
+import ContinueButton from "@/components/coaching/ContinueButton";
+import HabitChip from "@/components/HabitChip";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -28,7 +38,7 @@ export async function generateMetadata({ params }: PageProps) {
   const fields = week.fields as Record<string, unknown>;
   return generatePageMetadata({
     title: fields.weekName as string,
-    description: (fields.intro as string) || "",
+    description: toMetaDescription((fields.intro as string) || ""),
     path: `/coaching/weeks/${slug}`,
     locale,
   });
@@ -48,17 +58,25 @@ export default async function WeekPage({ params }: PageProps) {
     | { fields: { file: { url: string } } }
     | undefined;
   const coverUrl = normalizeImageUrl(coverPhoto?.fields?.file?.url);
-  const lessons =
-    (fields.lessons as Array<{
-      sys: { id: string };
-      fields: Record<string, unknown>;
-    }>) || [];
   const descriptionHtml = renderRichText(fields.weekDescription);
 
+  // The sequence module owns ordering, labelling and the derived habit set.
+  const programme = await getProgramme(locale);
+  const step = programme.weeks.find((w) => w.slug === slug);
+  const { prev, next } = await getWeekNeighbours(slug, locale);
+  const totalWeeks = countCoachingWeeks(programme);
+
+  const label = (w: ProgrammeWeek) =>
+    isIntroduction(w)
+      ? w.name
+      : t("WEEK_NUMBER", { order: weekDisplayNumber(w) });
+
+  const lessons = step?.lessons ?? [];
+
   return (
-    <article className="pb-16">
+    <article className="pb-20">
       {/* Breadcrumbs */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
+      <div className="mx-auto max-w-4xl px-4 pt-8 pb-6 sm:px-6 lg:px-8">
         <Breadcrumbs
           items={[
             { name: tCoaching("SLEEP_COACHING"), href: "/coaching" },
@@ -69,25 +87,56 @@ export default async function WeekPage({ params }: PageProps) {
       </div>
 
       {/* Header */}
-      <header className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-        <span className="text-sm font-semibold text-brand-blue">
-          Week {fields.order as number}
-        </span>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold text-brand-deep leading-tight mt-1 mb-4">
+      <header className="mx-auto max-w-4xl px-4 pb-8 sm:px-6 lg:px-8">
+        {step && (
+          <span className="text-sm font-semibold text-brand-blue">
+            {isIntroduction(step)
+              ? step.name
+              : tCoaching("WEEK_PROGRESS", {
+                  index: weekDisplayNumber(step),
+                  total: totalWeeks,
+                })}
+          </span>
+        )}
+        <h1 className="mt-1 mb-4 font-serif text-3xl leading-tight font-semibold text-brand-deep sm:text-4xl lg:text-5xl">
           {fields.weekName as string}
         </h1>
-        <p className="text-xl text-text-secondary leading-relaxed">
+        <p className="text-xl leading-relaxed text-text-secondary">
           {fields.intro as string}
         </p>
+        {step && (
+          <p className="mt-4 text-sm text-text-secondary">
+            {tCoaching("LESSON_COUNT", { count: step.lessons.length })}
+            {step.duration > 0 && (
+              <>
+                <span className="mx-2 text-hairline" aria-hidden="true">
+                  /
+                </span>
+                {tCoaching("DAY_COUNT", { count: step.duration })}
+              </>
+            )}
+          </p>
+        )}
+        {lessons.length > 0 && (
+          <div className="mt-8">
+            <ContinueButton
+              sequence={lessons.map((l) => ({ slug: l.slug, name: l.name }))}
+              labels={{
+                start: tCoaching("START_WEEK"),
+                continue: tCoaching("CONTINUE_WEEK"),
+              }}
+            />
+          </div>
+        )}
       </header>
 
-      {/* Cover Image */}
+      {/* Cover Image: the heading above already names the week */}
       {coverUrl && (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-          <div className="relative aspect-video rounded-3xl overflow-hidden shadow-card">
+        <div className="mx-auto max-w-4xl px-4 pb-12 sm:px-6 lg:px-8">
+          <div className="relative aspect-video overflow-hidden rounded-2xl border border-hairline">
             <Image
               src={coverUrl}
-              alt={fields.weekName as string}
+              alt=""
               fill
               className="object-cover"
               priority
@@ -99,82 +148,83 @@ export default async function WeekPage({ params }: PageProps) {
 
       {/* Description */}
       {descriptionHtml && (
-        <AnimateOnScroll>
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-            <h2 className="text-2xl font-serif font-semibold text-brand-deep mb-6">
-              {t("ABOUT_THIS_WEEK")}
-            </h2>
-            <div
-              className="prose prose-lg max-w-none text-text-secondary
-                prose-headings:text-brand-deep prose-headings:font-serif
-                prose-a:text-brand-blue"
-              dangerouslySetInnerHTML={{ __html: descriptionHtml }}
-            />
-          </div>
-        </AnimateOnScroll>
+        <div className="mx-auto max-w-3xl px-4 pb-20 sm:px-6 lg:px-8">
+          <h2 className="mb-6 font-serif text-3xl font-semibold text-brand-deep sm:text-4xl">
+            {t("ABOUT_THIS_WEEK")}
+          </h2>
+          <div
+            className="prose prose-lg max-w-none text-text-secondary
+              prose-headings:text-brand-deep prose-headings:font-serif
+              prose-a:text-brand-blue"
+            dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+          />
+        </div>
       )}
 
-      {/* Lessons */}
+      {/* Lessons: an ordered path through the week, not a pick-any grid */}
       {lessons.length > 0 && (
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-hairline">
-          <AnimateOnScroll>
-            <h2 className="text-2xl font-serif font-semibold text-brand-deep mb-6">
-              {t("LESSONS_FOR_THIS_WEEK")}
-            </h2>
-          </AnimateOnScroll>
-          <div className="grid sm:grid-cols-2 gap-5">
-            {lessons.map((lesson, i) => {
-              const lf = lesson.fields;
-              if (!lf) return null;
-              const cover = lf.cover as
-                | { fields: { file: { url: string } } }
-                | undefined;
-              const lessonCoverUrl = normalizeImageUrl(
-                cover?.fields?.file?.url
-              );
+        <section className="mx-auto max-w-3xl border-t border-hairline px-4 py-20 sm:px-6 lg:px-8">
+          <h2 className="mb-8 font-serif text-3xl font-semibold text-brand-deep sm:text-4xl">
+            {t("LESSONS_FOR_THIS_WEEK")}
+          </h2>
+          <LessonList lessons={lessons} />
+        </section>
+      )}
 
-              return (
-                <AnimateOnScroll key={lesson.sys.id} delay={i * 80}>
-                  <Link
-                    href={`/coaching/lessons/${lf.slug as string}`}
-                    className="group block no-underline h-full"
-                  >
-                    <div className="bg-white rounded-2xl overflow-hidden border border-hairline hover:border-brand-blue/20 hover:shadow-card-hover transition-all duration-300 h-full hover:-translate-y-1">
-                      {lessonCoverUrl && (
-                        <div className="relative aspect-video overflow-hidden">
-                          <Image
-                            src={lessonCoverUrl}
-                            alt={lf.lessonName as string}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            sizes="(max-width: 640px) 100vw, 448px"
-                          />
-                        </div>
-                      )}
-                      <div className="p-5">
-                        <h3 className="text-base font-semibold font-sans text-text-primary group-hover:text-brand-blue transition-colors line-clamp-2">
-                          {lf.lessonName as string}
-                        </h3>
-                        {Array.isArray(lf.keywords) && (
-                          <div className="flex flex-wrap gap-1 mt-3">
-                            {(lf.keywords as string[]).slice(0, 3).map((kw) => (
-                              <span
-                                key={kw}
-                                className="text-xs text-brand-blue bg-brand-blue/8 px-2 py-0.5 rounded-full"
-                              >
-                                {kw}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </Link>
-                </AnimateOnScroll>
-              );
-            })}
+      {/* Habits this week introduces, gathered from its lessons. */}
+      {step && step.habits.length > 0 && (
+        <section className="mx-auto max-w-3xl border-t border-hairline px-4 py-20 sm:px-6 lg:px-8">
+          <h2 className="mb-8 font-serif text-3xl font-semibold text-brand-deep sm:text-4xl">
+            {t("HABITS_TO_TRY")}
+          </h2>
+          <div className="flex flex-wrap gap-2.5">
+            {step.habits.map((habit) => (
+              <HabitChip
+                key={habit.slug}
+                habit={{
+                  sys: { id: habit.slug },
+                  fields: { slug: habit.slug, title: habit.title },
+                }}
+              />
+            ))}
           </div>
         </section>
+      )}
+
+      {/* Week pager */}
+      {(prev || next) && (
+        <nav className="mx-auto max-w-3xl border-t border-hairline px-4 pt-8 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            {prev ? (
+              <Link
+                href={`/coaching/weeks/${prev.slug}`}
+                className="group max-w-[45%] no-underline"
+              >
+                <span className="block text-sm text-text-secondary">
+                  {tCoaching("PREVIOUS_WEEK")}
+                </span>
+                <span className="mt-1 block font-semibold text-brand-blue transition-colors group-hover:text-brand-deep">
+                  {label(prev)}: {prev.name}
+                </span>
+              </Link>
+            ) : (
+              <span />
+            )}
+            {next && (
+              <Link
+                href={`/coaching/weeks/${next.slug}`}
+                className="group max-w-[45%] text-right no-underline"
+              >
+                <span className="block text-sm text-text-secondary">
+                  {tCoaching("NEXT_WEEK")}
+                </span>
+                <span className="mt-1 block font-semibold text-brand-blue transition-colors group-hover:text-brand-deep">
+                  {label(next)}: {next.name}
+                </span>
+              </Link>
+            )}
+          </div>
+        </nav>
       )}
     </article>
   );

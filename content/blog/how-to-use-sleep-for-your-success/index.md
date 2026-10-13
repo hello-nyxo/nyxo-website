@@ -1,6 +1,7 @@
 ---
 slug: "how-to-use-sleep-for-your-success"
 lang: "en"
+translation: "uni-menestyksen-valineena"
 date: "2020-10-02"
 title: How to Use Sleep for Your Success
 authorSlug: "pietari-nurmi"

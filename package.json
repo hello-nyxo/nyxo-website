@@ -11,8 +11,7 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "postbuild": "next-sitemap"
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^17.1.6",
@@ -25,7 +24,6 @@
     "gray-matter": "^4.0.3",
     "next": "^16.1.6",
     "next-intl": "^4.8.3",
-    "next-sitemap": "^4.2.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "remark": "^15.0.1",

@@ -1,6 +1,7 @@
 ---
 slug: "avain-luovuuteen-uni"
 lang: "fi"
+translation: "key-to-unlocking-creativity-sleep"
 date: "2018-05-07"
 title: "Avain luovuuteen: uni"
 authorSlug: "perttu-lahteenlahti"

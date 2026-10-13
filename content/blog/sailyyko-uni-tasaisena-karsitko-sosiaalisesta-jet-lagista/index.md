@@ -1,8 +1,9 @@
 ---
 slug: "sailyyko-uni-tasaisena-karsitko-sosiaalisesta-jet-lagista"
 lang: "fi"
+translation: "consistency-is-key-are-you-unknowingly-suffering-from-social-jet-lag"
 date: "2019-10-20"
-title: "Säilyykö uni tasaisena -- kärsitkö sosiaalisesta jet lagista?"
+title: "Säilyykö uni tasaisena – kärsitkö sosiaalisesta jet lagista?"
 authorSlug: "eeva-siika-aho"
 author: Eeva Siika-aho
 tags: ["Sleep"]

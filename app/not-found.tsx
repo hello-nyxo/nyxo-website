@@ -1,24 +1,32 @@
 import Link from "next/link";
+import "./globals.css";
 
+/**
+ * Only reached for requests outside the `[locale]` segment, which the
+ * middleware normally prevents. Plain `next/link` is correct here: there is no
+ * locale context to be aware of, and `/` resolves to the default locale.
+ */
 export default function RootNotFound() {
   return (
     <html lang="en">
-      <body className="font-sans bg-[#F6F6F9] text-[#202125] antialiased">
-        <section className="min-h-screen flex items-center justify-center px-4">
+      <body className="bg-bg-primary font-sans text-text-primary antialiased">
+        <main className="flex min-h-[100dvh] items-center justify-center px-4">
           <div className="text-center">
-            <div className="text-8xl mb-6">🌙</div>
-            <h1 className="text-5xl font-bold text-[#2C0B8E] mb-4">404</h1>
-            <p className="text-xl text-[#5e6267] mb-8">
-              This page is sleeping. It doesn&apos;t exist.
+            <p className="font-serif text-7xl font-semibold text-brand-deep">404</p>
+            <h1 className="mt-4 text-2xl font-semibold text-brand-deep">
+              This page is sleeping
+            </h1>
+            <p className="mt-3 text-text-secondary">
+              The page you are looking for does not exist or has moved.
             </p>
             <Link
               href="/"
-              className="inline-flex items-center px-8 py-4 bg-[#4A5AEF] text-white font-semibold rounded-full no-underline hover:bg-[#2C0B8E] transition-colors"
+              className="mt-8 inline-flex items-center rounded-full bg-brand-blue px-8 py-4 font-semibold text-white no-underline transition-colors hover:bg-brand-deep hover:text-white"
             >
-              Go Home
+              Go to the homepage
             </Link>
           </div>
-        </section>
+        </main>
       </body>
     </html>
   );

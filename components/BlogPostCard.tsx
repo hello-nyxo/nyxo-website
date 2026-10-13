@@ -12,42 +12,35 @@ export default function BlogPostCard({ post, locale = "en" }: BlogPostCardProps)
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group block no-underline h-full"
+      className="group block h-full no-underline"
     >
-      <article className="bg-white rounded-2xl overflow-hidden border border-hairline hover:border-brand-blue/20 hover:shadow-card-hover transition-all duration-300 h-full hover:-translate-y-1">
+      <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-white transition-colors duration-300 hover:border-brand-blue/30">
         {post.thumbnailBlog && (
-          <div className="relative aspect-[16/9] overflow-hidden">
+          <div className="relative aspect-video overflow-hidden">
             <Image
               src={post.thumbnailBlog}
-              alt={post.title}
+              alt=""
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           </div>
         )}
-        <div className="p-6">
-          <div className="flex flex-wrap gap-1.5 mb-3">
-            {post.tags.slice(0, 3).map((tag) => (
-              <span
-                key={tag}
-                className="text-xs font-medium text-brand-blue bg-brand-blue/8 px-2.5 py-0.5 rounded-full"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <h3 className="text-lg font-semibold font-sans text-text-primary group-hover:text-brand-blue transition-colors mb-2 line-clamp-2">
+        <div className="flex flex-1 flex-col p-6">
+          {post.tags.length > 0 && (
+            <span className="text-sm font-semibold text-brand-blue">
+              {post.tags.slice(0, 3).join(" · ")}
+            </span>
+          )}
+          <h3 className="mt-2 line-clamp-2 font-sans text-lg leading-snug font-semibold text-text-primary transition-colors group-hover:text-brand-blue">
             {post.title}
           </h3>
-          <p className="text-sm text-text-secondary line-clamp-2 mb-4">
+          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-text-secondary">
             {post.excerpt}
           </p>
-          <div className="flex items-center justify-between text-xs text-text-muted">
+          <div className="mt-auto flex items-center justify-between gap-3 pt-5 text-xs text-text-secondary">
             <span>{post.author}</span>
-            <time dateTime={post.date}>
-              {formatDate(post.date, locale)}
-            </time>
+            <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
           </div>
         </div>
       </article>

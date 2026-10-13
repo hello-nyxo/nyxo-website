@@ -1,6 +1,7 @@
 ---
 slug: "sleep-tracker-buyers-guide-pt1"
 lang: "en"
+translation: "unimittarin-ostajan-opas-osa-1"
 date: "2020-08-31"
 title: "Sleep Tracker Buyer's Guide Pt. 1: What You Should Know About Sleep Tracking"
 authorSlug: "pietari-nurmi"

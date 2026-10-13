@@ -2,9 +2,9 @@
  * Returns Tailwind CSS classes for habit period badges.
  */
 export function periodColor(period: string | unknown): string {
-  if (period === "MORNING") return "bg-accent-warm/15 text-accent-warm";
-  if (period === "AFTERNOON") return "bg-accent-noon/15 text-accent-noon";
-  return "bg-accent-dusk/15 text-accent-dusk";
+  if (period === "MORNING") return "bg-accent-warm/15 text-accent-warm-ink";
+  if (period === "AFTERNOON") return "bg-accent-noon/15 text-accent-noon-ink";
+  return "bg-accent-dusk/15 text-accent-dusk-ink";
 }
 
 /**

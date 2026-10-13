@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { generatePageMetadata } from "@/lib/seo";
+import { generatePageMetadata, toMetaDescription } from "@/lib/seo";
 import {
   getQuestionnaireBySlug,
   getAllQuestionnaireSlugs,
   serializeQuestionnaire,
+  richTextToPlain,
 } from "@/lib/contentful";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Questionnaire from "@/components/Questionnaire";
@@ -23,9 +24,13 @@ export async function generateMetadata({ params }: PageProps) {
   const entry = await getQuestionnaireBySlug(slug, locale);
   if (!entry) return {};
   const fields = entry.fields as Record<string, unknown>;
+  const t = await getTranslations({ locale, namespace: "COACHING" });
+  const prose = richTextToPlain(fields.description);
   return generatePageMetadata({
     title: fields.title as string,
-    description: `${fields.title} - Sleep Questionnaire`,
+    description: toMetaDescription(
+      prose || t("QUESTIONNAIRE_META", { title: String(fields.title) })
+    ),
     path: `/coaching/questionnaires/${slug}`,
     locale,
   });
@@ -44,7 +49,7 @@ export default async function QuestionnairePage({ params }: PageProps) {
 
   return (
     <div className="pb-16">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
+      <div className="mx-auto max-w-3xl px-4 pt-8 pb-6 sm:px-6 lg:px-8">
         <Breadcrumbs
           items={[
             { name: tCoaching("SLEEP_COACHING"), href: "/coaching" },
@@ -57,19 +62,19 @@ export default async function QuestionnairePage({ params }: PageProps) {
         />
       </div>
 
-      <header className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-        <h1 className="text-3xl sm:text-4xl font-serif font-semibold text-brand-deep leading-tight mb-4">
+      <header className="mx-auto max-w-3xl px-4 pb-8 sm:px-6 lg:px-8">
+        <h1 className="font-serif text-3xl leading-tight font-semibold text-brand-deep sm:text-4xl">
           {data.title}
         </h1>
         {data.description && (
           <div
-            className="prose prose-lg max-w-none text-text-secondary"
+            className="prose prose-lg mt-4 max-w-none text-text-secondary"
             dangerouslySetInnerHTML={{ __html: data.description }}
           />
         )}
       </header>
 
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <Questionnaire
           title={data.title}
           description={data.description}

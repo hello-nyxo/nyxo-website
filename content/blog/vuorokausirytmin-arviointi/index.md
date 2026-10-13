@@ -1,10 +1,11 @@
 ---
 slug: "vuorokausirytmin-arviointi"
 lang: "fi"
+translation: "estimating-the-sleep-wake-cycle-through-circadian-rhythm"
 date: "2020-09-28"
 title: "Uni-valvesyklin arviointi vuorokausirytmin avulla"
 authorSlug: "miska-nurmi"
-author: Perttu Lähteenlahti
+author: Miska Nurmi
 tags: ["Sleep", "Circadian Rhythm"]
 thumbnailBlog: "../estimating-the-sleep-wake-cycle-through-circadian-rhythm/sunset.jpeg"
 ---

@@ -1,8 +1,9 @@
 ---
 slug: "lyhyt-uni-lihottaa"
 lang: "fi"
+translation: "short-sleep-can-lead-to-weight-gain"
 date: "2020-08-19"
-title: "Lyhyet younet voivat johtaa painonnousuun"
+title: "Lyhyet yöunet voivat johtaa painonnousuun"
 authorSlug: "perttu-lahteenlahti"
 author: Perttu Lähteenlahti
 tags: ["Sleep", "Health", "Nutrition"]

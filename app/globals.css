@@ -11,6 +11,12 @@
   --color-accent-warm: #F5A623;
   --color-accent-noon: #4A9AEF;
   --color-accent-dusk: #7C5CFC;
+  /* Text-safe variants of the accents above: each passes WCAG AA (>= 4.5:1)
+     on white and on its own 10-15% tint. Use these for any accent-coloured
+     text; keep the bright originals for fills, borders and icons. */
+  --color-accent-warm-ink: #8a5300;
+  --color-accent-noon-ink: #1f5fae;
+  --color-accent-dusk-ink: #5a3bd6;
 
   /* Backgrounds */
   --color-bg-primary: #FAFAFA;
@@ -35,7 +41,7 @@
 
   /* Fonts */
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-serif: "Source Serif 4", ui-serif, Georgia, serif;
 
   /* Shadows */
   --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -51,6 +57,56 @@
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes word-in {
+  from { opacity: 0.18; }
+  to { opacity: 1; }
+}
+
+@keyframes settle {
+  from { transform: scale(0.94); opacity: 0.6; }
+  to { transform: none; opacity: 1; }
+}
+
+/*
+ * Motion is progressive enhancement only. Everything below is opt-in for
+ * people who have not asked for reduced motion, and the scroll-linked pieces
+ * only run where the browser supports scroll-driven animations. Elsewhere the
+ * page is simply static, never half-hidden.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero copy arrives in reading order on first paint. */
+  .rise {
+    animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--rise-index, 0) * 90ms);
+  }
+
+  @supports (animation-timeline: view()) {
+    /* The course statement fills in word by word as it scrolls through view,
+       so the reader's eye is paced through the one paragraph that sells it. */
+    .scrub {
+      view-timeline: --scrub block;
+    }
+    .scrub-word {
+      animation: word-in linear both;
+      animation-timeline: --scrub;
+      animation-range-start: cover calc(20% + var(--w) * 30%);
+      animation-range-end: cover calc(24% + var(--w) * 30%);
+    }
+
+    /* Images settle into place as they enter, signalling a new chapter. */
+    .settle {
+      animation: settle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 80%;
+    }
+  }
 }
 
 /* Respect reduced motion */
@@ -70,10 +126,18 @@
 
   h1, h2, h3 {
     @apply font-serif text-brand-deep font-semibold;
+    /* Source Serif 4 sets wide by default; pull it in at display sizes. */
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
   h4, h5, h6 {
     @apply font-sans text-brand-deep font-semibold;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   a {

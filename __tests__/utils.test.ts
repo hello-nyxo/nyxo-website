@@ -3,17 +3,17 @@ import { periodColor, formatDate } from "@/lib/utils";
 
 describe("periodColor", () => {
   it("returns warm colors for MORNING", () => {
-    expect(periodColor("MORNING")).toBe("bg-accent-warm/15 text-accent-warm");
+    expect(periodColor("MORNING")).toBe("bg-accent-warm/15 text-accent-warm-ink");
   });
 
   it("returns noon colors for AFTERNOON", () => {
-    expect(periodColor("AFTERNOON")).toBe("bg-accent-noon/15 text-accent-noon");
+    expect(periodColor("AFTERNOON")).toBe("bg-accent-noon/15 text-accent-noon-ink");
   });
 
   it("returns dusk colors for EVENING and unknown", () => {
-    expect(periodColor("EVENING")).toBe("bg-accent-dusk/15 text-accent-dusk");
-    expect(periodColor("unknown")).toBe("bg-accent-dusk/15 text-accent-dusk");
-    expect(periodColor(undefined)).toBe("bg-accent-dusk/15 text-accent-dusk");
+    expect(periodColor("EVENING")).toBe("bg-accent-dusk/15 text-accent-dusk-ink");
+    expect(periodColor("unknown")).toBe("bg-accent-dusk/15 text-accent-dusk-ink");
+    expect(periodColor(undefined)).toBe("bg-accent-dusk/15 text-accent-dusk-ink");
   });
 });
 

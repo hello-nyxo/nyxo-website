@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/lib/i18n/navigation";
 import { useParams } from "next/navigation";
@@ -24,12 +24,12 @@ import {
   AcademicCapIcon,
   SparklesIcon,
 } from "@heroicons/react/20/solid";
-import { periodColor } from "@/lib/utils";
 
 interface NavWeek {
   name: string;
   slug: string;
-  order: number;
+  /** "Introduction" or "Week N", already localised. */
+  label: string;
   image?: string;
 }
 
@@ -41,6 +41,7 @@ interface NavLesson {
 interface NavHabit {
   name: string;
   slug: string;
+  /** Localised time-of-day label. */
   period: string;
 }
 
@@ -62,24 +63,19 @@ export default function Header({
   const params = useParams();
   const currentLocale = (params.locale as string) || routing.defaultLocale;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const languageNames: Record<string, string> = {
+    en: t("LANGUAGE_NAMES.en"),
+    fi: t("LANGUAGE_NAMES.fi"),
+  };
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
+  // The header always sits on the light page background in normal flow, so it
+  // needs no scroll-driven state: a translucent fill reads well at any offset.
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/85 backdrop-blur-xl border-b border-hairline shadow-soft"
-          : "bg-transparent border-b border-transparent"
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
+    <header className="sticky top-0 z-50 border-b border-hairline bg-bg-primary/90 backdrop-blur-xl">
+      <nav
+        aria-label={t("PRIMARY")}
+        className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16"
+      >
         {/* Logo */}
         <div className="flex lg:flex-1">
           <Link href="/" className="flex items-center no-underline">
@@ -96,7 +92,7 @@ export default function Header({
             onClick={() => setMobileMenuOpen(true)}
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-text-secondary"
           >
-            <span className="sr-only">Open menu</span>
+            <span className="sr-only">{t("OPEN_MENU")}</span>
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
@@ -116,7 +112,7 @@ export default function Header({
               {tCoaching("WEEKS")}
               <ChevronDownIcon
                 aria-hidden="true"
-                className="size-4 flex-none text-text-muted"
+                className="size-4 flex-none text-text-secondary/70"
               />
             </PopoverButton>
 
@@ -125,12 +121,12 @@ export default function Header({
               className="absolute inset-x-0 top-16 bg-white/95 backdrop-blur-xl shadow-card ring-1 ring-black/5 transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
             >
               <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-5 gap-4">
                   {navWeeks.map((week) => (
                     <Link
                       key={week.slug}
                       href={`/coaching/weeks/${week.slug}`}
-                      className="group relative flex flex-col overflow-hidden rounded-2xl border border-hairline no-underline hover:border-brand-blue/20 hover:shadow-card transition-all duration-300"
+                      className="group relative flex flex-col overflow-hidden rounded-2xl border border-hairline no-underline hover:border-brand-blue/30 hover:shadow-card transition-all duration-300"
                     >
                       {week.image && (
                         <div className="relative aspect-3/2 overflow-hidden">
@@ -138,14 +134,14 @@ export default function Header({
                             src={week.image}
                             alt={week.name}
                             fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                             sizes="250px"
                           />
                         </div>
                       )}
                       <div className="p-4">
                         <span className="text-xs font-semibold text-brand-blue">
-                          Week {week.order}
+                          {week.label}
                         </span>
                         <p className="mt-1 text-sm font-semibold text-text-primary group-hover:text-brand-blue transition-colors line-clamp-2">
                           {week.name}
@@ -179,7 +175,7 @@ export default function Header({
               {tCoaching("LESSONS")}
               <ChevronDownIcon
                 aria-hidden="true"
-                className="size-4 flex-none text-text-muted"
+                className="size-4 flex-none text-text-secondary/70"
               />
             </PopoverButton>
 
@@ -193,9 +189,9 @@ export default function Header({
                     <Link
                       key={lesson.slug}
                       href={`/coaching/lessons/${lesson.slug}`}
-                      className="group rounded-2xl border border-hairline p-4 no-underline hover:border-brand-blue/20 hover:shadow-card transition-all duration-300"
+                      className="group rounded-2xl border border-hairline p-4 no-underline hover:border-brand-blue/30 hover:shadow-card transition-all duration-300"
                     >
-                      <AcademicCapIcon className="size-5 text-text-muted group-hover:text-brand-blue transition-colors mb-2" />
+                      <AcademicCapIcon aria-hidden="true" className="size-5 text-text-secondary group-hover:text-brand-blue transition-colors mb-2" />
                       <p className="text-sm font-semibold text-text-primary group-hover:text-brand-blue transition-colors line-clamp-2">
                         {lesson.name}
                       </p>
@@ -227,7 +223,7 @@ export default function Header({
               {tCoaching("HABITS")}
               <ChevronDownIcon
                 aria-hidden="true"
-                className="size-4 flex-none text-text-muted"
+                className="size-4 flex-none text-text-secondary/70"
               />
             </PopoverButton>
 
@@ -241,11 +237,9 @@ export default function Header({
                     <Link
                       key={habit.slug}
                       href={`/coaching/habits/${habit.slug}`}
-                      className="group rounded-2xl border border-hairline p-4 no-underline hover:border-brand-blue/20 hover:shadow-card transition-all duration-300"
+                      className="group rounded-2xl border border-hairline p-4 no-underline hover:border-brand-blue/30 hover:shadow-card transition-all duration-300"
                     >
-                      <span
-                        className={`inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2 ${periodColor(habit.period)}`}
-                      >
+                      <span className="mb-2 inline-block text-xs font-semibold text-text-secondary">
                         {habit.period}
                       </span>
                       <p className="text-sm font-semibold text-text-primary group-hover:text-brand-blue transition-colors line-clamp-2">
@@ -298,10 +292,14 @@ export default function Header({
               key={locale}
               href={pathname}
               locale={locale}
+              hrefLang={locale}
+              lang={locale}
+              aria-label={languageNames[locale]}
+              aria-current={currentLocale === locale ? "true" : undefined}
               className={`px-2.5 py-1 rounded-full text-xs font-semibold no-underline uppercase transition-all ${
                 currentLocale === locale
-                  ? "bg-brand-blue text-white"
-                  : "text-text-muted hover:text-brand-blue hover:bg-brand-blue/5"
+                  ? "bg-brand-blue text-white hover:text-white"
+                  : "text-text-secondary hover:text-brand-blue hover:bg-brand-blue/5"
               }`}
             >
               {locale}
@@ -333,7 +331,7 @@ export default function Header({
               onClick={() => setMobileMenuOpen(false)}
               className="-m-2.5 rounded-full p-2.5 text-text-secondary hover:bg-bg-primary transition-colors"
             >
-              <span className="sr-only">Close menu</span>
+              <span className="sr-only">{t("CLOSE_MENU")}</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
             </button>
           </div>
@@ -344,12 +342,12 @@ export default function Header({
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-xl py-2.5 pr-3.5 pl-3 text-base font-semibold text-text-primary hover:bg-bg-primary transition-colors">
                     <span className="flex items-center gap-2.5">
-                      <CalendarDaysIcon className="size-5 text-brand-blue" />
+                      <CalendarDaysIcon aria-hidden="true" className="size-5 text-brand-blue" />
                       {tCoaching("WEEKS")}
                     </span>
                     <ChevronDownIcon
                       aria-hidden="true"
-                      className="size-5 flex-none text-text-muted transition-transform group-data-open:rotate-180"
+                      className="size-5 flex-none text-text-secondary transition-transform group-data-open:rotate-180"
                     />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-1 space-y-0.5">
@@ -361,7 +359,7 @@ export default function Header({
                         className="block rounded-lg py-2 pr-3 pl-10 text-sm text-text-secondary hover:bg-bg-primary hover:text-text-primary no-underline transition-colors"
                       >
                         <span className="text-xs font-semibold text-brand-blue mr-2">
-                          W{week.order}
+                          {week.label}
                         </span>
                         {week.name}
                       </Link>
@@ -380,12 +378,12 @@ export default function Header({
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-xl py-2.5 pr-3.5 pl-3 text-base font-semibold text-text-primary hover:bg-bg-primary transition-colors">
                     <span className="flex items-center gap-2.5">
-                      <AcademicCapIcon className="size-5 text-brand-blue" />
+                      <AcademicCapIcon aria-hidden="true" className="size-5 text-brand-blue" />
                       {tCoaching("LESSONS")}
                     </span>
                     <ChevronDownIcon
                       aria-hidden="true"
-                      className="size-5 flex-none text-text-muted transition-transform group-data-open:rotate-180"
+                      className="size-5 flex-none text-text-secondary transition-transform group-data-open:rotate-180"
                     />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-1 space-y-0.5">
@@ -413,12 +411,12 @@ export default function Header({
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-xl py-2.5 pr-3.5 pl-3 text-base font-semibold text-text-primary hover:bg-bg-primary transition-colors">
                     <span className="flex items-center gap-2.5">
-                      <SparklesIcon className="size-5 text-brand-blue" />
+                      <SparklesIcon aria-hidden="true" className="size-5 text-brand-blue" />
                       {tCoaching("HABITS")}
                     </span>
                     <ChevronDownIcon
                       aria-hidden="true"
-                      className="size-5 flex-none text-text-muted transition-transform group-data-open:rotate-180"
+                      className="size-5 flex-none text-text-secondary transition-transform group-data-open:rotate-180"
                     />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-1 space-y-0.5">
@@ -469,14 +467,17 @@ export default function Header({
                       key={locale}
                       href={pathname}
                       locale={locale}
+                      hrefLang={locale}
+                      lang={locale}
+                      aria-current={currentLocale === locale ? "true" : undefined}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`px-4 py-2 rounded-full text-sm font-semibold no-underline uppercase transition-all ${
+                      className={`px-4 py-2 rounded-full text-sm font-semibold no-underline transition-all ${
                         currentLocale === locale
-                          ? "bg-brand-blue text-white"
+                          ? "bg-brand-blue text-white hover:text-white"
                           : "text-text-secondary hover:text-brand-blue bg-bg-primary"
                       }`}
                     >
-                      {locale}
+                      {languageNames[locale]}
                     </Link>
                   ))}
                 </div>
