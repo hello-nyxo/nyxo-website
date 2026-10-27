@@ -8,6 +8,7 @@ import { normalizeImageUrl } from "@/lib/contentful";
 import { getAllPosts } from "@/lib/markdown";
 import { type SearchableItem } from "@/components/CommandPalette";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import LazyCommandPalette from "@/components/LazyCommandPalette";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -187,6 +188,13 @@ export default async function LocaleLayout({
           <Footer />
           <Analytics />
         </NextIntlClientProvider>
+        {/* Self-hosted Umami at stats.perttu.dev */}
+        <Script
+          src="https://stats.perttu.dev/p.js"
+          data-website-id="8f0ebc97-8d98-4cba-8244-c0d2d34cd5e6"
+          data-domains="nyxo.app,www.nyxo.app"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
