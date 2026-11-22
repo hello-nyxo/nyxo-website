@@ -22,7 +22,7 @@
     "@vercel/analytics": "^1.6.1",
     "contentful": "^11.3.0",
     "gray-matter": "^4.0.3",
-    "next": "^16.1.6",
+    "next": "^16.2.6",
     "next-intl": "^4.8.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
