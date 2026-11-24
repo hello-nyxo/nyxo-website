@@ -32,3 +32,5 @@ dist/
 .eslintcache
 .vercel
 
+# Local Codex config (can hold tokens)
+.codex/
